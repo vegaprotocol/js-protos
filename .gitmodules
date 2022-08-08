@@ -1,0 +1,4 @@
+[submodule "vega"]
+	path = vega
+	url = git@github.com:vegaprotocol/vega.git
+	branch = develop

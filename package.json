@@ -1,0 +1,23 @@
+{
+  "name": "@vegaprotocol/protos",
+  "version": "0.0.0",
+  "description": "Protocol Buffer messages for Vega in Javascript",
+  "main": "dist/index.mjs",
+  "dependencies": {
+    "protoc-plugin-js": "^0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vegaprotocol/js-protos.git"
+  },
+  "author": "Emil Bay <emil@vega.xyz>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vegaprotocol/js-protos/issues"
+  },
+  "homepage": "https://github.com/vegaprotocol/js-protos#readme"
+}
