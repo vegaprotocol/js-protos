@@ -11,11 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 18.x
+      - name: Use Node.js LTS
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
-      - run: npm ci
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+      - uses: Noelware/setup-protoc@1.0.2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm install
       - run: npm test
       - run: npm publish
         env:
