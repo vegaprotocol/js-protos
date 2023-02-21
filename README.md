@@ -5,9 +5,9 @@
 ## Example
 
 ```js
-import * as InputData from '@vegaprotocol/protos/vega/commands/v1/InputData/encode.mjs'
-import * as Transaction from '@vegaprotocol/protos/vega/commands/v1/Transaction/encode.mjs'
-import * as AccountType from '@vegaprotocol/protos/vega/AccountType.mjs'
+import * as InputData from '@vegaprotocol/protos/vega/commands/v1/InputData/encode'
+import * as Transaction from '@vegaprotocol/protos/vega/commands/v1/Transaction/encode'
+import * as AccountType from '@vegaprotocol/protos/vega/AccountType'
 
 const inputData = InputData.encode({
   nonce: 10,
