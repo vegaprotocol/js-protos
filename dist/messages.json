@@ -2753,6 +2753,10 @@
               "value": 0
             },
             {
+              "name": "INTERVAL_BLOCK",
+              "value": -1
+            },
+            {
               "name": "INTERVAL_I1M",
               "value": 60
             },
@@ -2819,6 +2823,14 @@
             {
               "name": "AUCTION_TRIGGER_LIQUIDITY",
               "value": 4
+            },
+            {
+              "name": "AUCTION_TRIGGER_LIQUIDITY_TARGET_NOT_MET",
+              "value": 5
+            },
+            {
+              "name": "AUCTION_TRIGGER_UNABLE_TO_DEPLOY_LP_ORDERS",
+              "value": 6
             }
           ]
         },

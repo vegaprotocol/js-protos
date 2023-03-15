@@ -4,6 +4,7 @@ import { enumerable } from 'protobuf-codec/encode/types.js'
 import { enumerable as decodeEnumerable } from 'protobuf-codec/decode/types.js'
 
 export const INTERVAL_UNSPECIFIED = 0
+export const INTERVAL_BLOCK = -1
 export const INTERVAL_I1M = 60
 export const INTERVAL_I5M = 300
 export const INTERVAL_I15M = 900
@@ -13,6 +14,7 @@ export const INTERVAL_I1D = 86400
 
 const enumValues = new Map([
   [0, 'INTERVAL_UNSPECIFIED'],
+  [-1, 'INTERVAL_BLOCK'],
   [60, 'INTERVAL_I1M'],
   [300, 'INTERVAL_I5M'],
   [900, 'INTERVAL_I15M'],
@@ -22,6 +24,7 @@ const enumValues = new Map([
 ])
 const enumNames = new Map([
   ['INTERVAL_UNSPECIFIED', 0],
+  ['INTERVAL_BLOCK', -1],
   ['INTERVAL_I1M', 60],
   ['INTERVAL_I5M', 300],
   ['INTERVAL_I15M', 900],
@@ -47,9 +50,7 @@ export function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid Interval value (' + value + ')')
 
-  if (0 <= value && value <= 86400) return 3
-
-  // enumerable max value in case of unknown value
+  // This enum may fully consume the max allowed size
   return 5
 }
 

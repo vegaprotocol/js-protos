@@ -8,20 +8,26 @@ export const AUCTION_TRIGGER_BATCH = 1
 export const AUCTION_TRIGGER_OPENING = 2
 export const AUCTION_TRIGGER_PRICE = 3
 export const AUCTION_TRIGGER_LIQUIDITY = 4
+export const AUCTION_TRIGGER_LIQUIDITY_TARGET_NOT_MET = 5
+export const AUCTION_TRIGGER_UNABLE_TO_DEPLOY_LP_ORDERS = 6
 
 const enumValues = new Map([
   [0, 'AUCTION_TRIGGER_UNSPECIFIED'],
   [1, 'AUCTION_TRIGGER_BATCH'],
   [2, 'AUCTION_TRIGGER_OPENING'],
   [3, 'AUCTION_TRIGGER_PRICE'],
-  [4, 'AUCTION_TRIGGER_LIQUIDITY']
+  [4, 'AUCTION_TRIGGER_LIQUIDITY'],
+  [5, 'AUCTION_TRIGGER_LIQUIDITY_TARGET_NOT_MET'],
+  [6, 'AUCTION_TRIGGER_UNABLE_TO_DEPLOY_LP_ORDERS']
 ])
 const enumNames = new Map([
   ['AUCTION_TRIGGER_UNSPECIFIED', 0],
   ['AUCTION_TRIGGER_BATCH', 1],
   ['AUCTION_TRIGGER_OPENING', 2],
   ['AUCTION_TRIGGER_PRICE', 3],
-  ['AUCTION_TRIGGER_LIQUIDITY', 4]
+  ['AUCTION_TRIGGER_LIQUIDITY', 4],
+  ['AUCTION_TRIGGER_LIQUIDITY_TARGET_NOT_MET', 5],
+  ['AUCTION_TRIGGER_UNABLE_TO_DEPLOY_LP_ORDERS', 6]
 ])
 
 export function encode(value, buf, byteOffset = 0) {
@@ -42,7 +48,7 @@ export function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid AuctionTrigger value (' + value + ')')
 
-  if (0 <= value && value <= 4) return 1
+  if (0 <= value && value <= 6) return 1
 
   // enumerable max value in case of unknown value
   return 5
