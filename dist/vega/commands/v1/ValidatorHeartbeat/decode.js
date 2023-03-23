@@ -7,6 +7,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$nodeId = ''
   let field$ethereumSignature = {}
   let field$vegaSignature = {}
+  let field$message = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -20,11 +21,16 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
       case 3:
         field$vegaSignature = _vega_commands_v1_Signature.decode(data)
         break
+
+      case 4:
+        field$message = string(data)
+        break
     }
   }
   return {
     nodeId: field$nodeId,
     ethereumSignature: field$ethereumSignature,
-    vegaSignature: field$vegaSignature
+    vegaSignature: field$vegaSignature,
+    message: field$message
   }
 }

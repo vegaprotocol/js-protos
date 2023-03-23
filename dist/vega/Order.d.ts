@@ -32,4 +32,6 @@ export type Order = {
   batchId: bigint
   peggedOrder: PeggedOrder
   liquidityProvisionId: string
+  postOnly: boolean
+  reduceOnly: boolean
 }

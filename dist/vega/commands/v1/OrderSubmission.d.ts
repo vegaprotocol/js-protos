@@ -17,4 +17,6 @@ export type OrderSubmission = {
   type: Type
   reference: string
   peggedOrder: PeggedOrder
+  postOnly: boolean
+  reduceOnly: boolean
 }

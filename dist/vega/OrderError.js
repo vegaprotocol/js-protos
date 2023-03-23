@@ -50,6 +50,8 @@ export const ORDER_ERROR_UNABLE_TO_REPRICE_PEGGED_ORDER = 45
 export const ORDER_ERROR_UNABLE_TO_AMEND_PRICE_ON_PEGGED_ORDER = 46
 export const ORDER_ERROR_NON_PERSISTENT_ORDER_OUT_OF_PRICE_BOUNDS = 47
 export const ORDER_ERROR_TOO_MANY_PEGGED_ORDERS = 48
+export const ORDER_ERROR_POST_ONLY_ORDER_WOULD_TRADE = 49
+export const ORDER_ERROR_REDUCE_ONLY_ORDER_WOULD_NOT_REDUCE_POSITION = 50
 
 const enumValues = new Map([
   [0, 'ORDER_ERROR_UNSPECIFIED'],
@@ -98,7 +100,9 @@ const enumValues = new Map([
   [45, 'ORDER_ERROR_UNABLE_TO_REPRICE_PEGGED_ORDER'],
   [46, 'ORDER_ERROR_UNABLE_TO_AMEND_PRICE_ON_PEGGED_ORDER'],
   [47, 'ORDER_ERROR_NON_PERSISTENT_ORDER_OUT_OF_PRICE_BOUNDS'],
-  [48, 'ORDER_ERROR_TOO_MANY_PEGGED_ORDERS']
+  [48, 'ORDER_ERROR_TOO_MANY_PEGGED_ORDERS'],
+  [49, 'ORDER_ERROR_POST_ONLY_ORDER_WOULD_TRADE'],
+  [50, 'ORDER_ERROR_REDUCE_ONLY_ORDER_WOULD_NOT_REDUCE_POSITION']
 ])
 const enumNames = new Map([
   ['ORDER_ERROR_UNSPECIFIED', 0],
@@ -147,7 +151,9 @@ const enumNames = new Map([
   ['ORDER_ERROR_UNABLE_TO_REPRICE_PEGGED_ORDER', 45],
   ['ORDER_ERROR_UNABLE_TO_AMEND_PRICE_ON_PEGGED_ORDER', 46],
   ['ORDER_ERROR_NON_PERSISTENT_ORDER_OUT_OF_PRICE_BOUNDS', 47],
-  ['ORDER_ERROR_TOO_MANY_PEGGED_ORDERS', 48]
+  ['ORDER_ERROR_TOO_MANY_PEGGED_ORDERS', 48],
+  ['ORDER_ERROR_POST_ONLY_ORDER_WOULD_TRADE', 49],
+  ['ORDER_ERROR_REDUCE_ONLY_ORDER_WOULD_NOT_REDUCE_POSITION', 50]
 ])
 
 export function encode(value, buf, byteOffset = 0) {
@@ -167,7 +173,7 @@ export function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid OrderError value (' + value + ')')
 
-  if (0 <= value && value <= 48) return 1
+  if (0 <= value && value <= 50) return 1
 
   // enumerable max value in case of unknown value
   return 5

@@ -8,4 +8,5 @@ export type ValidatorHeartbeat = {
   nodeId: string
   ethereumSignature: Signature
   vegaSignature: Signature
+  message: string
 }

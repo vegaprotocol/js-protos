@@ -565,6 +565,18 @@
                       "messageType": "Signature",
                       "messageTypeLocal": null,
                       "oneofIndex": null
+                    },
+                    {
+                      "name": "message",
+                      "number": 4,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
                     }
                   ]
                 },
@@ -1321,6 +1333,30 @@
                       "optional": false,
                       "typeName": ".vega.PeggedOrder",
                       "messageType": "PeggedOrder",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "postOnly",
+                      "number": 10,
+                      "type": "bool",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "reduceOnly",
+                      "number": 11,
+                      "type": "bool",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
                       "messageTypeLocal": null,
                       "oneofIndex": null
                     }
@@ -3047,6 +3083,14 @@
             {
               "name": "ORDER_ERROR_TOO_MANY_PEGGED_ORDERS",
               "value": 48
+            },
+            {
+              "name": "ORDER_ERROR_POST_ONLY_ORDER_WOULD_TRADE",
+              "value": 49
+            },
+            {
+              "name": "ORDER_ERROR_REDUCE_ONLY_ORDER_WOULD_NOT_REDUCE_POSITION",
+              "value": 50
             }
           ]
         },
@@ -5325,6 +5369,30 @@
               "number": 19,
               "type": "string",
               "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "postOnly",
+              "number": 20,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "reduceOnly",
+              "number": 21,
+              "type": "bool",
+              "wireType": "varint",
               "repeated": false,
               "packed": false,
               "optional": false,

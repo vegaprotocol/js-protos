@@ -11,6 +11,7 @@ export function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(2, _vega_commands_v1_Signature.encode(obj.ethereumSignature))
   if (obj.vegaSignature)
     writer.bytes(3, _vega_commands_v1_Signature.encode(obj.vegaSignature))
+  if (obj.message) writer.bytes(4, obj.message, string)
 
   return writer.concat(buf, byteOffset)
 }
