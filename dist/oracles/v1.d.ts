@@ -1,5 +1,0 @@
-export * as OracleSpecConfiguration from './v1/OracleSpecConfiguration'
-export * as OracleSpec from './v1/OracleSpec'
-export * as Filter from './v1/Filter'
-export * as PropertyKey from './v1/PropertyKey'
-export * as Condition from './v1/Condition'

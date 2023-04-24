@@ -4,17 +4,20 @@ import type { LiteralUnion } from 'type-fest'
 export const POSITION_STATUS_UNSPECIFIED = 0
 export const POSITION_STATUS_ORDERS_CLOSED = 1
 export const POSITION_STATUS_CLOSED_OUT = 2
+export const POSITION_STATUS_DISTRESSED = 4
 
-export type Values = 0 | 1 | 2
+export type Values = 0 | 1 | 2 | 4
 export type Names =
   | 'POSITION_STATUS_UNSPECIFIED'
   | 'POSITION_STATUS_ORDERS_CLOSED'
   | 'POSITION_STATUS_CLOSED_OUT'
+  | 'POSITION_STATUS_DISTRESSED'
 
 export const enum PositionStatus {
   POSITION_STATUS_UNSPECIFIED = 0,
   POSITION_STATUS_ORDERS_CLOSED = 1,
-  POSITION_STATUS_CLOSED_OUT = 2
+  POSITION_STATUS_CLOSED_OUT = 2,
+  POSITION_STATUS_DISTRESSED = 4
 }
 
 declare const enumValues: Map<Names, Values>

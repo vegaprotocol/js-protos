@@ -4,419 +4,6 @@
     "vega": {
       "name": "vega",
       "packages": {
-        "data": {
-          "name": "data",
-          "packages": {
-            "v1": {
-              "name": "v1",
-              "packages": {},
-              "enums": [],
-              "messages": [
-                {
-                  "name": "Filter",
-                  "fullName": ".vega.data.v1.Filter",
-                  "map": false,
-                  "oneofs": [],
-                  "enums": [],
-                  "messages": [],
-                  "fields": [
-                    {
-                      "name": "key",
-                      "number": 1,
-                      "type": "message",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.data.v1.PropertyKey",
-                      "messageType": "PropertyKey",
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    },
-                    {
-                      "name": "conditions",
-                      "number": 2,
-                      "type": "message",
-                      "wireType": "bytes",
-                      "repeated": true,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.data.v1.Condition",
-                      "messageType": "Condition",
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    }
-                  ]
-                },
-                {
-                  "name": "PropertyKey",
-                  "fullName": ".vega.data.v1.PropertyKey",
-                  "map": false,
-                  "oneofs": [],
-                  "enums": [
-                    {
-                      "name": "Type",
-                      "fullName": ".vega.data.v1.PropertyKey.Type",
-                      "values": [
-                        {
-                          "name": "TYPE_UNSPECIFIED",
-                          "value": 0
-                        },
-                        {
-                          "name": "TYPE_EMPTY",
-                          "value": 1
-                        },
-                        {
-                          "name": "TYPE_INTEGER",
-                          "value": 2
-                        },
-                        {
-                          "name": "TYPE_STRING",
-                          "value": 3
-                        },
-                        {
-                          "name": "TYPE_BOOLEAN",
-                          "value": 4
-                        },
-                        {
-                          "name": "TYPE_DECIMAL",
-                          "value": 5
-                        },
-                        {
-                          "name": "TYPE_TIMESTAMP",
-                          "value": 6
-                        }
-                      ]
-                    }
-                  ],
-                  "messages": [],
-                  "fields": [
-                    {
-                      "name": "name",
-                      "number": 1,
-                      "type": "string",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    },
-                    {
-                      "name": "type",
-                      "number": 2,
-                      "type": "enumerable",
-                      "wireType": "varint",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.data.v1.PropertyKey.Type",
-                      "messageType": "Type",
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    },
-                    {
-                      "name": "numberDecimalPlaces",
-                      "number": 3,
-                      "type": "uint64",
-                      "wireType": "varint",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": true,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null,
-                      "oneofName": null
-                    }
-                  ]
-                },
-                {
-                  "name": "Condition",
-                  "fullName": ".vega.data.v1.Condition",
-                  "map": false,
-                  "oneofs": [],
-                  "enums": [
-                    {
-                      "name": "Operator",
-                      "fullName": ".vega.data.v1.Condition.Operator",
-                      "values": [
-                        {
-                          "name": "OPERATOR_UNSPECIFIED",
-                          "value": 0
-                        },
-                        {
-                          "name": "OPERATOR_EQUALS",
-                          "value": 1
-                        },
-                        {
-                          "name": "OPERATOR_GREATER_THAN",
-                          "value": 2
-                        },
-                        {
-                          "name": "OPERATOR_GREATER_THAN_OR_EQUAL",
-                          "value": 3
-                        },
-                        {
-                          "name": "OPERATOR_LESS_THAN",
-                          "value": 4
-                        },
-                        {
-                          "name": "OPERATOR_LESS_THAN_OR_EQUAL",
-                          "value": 5
-                        }
-                      ]
-                    }
-                  ],
-                  "messages": [],
-                  "fields": [
-                    {
-                      "name": "operator",
-                      "number": 1,
-                      "type": "enumerable",
-                      "wireType": "varint",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.data.v1.Condition.Operator",
-                      "messageType": "Operator",
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    },
-                    {
-                      "name": "value",
-                      "number": 2,
-                      "type": "string",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    }
-                  ]
-                },
-                {
-                  "name": "ETHAddress",
-                  "fullName": ".vega.data.v1.ETHAddress",
-                  "map": false,
-                  "oneofs": [],
-                  "enums": [],
-                  "messages": [],
-                  "fields": [
-                    {
-                      "name": "address",
-                      "number": 1,
-                      "type": "string",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    }
-                  ]
-                },
-                {
-                  "name": "PubKey",
-                  "fullName": ".vega.data.v1.PubKey",
-                  "map": false,
-                  "oneofs": [],
-                  "enums": [],
-                  "messages": [],
-                  "fields": [
-                    {
-                      "name": "key",
-                      "number": 1,
-                      "type": "string",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    }
-                  ]
-                },
-                {
-                  "name": "Signer",
-                  "fullName": ".vega.data.v1.Signer",
-                  "map": false,
-                  "oneofs": [
-                    "signer"
-                  ],
-                  "enums": [],
-                  "messages": [],
-                  "fields": [
-                    {
-                      "name": "pubKey",
-                      "number": 1,
-                      "type": "message",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.data.v1.PubKey",
-                      "messageType": "PubKey",
-                      "messageTypeLocal": null,
-                      "oneofIndex": 0,
-                      "oneofName": "signer"
-                    },
-                    {
-                      "name": "ethAddress",
-                      "number": 2,
-                      "type": "message",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.data.v1.ETHAddress",
-                      "messageType": "ETHAddress",
-                      "messageTypeLocal": null,
-                      "oneofIndex": 0,
-                      "oneofName": "signer"
-                    }
-                  ]
-                },
-                {
-                  "name": "Property",
-                  "fullName": ".vega.data.v1.Property",
-                  "map": false,
-                  "oneofs": [],
-                  "enums": [],
-                  "messages": [],
-                  "fields": [
-                    {
-                      "name": "name",
-                      "number": 1,
-                      "type": "string",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    },
-                    {
-                      "name": "value",
-                      "number": 2,
-                      "type": "string",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    },
-                    {
-                      "name": "numberDecimalPlaces",
-                      "number": 3,
-                      "type": "uint64",
-                      "wireType": "varint",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": true,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null,
-                      "oneofName": null
-                    }
-                  ]
-                },
-                {
-                  "name": "Data",
-                  "fullName": ".vega.data.v1.Data",
-                  "map": false,
-                  "oneofs": [],
-                  "enums": [],
-                  "messages": [],
-                  "fields": [
-                    {
-                      "name": "signers",
-                      "number": 1,
-                      "type": "message",
-                      "wireType": "bytes",
-                      "repeated": true,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.data.v1.Signer",
-                      "messageType": "Signer",
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    },
-                    {
-                      "name": "data",
-                      "number": 2,
-                      "type": "message",
-                      "wireType": "bytes",
-                      "repeated": true,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.data.v1.Property",
-                      "messageType": "Property",
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    },
-                    {
-                      "name": "matchedSpecIds",
-                      "number": 3,
-                      "type": "string",
-                      "wireType": "bytes",
-                      "repeated": true,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    },
-                    {
-                      "name": "broadcastAt",
-                      "number": 4,
-                      "type": "int64",
-                      "wireType": "varint",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    }
-                  ]
-                },
-                {
-                  "name": "ExternalData",
-                  "fullName": ".vega.data.v1.ExternalData",
-                  "map": false,
-                  "oneofs": [],
-                  "enums": [],
-                  "messages": [],
-                  "fields": [
-                    {
-                      "name": "data",
-                      "number": 1,
-                      "type": "message",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.data.v1.Data",
-                      "messageType": "Data",
-                      "messageTypeLocal": null,
-                      "oneofIndex": null
-                    }
-                  ]
-                }
-              ]
-            }
-          },
-          "enums": [],
-          "messages": []
-        },
         "commands": {
           "name": "commands",
           "packages": {
@@ -2759,6 +2346,419 @@
           },
           "enums": [],
           "messages": []
+        },
+        "data": {
+          "name": "data",
+          "packages": {
+            "v1": {
+              "name": "v1",
+              "packages": {},
+              "enums": [],
+              "messages": [
+                {
+                  "name": "ETHAddress",
+                  "fullName": ".vega.data.v1.ETHAddress",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "address",
+                      "number": 1,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                },
+                {
+                  "name": "PubKey",
+                  "fullName": ".vega.data.v1.PubKey",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "key",
+                      "number": 1,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Signer",
+                  "fullName": ".vega.data.v1.Signer",
+                  "map": false,
+                  "oneofs": [
+                    "signer"
+                  ],
+                  "enums": [],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "pubKey",
+                      "number": 1,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.data.v1.PubKey",
+                      "messageType": "PubKey",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "signer"
+                    },
+                    {
+                      "name": "ethAddress",
+                      "number": 2,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.data.v1.ETHAddress",
+                      "messageType": "ETHAddress",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "signer"
+                    }
+                  ]
+                },
+                {
+                  "name": "Property",
+                  "fullName": ".vega.data.v1.Property",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "name",
+                      "number": 1,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "value",
+                      "number": 2,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "numberDecimalPlaces",
+                      "number": 3,
+                      "type": "uint64",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": true,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null,
+                      "oneofName": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Data",
+                  "fullName": ".vega.data.v1.Data",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "signers",
+                      "number": 1,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": true,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.data.v1.Signer",
+                      "messageType": "Signer",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "data",
+                      "number": 2,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": true,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.data.v1.Property",
+                      "messageType": "Property",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "matchedSpecIds",
+                      "number": 3,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": true,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "broadcastAt",
+                      "number": 4,
+                      "type": "int64",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                },
+                {
+                  "name": "ExternalData",
+                  "fullName": ".vega.data.v1.ExternalData",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "data",
+                      "number": 1,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.data.v1.Data",
+                      "messageType": "Data",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Filter",
+                  "fullName": ".vega.data.v1.Filter",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "key",
+                      "number": 1,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.data.v1.PropertyKey",
+                      "messageType": "PropertyKey",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "conditions",
+                      "number": 2,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": true,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.data.v1.Condition",
+                      "messageType": "Condition",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                },
+                {
+                  "name": "PropertyKey",
+                  "fullName": ".vega.data.v1.PropertyKey",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [
+                    {
+                      "name": "Type",
+                      "fullName": ".vega.data.v1.PropertyKey.Type",
+                      "values": [
+                        {
+                          "name": "TYPE_UNSPECIFIED",
+                          "value": 0
+                        },
+                        {
+                          "name": "TYPE_EMPTY",
+                          "value": 1
+                        },
+                        {
+                          "name": "TYPE_INTEGER",
+                          "value": 2
+                        },
+                        {
+                          "name": "TYPE_STRING",
+                          "value": 3
+                        },
+                        {
+                          "name": "TYPE_BOOLEAN",
+                          "value": 4
+                        },
+                        {
+                          "name": "TYPE_DECIMAL",
+                          "value": 5
+                        },
+                        {
+                          "name": "TYPE_TIMESTAMP",
+                          "value": 6
+                        }
+                      ]
+                    }
+                  ],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "name",
+                      "number": 1,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "type",
+                      "number": 2,
+                      "type": "enumerable",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.data.v1.PropertyKey.Type",
+                      "messageType": "Type",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "numberDecimalPlaces",
+                      "number": 3,
+                      "type": "uint64",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": true,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null,
+                      "oneofName": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Condition",
+                  "fullName": ".vega.data.v1.Condition",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [
+                    {
+                      "name": "Operator",
+                      "fullName": ".vega.data.v1.Condition.Operator",
+                      "values": [
+                        {
+                          "name": "OPERATOR_UNSPECIFIED",
+                          "value": 0
+                        },
+                        {
+                          "name": "OPERATOR_EQUALS",
+                          "value": 1
+                        },
+                        {
+                          "name": "OPERATOR_GREATER_THAN",
+                          "value": 2
+                        },
+                        {
+                          "name": "OPERATOR_GREATER_THAN_OR_EQUAL",
+                          "value": 3
+                        },
+                        {
+                          "name": "OPERATOR_LESS_THAN",
+                          "value": 4
+                        },
+                        {
+                          "name": "OPERATOR_LESS_THAN_OR_EQUAL",
+                          "value": 5
+                        }
+                      ]
+                    }
+                  ],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "operator",
+                      "number": 1,
+                      "type": "enumerable",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.data.v1.Condition.Operator",
+                      "messageType": "Operator",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "value",
+                      "number": 2,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "enums": [],
+          "messages": []
         }
       },
       "enums": [
@@ -2833,6 +2833,10 @@
             {
               "name": "POSITION_STATUS_CLOSED_OUT",
               "value": 2
+            },
+            {
+              "name": "POSITION_STATUS_DISTRESSED",
+              "value": 4
             }
           ]
         },
@@ -3544,6 +3548,932 @@
         }
       ],
       "messages": [
+        {
+          "name": "BuiltinAssetDeposit",
+          "fullName": ".vega.BuiltinAssetDeposit",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "vegaAssetId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "partyId",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "amount",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "BuiltinAssetWithdrawal",
+          "fullName": ".vega.BuiltinAssetWithdrawal",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "vegaAssetId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "partyId",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "amount",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "BuiltinAssetEvent",
+          "fullName": ".vega.BuiltinAssetEvent",
+          "map": false,
+          "oneofs": [
+            "action"
+          ],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "deposit",
+              "number": 1001,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.BuiltinAssetDeposit",
+              "messageType": "BuiltinAssetDeposit",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "withdrawal",
+              "number": 1002,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.BuiltinAssetWithdrawal",
+              "messageType": "BuiltinAssetWithdrawal",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            }
+          ]
+        },
+        {
+          "name": "ERC20AssetList",
+          "fullName": ".vega.ERC20AssetList",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "vegaAssetId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "assetSource",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "ERC20AssetDelist",
+          "fullName": ".vega.ERC20AssetDelist",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "vegaAssetId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "ERC20AssetLimitsUpdated",
+          "fullName": ".vega.ERC20AssetLimitsUpdated",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "vegaAssetId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "sourceEthereumAddress",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "lifetimeLimits",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "withdrawThreshold",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "ERC20Deposit",
+          "fullName": ".vega.ERC20Deposit",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "vegaAssetId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "sourceEthereumAddress",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "targetPartyId",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "amount",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "ERC20Withdrawal",
+          "fullName": ".vega.ERC20Withdrawal",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "vegaAssetId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "targetEthereumAddress",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "referenceNonce",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "ERC20Event",
+          "fullName": ".vega.ERC20Event",
+          "map": false,
+          "oneofs": [
+            "action"
+          ],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "index",
+              "number": 1,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "block",
+              "number": 2,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "assetList",
+              "number": 1001,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.ERC20AssetList",
+              "messageType": "ERC20AssetList",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "assetDelist",
+              "number": 1002,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.ERC20AssetDelist",
+              "messageType": "ERC20AssetDelist",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "deposit",
+              "number": 1003,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.ERC20Deposit",
+              "messageType": "ERC20Deposit",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "withdrawal",
+              "number": 1004,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.ERC20Withdrawal",
+              "messageType": "ERC20Withdrawal",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "assetLimitsUpdated",
+              "number": 1005,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.ERC20AssetLimitsUpdated",
+              "messageType": "ERC20AssetLimitsUpdated",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "bridgeStopped",
+              "number": 1006,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "bridgeResumed",
+              "number": 1007,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            }
+          ]
+        },
+        {
+          "name": "ERC20SignerAdded",
+          "fullName": ".vega.ERC20SignerAdded",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "newSigner",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "nonce",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "blockTime",
+              "number": 3,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "ERC20SignerRemoved",
+          "fullName": ".vega.ERC20SignerRemoved",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "oldSigner",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "nonce",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "blockTime",
+              "number": 3,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "ERC20ThresholdSet",
+          "fullName": ".vega.ERC20ThresholdSet",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "newThreshold",
+              "number": 1,
+              "type": "uint32",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "nonce",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "blockTime",
+              "number": 3,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "ERC20MultiSigEvent",
+          "fullName": ".vega.ERC20MultiSigEvent",
+          "map": false,
+          "oneofs": [
+            "action"
+          ],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "index",
+              "number": 1,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "block",
+              "number": 2,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "signerAdded",
+              "number": 1001,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.ERC20SignerAdded",
+              "messageType": "ERC20SignerAdded",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "signerRemoved",
+              "number": 1002,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.ERC20SignerRemoved",
+              "messageType": "ERC20SignerRemoved",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "thresholdSet",
+              "number": 1003,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.ERC20ThresholdSet",
+              "messageType": "ERC20ThresholdSet",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            }
+          ]
+        },
+        {
+          "name": "StakingEvent",
+          "fullName": ".vega.StakingEvent",
+          "map": false,
+          "oneofs": [
+            "action"
+          ],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "index",
+              "number": 1,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "block",
+              "number": 2,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "stakeDeposited",
+              "number": 1001,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.StakeDeposited",
+              "messageType": "StakeDeposited",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "stakeRemoved",
+              "number": 1002,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.StakeRemoved",
+              "messageType": "StakeRemoved",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            },
+            {
+              "name": "totalSupply",
+              "number": 1003,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.StakeTotalSupply",
+              "messageType": "StakeTotalSupply",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "action"
+            }
+          ]
+        },
+        {
+          "name": "StakeDeposited",
+          "fullName": ".vega.StakeDeposited",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "ethereumAddress",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "vegaPublicKey",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "amount",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "blockTime",
+              "number": 4,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "StakeRemoved",
+          "fullName": ".vega.StakeRemoved",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "ethereumAddress",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "vegaPublicKey",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "amount",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "blockTime",
+              "number": 4,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "StakeTotalSupply",
+          "fullName": ".vega.StakeTotalSupply",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "tokenAddress",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "totalSupply",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
         {
           "name": "DataSourceDefinition",
           "fullName": ".vega.DataSourceDefinition",
@@ -11194,932 +12124,6 @@
             {
               "name": "totalEquityLikeShareWeight",
               "number": 7,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "BuiltinAssetDeposit",
-          "fullName": ".vega.BuiltinAssetDeposit",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "vegaAssetId",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "partyId",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "amount",
-              "number": 3,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "BuiltinAssetWithdrawal",
-          "fullName": ".vega.BuiltinAssetWithdrawal",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "vegaAssetId",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "partyId",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "amount",
-              "number": 3,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "BuiltinAssetEvent",
-          "fullName": ".vega.BuiltinAssetEvent",
-          "map": false,
-          "oneofs": [
-            "action"
-          ],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "deposit",
-              "number": 1001,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.BuiltinAssetDeposit",
-              "messageType": "BuiltinAssetDeposit",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "withdrawal",
-              "number": 1002,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.BuiltinAssetWithdrawal",
-              "messageType": "BuiltinAssetWithdrawal",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            }
-          ]
-        },
-        {
-          "name": "ERC20AssetList",
-          "fullName": ".vega.ERC20AssetList",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "vegaAssetId",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "assetSource",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "ERC20AssetDelist",
-          "fullName": ".vega.ERC20AssetDelist",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "vegaAssetId",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "ERC20AssetLimitsUpdated",
-          "fullName": ".vega.ERC20AssetLimitsUpdated",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "vegaAssetId",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "sourceEthereumAddress",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "lifetimeLimits",
-              "number": 3,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "withdrawThreshold",
-              "number": 4,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "ERC20Deposit",
-          "fullName": ".vega.ERC20Deposit",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "vegaAssetId",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "sourceEthereumAddress",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "targetPartyId",
-              "number": 3,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "amount",
-              "number": 4,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "ERC20Withdrawal",
-          "fullName": ".vega.ERC20Withdrawal",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "vegaAssetId",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "targetEthereumAddress",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "referenceNonce",
-              "number": 3,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "ERC20Event",
-          "fullName": ".vega.ERC20Event",
-          "map": false,
-          "oneofs": [
-            "action"
-          ],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "index",
-              "number": 1,
-              "type": "uint64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "block",
-              "number": 2,
-              "type": "uint64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "assetList",
-              "number": 1001,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.ERC20AssetList",
-              "messageType": "ERC20AssetList",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "assetDelist",
-              "number": 1002,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.ERC20AssetDelist",
-              "messageType": "ERC20AssetDelist",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "deposit",
-              "number": 1003,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.ERC20Deposit",
-              "messageType": "ERC20Deposit",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "withdrawal",
-              "number": 1004,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.ERC20Withdrawal",
-              "messageType": "ERC20Withdrawal",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "assetLimitsUpdated",
-              "number": 1005,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.ERC20AssetLimitsUpdated",
-              "messageType": "ERC20AssetLimitsUpdated",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "bridgeStopped",
-              "number": 1006,
-              "type": "bool",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "bridgeResumed",
-              "number": 1007,
-              "type": "bool",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            }
-          ]
-        },
-        {
-          "name": "ERC20SignerAdded",
-          "fullName": ".vega.ERC20SignerAdded",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "newSigner",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "nonce",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "blockTime",
-              "number": 3,
-              "type": "int64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "ERC20SignerRemoved",
-          "fullName": ".vega.ERC20SignerRemoved",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "oldSigner",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "nonce",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "blockTime",
-              "number": 3,
-              "type": "int64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "ERC20ThresholdSet",
-          "fullName": ".vega.ERC20ThresholdSet",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "newThreshold",
-              "number": 1,
-              "type": "uint32",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "nonce",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "blockTime",
-              "number": 3,
-              "type": "int64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "ERC20MultiSigEvent",
-          "fullName": ".vega.ERC20MultiSigEvent",
-          "map": false,
-          "oneofs": [
-            "action"
-          ],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "index",
-              "number": 1,
-              "type": "uint64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "block",
-              "number": 2,
-              "type": "uint64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "signerAdded",
-              "number": 1001,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.ERC20SignerAdded",
-              "messageType": "ERC20SignerAdded",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "signerRemoved",
-              "number": 1002,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.ERC20SignerRemoved",
-              "messageType": "ERC20SignerRemoved",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "thresholdSet",
-              "number": 1003,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.ERC20ThresholdSet",
-              "messageType": "ERC20ThresholdSet",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            }
-          ]
-        },
-        {
-          "name": "StakingEvent",
-          "fullName": ".vega.StakingEvent",
-          "map": false,
-          "oneofs": [
-            "action"
-          ],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "index",
-              "number": 1,
-              "type": "uint64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "block",
-              "number": 2,
-              "type": "uint64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "stakeDeposited",
-              "number": 1001,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.StakeDeposited",
-              "messageType": "StakeDeposited",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "stakeRemoved",
-              "number": 1002,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.StakeRemoved",
-              "messageType": "StakeRemoved",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            },
-            {
-              "name": "totalSupply",
-              "number": 1003,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.StakeTotalSupply",
-              "messageType": "StakeTotalSupply",
-              "messageTypeLocal": null,
-              "oneofIndex": 0,
-              "oneofName": "action"
-            }
-          ]
-        },
-        {
-          "name": "StakeDeposited",
-          "fullName": ".vega.StakeDeposited",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "ethereumAddress",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "vegaPublicKey",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "amount",
-              "number": 3,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "blockTime",
-              "number": 4,
-              "type": "int64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "StakeRemoved",
-          "fullName": ".vega.StakeRemoved",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "ethereumAddress",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "vegaPublicKey",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "amount",
-              "number": 3,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "blockTime",
-              "number": 4,
-              "type": "int64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "StakeTotalSupply",
-          "fullName": ".vega.StakeTotalSupply",
-          "map": false,
-          "oneofs": [],
-          "enums": [],
-          "messages": [],
-          "fields": [
-            {
-              "name": "tokenAddress",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "totalSupply",
-              "number": 2,
               "type": "string",
               "wireType": "bytes",
               "repeated": false,
