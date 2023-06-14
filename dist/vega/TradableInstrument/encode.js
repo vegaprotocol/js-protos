@@ -13,13 +13,20 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.marginCalculator)
     writer.bytes(2, _vega_MarginCalculator.encode(obj.marginCalculator))
 
-  if (obj.risk_model) {
-    const _o = obj.risk_model
-    if (_o.logNormalRiskModel)
-      writer.bytes(100, _vega_LogNormalRiskModel.encode(_o.logNormalRiskModel))
-    if (_o.simpleRiskModel)
-      writer.bytes(101, _vega_SimpleRiskModel.encode(_o.simpleRiskModel))
-  }
+  if (obj.risk_model?.logNormalRiskModel ?? obj.logNormalRiskModel)
+    writer.bytes(
+      100,
+      _vega_LogNormalRiskModel.encode(
+        obj.risk_model?.logNormalRiskModel ?? obj.logNormalRiskModel
+      )
+    )
+  if (obj.risk_model?.simpleRiskModel ?? obj.simpleRiskModel)
+    writer.bytes(
+      101,
+      _vega_SimpleRiskModel.encode(
+        obj.risk_model?.simpleRiskModel ?? obj.simpleRiskModel
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }

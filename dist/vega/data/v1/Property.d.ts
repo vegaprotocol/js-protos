@@ -6,5 +6,4 @@ export * from './Property/decode.js'
 export type Property = {
   name: string
   value: string
-  numberDecimalPlaces: bigint | null
 }

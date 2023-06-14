@@ -11,15 +11,23 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.index) writer.varint(1, obj.index, uint64)
   if (obj.block) writer.varint(2, obj.block, uint64)
 
-  if (obj.action) {
-    const _o = obj.action
-    if (_o.stakeDeposited)
-      writer.bytes(1001, _vega_StakeDeposited.encode(_o.stakeDeposited))
-    if (_o.stakeRemoved)
-      writer.bytes(1002, _vega_StakeRemoved.encode(_o.stakeRemoved))
-    if (_o.totalSupply)
-      writer.bytes(1003, _vega_StakeTotalSupply.encode(_o.totalSupply))
-  }
+  if (obj.action?.stakeDeposited ?? obj.stakeDeposited)
+    writer.bytes(
+      1001,
+      _vega_StakeDeposited.encode(
+        obj.action?.stakeDeposited ?? obj.stakeDeposited
+      )
+    )
+  if (obj.action?.stakeRemoved ?? obj.stakeRemoved)
+    writer.bytes(
+      1002,
+      _vega_StakeRemoved.encode(obj.action?.stakeRemoved ?? obj.stakeRemoved)
+    )
+  if (obj.action?.totalSupply ?? obj.totalSupply)
+    writer.bytes(
+      1003,
+      _vega_StakeTotalSupply.encode(obj.action?.totalSupply ?? obj.totalSupply)
+    )
 
   return writer.concat(buf, byteOffset)
 }

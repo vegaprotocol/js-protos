@@ -13,10 +13,8 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.metadata)
     writer.bytes(4, _vega_InstrumentMetadata.encode(obj.metadata))
 
-  if (obj.product) {
-    const _o = obj.product
-    if (_o.future) writer.bytes(100, _vega_Future.encode(_o.future))
-  }
+  if (obj.product?.future ?? obj.future)
+    writer.bytes(100, _vega_Future.encode(obj.product?.future ?? obj.future))
 
   return writer.concat(buf, byteOffset)
 }

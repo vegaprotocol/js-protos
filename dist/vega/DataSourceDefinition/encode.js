@@ -7,13 +7,20 @@ import * as _vega_DataSourceDefinitionExternal from './../DataSourceDefinitionEx
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.source_type) {
-    const _o = obj.source_type
-    if (_o.internal)
-      writer.bytes(1, _vega_DataSourceDefinitionInternal.encode(_o.internal))
-    if (_o.external)
-      writer.bytes(2, _vega_DataSourceDefinitionExternal.encode(_o.external))
-  }
+  if (obj.source_type?.internal ?? obj.internal)
+    writer.bytes(
+      1,
+      _vega_DataSourceDefinitionInternal.encode(
+        obj.source_type?.internal ?? obj.internal
+      )
+    )
+  if (obj.source_type?.external ?? obj.external)
+    writer.bytes(
+      2,
+      _vega_DataSourceDefinitionExternal.encode(
+        obj.source_type?.external ?? obj.external
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }

@@ -33,134 +33,193 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.nonce) writer.varint(1, obj.nonce, uint64)
   if (obj.blockHeight) writer.varint(2, obj.blockHeight, uint64)
 
-  if (obj.command) {
-    const _o = obj.command
-    if (_o.orderSubmission)
-      writer.bytes(
-        1001,
-        _vega_commands_v1_OrderSubmission.encode(_o.orderSubmission)
+  if (obj.command?.orderSubmission ?? obj.orderSubmission)
+    writer.bytes(
+      1001,
+      _vega_commands_v1_OrderSubmission.encode(
+        obj.command?.orderSubmission ?? obj.orderSubmission
       )
-    if (_o.orderCancellation)
-      writer.bytes(
-        1002,
-        _vega_commands_v1_OrderCancellation.encode(_o.orderCancellation)
+    )
+  if (obj.command?.orderCancellation ?? obj.orderCancellation)
+    writer.bytes(
+      1002,
+      _vega_commands_v1_OrderCancellation.encode(
+        obj.command?.orderCancellation ?? obj.orderCancellation
       )
-    if (_o.orderAmendment)
-      writer.bytes(
-        1003,
-        _vega_commands_v1_OrderAmendment.encode(_o.orderAmendment)
+    )
+  if (obj.command?.orderAmendment ?? obj.orderAmendment)
+    writer.bytes(
+      1003,
+      _vega_commands_v1_OrderAmendment.encode(
+        obj.command?.orderAmendment ?? obj.orderAmendment
       )
-    if (_o.withdrawSubmission)
-      writer.bytes(
-        1004,
-        _vega_commands_v1_WithdrawSubmission.encode(_o.withdrawSubmission)
+    )
+  if (obj.command?.withdrawSubmission ?? obj.withdrawSubmission)
+    writer.bytes(
+      1004,
+      _vega_commands_v1_WithdrawSubmission.encode(
+        obj.command?.withdrawSubmission ?? obj.withdrawSubmission
       )
-    if (_o.proposalSubmission)
-      writer.bytes(
-        1005,
-        _vega_commands_v1_ProposalSubmission.encode(_o.proposalSubmission)
+    )
+  if (obj.command?.proposalSubmission ?? obj.proposalSubmission)
+    writer.bytes(
+      1005,
+      _vega_commands_v1_ProposalSubmission.encode(
+        obj.command?.proposalSubmission ?? obj.proposalSubmission
       )
-    if (_o.voteSubmission)
-      writer.bytes(
-        1006,
-        _vega_commands_v1_VoteSubmission.encode(_o.voteSubmission)
+    )
+  if (obj.command?.voteSubmission ?? obj.voteSubmission)
+    writer.bytes(
+      1006,
+      _vega_commands_v1_VoteSubmission.encode(
+        obj.command?.voteSubmission ?? obj.voteSubmission
       )
-    if (_o.liquidityProvisionSubmission)
-      writer.bytes(
-        1007,
-        _vega_commands_v1_LiquidityProvisionSubmission.encode(
-          _o.liquidityProvisionSubmission
-        )
+    )
+  if (
+    obj.command?.liquidityProvisionSubmission ??
+    obj.liquidityProvisionSubmission
+  )
+    writer.bytes(
+      1007,
+      _vega_commands_v1_LiquidityProvisionSubmission.encode(
+        obj.command?.liquidityProvisionSubmission ??
+          obj.liquidityProvisionSubmission
       )
-    if (_o.delegateSubmission)
-      writer.bytes(
-        1008,
-        _vega_commands_v1_DelegateSubmission.encode(_o.delegateSubmission)
+    )
+  if (obj.command?.delegateSubmission ?? obj.delegateSubmission)
+    writer.bytes(
+      1008,
+      _vega_commands_v1_DelegateSubmission.encode(
+        obj.command?.delegateSubmission ?? obj.delegateSubmission
       )
-    if (_o.undelegateSubmission)
-      writer.bytes(
-        1009,
-        _vega_commands_v1_UndelegateSubmission.encode(_o.undelegateSubmission)
+    )
+  if (obj.command?.undelegateSubmission ?? obj.undelegateSubmission)
+    writer.bytes(
+      1009,
+      _vega_commands_v1_UndelegateSubmission.encode(
+        obj.command?.undelegateSubmission ?? obj.undelegateSubmission
       )
-    if (_o.liquidityProvisionCancellation)
-      writer.bytes(
-        1010,
-        _vega_commands_v1_LiquidityProvisionCancellation.encode(
-          _o.liquidityProvisionCancellation
-        )
+    )
+  if (
+    obj.command?.liquidityProvisionCancellation ??
+    obj.liquidityProvisionCancellation
+  )
+    writer.bytes(
+      1010,
+      _vega_commands_v1_LiquidityProvisionCancellation.encode(
+        obj.command?.liquidityProvisionCancellation ??
+          obj.liquidityProvisionCancellation
       )
-    if (_o.liquidityProvisionAmendment)
-      writer.bytes(
-        1011,
-        _vega_commands_v1_LiquidityProvisionAmendment.encode(
-          _o.liquidityProvisionAmendment
-        )
+    )
+  if (
+    obj.command?.liquidityProvisionAmendment ??
+    obj.liquidityProvisionAmendment
+  )
+    writer.bytes(
+      1011,
+      _vega_commands_v1_LiquidityProvisionAmendment.encode(
+        obj.command?.liquidityProvisionAmendment ??
+          obj.liquidityProvisionAmendment
       )
-    if (_o.transfer)
-      writer.bytes(1012, _vega_commands_v1_Transfer.encode(_o.transfer))
-    if (_o.cancelTransfer)
-      writer.bytes(
-        1013,
-        _vega_commands_v1_CancelTransfer.encode(_o.cancelTransfer)
+    )
+  if (obj.command?.transfer ?? obj.transfer)
+    writer.bytes(
+      1012,
+      _vega_commands_v1_Transfer.encode(obj.command?.transfer ?? obj.transfer)
+    )
+  if (obj.command?.cancelTransfer ?? obj.cancelTransfer)
+    writer.bytes(
+      1013,
+      _vega_commands_v1_CancelTransfer.encode(
+        obj.command?.cancelTransfer ?? obj.cancelTransfer
       )
-    if (_o.announceNode)
-      writer.bytes(1014, _vega_commands_v1_AnnounceNode.encode(_o.announceNode))
-    if (_o.batchMarketInstructions)
-      writer.bytes(
-        1015,
-        _vega_commands_v1_BatchMarketInstructions.encode(
-          _o.batchMarketInstructions
-        )
+    )
+  if (obj.command?.announceNode ?? obj.announceNode)
+    writer.bytes(
+      1014,
+      _vega_commands_v1_AnnounceNode.encode(
+        obj.command?.announceNode ?? obj.announceNode
       )
-    if (_o.nodeVote)
-      writer.bytes(2002, _vega_commands_v1_NodeVote.encode(_o.nodeVote))
-    if (_o.nodeSignature)
-      writer.bytes(
-        2003,
-        _vega_commands_v1_NodeSignature.encode(_o.nodeSignature)
+    )
+  if (obj.command?.batchMarketInstructions ?? obj.batchMarketInstructions)
+    writer.bytes(
+      1015,
+      _vega_commands_v1_BatchMarketInstructions.encode(
+        obj.command?.batchMarketInstructions ?? obj.batchMarketInstructions
       )
-    if (_o.chainEvent)
-      writer.bytes(2004, _vega_commands_v1_ChainEvent.encode(_o.chainEvent))
-    if (_o.keyRotateSubmission)
-      writer.bytes(
-        2005,
-        _vega_commands_v1_KeyRotateSubmission.encode(_o.keyRotateSubmission)
+    )
+  if (obj.command?.nodeVote ?? obj.nodeVote)
+    writer.bytes(
+      2002,
+      _vega_commands_v1_NodeVote.encode(obj.command?.nodeVote ?? obj.nodeVote)
+    )
+  if (obj.command?.nodeSignature ?? obj.nodeSignature)
+    writer.bytes(
+      2003,
+      _vega_commands_v1_NodeSignature.encode(
+        obj.command?.nodeSignature ?? obj.nodeSignature
       )
-    if (_o.stateVariableProposal)
-      writer.bytes(
-        2006,
-        _vega_commands_v1_StateVariableProposal.encode(_o.stateVariableProposal)
+    )
+  if (obj.command?.chainEvent ?? obj.chainEvent)
+    writer.bytes(
+      2004,
+      _vega_commands_v1_ChainEvent.encode(
+        obj.command?.chainEvent ?? obj.chainEvent
       )
-    if (_o.validatorHeartbeat)
-      writer.bytes(
-        2007,
-        _vega_commands_v1_ValidatorHeartbeat.encode(_o.validatorHeartbeat)
+    )
+  if (obj.command?.keyRotateSubmission ?? obj.keyRotateSubmission)
+    writer.bytes(
+      2005,
+      _vega_commands_v1_KeyRotateSubmission.encode(
+        obj.command?.keyRotateSubmission ?? obj.keyRotateSubmission
       )
-    if (_o.ethereumKeyRotateSubmission)
-      writer.bytes(
-        2008,
-        _vega_commands_v1_EthereumKeyRotateSubmission.encode(
-          _o.ethereumKeyRotateSubmission
-        )
+    )
+  if (obj.command?.stateVariableProposal ?? obj.stateVariableProposal)
+    writer.bytes(
+      2006,
+      _vega_commands_v1_StateVariableProposal.encode(
+        obj.command?.stateVariableProposal ?? obj.stateVariableProposal
       )
-    if (_o.protocolUpgradeProposal)
-      writer.bytes(
-        2009,
-        _vega_commands_v1_ProtocolUpgradeProposal.encode(
-          _o.protocolUpgradeProposal
-        )
+    )
+  if (obj.command?.validatorHeartbeat ?? obj.validatorHeartbeat)
+    writer.bytes(
+      2007,
+      _vega_commands_v1_ValidatorHeartbeat.encode(
+        obj.command?.validatorHeartbeat ?? obj.validatorHeartbeat
       )
-    if (_o.issueSignatures)
-      writer.bytes(
-        2010,
-        _vega_commands_v1_IssueSignatures.encode(_o.issueSignatures)
+    )
+  if (
+    obj.command?.ethereumKeyRotateSubmission ??
+    obj.ethereumKeyRotateSubmission
+  )
+    writer.bytes(
+      2008,
+      _vega_commands_v1_EthereumKeyRotateSubmission.encode(
+        obj.command?.ethereumKeyRotateSubmission ??
+          obj.ethereumKeyRotateSubmission
       )
-    if (_o.oracleDataSubmission)
-      writer.bytes(
-        3001,
-        _vega_commands_v1_OracleDataSubmission.encode(_o.oracleDataSubmission)
+    )
+  if (obj.command?.protocolUpgradeProposal ?? obj.protocolUpgradeProposal)
+    writer.bytes(
+      2009,
+      _vega_commands_v1_ProtocolUpgradeProposal.encode(
+        obj.command?.protocolUpgradeProposal ?? obj.protocolUpgradeProposal
       )
-  }
+    )
+  if (obj.command?.issueSignatures ?? obj.issueSignatures)
+    writer.bytes(
+      2010,
+      _vega_commands_v1_IssueSignatures.encode(
+        obj.command?.issueSignatures ?? obj.issueSignatures
+      )
+    )
+  if (obj.command?.oracleDataSubmission ?? obj.oracleDataSubmission)
+    writer.bytes(
+      3001,
+      _vega_commands_v1_OracleDataSubmission.encode(
+        obj.command?.oracleDataSubmission ?? obj.oracleDataSubmission
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }

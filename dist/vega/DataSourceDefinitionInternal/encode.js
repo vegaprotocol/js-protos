@@ -6,11 +6,13 @@ import * as _vega_DataSourceSpecConfigurationTime from './../DataSourceSpecConfi
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.source_type) {
-    const _o = obj.source_type
-    if (_o.time)
-      writer.bytes(1, _vega_DataSourceSpecConfigurationTime.encode(_o.time))
-  }
+  if (obj.source_type?.time ?? obj.time)
+    writer.bytes(
+      1,
+      _vega_DataSourceSpecConfigurationTime.encode(
+        obj.source_type?.time ?? obj.time
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }

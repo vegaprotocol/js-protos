@@ -9,10 +9,11 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.name) writer.bytes(1, obj.name, string)
   if (obj.code) writer.bytes(2, obj.code, string)
 
-  if (obj.product) {
-    const _o = obj.product
-    if (_o.future) writer.bytes(100, _vega_FutureProduct.encode(_o.future))
-  }
+  if (obj.product?.future ?? obj.future)
+    writer.bytes(
+      100,
+      _vega_FutureProduct.encode(obj.product?.future ?? obj.future)
+    )
 
   return writer.concat(buf, byteOffset)
 }

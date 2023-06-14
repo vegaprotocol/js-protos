@@ -11,15 +11,25 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.index) writer.varint(1, obj.index, uint64)
   if (obj.block) writer.varint(2, obj.block, uint64)
 
-  if (obj.action) {
-    const _o = obj.action
-    if (_o.signerAdded)
-      writer.bytes(1001, _vega_ERC20SignerAdded.encode(_o.signerAdded))
-    if (_o.signerRemoved)
-      writer.bytes(1002, _vega_ERC20SignerRemoved.encode(_o.signerRemoved))
-    if (_o.thresholdSet)
-      writer.bytes(1003, _vega_ERC20ThresholdSet.encode(_o.thresholdSet))
-  }
+  if (obj.action?.signerAdded ?? obj.signerAdded)
+    writer.bytes(
+      1001,
+      _vega_ERC20SignerAdded.encode(obj.action?.signerAdded ?? obj.signerAdded)
+    )
+  if (obj.action?.signerRemoved ?? obj.signerRemoved)
+    writer.bytes(
+      1002,
+      _vega_ERC20SignerRemoved.encode(
+        obj.action?.signerRemoved ?? obj.signerRemoved
+      )
+    )
+  if (obj.action?.thresholdSet ?? obj.thresholdSet)
+    writer.bytes(
+      1003,
+      _vega_ERC20ThresholdSet.encode(
+        obj.action?.thresholdSet ?? obj.thresholdSet
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }

@@ -6,11 +6,13 @@ import * as _vega_DataSourceSpecConfiguration from './../DataSourceSpecConfigura
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.source_type) {
-    const _o = obj.source_type
-    if (_o.oracle)
-      writer.bytes(1, _vega_DataSourceSpecConfiguration.encode(_o.oracle))
-  }
+  if (obj.source_type?.oracle ?? obj.oracle)
+    writer.bytes(
+      1,
+      _vega_DataSourceSpecConfiguration.encode(
+        obj.source_type?.oracle ?? obj.oracle
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }

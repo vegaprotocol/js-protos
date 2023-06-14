@@ -7,12 +7,16 @@ import * as _vega_data_v1_ETHAddress from './../ETHAddress/encode.js'
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.signer) {
-    const _o = obj.signer
-    if (_o.pubKey) writer.bytes(1, _vega_data_v1_PubKey.encode(_o.pubKey))
-    if (_o.ethAddress)
-      writer.bytes(2, _vega_data_v1_ETHAddress.encode(_o.ethAddress))
-  }
+  if (obj.signer?.pubKey ?? obj.pubKey)
+    writer.bytes(
+      1,
+      _vega_data_v1_PubKey.encode(obj.signer?.pubKey ?? obj.pubKey)
+    )
+  if (obj.signer?.ethAddress ?? obj.ethAddress)
+    writer.bytes(
+      2,
+      _vega_data_v1_ETHAddress.encode(obj.signer?.ethAddress ?? obj.ethAddress)
+    )
 
   return writer.concat(buf, byteOffset)
 }

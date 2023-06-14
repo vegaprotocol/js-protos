@@ -16,16 +16,18 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.amount) writer.bytes(5, obj.amount, string)
   if (obj.reference) writer.bytes(6, obj.reference, string)
 
-  if (obj.kind) {
-    const _o = obj.kind
-    if (_o.oneOff)
-      writer.bytes(101, _vega_commands_v1_OneOffTransfer.encode(_o.oneOff))
-    if (_o.recurring)
-      writer.bytes(
-        102,
-        _vega_commands_v1_RecurringTransfer.encode(_o.recurring)
+  if (obj.kind?.oneOff ?? obj.oneOff)
+    writer.bytes(
+      101,
+      _vega_commands_v1_OneOffTransfer.encode(obj.kind?.oneOff ?? obj.oneOff)
+    )
+  if (obj.kind?.recurring ?? obj.recurring)
+    writer.bytes(
+      102,
+      _vega_commands_v1_RecurringTransfer.encode(
+        obj.kind?.recurring ?? obj.recurring
       )
-  }
+    )
 
   return writer.concat(buf, byteOffset)
 }

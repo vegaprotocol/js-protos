@@ -12,16 +12,25 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.txId) writer.bytes(1, obj.txId, string)
   if (obj.nonce) writer.varint(2, obj.nonce, uint64)
 
-  if (obj.event) {
-    const _o = obj.event
-    if (_o.builtin)
-      writer.bytes(1001, _vega_BuiltinAssetEvent.encode(_o.builtin))
-    if (_o.erc20) writer.bytes(1002, _vega_ERC20Event.encode(_o.erc20))
-    if (_o.stakingEvent)
-      writer.bytes(1005, _vega_StakingEvent.encode(_o.stakingEvent))
-    if (_o.erc20Multisig)
-      writer.bytes(1006, _vega_ERC20MultiSigEvent.encode(_o.erc20Multisig))
-  }
+  if (obj.event?.builtin ?? obj.builtin)
+    writer.bytes(
+      1001,
+      _vega_BuiltinAssetEvent.encode(obj.event?.builtin ?? obj.builtin)
+    )
+  if (obj.event?.erc20 ?? obj.erc20)
+    writer.bytes(1002, _vega_ERC20Event.encode(obj.event?.erc20 ?? obj.erc20))
+  if (obj.event?.stakingEvent ?? obj.stakingEvent)
+    writer.bytes(
+      1005,
+      _vega_StakingEvent.encode(obj.event?.stakingEvent ?? obj.stakingEvent)
+    )
+  if (obj.event?.erc20Multisig ?? obj.erc20Multisig)
+    writer.bytes(
+      1006,
+      _vega_ERC20MultiSigEvent.encode(
+        obj.event?.erc20Multisig ?? obj.erc20Multisig
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }

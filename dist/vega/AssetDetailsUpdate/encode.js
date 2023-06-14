@@ -8,10 +8,8 @@ export function encode(obj = {}, buf, byteOffset = 0) {
 
   if (obj.quantum) writer.bytes(5, obj.quantum, string)
 
-  if (obj.source) {
-    const _o = obj.source
-    if (_o.erc20) writer.bytes(101, _vega_ERC20Update.encode(_o.erc20))
-  }
+  if (obj.source?.erc20 ?? obj.erc20)
+    writer.bytes(101, _vega_ERC20Update.encode(obj.source?.erc20 ?? obj.erc20))
 
   return writer.concat(buf, byteOffset)
 }

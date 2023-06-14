@@ -6,10 +6,8 @@ import * as _vega_Erc20WithdrawExt from './../Erc20WithdrawExt/encode.js'
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.ext) {
-    const _o = obj.ext
-    if (_o.erc20) writer.bytes(1, _vega_Erc20WithdrawExt.encode(_o.erc20))
-  }
+  if (obj.ext?.erc20 ?? obj.erc20)
+    writer.bytes(1, _vega_Erc20WithdrawExt.encode(obj.ext?.erc20 ?? obj.erc20))
 
   return writer.concat(buf, byteOffset)
 }

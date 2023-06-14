@@ -12,12 +12,13 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.decimals) writer.varint(4, obj.decimals, uint64)
   if (obj.quantum) writer.bytes(5, obj.quantum, string)
 
-  if (obj.source) {
-    const _o = obj.source
-    if (_o.builtinAsset)
-      writer.bytes(101, _vega_BuiltinAsset.encode(_o.builtinAsset))
-    if (_o.erc20) writer.bytes(102, _vega_ERC20.encode(_o.erc20))
-  }
+  if (obj.source?.builtinAsset ?? obj.builtinAsset)
+    writer.bytes(
+      101,
+      _vega_BuiltinAsset.encode(obj.source?.builtinAsset ?? obj.builtinAsset)
+    )
+  if (obj.source?.erc20 ?? obj.erc20)
+    writer.bytes(102, _vega_ERC20.encode(obj.source?.erc20 ?? obj.erc20))
 
   return writer.concat(buf, byteOffset)
 }

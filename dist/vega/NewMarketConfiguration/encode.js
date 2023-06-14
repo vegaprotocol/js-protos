@@ -35,12 +35,18 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.quadraticSlippageFactor)
     writer.bytes(10, obj.quadraticSlippageFactor, string)
 
-  if (obj.risk_parameters) {
-    const _o = obj.risk_parameters
-    if (_o.simple) writer.bytes(100, _vega_SimpleModelParams.encode(_o.simple))
-    if (_o.logNormal)
-      writer.bytes(101, _vega_LogNormalRiskModel.encode(_o.logNormal))
-  }
+  if (obj.risk_parameters?.simple ?? obj.simple)
+    writer.bytes(
+      100,
+      _vega_SimpleModelParams.encode(obj.risk_parameters?.simple ?? obj.simple)
+    )
+  if (obj.risk_parameters?.logNormal ?? obj.logNormal)
+    writer.bytes(
+      101,
+      _vega_LogNormalRiskModel.encode(
+        obj.risk_parameters?.logNormal ?? obj.logNormal
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }

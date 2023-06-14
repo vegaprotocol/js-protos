@@ -2470,19 +2470,6 @@
                       "typeName": null,
                       "messageTypeLocal": null,
                       "oneofIndex": null
-                    },
-                    {
-                      "name": "numberDecimalPlaces",
-                      "number": 3,
-                      "type": "uint64",
-                      "wireType": "varint",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": true,
-                      "typeName": null,
-                      "messageTypeLocal": null,
-                      "oneofIndex": null,
-                      "oneofName": null
                     }
                   ]
                 },

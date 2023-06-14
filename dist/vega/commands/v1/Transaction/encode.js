@@ -14,11 +14,10 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.version) writer.varint(2000, obj.version, _vega_commands_v1_TxVersion)
   if (obj.pow) writer.bytes(3000, _vega_commands_v1_ProofOfWork.encode(obj.pow))
 
-  if (obj.from) {
-    const _o = obj.from
-    if (_o.address) writer.bytes(1001, _o.address, string)
-    if (_o.pubKey) writer.bytes(1002, _o.pubKey, string)
-  }
+  if (obj.from?.address ?? obj.address)
+    writer.bytes(1001, obj.from?.address ?? obj.address, string)
+  if (obj.from?.pubKey ?? obj.pubKey)
+    writer.bytes(1002, obj.from?.pubKey ?? obj.pubKey, string)
 
   return writer.concat(buf, byteOffset)
 }

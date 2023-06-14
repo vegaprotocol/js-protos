@@ -13,23 +13,37 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.index) writer.varint(1, obj.index, uint64)
   if (obj.block) writer.varint(2, obj.block, uint64)
 
-  if (obj.action) {
-    const _o = obj.action
-    if (_o.assetList)
-      writer.bytes(1001, _vega_ERC20AssetList.encode(_o.assetList))
-    if (_o.assetDelist)
-      writer.bytes(1002, _vega_ERC20AssetDelist.encode(_o.assetDelist))
-    if (_o.deposit) writer.bytes(1003, _vega_ERC20Deposit.encode(_o.deposit))
-    if (_o.withdrawal)
-      writer.bytes(1004, _vega_ERC20Withdrawal.encode(_o.withdrawal))
-    if (_o.assetLimitsUpdated)
-      writer.bytes(
-        1005,
-        _vega_ERC20AssetLimitsUpdated.encode(_o.assetLimitsUpdated)
+  if (obj.action?.assetList ?? obj.assetList)
+    writer.bytes(
+      1001,
+      _vega_ERC20AssetList.encode(obj.action?.assetList ?? obj.assetList)
+    )
+  if (obj.action?.assetDelist ?? obj.assetDelist)
+    writer.bytes(
+      1002,
+      _vega_ERC20AssetDelist.encode(obj.action?.assetDelist ?? obj.assetDelist)
+    )
+  if (obj.action?.deposit ?? obj.deposit)
+    writer.bytes(
+      1003,
+      _vega_ERC20Deposit.encode(obj.action?.deposit ?? obj.deposit)
+    )
+  if (obj.action?.withdrawal ?? obj.withdrawal)
+    writer.bytes(
+      1004,
+      _vega_ERC20Withdrawal.encode(obj.action?.withdrawal ?? obj.withdrawal)
+    )
+  if (obj.action?.assetLimitsUpdated ?? obj.assetLimitsUpdated)
+    writer.bytes(
+      1005,
+      _vega_ERC20AssetLimitsUpdated.encode(
+        obj.action?.assetLimitsUpdated ?? obj.assetLimitsUpdated
       )
-    if (_o.bridgeStopped) writer.varint(1006, _o.bridgeStopped, bool)
-    if (_o.bridgeResumed) writer.varint(1007, _o.bridgeResumed, bool)
-  }
+    )
+  if (obj.action?.bridgeStopped ?? obj.bridgeStopped)
+    writer.varint(1006, obj.action?.bridgeStopped ?? obj.bridgeStopped, bool)
+  if (obj.action?.bridgeResumed ?? obj.bridgeResumed)
+    writer.varint(1007, obj.action?.bridgeResumed ?? obj.bridgeResumed, bool)
 
   return writer.concat(buf, byteOffset)
 }

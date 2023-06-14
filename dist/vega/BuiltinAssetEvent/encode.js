@@ -7,13 +7,18 @@ import * as _vega_BuiltinAssetWithdrawal from './../BuiltinAssetWithdrawal/encod
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.action) {
-    const _o = obj.action
-    if (_o.deposit)
-      writer.bytes(1001, _vega_BuiltinAssetDeposit.encode(_o.deposit))
-    if (_o.withdrawal)
-      writer.bytes(1002, _vega_BuiltinAssetWithdrawal.encode(_o.withdrawal))
-  }
+  if (obj.action?.deposit ?? obj.deposit)
+    writer.bytes(
+      1001,
+      _vega_BuiltinAssetDeposit.encode(obj.action?.deposit ?? obj.deposit)
+    )
+  if (obj.action?.withdrawal ?? obj.withdrawal)
+    writer.bytes(
+      1002,
+      _vega_BuiltinAssetWithdrawal.encode(
+        obj.action?.withdrawal ?? obj.withdrawal
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }
