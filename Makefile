@@ -1,3 +1,4 @@
+.PHONY: all clean
 dist: PROTOS = $(shell find vega/protos/sources -type f -name "*.proto")
 dist: vega $(PROTOS)
 	mkdir -p dist
