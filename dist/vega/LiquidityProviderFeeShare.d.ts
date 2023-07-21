@@ -8,4 +8,5 @@ export type LiquidityProviderFeeShare = {
   equityLikeShare: string
   averageEntryValuation: string
   averageScore: string
+  virtualStake: string
 }

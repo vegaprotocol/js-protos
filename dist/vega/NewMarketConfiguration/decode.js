@@ -6,6 +6,7 @@ import * as _vega_PriceMonitoringParameters from './../PriceMonitoringParameters
 import * as _vega_LiquidityMonitoringParameters from './../LiquidityMonitoringParameters/decode.js'
 import * as _vega_SimpleModelParams from './../SimpleModelParams/decode.js'
 import * as _vega_LogNormalRiskModel from './../LogNormalRiskModel/decode.js'
+import * as _vega_SuccessorConfiguration from './../SuccessorConfiguration/decode.js'
 
 export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$instrument = {}
@@ -17,6 +18,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$lpPriceRange = ''
   let field$linearSlippageFactor = ''
   let field$quadraticSlippageFactor = ''
+  let field$successor = null
   let field$risk_parameters = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -67,6 +69,10 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
       case 10:
         field$quadraticSlippageFactor = string(data)
         break
+
+      case 11:
+        field$successor = _vega_SuccessorConfiguration.decode(data)
+        break
     }
   }
   return {
@@ -79,6 +85,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
     lpPriceRange: field$lpPriceRange,
     linearSlippageFactor: field$linearSlippageFactor,
     quadraticSlippageFactor: field$quadraticSlippageFactor,
+    successor: field$successor,
     risk_parameters: field$risk_parameters
   }
 }

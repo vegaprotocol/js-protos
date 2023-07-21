@@ -44,6 +44,10 @@ export function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(13, obj.linearSlippageFactor, string)
   if (obj.quadraticSlippageFactor)
     writer.bytes(14, obj.quadraticSlippageFactor, string)
+  if (obj.parentMarketId) writer.bytes(15, obj.parentMarketId, string)
+  if (obj.insurancePoolFraction)
+    writer.bytes(16, obj.insurancePoolFraction, string)
+  if (obj.successorMarketId) writer.bytes(17, obj.successorMarketId, string)
 
   return writer.concat(buf, byteOffset)
 }

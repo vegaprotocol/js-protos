@@ -4,6 +4,4 @@ import type { VectorValue } from './VectorValue'
 export * from './MatrixValue/encode.js'
 export * from './MatrixValue/decode.js'
 
-export type MatrixValue = {
-  value: VectorValue[]
-}
+export type MatrixValue = { value: VectorValue[] }

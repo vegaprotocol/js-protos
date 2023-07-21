@@ -5,6 +5,7 @@ import type { Type } from './Order/Type'
 import type { Status } from './Order/Status'
 import type { OrderError } from './OrderError'
 import type { PeggedOrder } from './PeggedOrder'
+import type { IcebergOrder } from './IcebergOrder'
 
 export * from './Order/encode.js'
 export * from './Order/decode.js'
@@ -34,4 +35,5 @@ export type Order = {
   liquidityProvisionId: string
   postOnly: boolean
   reduceOnly: boolean
+  icebergOrder: IcebergOrder | null
 }

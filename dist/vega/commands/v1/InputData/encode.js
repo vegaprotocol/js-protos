@@ -16,6 +16,8 @@ import * as _vega_commands_v1_Transfer from './../Transfer/encode.js'
 import * as _vega_commands_v1_CancelTransfer from './../CancelTransfer/encode.js'
 import * as _vega_commands_v1_AnnounceNode from './../AnnounceNode/encode.js'
 import * as _vega_commands_v1_BatchMarketInstructions from './../BatchMarketInstructions/encode.js'
+import * as _vega_commands_v1_StopOrdersSubmission from './../StopOrdersSubmission/encode.js'
+import * as _vega_commands_v1_StopOrdersCancellation from './../StopOrdersCancellation/encode.js'
 import * as _vega_commands_v1_NodeVote from './../NodeVote/encode.js'
 import * as _vega_commands_v1_NodeSignature from './../NodeSignature/encode.js'
 import * as _vega_commands_v1_ChainEvent from './../ChainEvent/encode.js'
@@ -146,6 +148,20 @@ export function encode(obj = {}, buf, byteOffset = 0) {
       1015,
       _vega_commands_v1_BatchMarketInstructions.encode(
         obj.command?.batchMarketInstructions ?? obj.batchMarketInstructions
+      )
+    )
+  if (obj.command?.stopOrdersSubmission ?? obj.stopOrdersSubmission)
+    writer.bytes(
+      1016,
+      _vega_commands_v1_StopOrdersSubmission.encode(
+        obj.command?.stopOrdersSubmission ?? obj.stopOrdersSubmission
+      )
+    )
+  if (obj.command?.stopOrdersCancellation ?? obj.stopOrdersCancellation)
+    writer.bytes(
+      1017,
+      _vega_commands_v1_StopOrdersCancellation.encode(
+        obj.command?.stopOrdersCancellation ?? obj.stopOrdersCancellation
       )
     )
   if (obj.command?.nodeVote ?? obj.nodeVote)

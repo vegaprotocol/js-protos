@@ -14,6 +14,8 @@ import type { Transfer } from './Transfer'
 import type { CancelTransfer } from './CancelTransfer'
 import type { AnnounceNode } from './AnnounceNode'
 import type { BatchMarketInstructions } from './BatchMarketInstructions'
+import type { StopOrdersSubmission } from './StopOrdersSubmission'
+import type { StopOrdersCancellation } from './StopOrdersCancellation'
 import type { NodeVote } from './NodeVote'
 import type { NodeSignature } from './NodeSignature'
 import type { ChainEvent } from './ChainEvent'
@@ -28,34 +30,63 @@ import type { OracleDataSubmission } from './OracleDataSubmission'
 export * from './InputData/encode.js'
 export * from './InputData/decode.js'
 
-export type InputData = {
-  nonce: bigint
-  blockHeight: bigint
-  command:
-    | { orderSubmission: OrderSubmission }
-    | { orderCancellation: OrderCancellation }
-    | { orderAmendment: OrderAmendment }
-    | { withdrawSubmission: WithdrawSubmission }
-    | { proposalSubmission: ProposalSubmission }
-    | { voteSubmission: VoteSubmission }
-    | { liquidityProvisionSubmission: LiquidityProvisionSubmission }
-    | { delegateSubmission: DelegateSubmission }
-    | { undelegateSubmission: UndelegateSubmission }
-    | { liquidityProvisionCancellation: LiquidityProvisionCancellation }
-    | { liquidityProvisionAmendment: LiquidityProvisionAmendment }
-    | { transfer: Transfer }
-    | { cancelTransfer: CancelTransfer }
-    | { announceNode: AnnounceNode }
-    | { batchMarketInstructions: BatchMarketInstructions }
-    | { nodeVote: NodeVote }
-    | { nodeSignature: NodeSignature }
-    | { chainEvent: ChainEvent }
-    | { keyRotateSubmission: KeyRotateSubmission }
-    | { stateVariableProposal: StateVariableProposal }
-    | { validatorHeartbeat: ValidatorHeartbeat }
-    | { ethereumKeyRotateSubmission: EthereumKeyRotateSubmission }
-    | { protocolUpgradeProposal: ProtocolUpgradeProposal }
-    | { issueSignatures: IssueSignatures }
-    | { oracleDataSubmission: OracleDataSubmission }
-    | null
-}
+export type OneofCommand =
+  | {
+      command:
+        | { orderSubmission: OrderSubmission }
+        | { orderCancellation: OrderCancellation }
+        | { orderAmendment: OrderAmendment }
+        | { withdrawSubmission: WithdrawSubmission }
+        | { proposalSubmission: ProposalSubmission }
+        | { voteSubmission: VoteSubmission }
+        | { liquidityProvisionSubmission: LiquidityProvisionSubmission }
+        | { delegateSubmission: DelegateSubmission }
+        | { undelegateSubmission: UndelegateSubmission }
+        | { liquidityProvisionCancellation: LiquidityProvisionCancellation }
+        | { liquidityProvisionAmendment: LiquidityProvisionAmendment }
+        | { transfer: Transfer }
+        | { cancelTransfer: CancelTransfer }
+        | { announceNode: AnnounceNode }
+        | { batchMarketInstructions: BatchMarketInstructions }
+        | { stopOrdersSubmission: StopOrdersSubmission }
+        | { stopOrdersCancellation: StopOrdersCancellation }
+        | { nodeVote: NodeVote }
+        | { nodeSignature: NodeSignature }
+        | { chainEvent: ChainEvent }
+        | { keyRotateSubmission: KeyRotateSubmission }
+        | { stateVariableProposal: StateVariableProposal }
+        | { validatorHeartbeat: ValidatorHeartbeat }
+        | { ethereumKeyRotateSubmission: EthereumKeyRotateSubmission }
+        | { protocolUpgradeProposal: ProtocolUpgradeProposal }
+        | { issueSignatures: IssueSignatures }
+        | { oracleDataSubmission: OracleDataSubmission }
+        | null
+    }
+  | { orderSubmission?: OrderSubmission }
+  | { orderCancellation?: OrderCancellation }
+  | { orderAmendment?: OrderAmendment }
+  | { withdrawSubmission?: WithdrawSubmission }
+  | { proposalSubmission?: ProposalSubmission }
+  | { voteSubmission?: VoteSubmission }
+  | { liquidityProvisionSubmission?: LiquidityProvisionSubmission }
+  | { delegateSubmission?: DelegateSubmission }
+  | { undelegateSubmission?: UndelegateSubmission }
+  | { liquidityProvisionCancellation?: LiquidityProvisionCancellation }
+  | { liquidityProvisionAmendment?: LiquidityProvisionAmendment }
+  | { transfer?: Transfer }
+  | { cancelTransfer?: CancelTransfer }
+  | { announceNode?: AnnounceNode }
+  | { batchMarketInstructions?: BatchMarketInstructions }
+  | { stopOrdersSubmission?: StopOrdersSubmission }
+  | { stopOrdersCancellation?: StopOrdersCancellation }
+  | { nodeVote?: NodeVote }
+  | { nodeSignature?: NodeSignature }
+  | { chainEvent?: ChainEvent }
+  | { keyRotateSubmission?: KeyRotateSubmission }
+  | { stateVariableProposal?: StateVariableProposal }
+  | { validatorHeartbeat?: ValidatorHeartbeat }
+  | { ethereumKeyRotateSubmission?: EthereumKeyRotateSubmission }
+  | { protocolUpgradeProposal?: ProtocolUpgradeProposal }
+  | { issueSignatures?: IssueSignatures }
+  | { oracleDataSubmission?: OracleDataSubmission }
+export type InputData = { nonce: bigint; blockHeight: bigint } & OneofCommand

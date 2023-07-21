@@ -3,7 +3,4 @@
 export * from './ERC20Update/encode.js'
 export * from './ERC20Update/decode.js'
 
-export type ERC20Update = {
-  lifetimeLimit: string
-  withdrawThreshold: string
-}
+export type ERC20Update = { lifetimeLimit: string; withdrawThreshold: string }

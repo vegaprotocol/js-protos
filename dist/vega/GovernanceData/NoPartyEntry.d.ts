@@ -4,7 +4,4 @@ import type { Vote } from './../Vote'
 export * from './NoPartyEntry/encode.js'
 export * from './NoPartyEntry/decode.js'
 
-export type NoPartyEntry = {
-  key: string
-  value: Vote
-}
+export type NoPartyEntry = { key: string; value: Vote }

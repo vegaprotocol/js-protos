@@ -37,6 +37,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$marketState = 0
   let field$nextMarkToMarket = 0n
   let field$lastTradedPrice = ''
+  let field$marketGrowth = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -158,6 +159,10 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
       case 29:
         field$lastTradedPrice = string(data)
         break
+
+      case 30:
+        field$marketGrowth = string(data)
+        break
     }
   }
   return {
@@ -189,6 +194,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
     liquidityProviderFeeShare: field$liquidityProviderFeeShare,
     marketState: field$marketState,
     nextMarkToMarket: field$nextMarkToMarket,
-    lastTradedPrice: field$lastTradedPrice
+    lastTradedPrice: field$lastTradedPrice,
+    marketGrowth: field$marketGrowth
   }
 }

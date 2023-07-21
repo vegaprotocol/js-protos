@@ -7,11 +7,16 @@ import type { SimpleRiskModel } from './SimpleRiskModel'
 export * from './TradableInstrument/encode.js'
 export * from './TradableInstrument/decode.js'
 
+export type OneofRisk_model =
+  | {
+      risk_model:
+        | { logNormalRiskModel: LogNormalRiskModel }
+        | { simpleRiskModel: SimpleRiskModel }
+        | null
+    }
+  | { logNormalRiskModel?: LogNormalRiskModel }
+  | { simpleRiskModel?: SimpleRiskModel }
 export type TradableInstrument = {
   instrument: Instrument
   marginCalculator: MarginCalculator
-  risk_model:
-    | { logNormalRiskModel: LogNormalRiskModel }
-    | { simpleRiskModel: SimpleRiskModel }
-    | null
-}
+} & OneofRisk_model

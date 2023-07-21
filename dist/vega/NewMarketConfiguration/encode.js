@@ -6,6 +6,7 @@ import * as _vega_PriceMonitoringParameters from './../PriceMonitoringParameters
 import * as _vega_LiquidityMonitoringParameters from './../LiquidityMonitoringParameters/encode.js'
 import * as _vega_SimpleModelParams from './../SimpleModelParams/encode.js'
 import * as _vega_LogNormalRiskModel from './../LogNormalRiskModel/encode.js'
+import * as _vega_SuccessorConfiguration from './../SuccessorConfiguration/encode.js'
 
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -34,6 +35,8 @@ export function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(9, obj.linearSlippageFactor, string)
   if (obj.quadraticSlippageFactor)
     writer.bytes(10, obj.quadraticSlippageFactor, string)
+  if (obj.successor)
+    writer.bytes(11, _vega_SuccessorConfiguration.encode(obj.successor))
 
   if (obj.risk_parameters?.simple ?? obj.simple)
     writer.bytes(

@@ -3,7 +3,4 @@
 export * from './StakeTotalSupply/encode.js'
 export * from './StakeTotalSupply/decode.js'
 
-export type StakeTotalSupply = {
-  tokenAddress: string
-  totalSupply: string
-}
+export type StakeTotalSupply = { tokenAddress: string; totalSupply: string }

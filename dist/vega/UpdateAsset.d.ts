@@ -4,7 +4,4 @@ import type { AssetDetailsUpdate } from './AssetDetailsUpdate'
 export * from './UpdateAsset/encode.js'
 export * from './UpdateAsset/decode.js'
 
-export type UpdateAsset = {
-  assetId: string
-  changes: AssetDetailsUpdate
-}
+export type UpdateAsset = { assetId: string; changes: AssetDetailsUpdate }

@@ -4,7 +4,7 @@ import type { UpdateFutureProduct } from './UpdateFutureProduct'
 export * from './UpdateInstrumentConfiguration/encode.js'
 export * from './UpdateInstrumentConfiguration/decode.js'
 
-export type UpdateInstrumentConfiguration = {
-  code: string
-  product: { future: UpdateFutureProduct } | null
-}
+export type OneofProduct =
+  | { product: { future: UpdateFutureProduct } | null }
+  | { future?: UpdateFutureProduct }
+export type UpdateInstrumentConfiguration = { code: string } & OneofProduct

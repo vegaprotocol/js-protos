@@ -5,6 +5,7 @@ import * as _vega_BuiltinAssetEvent from './../../../BuiltinAssetEvent/decode.js
 import * as _vega_ERC20Event from './../../../ERC20Event/decode.js'
 import * as _vega_StakingEvent from './../../../StakingEvent/decode.js'
 import * as _vega_ERC20MultiSigEvent from './../../../ERC20MultiSigEvent/decode.js'
+import * as _vega_EthContractCallEvent from './../../../EthContractCallEvent/decode.js'
 
 export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$txId = ''
@@ -34,6 +35,10 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
 
       case 1006:
         field$event = { erc20Multisig: _vega_ERC20MultiSigEvent.decode(data) }
+        break
+
+      case 1007:
+        field$event = { contractCall: _vega_EthContractCallEvent.decode(data) }
         break
     }
   }

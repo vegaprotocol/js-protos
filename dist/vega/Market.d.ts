@@ -28,4 +28,7 @@ export type Market = {
   lpPriceRange: string
   linearSlippageFactor: string
   quadraticSlippageFactor: string
+  parentMarketId: string | null
+  insurancePoolFraction: string | null
+  successorMarketId: string | null
 }

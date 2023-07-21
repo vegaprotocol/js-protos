@@ -6,10 +6,13 @@ import type { ProofOfWork } from './ProofOfWork'
 export * from './Transaction/encode.js'
 export * from './Transaction/decode.js'
 
+export type OneofFrom =
+  | { from: { address: string } | { pubKey: string } | null }
+  | { address?: string }
+  | { pubKey?: string }
 export type Transaction = {
   inputData: Uint8Array
   signature: Signature
-  from: { address: string } | { pubKey: string } | null
   version: TxVersion
   pow: ProofOfWork
-}
+} & OneofFrom

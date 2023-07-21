@@ -4,7 +4,7 @@ import type { ERC20Update } from './ERC20Update'
 export * from './AssetDetailsUpdate/encode.js'
 export * from './AssetDetailsUpdate/decode.js'
 
-export type AssetDetailsUpdate = {
-  quantum: string
-  source: { erc20: ERC20Update } | null
-}
+export type OneofSource =
+  | { source: { erc20: ERC20Update } | null }
+  | { erc20?: ERC20Update }
+export type AssetDetailsUpdate = { quantum: string } & OneofSource

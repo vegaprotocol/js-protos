@@ -7,6 +7,7 @@ import * as _vega_Order_Type from './Type.js'
 import * as _vega_Order_Status from './Status.js'
 import * as _vega_OrderError from './../OrderError.js'
 import * as _vega_PeggedOrder from './../PeggedOrder/decode.js'
+import * as _vega_IcebergOrder from './../IcebergOrder/decode.js'
 
 export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$id = ''
@@ -30,6 +31,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$liquidityProvisionId = ''
   let field$postOnly = false
   let field$reduceOnly = false
+  let field$icebergOrder = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -115,6 +117,10 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
       case 21:
         field$reduceOnly = bool(data)
         break
+
+      case 22:
+        field$icebergOrder = _vega_IcebergOrder.decode(data)
+        break
     }
   }
   return {
@@ -138,6 +144,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
     peggedOrder: field$peggedOrder,
     liquidityProvisionId: field$liquidityProvisionId,
     postOnly: field$postOnly,
-    reduceOnly: field$reduceOnly
+    reduceOnly: field$reduceOnly,
+    icebergOrder: field$icebergOrder
   }
 }

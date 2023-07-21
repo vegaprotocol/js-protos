@@ -8,16 +8,21 @@ import type { LogNormalRiskModel } from './LogNormalRiskModel'
 export * from './UpdateMarketConfiguration/encode.js'
 export * from './UpdateMarketConfiguration/decode.js'
 
+export type OneofRisk_parameters =
+  | {
+      risk_parameters:
+        | { simple: SimpleModelParams }
+        | { logNormal: LogNormalRiskModel }
+        | null
+    }
+  | { simple?: SimpleModelParams }
+  | { logNormal?: LogNormalRiskModel }
 export type UpdateMarketConfiguration = {
   instrument: UpdateInstrumentConfiguration
   metadata: string[]
   priceMonitoringParameters: PriceMonitoringParameters
   liquidityMonitoringParameters: LiquidityMonitoringParameters
-  risk_parameters:
-    | { simple: SimpleModelParams }
-    | { logNormal: LogNormalRiskModel }
-    | null
   lpPriceRange: string
   linearSlippageFactor: string
   quadraticSlippageFactor: string
-}
+} & OneofRisk_parameters

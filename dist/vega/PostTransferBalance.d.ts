@@ -4,7 +4,4 @@ import type { AccountDetails } from './AccountDetails'
 export * from './PostTransferBalance/encode.js'
 export * from './PostTransferBalance/decode.js'
 
-export type PostTransferBalance = {
-  account: AccountDetails
-  balance: string
-}
+export type PostTransferBalance = { account: AccountDetails; balance: string }

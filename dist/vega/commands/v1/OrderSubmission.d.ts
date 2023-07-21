@@ -3,6 +3,7 @@ import type { Side } from './../../Side'
 import type { TimeInForce } from './../../Order/TimeInForce'
 import type { Type } from './../../Order/Type'
 import type { PeggedOrder } from './../../PeggedOrder'
+import type { IcebergOpts } from './IcebergOpts'
 
 export * from './OrderSubmission/encode.js'
 export * from './OrderSubmission/decode.js'
@@ -19,4 +20,5 @@ export type OrderSubmission = {
   peggedOrder: PeggedOrder
   postOnly: boolean
   reduceOnly: boolean
+  icebergOpts: IcebergOpts | null
 }

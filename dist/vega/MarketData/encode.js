@@ -49,6 +49,7 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.marketState) writer.varint(27, obj.marketState, _vega_Market_State)
   if (obj.nextMarkToMarket) writer.varint(28, obj.nextMarkToMarket, int64)
   if (obj.lastTradedPrice) writer.bytes(29, obj.lastTradedPrice, string)
+  if (obj.marketGrowth) writer.bytes(30, obj.marketGrowth, string)
 
   return writer.concat(buf, byteOffset)
 }

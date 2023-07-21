@@ -25,6 +25,9 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$lpPriceRange = ''
   let field$linearSlippageFactor = ''
   let field$quadraticSlippageFactor = ''
+  let field$parentMarketId = null
+  let field$insurancePoolFraction = null
+  let field$successorMarketId = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -84,6 +87,18 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
       case 14:
         field$quadraticSlippageFactor = string(data)
         break
+
+      case 15:
+        field$parentMarketId = string(data)
+        break
+
+      case 16:
+        field$insurancePoolFraction = string(data)
+        break
+
+      case 17:
+        field$successorMarketId = string(data)
+        break
     }
   }
   return {
@@ -100,6 +115,9 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
     positionDecimalPlaces: field$positionDecimalPlaces,
     lpPriceRange: field$lpPriceRange,
     linearSlippageFactor: field$linearSlippageFactor,
-    quadraticSlippageFactor: field$quadraticSlippageFactor
+    quadraticSlippageFactor: field$quadraticSlippageFactor,
+    parentMarketId: field$parentMarketId,
+    insurancePoolFraction: field$insurancePoolFraction,
+    successorMarketId: field$successorMarketId
   }
 }

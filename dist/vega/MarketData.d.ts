@@ -38,4 +38,5 @@ export type MarketData = {
   marketState: State
   nextMarkToMarket: bigint
   lastTradedPrice: string
+  marketGrowth: string
 }

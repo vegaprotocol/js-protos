@@ -2,6 +2,8 @@
 import type { OrderCancellation } from './OrderCancellation'
 import type { OrderAmendment } from './OrderAmendment'
 import type { OrderSubmission } from './OrderSubmission'
+import type { StopOrdersCancellation } from './StopOrdersCancellation'
+import type { StopOrdersSubmission } from './StopOrdersSubmission'
 
 export * from './BatchMarketInstructions/encode.js'
 export * from './BatchMarketInstructions/decode.js'
@@ -10,4 +12,6 @@ export type BatchMarketInstructions = {
   cancellations: OrderCancellation[]
   amendments: OrderAmendment[]
   submissions: OrderSubmission[]
+  stopOrdersCancellation: StopOrdersCancellation[]
+  stopOrdersSubmission: StopOrdersSubmission[]
 }

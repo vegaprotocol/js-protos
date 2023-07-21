@@ -5,6 +5,8 @@ import type { ETHAddress } from './ETHAddress'
 export * from './Signer/encode.js'
 export * from './Signer/decode.js'
 
-export type Signer = {
-  signer: { pubKey: PubKey } | { ethAddress: ETHAddress } | null
-}
+export type OneofSigner =
+  | { signer: { pubKey: PubKey } | { ethAddress: ETHAddress } | null }
+  | { pubKey?: PubKey }
+  | { ethAddress?: ETHAddress }
+export type Signer = {} & OneofSigner

@@ -7,6 +7,7 @@ import * as _vega_Order_Type from './Type.js'
 import * as _vega_Order_Status from './Status.js'
 import * as _vega_OrderError from './../OrderError.js'
 import * as _vega_PeggedOrder from './../PeggedOrder/encode.js'
+import * as _vega_IcebergOrder from './../IcebergOrder/encode.js'
 
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -35,6 +36,8 @@ export function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(19, obj.liquidityProvisionId, string)
   if (obj.postOnly) writer.varint(20, obj.postOnly, bool)
   if (obj.reduceOnly) writer.varint(21, obj.reduceOnly, bool)
+  if (obj.icebergOrder)
+    writer.bytes(22, _vega_IcebergOrder.encode(obj.icebergOrder))
 
   return writer.concat(buf, byteOffset)
 }

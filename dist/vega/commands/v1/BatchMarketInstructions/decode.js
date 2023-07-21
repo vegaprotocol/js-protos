@@ -4,11 +4,15 @@ import reader from 'protobuf-codec/decode/reader'
 import * as _vega_commands_v1_OrderCancellation from './../OrderCancellation/decode.js'
 import * as _vega_commands_v1_OrderAmendment from './../OrderAmendment/decode.js'
 import * as _vega_commands_v1_OrderSubmission from './../OrderSubmission/decode.js'
+import * as _vega_commands_v1_StopOrdersCancellation from './../StopOrdersCancellation/decode.js'
+import * as _vega_commands_v1_StopOrdersSubmission from './../StopOrdersSubmission/decode.js'
 
 export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   const field$cancellations = []
   const field$amendments = []
   const field$submissions = []
+  const field$stopOrdersCancellation = []
+  const field$stopOrdersSubmission = []
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -24,11 +28,25 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
       case 3:
         field$submissions.push(_vega_commands_v1_OrderSubmission.decode(data))
         break
+
+      case 4:
+        field$stopOrdersCancellation.push(
+          _vega_commands_v1_StopOrdersCancellation.decode(data)
+        )
+        break
+
+      case 5:
+        field$stopOrdersSubmission.push(
+          _vega_commands_v1_StopOrdersSubmission.decode(data)
+        )
+        break
     }
   }
   return {
     cancellations: field$cancellations,
     amendments: field$amendments,
-    submissions: field$submissions
+    submissions: field$submissions,
+    stopOrdersCancellation: field$stopOrdersCancellation,
+    stopOrdersSubmission: field$stopOrdersSubmission
   }
 }

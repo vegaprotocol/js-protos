@@ -16,6 +16,8 @@ import * as _vega_commands_v1_Transfer from './../Transfer/decode.js'
 import * as _vega_commands_v1_CancelTransfer from './../CancelTransfer/decode.js'
 import * as _vega_commands_v1_AnnounceNode from './../AnnounceNode/decode.js'
 import * as _vega_commands_v1_BatchMarketInstructions from './../BatchMarketInstructions/decode.js'
+import * as _vega_commands_v1_StopOrdersSubmission from './../StopOrdersSubmission/decode.js'
+import * as _vega_commands_v1_StopOrdersCancellation from './../StopOrdersCancellation/decode.js'
 import * as _vega_commands_v1_NodeVote from './../NodeVote/decode.js'
 import * as _vega_commands_v1_NodeSignature from './../NodeSignature/decode.js'
 import * as _vega_commands_v1_ChainEvent from './../ChainEvent/decode.js'
@@ -131,6 +133,20 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
         field$command = {
           batchMarketInstructions:
             _vega_commands_v1_BatchMarketInstructions.decode(data)
+        }
+        break
+
+      case 1016:
+        field$command = {
+          stopOrdersSubmission:
+            _vega_commands_v1_StopOrdersSubmission.decode(data)
+        }
+        break
+
+      case 1017:
+        field$command = {
+          stopOrdersCancellation:
+            _vega_commands_v1_StopOrdersCancellation.decode(data)
         }
         break
 

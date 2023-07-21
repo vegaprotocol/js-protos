@@ -8,16 +8,23 @@ import type { ERC20AssetLimitsUpdated } from './ERC20AssetLimitsUpdated'
 export * from './ERC20Event/encode.js'
 export * from './ERC20Event/decode.js'
 
-export type ERC20Event = {
-  index: bigint
-  block: bigint
-  action:
-    | { assetList: ERC20AssetList }
-    | { assetDelist: ERC20AssetDelist }
-    | { deposit: ERC20Deposit }
-    | { withdrawal: ERC20Withdrawal }
-    | { assetLimitsUpdated: ERC20AssetLimitsUpdated }
-    | { bridgeStopped: boolean }
-    | { bridgeResumed: boolean }
-    | null
-}
+export type OneofAction =
+  | {
+      action:
+        | { assetList: ERC20AssetList }
+        | { assetDelist: ERC20AssetDelist }
+        | { deposit: ERC20Deposit }
+        | { withdrawal: ERC20Withdrawal }
+        | { assetLimitsUpdated: ERC20AssetLimitsUpdated }
+        | { bridgeStopped: boolean }
+        | { bridgeResumed: boolean }
+        | null
+    }
+  | { assetList?: ERC20AssetList }
+  | { assetDelist?: ERC20AssetDelist }
+  | { deposit?: ERC20Deposit }
+  | { withdrawal?: ERC20Withdrawal }
+  | { assetLimitsUpdated?: ERC20AssetLimitsUpdated }
+  | { bridgeStopped?: boolean }
+  | { bridgeResumed?: boolean }
+export type ERC20Event = { index: bigint; block: bigint } & OneofAction

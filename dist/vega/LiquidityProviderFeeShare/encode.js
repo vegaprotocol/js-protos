@@ -10,6 +10,7 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.averageEntryValuation)
     writer.bytes(3, obj.averageEntryValuation, string)
   if (obj.averageScore) writer.bytes(4, obj.averageScore, string)
+  if (obj.virtualStake) writer.bytes(5, obj.virtualStake, string)
 
   return writer.concat(buf, byteOffset)
 }

@@ -3,8 +3,4 @@
 export * from './ErrorDetail/encode.js'
 export * from './ErrorDetail/decode.js'
 
-export type ErrorDetail = {
-  code: number
-  message: string
-  inner: string
-}
+export type ErrorDetail = { code: number; message: string; inner: string }

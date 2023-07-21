@@ -4,6 +4,4 @@ import type { Trade } from './Trade'
 export * from './TradeSet/encode.js'
 export * from './TradeSet/decode.js'
 
-export type TradeSet = {
-  trades: Trade[]
-}
+export type TradeSet = { trades: Trade[] }

@@ -7,6 +7,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$equityLikeShare = ''
   let field$averageEntryValuation = ''
   let field$averageScore = ''
+  let field$virtualStake = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -24,12 +25,17 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
       case 4:
         field$averageScore = string(data)
         break
+
+      case 5:
+        field$virtualStake = string(data)
+        break
     }
   }
   return {
     party: field$party,
     equityLikeShare: field$equityLikeShare,
     averageEntryValuation: field$averageEntryValuation,
-    averageScore: field$averageScore
+    averageScore: field$averageScore,
+    virtualStake: field$virtualStake
   }
 }

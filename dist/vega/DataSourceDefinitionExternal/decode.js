@@ -2,6 +2,7 @@
 import reader from 'protobuf-codec/decode/reader'
 
 import * as _vega_DataSourceSpecConfiguration from './../DataSourceSpecConfiguration/decode.js'
+import * as _vega_EthCallSpec from './../EthCallSpec/decode.js'
 
 export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$source_type = null
@@ -11,6 +12,10 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
         field$source_type = {
           oracle: _vega_DataSourceSpecConfiguration.decode(data)
         }
+        break
+
+      case 2:
+        field$source_type = { ethCall: _vega_EthCallSpec.decode(data) }
         break
     }
   }
