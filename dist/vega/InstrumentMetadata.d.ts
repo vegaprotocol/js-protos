@@ -3,6 +3,4 @@
 export * from './InstrumentMetadata/encode.js'
 export * from './InstrumentMetadata/decode.js'
 
-export type InstrumentMetadata = {
-  tags: string[]
-}
+export type InstrumentMetadata = { tags: string[] }

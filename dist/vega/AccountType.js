@@ -20,6 +20,9 @@ export const ACCOUNT_TYPE_REWARD_MAKER_PAID_FEES = 14
 export const ACCOUNT_TYPE_REWARD_MAKER_RECEIVED_FEES = 15
 export const ACCOUNT_TYPE_REWARD_LP_RECEIVED_FEES = 16
 export const ACCOUNT_TYPE_REWARD_MARKET_PROPOSERS = 17
+export const ACCOUNT_TYPE_HOLDING = 18
+export const ACCOUNT_TYPE_LP_LIQUIDITY_FEES = 19
+export const ACCOUNT_TYPE_LIQUIDITY_FEES_BONUS_DISTRIBUTION = 20
 
 const enumValues = new Map([
   [0, 'ACCOUNT_TYPE_UNSPECIFIED'],
@@ -38,7 +41,10 @@ const enumValues = new Map([
   [14, 'ACCOUNT_TYPE_REWARD_MAKER_PAID_FEES'],
   [15, 'ACCOUNT_TYPE_REWARD_MAKER_RECEIVED_FEES'],
   [16, 'ACCOUNT_TYPE_REWARD_LP_RECEIVED_FEES'],
-  [17, 'ACCOUNT_TYPE_REWARD_MARKET_PROPOSERS']
+  [17, 'ACCOUNT_TYPE_REWARD_MARKET_PROPOSERS'],
+  [18, 'ACCOUNT_TYPE_HOLDING'],
+  [19, 'ACCOUNT_TYPE_LP_LIQUIDITY_FEES'],
+  [20, 'ACCOUNT_TYPE_LIQUIDITY_FEES_BONUS_DISTRIBUTION']
 ])
 const enumNames = new Map([
   ['ACCOUNT_TYPE_UNSPECIFIED', 0],
@@ -57,7 +63,10 @@ const enumNames = new Map([
   ['ACCOUNT_TYPE_REWARD_MAKER_PAID_FEES', 14],
   ['ACCOUNT_TYPE_REWARD_MAKER_RECEIVED_FEES', 15],
   ['ACCOUNT_TYPE_REWARD_LP_RECEIVED_FEES', 16],
-  ['ACCOUNT_TYPE_REWARD_MARKET_PROPOSERS', 17]
+  ['ACCOUNT_TYPE_REWARD_MARKET_PROPOSERS', 17],
+  ['ACCOUNT_TYPE_HOLDING', 18],
+  ['ACCOUNT_TYPE_LP_LIQUIDITY_FEES', 19],
+  ['ACCOUNT_TYPE_LIQUIDITY_FEES_BONUS_DISTRIBUTION', 20]
 ])
 
 export function encode(value, buf, byteOffset = 0) {
@@ -78,7 +87,7 @@ export function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid AccountType value (' + value + ')')
 
-  if (0 <= value && value <= 17) return 1
+  if (0 <= value && value <= 20) return 1
 
   // enumerable max value in case of unknown value
   return 5

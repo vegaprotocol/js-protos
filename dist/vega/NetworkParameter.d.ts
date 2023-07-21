@@ -3,7 +3,4 @@
 export * from './NetworkParameter/encode.js'
 export * from './NetworkParameter/decode.js'
 
-export type NetworkParameter = {
-  key: string
-  value: string
-}
+export type NetworkParameter = { key: string; value: string }

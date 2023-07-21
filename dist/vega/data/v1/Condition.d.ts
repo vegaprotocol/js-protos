@@ -5,7 +5,4 @@ export * from './Condition/encode.js'
 export * from './Condition/decode.js'
 export * as Operator from './Condition/Operator.js'
 
-export type Condition = {
-  operator: Operator
-  value: string
-}
+export type Condition = { operator: Operator; value: string }

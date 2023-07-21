@@ -5,6 +5,7 @@ import * as _vega_BuiltinAssetEvent from './../../../BuiltinAssetEvent/encode.js
 import * as _vega_ERC20Event from './../../../ERC20Event/encode.js'
 import * as _vega_StakingEvent from './../../../StakingEvent/encode.js'
 import * as _vega_ERC20MultiSigEvent from './../../../ERC20MultiSigEvent/encode.js'
+import * as _vega_EthContractCallEvent from './../../../EthContractCallEvent/encode.js'
 
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -29,6 +30,13 @@ export function encode(obj = {}, buf, byteOffset = 0) {
       1006,
       _vega_ERC20MultiSigEvent.encode(
         obj.event?.erc20Multisig ?? obj.erc20Multisig
+      )
+    )
+  if (obj.event?.contractCall ?? obj.contractCall)
+    writer.bytes(
+      1007,
+      _vega_EthContractCallEvent.encode(
+        obj.event?.contractCall ?? obj.contractCall
       )
     )
 

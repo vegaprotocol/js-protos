@@ -7,6 +7,10 @@ import * as _vega_UpdateNetworkParameter from './../UpdateNetworkParameter/decod
 import * as _vega_NewAsset from './../NewAsset/decode.js'
 import * as _vega_NewFreeform from './../NewFreeform/decode.js'
 import * as _vega_UpdateAsset from './../UpdateAsset/decode.js'
+import * as _vega_NewSpotMarket from './../NewSpotMarket/decode.js'
+import * as _vega_UpdateSpotMarket from './../UpdateSpotMarket/decode.js'
+import * as _vega_NewTransfer from './../NewTransfer/decode.js'
+import * as _vega_CancelTransfer from './../CancelTransfer/decode.js'
 
 export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$closingTimestamp = 0n
@@ -51,6 +55,22 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
 
       case 106:
         field$change = { updateAsset: _vega_UpdateAsset.decode(data) }
+        break
+
+      case 107:
+        field$change = { newSpotMarket: _vega_NewSpotMarket.decode(data) }
+        break
+
+      case 108:
+        field$change = { updateSpotMarket: _vega_UpdateSpotMarket.decode(data) }
+        break
+
+      case 109:
+        field$change = { newTransfer: _vega_NewTransfer.decode(data) }
+        break
+
+      case 110:
+        field$change = { cancelTransfer: _vega_CancelTransfer.decode(data) }
         break
     }
   }

@@ -4,6 +4,8 @@ import Writer from 'protobuf-codec/encode/writer'
 import * as _vega_commands_v1_OrderCancellation from './../OrderCancellation/encode.js'
 import * as _vega_commands_v1_OrderAmendment from './../OrderAmendment/encode.js'
 import * as _vega_commands_v1_OrderSubmission from './../OrderSubmission/encode.js'
+import * as _vega_commands_v1_StopOrdersCancellation from './../StopOrdersCancellation/encode.js'
+import * as _vega_commands_v1_StopOrdersSubmission from './../StopOrdersSubmission/encode.js'
 
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -19,6 +21,14 @@ export function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.submissions?.length)
     obj.submissions.forEach((v) =>
       writer.bytes(3, _vega_commands_v1_OrderSubmission.encode(v))
+    )
+  if (obj.stopOrdersCancellation?.length)
+    obj.stopOrdersCancellation.forEach((v) =>
+      writer.bytes(4, _vega_commands_v1_StopOrdersCancellation.encode(v))
+    )
+  if (obj.stopOrdersSubmission?.length)
+    obj.stopOrdersSubmission.forEach((v) =>
+      writer.bytes(5, _vega_commands_v1_StopOrdersSubmission.encode(v))
     )
 
   return writer.concat(buf, byteOffset)

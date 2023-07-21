@@ -5,20 +5,41 @@ import type { UpdateNetworkParameter } from './UpdateNetworkParameter'
 import type { NewAsset } from './NewAsset'
 import type { NewFreeform } from './NewFreeform'
 import type { UpdateAsset } from './UpdateAsset'
+import type { NewSpotMarket } from './NewSpotMarket'
+import type { UpdateSpotMarket } from './UpdateSpotMarket'
+import type { NewTransfer } from './NewTransfer'
+import type { CancelTransfer } from './CancelTransfer'
 
 export * from './ProposalTerms/encode.js'
 export * from './ProposalTerms/decode.js'
 
+export type OneofChange =
+  | {
+      change:
+        | { updateMarket: UpdateMarket }
+        | { newMarket: NewMarket }
+        | { updateNetworkParameter: UpdateNetworkParameter }
+        | { newAsset: NewAsset }
+        | { newFreeform: NewFreeform }
+        | { updateAsset: UpdateAsset }
+        | { newSpotMarket: NewSpotMarket }
+        | { updateSpotMarket: UpdateSpotMarket }
+        | { newTransfer: NewTransfer }
+        | { cancelTransfer: CancelTransfer }
+        | null
+    }
+  | { updateMarket?: UpdateMarket }
+  | { newMarket?: NewMarket }
+  | { updateNetworkParameter?: UpdateNetworkParameter }
+  | { newAsset?: NewAsset }
+  | { newFreeform?: NewFreeform }
+  | { updateAsset?: UpdateAsset }
+  | { newSpotMarket?: NewSpotMarket }
+  | { updateSpotMarket?: UpdateSpotMarket }
+  | { newTransfer?: NewTransfer }
+  | { cancelTransfer?: CancelTransfer }
 export type ProposalTerms = {
   closingTimestamp: bigint
   enactmentTimestamp: bigint
   validationTimestamp: bigint
-  change:
-    | { updateMarket: UpdateMarket }
-    | { newMarket: NewMarket }
-    | { updateNetworkParameter: UpdateNetworkParameter }
-    | { newAsset: NewAsset }
-    | { newFreeform: NewFreeform }
-    | { updateAsset: UpdateAsset }
-    | null
-}
+} & OneofChange

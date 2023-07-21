@@ -6,12 +6,15 @@ import type { ERC20ThresholdSet } from './ERC20ThresholdSet'
 export * from './ERC20MultiSigEvent/encode.js'
 export * from './ERC20MultiSigEvent/decode.js'
 
-export type ERC20MultiSigEvent = {
-  index: bigint
-  block: bigint
-  action:
-    | { signerAdded: ERC20SignerAdded }
-    | { signerRemoved: ERC20SignerRemoved }
-    | { thresholdSet: ERC20ThresholdSet }
-    | null
-}
+export type OneofAction =
+  | {
+      action:
+        | { signerAdded: ERC20SignerAdded }
+        | { signerRemoved: ERC20SignerRemoved }
+        | { thresholdSet: ERC20ThresholdSet }
+        | null
+    }
+  | { signerAdded?: ERC20SignerAdded }
+  | { signerRemoved?: ERC20SignerRemoved }
+  | { thresholdSet?: ERC20ThresholdSet }
+export type ERC20MultiSigEvent = { index: bigint; block: bigint } & OneofAction

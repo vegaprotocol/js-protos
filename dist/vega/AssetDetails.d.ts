@@ -5,10 +5,13 @@ import type { ERC20 } from './ERC20'
 export * from './AssetDetails/encode.js'
 export * from './AssetDetails/decode.js'
 
+export type OneofSource =
+  | { source: { builtinAsset: BuiltinAsset } | { erc20: ERC20 } | null }
+  | { builtinAsset?: BuiltinAsset }
+  | { erc20?: ERC20 }
 export type AssetDetails = {
   name: string
   symbol: string
   decimals: bigint
   quantum: string
-  source: { builtinAsset: BuiltinAsset } | { erc20: ERC20 } | null
-}
+} & OneofSource

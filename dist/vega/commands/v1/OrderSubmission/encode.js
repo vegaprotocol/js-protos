@@ -5,6 +5,7 @@ import * as _vega_Side from './../../../Side.js'
 import * as _vega_Order_TimeInForce from './../../../Order/TimeInForce.js'
 import * as _vega_Order_Type from './../../../Order/Type.js'
 import * as _vega_PeggedOrder from './../../../PeggedOrder/encode.js'
+import * as _vega_commands_v1_IcebergOpts from './../IcebergOpts/encode.js'
 
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -22,6 +23,8 @@ export function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(9, _vega_PeggedOrder.encode(obj.peggedOrder))
   if (obj.postOnly) writer.varint(10, obj.postOnly, bool)
   if (obj.reduceOnly) writer.varint(11, obj.reduceOnly, bool)
+  if (obj.icebergOpts)
+    writer.bytes(12, _vega_commands_v1_IcebergOpts.encode(obj.icebergOpts))
 
   return writer.concat(buf, byteOffset)
 }

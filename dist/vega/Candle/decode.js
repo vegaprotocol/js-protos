@@ -12,6 +12,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$close = ''
   let field$volume = 0n
   let field$interval = 0
+  let field$notional = 0n
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -45,6 +46,10 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
       case 8:
         field$interval = _vega_Interval.decode(data)
         break
+
+      case 9:
+        field$notional = uint64(data)
+        break
     }
   }
   return {
@@ -55,6 +60,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
     open: field$open,
     close: field$close,
     volume: field$volume,
-    interval: field$interval
+    interval: field$interval,
+    notional: field$notional
   }
 }

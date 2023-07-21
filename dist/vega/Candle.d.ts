@@ -13,4 +13,5 @@ export type Candle = {
   close: string
   volume: bigint
   interval: Interval
+  notional: bigint
 }

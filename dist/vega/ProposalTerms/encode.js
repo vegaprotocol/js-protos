@@ -7,6 +7,10 @@ import * as _vega_UpdateNetworkParameter from './../UpdateNetworkParameter/encod
 import * as _vega_NewAsset from './../NewAsset/encode.js'
 import * as _vega_NewFreeform from './../NewFreeform/encode.js'
 import * as _vega_UpdateAsset from './../UpdateAsset/encode.js'
+import * as _vega_NewSpotMarket from './../NewSpotMarket/encode.js'
+import * as _vega_UpdateSpotMarket from './../UpdateSpotMarket/encode.js'
+import * as _vega_NewTransfer from './../NewTransfer/encode.js'
+import * as _vega_CancelTransfer from './../CancelTransfer/encode.js'
 
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -46,6 +50,30 @@ export function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(
       106,
       _vega_UpdateAsset.encode(obj.change?.updateAsset ?? obj.updateAsset)
+    )
+  if (obj.change?.newSpotMarket ?? obj.newSpotMarket)
+    writer.bytes(
+      107,
+      _vega_NewSpotMarket.encode(obj.change?.newSpotMarket ?? obj.newSpotMarket)
+    )
+  if (obj.change?.updateSpotMarket ?? obj.updateSpotMarket)
+    writer.bytes(
+      108,
+      _vega_UpdateSpotMarket.encode(
+        obj.change?.updateSpotMarket ?? obj.updateSpotMarket
+      )
+    )
+  if (obj.change?.newTransfer ?? obj.newTransfer)
+    writer.bytes(
+      109,
+      _vega_NewTransfer.encode(obj.change?.newTransfer ?? obj.newTransfer)
+    )
+  if (obj.change?.cancelTransfer ?? obj.cancelTransfer)
+    writer.bytes(
+      110,
+      _vega_CancelTransfer.encode(
+        obj.change?.cancelTransfer ?? obj.cancelTransfer
+      )
     )
 
   return writer.concat(buf, byteOffset)

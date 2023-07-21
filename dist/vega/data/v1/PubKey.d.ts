@@ -3,6 +3,4 @@
 export * from './PubKey/encode.js'
 export * from './PubKey/decode.js'
 
-export type PubKey = {
-  key: string
-}
+export type PubKey = { key: string }

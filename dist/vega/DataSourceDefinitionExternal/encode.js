@@ -2,6 +2,7 @@
 import Writer from 'protobuf-codec/encode/writer'
 
 import * as _vega_DataSourceSpecConfiguration from './../DataSourceSpecConfiguration/encode.js'
+import * as _vega_EthCallSpec from './../EthCallSpec/encode.js'
 
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -12,6 +13,11 @@ export function encode(obj = {}, buf, byteOffset = 0) {
       _vega_DataSourceSpecConfiguration.encode(
         obj.source_type?.oracle ?? obj.oracle
       )
+    )
+  if (obj.source_type?.ethCall ?? obj.ethCall)
+    writer.bytes(
+      2,
+      _vega_EthCallSpec.encode(obj.source_type?.ethCall ?? obj.ethCall)
     )
 
   return writer.concat(buf, byteOffset)

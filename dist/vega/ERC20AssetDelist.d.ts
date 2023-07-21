@@ -3,6 +3,4 @@
 export * from './ERC20AssetDelist/encode.js'
 export * from './ERC20AssetDelist/decode.js'
 
-export type ERC20AssetDelist = {
-  vegaAssetId: string
-}
+export type ERC20AssetDelist = { vegaAssetId: string }

@@ -5,6 +5,7 @@ import * as _vega_Side from './../../../Side.js'
 import * as _vega_Order_TimeInForce from './../../../Order/TimeInForce.js'
 import * as _vega_Order_Type from './../../../Order/Type.js'
 import * as _vega_PeggedOrder from './../../../PeggedOrder/decode.js'
+import * as _vega_commands_v1_IcebergOpts from './../IcebergOpts/decode.js'
 
 export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$marketId = ''
@@ -18,6 +19,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$peggedOrder = {}
   let field$postOnly = false
   let field$reduceOnly = false
+  let field$icebergOpts = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -63,6 +65,10 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
       case 11:
         field$reduceOnly = bool(data)
         break
+
+      case 12:
+        field$icebergOpts = _vega_commands_v1_IcebergOpts.decode(data)
+        break
     }
   }
   return {
@@ -76,6 +82,7 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
     reference: field$reference,
     peggedOrder: field$peggedOrder,
     postOnly: field$postOnly,
-    reduceOnly: field$reduceOnly
+    reduceOnly: field$reduceOnly,
+    icebergOpts: field$icebergOpts
   }
 }

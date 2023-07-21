@@ -3,7 +3,4 @@
 export * from './ProposalRationale/encode.js'
 export * from './ProposalRationale/decode.js'
 
-export type ProposalRationale = {
-  description: string
-  title: string
-}
+export type ProposalRationale = { description: string; title: string }

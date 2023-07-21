@@ -4,7 +4,4 @@ import type { Value } from './../../Vote/Value'
 export * from './VoteSubmission/encode.js'
 export * from './VoteSubmission/decode.js'
 
-export type VoteSubmission = {
-  proposalId: string
-  value: Value
-}
+export type VoteSubmission = { proposalId: string; value: Value }

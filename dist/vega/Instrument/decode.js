@@ -3,6 +3,7 @@ import reader from 'protobuf-codec/decode/reader'
 import { string } from 'protobuf-codec/decode/types'
 import * as _vega_InstrumentMetadata from './../InstrumentMetadata/decode.js'
 import * as _vega_Future from './../Future/decode.js'
+import * as _vega_Spot from './../Spot/decode.js'
 
 export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
   let field$id = ''
@@ -30,6 +31,10 @@ export function decode(buf, byteOffset = 0, byteLength = buf.byteLength) {
 
       case 100:
         field$product = { future: _vega_Future.decode(data) }
+        break
+
+      case 101:
+        field$product = { spot: _vega_Spot.decode(data) }
         break
     }
   }

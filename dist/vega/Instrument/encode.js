@@ -3,6 +3,7 @@ import Writer from 'protobuf-codec/encode/writer'
 import { string } from 'protobuf-codec/encode/types'
 import * as _vega_InstrumentMetadata from './../InstrumentMetadata/encode.js'
 import * as _vega_Future from './../Future/encode.js'
+import * as _vega_Spot from './../Spot/encode.js'
 
 export function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -15,6 +16,8 @@ export function encode(obj = {}, buf, byteOffset = 0) {
 
   if (obj.product?.future ?? obj.future)
     writer.bytes(100, _vega_Future.encode(obj.product?.future ?? obj.future))
+  if (obj.product?.spot ?? obj.spot)
+    writer.bytes(101, _vega_Spot.encode(obj.product?.spot ?? obj.spot))
 
   return writer.concat(buf, byteOffset)
 }
