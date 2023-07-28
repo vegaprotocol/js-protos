@@ -6,11 +6,21 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*.js",
-    "./*.js": "./dist/*.js"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./cjs/index.cjs"
+    },
+    "./*": {
+      "import": "./dist/*.js",
+      "require": "./cjs/*.cjs"
+    },
+    "./*.js": {
+      "import": "./dist/*.js",
+      "require": "./cjs/*.cjs"
+    }
   },
   "scripts": {
+    "bundle": "rollup -c",
     "test": "true"
   },
   "repository": {
@@ -28,10 +38,14 @@
     "type-fest": "^3.6.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@vegaprotocol/crypto": "^0.5.1",
     "esbuild": "^0.17.8",
     "got": "^12.4.1",
     "protoc-plugin-js": "^0.3.0",
+    "rollup": "^3.10.1",
     "typescript": "^4.7.4"
   }
 }
