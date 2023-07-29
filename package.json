@@ -1,6 +1,6 @@
 {
   "name": "@vegaprotocol/protos",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Protocol Buffer messages for Vega in Javascript",
   "scripts": {
     "test": "true"
