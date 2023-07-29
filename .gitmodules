@@ -1,4 +1,4 @@
 [submodule "vega"]
-	path = vega
+	path = vendor/vega
 	url = git@github.com:vegaprotocol/vega.git
-	branch = v0.68.0
+	branch = tags/v0.72.6

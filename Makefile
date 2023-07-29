@@ -1,16 +1,15 @@
-.PHONY: all clean
-dist: PROTOS = $(shell find vega/protos/sources -type f -name "*.proto")
-dist: vega $(PROTOS)
-	mkdir -p dist
+.PHONY: all dist clean
+dist: PROTOS = $(shell find vendor/vega/protos/sources -type f -name "*.proto")
+dist: vendor/vega $(PROTOS)
 	protoc \
 		--plugin=protoc-gen-js="$$(npm root)/.bin/protoc-plugin-js" \
-		--js_out="./dist" \
-		-I "vega/protos/sources" \
+		--js_out="." \
+		-I "vendor/vega/protos/sources" \
 		vega/commands/v1/transaction.proto
 
-vega: .gitmodules
+vendor/vega: .gitmodules
 	git submodule init
 	git submodule update --depth 1
 
 clean:
-	rm -r vega dist
+	rm -r google.d.ts google.js index.js index.d.ts messages.json vega.d.ts vega.js vendor/vega vega google
