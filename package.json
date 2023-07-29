@@ -4,6 +4,11 @@
   "description": "Protocol Buffer messages for Vega in Javascript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js",
+    "./*.js": "./dist/*.js"
+  },
   "scripts": {
     "test": "true"
   },
