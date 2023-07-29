@@ -3,4 +3,6 @@
 export * from './Party/encode.js'
 export * from './Party/decode.js'
 
-export type Party = { id: string }
+export type Party = {
+  id: string
+}

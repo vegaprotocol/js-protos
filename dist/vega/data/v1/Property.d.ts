@@ -3,4 +3,7 @@
 export * from './Property/encode.js'
 export * from './Property/decode.js'
 
-export type Property = { name: string; value: string }
+export type Property = {
+  name: string
+  value: string
+}

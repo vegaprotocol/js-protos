@@ -4,4 +4,6 @@ import type { CancelTransferConfiguration } from './CancelTransferConfiguration'
 export * from './CancelTransfer/encode.js'
 export * from './CancelTransfer/decode.js'
 
-export type CancelTransfer = { changes: CancelTransferConfiguration }
+export type CancelTransfer = {
+  changes: CancelTransferConfiguration
+}

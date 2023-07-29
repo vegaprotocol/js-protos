@@ -6,15 +6,10 @@ import type { MatrixValue } from './MatrixValue'
 export * from './StateVarValue/encode.js'
 export * from './StateVarValue/decode.js'
 
-export type OneofValue =
-  | {
-      value:
-        | { scalarVal: ScalarValue }
-        | { vectorVal: VectorValue }
-        | { matrixVal: MatrixValue }
-        | null
-    }
-  | { scalarVal?: ScalarValue }
-  | { vectorVal?: VectorValue }
-  | { matrixVal?: MatrixValue }
-export type StateVarValue = {} & OneofValue
+export type StateVarValue = {
+  value:
+    | { scalarVal: ScalarValue }
+    | { vectorVal: VectorValue }
+    | { matrixVal: MatrixValue }
+    | null
+}

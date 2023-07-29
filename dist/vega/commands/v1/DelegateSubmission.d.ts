@@ -3,4 +3,7 @@
 export * from './DelegateSubmission/encode.js'
 export * from './DelegateSubmission/decode.js'
 
-export type DelegateSubmission = { nodeId: string; amount: string }
+export type DelegateSubmission = {
+  nodeId: string
+  amount: string
+}

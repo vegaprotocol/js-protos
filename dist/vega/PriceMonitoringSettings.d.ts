@@ -4,4 +4,6 @@ import type { PriceMonitoringParameters } from './PriceMonitoringParameters'
 export * from './PriceMonitoringSettings/encode.js'
 export * from './PriceMonitoringSettings/decode.js'
 
-export type PriceMonitoringSettings = { parameters: PriceMonitoringParameters }
+export type PriceMonitoringSettings = {
+  parameters: PriceMonitoringParameters
+}

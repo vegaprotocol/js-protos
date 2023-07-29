@@ -5,13 +5,9 @@ import type { EthCallSpec } from './EthCallSpec'
 export * from './DataSourceDefinitionExternal/encode.js'
 export * from './DataSourceDefinitionExternal/decode.js'
 
-export type OneofSource_type =
-  | {
-      source_type:
-        | { oracle: DataSourceSpecConfiguration }
-        | { ethCall: EthCallSpec }
-        | null
-    }
-  | { oracle?: DataSourceSpecConfiguration }
-  | { ethCall?: EthCallSpec }
-export type DataSourceDefinitionExternal = {} & OneofSource_type
+export type DataSourceDefinitionExternal = {
+  source_type:
+    | { oracle: DataSourceSpecConfiguration }
+    | { ethCall: EthCallSpec }
+    | null
+}

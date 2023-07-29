@@ -3,4 +3,6 @@
 export * from './VectorValue/encode.js'
 export * from './VectorValue/decode.js'
 
-export type VectorValue = { value: string[] }
+export type VectorValue = {
+  value: string[]
+}

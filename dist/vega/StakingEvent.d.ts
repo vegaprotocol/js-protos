@@ -6,15 +6,12 @@ import type { StakeTotalSupply } from './StakeTotalSupply'
 export * from './StakingEvent/encode.js'
 export * from './StakingEvent/decode.js'
 
-export type OneofAction =
-  | {
-      action:
-        | { stakeDeposited: StakeDeposited }
-        | { stakeRemoved: StakeRemoved }
-        | { totalSupply: StakeTotalSupply }
-        | null
-    }
-  | { stakeDeposited?: StakeDeposited }
-  | { stakeRemoved?: StakeRemoved }
-  | { totalSupply?: StakeTotalSupply }
-export type StakingEvent = { index: bigint; block: bigint } & OneofAction
+export type StakingEvent = {
+  index: bigint
+  block: bigint
+  action:
+    | { stakeDeposited: StakeDeposited }
+    | { stakeRemoved: StakeRemoved }
+    | { totalSupply: StakeTotalSupply }
+    | null
+}

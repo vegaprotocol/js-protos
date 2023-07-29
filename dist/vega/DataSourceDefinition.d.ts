@@ -5,13 +5,9 @@ import type { DataSourceDefinitionExternal } from './DataSourceDefinitionExterna
 export * from './DataSourceDefinition/encode.js'
 export * from './DataSourceDefinition/decode.js'
 
-export type OneofSource_type =
-  | {
-      source_type:
-        | { internal: DataSourceDefinitionInternal }
-        | { external: DataSourceDefinitionExternal }
-        | null
-    }
-  | { internal?: DataSourceDefinitionInternal }
-  | { external?: DataSourceDefinitionExternal }
-export type DataSourceDefinition = {} & OneofSource_type
+export type DataSourceDefinition = {
+  source_type:
+    | { internal: DataSourceDefinitionInternal }
+    | { external: DataSourceDefinitionExternal }
+    | null
+}

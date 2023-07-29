@@ -5,12 +5,9 @@ import type { ExpiryStrategy } from './../../StopOrder/ExpiryStrategy'
 export * from './StopOrderSetup/encode.js'
 export * from './StopOrderSetup/decode.js'
 
-export type OneofTrigger =
-  | { trigger: { price: string } | { trailingPercentOffset: string } | null }
-  | { price?: string }
-  | { trailingPercentOffset?: string }
 export type StopOrderSetup = {
   orderSubmission: OrderSubmission
   expiresAt: bigint | null
   expiryStrategy: ExpiryStrategy | null
-} & OneofTrigger
+  trigger: { price: string } | { trailingPercentOffset: string } | null
+}

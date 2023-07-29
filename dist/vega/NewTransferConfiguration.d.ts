@@ -7,12 +7,6 @@ import type { RecurringTransfer } from './RecurringTransfer'
 export * from './NewTransferConfiguration/encode.js'
 export * from './NewTransferConfiguration/decode.js'
 
-export type OneofKind =
-  | {
-      kind: { oneOff: OneOffTransfer } | { recurring: RecurringTransfer } | null
-    }
-  | { oneOff?: OneOffTransfer }
-  | { recurring?: RecurringTransfer }
 export type NewTransferConfiguration = {
   sourceType: AccountType
   source: string
@@ -22,4 +16,5 @@ export type NewTransferConfiguration = {
   fractionOfBalance: string
   destinationType: AccountType
   destination: string
-} & OneofKind
+  kind: { oneOff: OneOffTransfer } | { recurring: RecurringTransfer } | null
+}

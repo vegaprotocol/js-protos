@@ -4,7 +4,6 @@ import type { EthTimeTrigger } from './EthTimeTrigger'
 export * from './EthCallTrigger/encode.js'
 export * from './EthCallTrigger/decode.js'
 
-export type OneofTrigger =
-  | { trigger: { timeTrigger: EthTimeTrigger } | null }
-  | { timeTrigger?: EthTimeTrigger }
-export type EthCallTrigger = {} & OneofTrigger
+export type EthCallTrigger = {
+  trigger: { timeTrigger: EthTimeTrigger } | null
+}

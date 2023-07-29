@@ -4,4 +4,7 @@ import type { Value } from './../Value'
 export * from './FieldsEntry/encode.js'
 export * from './FieldsEntry/decode.js'
 
-export type FieldsEntry = { key: string; value: Value }
+export type FieldsEntry = {
+  key: string
+  value: Value
+}

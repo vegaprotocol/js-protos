@@ -3,4 +3,6 @@
 export * from './ETHAddress/encode.js'
 export * from './ETHAddress/decode.js'
 
-export type ETHAddress = { address: string }
+export type ETHAddress = {
+  address: string
+}

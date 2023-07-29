@@ -3,4 +3,7 @@
 export * from './FinancialAmount/encode.js'
 export * from './FinancialAmount/decode.js'
 
-export type FinancialAmount = { amount: string; asset: string }
+export type FinancialAmount = {
+  amount: string
+  asset: string
+}

@@ -3,4 +3,8 @@
 export * from './RewardSummary/encode.js'
 export * from './RewardSummary/decode.js'
 
-export type RewardSummary = { assetId: string; partyId: string; amount: string }
+export type RewardSummary = {
+  assetId: string
+  partyId: string
+  amount: string
+}

@@ -4,7 +4,6 @@ import type { Erc20WithdrawExt } from './Erc20WithdrawExt'
 export * from './WithdrawExt/encode.js'
 export * from './WithdrawExt/decode.js'
 
-export type OneofExt =
-  | { ext: { erc20: Erc20WithdrawExt } | null }
-  | { erc20?: Erc20WithdrawExt }
-export type WithdrawExt = {} & OneofExt
+export type WithdrawExt = {
+  ext: { erc20: Erc20WithdrawExt } | null
+}

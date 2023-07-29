@@ -7,17 +7,12 @@ import type { LogNormalRiskModel } from './LogNormalRiskModel'
 export * from './UpdateSpotMarketConfiguration/encode.js'
 export * from './UpdateSpotMarketConfiguration/decode.js'
 
-export type OneofRisk_parameters =
-  | {
-      risk_parameters:
-        | { simple: SimpleModelParams }
-        | { logNormal: LogNormalRiskModel }
-        | null
-    }
-  | { simple?: SimpleModelParams }
-  | { logNormal?: LogNormalRiskModel }
 export type UpdateSpotMarketConfiguration = {
   metadata: string[]
   priceMonitoringParameters: PriceMonitoringParameters
   targetStakeParameters: TargetStakeParameters
-} & OneofRisk_parameters
+  risk_parameters:
+    | { simple: SimpleModelParams }
+    | { logNormal: LogNormalRiskModel }
+    | null
+}

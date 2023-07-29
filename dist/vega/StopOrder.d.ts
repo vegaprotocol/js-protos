@@ -9,10 +9,6 @@ export * as ExpiryStrategy from './StopOrder/ExpiryStrategy.js'
 export * as TriggerDirection from './StopOrder/TriggerDirection.js'
 export * as Status from './StopOrder/Status.js'
 
-export type OneofTrigger =
-  | { trigger: { price: string } | { trailingPercentOffset: string } | null }
-  | { price?: string }
-  | { trailingPercentOffset?: string }
 export type StopOrder = {
   id: string
   ocoLinkId: string | null
@@ -25,4 +21,5 @@ export type StopOrder = {
   orderId: string
   partyId: string
   marketId: string
-} & OneofTrigger
+  trigger: { price: string } | { trailingPercentOffset: string } | null
+}

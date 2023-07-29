@@ -3,4 +3,6 @@
 export * from './ScalarValue/encode.js'
 export * from './ScalarValue/decode.js'
 
-export type ScalarValue = { value: string }
+export type ScalarValue = {
+  value: string
+}

@@ -30,63 +30,36 @@ import type { OracleDataSubmission } from './OracleDataSubmission'
 export * from './InputData/encode.js'
 export * from './InputData/decode.js'
 
-export type OneofCommand =
-  | {
-      command:
-        | { orderSubmission: OrderSubmission }
-        | { orderCancellation: OrderCancellation }
-        | { orderAmendment: OrderAmendment }
-        | { withdrawSubmission: WithdrawSubmission }
-        | { proposalSubmission: ProposalSubmission }
-        | { voteSubmission: VoteSubmission }
-        | { liquidityProvisionSubmission: LiquidityProvisionSubmission }
-        | { delegateSubmission: DelegateSubmission }
-        | { undelegateSubmission: UndelegateSubmission }
-        | { liquidityProvisionCancellation: LiquidityProvisionCancellation }
-        | { liquidityProvisionAmendment: LiquidityProvisionAmendment }
-        | { transfer: Transfer }
-        | { cancelTransfer: CancelTransfer }
-        | { announceNode: AnnounceNode }
-        | { batchMarketInstructions: BatchMarketInstructions }
-        | { stopOrdersSubmission: StopOrdersSubmission }
-        | { stopOrdersCancellation: StopOrdersCancellation }
-        | { nodeVote: NodeVote }
-        | { nodeSignature: NodeSignature }
-        | { chainEvent: ChainEvent }
-        | { keyRotateSubmission: KeyRotateSubmission }
-        | { stateVariableProposal: StateVariableProposal }
-        | { validatorHeartbeat: ValidatorHeartbeat }
-        | { ethereumKeyRotateSubmission: EthereumKeyRotateSubmission }
-        | { protocolUpgradeProposal: ProtocolUpgradeProposal }
-        | { issueSignatures: IssueSignatures }
-        | { oracleDataSubmission: OracleDataSubmission }
-        | null
-    }
-  | { orderSubmission?: OrderSubmission }
-  | { orderCancellation?: OrderCancellation }
-  | { orderAmendment?: OrderAmendment }
-  | { withdrawSubmission?: WithdrawSubmission }
-  | { proposalSubmission?: ProposalSubmission }
-  | { voteSubmission?: VoteSubmission }
-  | { liquidityProvisionSubmission?: LiquidityProvisionSubmission }
-  | { delegateSubmission?: DelegateSubmission }
-  | { undelegateSubmission?: UndelegateSubmission }
-  | { liquidityProvisionCancellation?: LiquidityProvisionCancellation }
-  | { liquidityProvisionAmendment?: LiquidityProvisionAmendment }
-  | { transfer?: Transfer }
-  | { cancelTransfer?: CancelTransfer }
-  | { announceNode?: AnnounceNode }
-  | { batchMarketInstructions?: BatchMarketInstructions }
-  | { stopOrdersSubmission?: StopOrdersSubmission }
-  | { stopOrdersCancellation?: StopOrdersCancellation }
-  | { nodeVote?: NodeVote }
-  | { nodeSignature?: NodeSignature }
-  | { chainEvent?: ChainEvent }
-  | { keyRotateSubmission?: KeyRotateSubmission }
-  | { stateVariableProposal?: StateVariableProposal }
-  | { validatorHeartbeat?: ValidatorHeartbeat }
-  | { ethereumKeyRotateSubmission?: EthereumKeyRotateSubmission }
-  | { protocolUpgradeProposal?: ProtocolUpgradeProposal }
-  | { issueSignatures?: IssueSignatures }
-  | { oracleDataSubmission?: OracleDataSubmission }
-export type InputData = { nonce: bigint; blockHeight: bigint } & OneofCommand
+export type InputData = {
+  nonce: bigint
+  blockHeight: bigint
+  command:
+    | { orderSubmission: OrderSubmission }
+    | { orderCancellation: OrderCancellation }
+    | { orderAmendment: OrderAmendment }
+    | { withdrawSubmission: WithdrawSubmission }
+    | { proposalSubmission: ProposalSubmission }
+    | { voteSubmission: VoteSubmission }
+    | { liquidityProvisionSubmission: LiquidityProvisionSubmission }
+    | { delegateSubmission: DelegateSubmission }
+    | { undelegateSubmission: UndelegateSubmission }
+    | { liquidityProvisionCancellation: LiquidityProvisionCancellation }
+    | { liquidityProvisionAmendment: LiquidityProvisionAmendment }
+    | { transfer: Transfer }
+    | { cancelTransfer: CancelTransfer }
+    | { announceNode: AnnounceNode }
+    | { batchMarketInstructions: BatchMarketInstructions }
+    | { stopOrdersSubmission: StopOrdersSubmission }
+    | { stopOrdersCancellation: StopOrdersCancellation }
+    | { nodeVote: NodeVote }
+    | { nodeSignature: NodeSignature }
+    | { chainEvent: ChainEvent }
+    | { keyRotateSubmission: KeyRotateSubmission }
+    | { stateVariableProposal: StateVariableProposal }
+    | { validatorHeartbeat: ValidatorHeartbeat }
+    | { ethereumKeyRotateSubmission: EthereumKeyRotateSubmission }
+    | { protocolUpgradeProposal: ProtocolUpgradeProposal }
+    | { issueSignatures: IssueSignatures }
+    | { oracleDataSubmission: OracleDataSubmission }
+    | null
+}

@@ -4,4 +4,6 @@ import type { FeeFactors } from './FeeFactors'
 export * from './Fees/encode.js'
 export * from './Fees/decode.js'
 
-export type Fees = { factors: FeeFactors }
+export type Fees = {
+  factors: FeeFactors
+}

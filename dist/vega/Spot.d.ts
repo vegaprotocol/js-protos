@@ -3,4 +3,8 @@
 export * from './Spot/encode.js'
 export * from './Spot/decode.js'
 
-export type Spot = { baseAsset: string; quoteAsset: string; name: string }
+export type Spot = {
+  baseAsset: string
+  quoteAsset: string
+  name: string
+}

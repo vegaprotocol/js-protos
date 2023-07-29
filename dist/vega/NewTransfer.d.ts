@@ -4,4 +4,6 @@ import type { NewTransferConfiguration } from './NewTransferConfiguration'
 export * from './NewTransfer/encode.js'
 export * from './NewTransfer/decode.js'
 
-export type NewTransfer = { changes: NewTransferConfiguration }
+export type NewTransfer = {
+  changes: NewTransferConfiguration
+}

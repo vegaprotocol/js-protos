@@ -3,4 +3,7 @@
 export * from './ERC20AssetList/encode.js'
 export * from './ERC20AssetList/decode.js'
 
-export type ERC20AssetList = { vegaAssetId: string; assetSource: string }
+export type ERC20AssetList = {
+  vegaAssetId: string
+  assetSource: string
+}

@@ -3,4 +3,6 @@
 export * from './BuiltinAsset/encode.js'
 export * from './BuiltinAsset/decode.js'
 
-export type BuiltinAsset = { maxFaucetAmountMint: string }
+export type BuiltinAsset = {
+  maxFaucetAmountMint: string
+}

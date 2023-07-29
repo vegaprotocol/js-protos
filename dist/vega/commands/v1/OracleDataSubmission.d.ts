@@ -5,4 +5,7 @@ export * from './OracleDataSubmission/encode.js'
 export * from './OracleDataSubmission/decode.js'
 export * as OracleSource from './OracleDataSubmission/OracleSource.js'
 
-export type OracleDataSubmission = { source: OracleSource; payload: Uint8Array }
+export type OracleDataSubmission = {
+  source: OracleSource
+  payload: Uint8Array
+}

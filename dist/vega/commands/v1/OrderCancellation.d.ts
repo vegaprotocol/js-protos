@@ -3,4 +3,7 @@
 export * from './OrderCancellation/encode.js'
 export * from './OrderCancellation/decode.js'
 
-export type OrderCancellation = { orderId: string; marketId: string }
+export type OrderCancellation = {
+  orderId: string
+  marketId: string
+}

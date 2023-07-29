@@ -4,4 +4,6 @@ import type { Order } from './Order'
 export * from './OrderCancellationConfirmation/encode.js'
 export * from './OrderCancellationConfirmation/decode.js'
 
-export type OrderCancellationConfirmation = { order: Order }
+export type OrderCancellationConfirmation = {
+  order: Order
+}

@@ -9,24 +9,19 @@ import type { SuccessorConfiguration } from './SuccessorConfiguration'
 export * from './NewMarketConfiguration/encode.js'
 export * from './NewMarketConfiguration/decode.js'
 
-export type OneofRisk_parameters =
-  | {
-      risk_parameters:
-        | { simple: SimpleModelParams }
-        | { logNormal: LogNormalRiskModel }
-        | null
-    }
-  | { simple?: SimpleModelParams }
-  | { logNormal?: LogNormalRiskModel }
 export type NewMarketConfiguration = {
   instrument: InstrumentConfiguration
   decimalPlaces: bigint
   metadata: string[]
   priceMonitoringParameters: PriceMonitoringParameters
   liquidityMonitoringParameters: LiquidityMonitoringParameters
+  risk_parameters:
+    | { simple: SimpleModelParams }
+    | { logNormal: LogNormalRiskModel }
+    | null
   positionDecimalPlaces: bigint
   lpPriceRange: string
   linearSlippageFactor: string
   quadraticSlippageFactor: string
   successor: SuccessorConfiguration | null
-} & OneofRisk_parameters
+}

@@ -5,11 +5,8 @@ import type { SpotProduct } from './SpotProduct'
 export * from './InstrumentConfiguration/encode.js'
 export * from './InstrumentConfiguration/decode.js'
 
-export type OneofProduct =
-  | { product: { future: FutureProduct } | { spot: SpotProduct } | null }
-  | { future?: FutureProduct }
-  | { spot?: SpotProduct }
 export type InstrumentConfiguration = {
   name: string
   code: string
-} & OneofProduct
+  product: { future: FutureProduct } | { spot: SpotProduct } | null
+}

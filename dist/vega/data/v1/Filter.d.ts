@@ -5,4 +5,7 @@ import type { Condition } from './Condition'
 export * from './Filter/encode.js'
 export * from './Filter/decode.js'
 
-export type Filter = { key: PropertyKey; conditions: Condition[] }
+export type Filter = {
+  key: PropertyKey
+  conditions: Condition[]
+}

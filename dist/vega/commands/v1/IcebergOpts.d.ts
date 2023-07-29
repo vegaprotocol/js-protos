@@ -3,4 +3,7 @@
 export * from './IcebergOpts/encode.js'
 export * from './IcebergOpts/decode.js'
 
-export type IcebergOpts = { peakSize: bigint; minimumVisibleSize: bigint }
+export type IcebergOpts = {
+  peakSize: bigint
+  minimumVisibleSize: bigint
+}

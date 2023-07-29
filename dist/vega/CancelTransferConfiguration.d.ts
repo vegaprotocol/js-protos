@@ -3,4 +3,6 @@
 export * from './CancelTransferConfiguration/encode.js'
 export * from './CancelTransferConfiguration/decode.js'
 
-export type CancelTransferConfiguration = { transferId: string }
+export type CancelTransferConfiguration = {
+  transferId: string
+}

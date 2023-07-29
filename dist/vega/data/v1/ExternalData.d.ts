@@ -4,4 +4,6 @@ import type { Data } from './Data'
 export * from './ExternalData/encode.js'
 export * from './ExternalData/decode.js'
 
-export type ExternalData = { data: Data }
+export type ExternalData = {
+  data: Data
+}

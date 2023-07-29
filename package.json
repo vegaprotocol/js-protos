@@ -4,12 +4,6 @@
   "description": "Protocol Buffer messages for Vega in Javascript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
-  "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*.js",
-    "./*.js": "./dist/*.js"
-  },
   "scripts": {
     "test": "true"
   },
@@ -24,14 +18,14 @@
   },
   "homepage": "https://github.com/vegaprotocol/js-protos#readme",
   "dependencies": {
-    "protobuf-codec": "^1.0.6",
+    "protobuf-codec": "^2.0.0",
     "type-fest": "^3.6.0"
   },
   "devDependencies": {
     "@vegaprotocol/crypto": "^0.5.1",
     "esbuild": "^0.17.8",
     "got": "^12.4.1",
-    "protoc-plugin-js": "^0.3.0",
+    "protoc-plugin-js": "github:vegaprotocol/protoc-plugin-js#feat/cjs",
     "typescript": "^4.7.4"
   }
 }

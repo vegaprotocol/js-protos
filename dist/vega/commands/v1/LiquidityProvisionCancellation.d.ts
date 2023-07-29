@@ -3,4 +3,6 @@
 export * from './LiquidityProvisionCancellation/encode.js'
 export * from './LiquidityProvisionCancellation/decode.js'
 
-export type LiquidityProvisionCancellation = { marketId: string }
+export type LiquidityProvisionCancellation = {
+  marketId: string
+}

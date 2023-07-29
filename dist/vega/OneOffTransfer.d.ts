@@ -3,4 +3,6 @@
 export * from './OneOffTransfer/encode.js'
 export * from './OneOffTransfer/decode.js'
 
-export type OneOffTransfer = { deliverOn: bigint }
+export type OneOffTransfer = {
+  deliverOn: bigint
+}

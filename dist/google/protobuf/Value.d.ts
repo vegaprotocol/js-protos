@@ -6,21 +6,13 @@ import type { ListValue } from './ListValue'
 export * from './Value/encode.js'
 export * from './Value/decode.js'
 
-export type OneofKind =
-  | {
-      kind:
-        | { nullValue: NullValue }
-        | { numberValue: number }
-        | { stringValue: string }
-        | { boolValue: boolean }
-        | { structValue: Struct }
-        | { listValue: ListValue }
-        | null
-    }
-  | { nullValue?: NullValue }
-  | { numberValue?: number }
-  | { stringValue?: string }
-  | { boolValue?: boolean }
-  | { structValue?: Struct }
-  | { listValue?: ListValue }
-export type Value = {} & OneofKind
+export type Value = {
+  kind:
+    | { nullValue: NullValue }
+    | { numberValue: number }
+    | { stringValue: string }
+    | { boolValue: boolean }
+    | { structValue: Struct }
+    | { listValue: ListValue }
+    | null
+}

@@ -3,4 +3,8 @@
 export * from './LogNormalModelParams/encode.js'
 export * from './LogNormalModelParams/decode.js'
 
-export type LogNormalModelParams = { mu: number; r: number; sigma: number }
+export type LogNormalModelParams = {
+  mu: number
+  r: number
+  sigma: number
+}

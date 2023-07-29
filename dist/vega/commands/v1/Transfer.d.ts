@@ -6,12 +6,6 @@ import type { RecurringTransfer } from './RecurringTransfer'
 export * from './Transfer/encode.js'
 export * from './Transfer/decode.js'
 
-export type OneofKind =
-  | {
-      kind: { oneOff: OneOffTransfer } | { recurring: RecurringTransfer } | null
-    }
-  | { oneOff?: OneOffTransfer }
-  | { recurring?: RecurringTransfer }
 export type Transfer = {
   fromAccountType: AccountType
   to: string
@@ -19,4 +13,5 @@ export type Transfer = {
   asset: string
   amount: string
   reference: string
-} & OneofKind
+  kind: { oneOff: OneOffTransfer } | { recurring: RecurringTransfer } | null
+}

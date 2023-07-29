@@ -6,4 +6,6 @@ export * from './Struct/decode.js'
 
 export * as FieldsEntry from './Struct/FieldsEntry.js'
 
-export type Struct = { fields: FieldsEntry[] }
+export type Struct = {
+  fields: FieldsEntry[]
+}

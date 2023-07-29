@@ -5,13 +5,9 @@ import type { BuiltinAssetWithdrawal } from './BuiltinAssetWithdrawal'
 export * from './BuiltinAssetEvent/encode.js'
 export * from './BuiltinAssetEvent/decode.js'
 
-export type OneofAction =
-  | {
-      action:
-        | { deposit: BuiltinAssetDeposit }
-        | { withdrawal: BuiltinAssetWithdrawal }
-        | null
-    }
-  | { deposit?: BuiltinAssetDeposit }
-  | { withdrawal?: BuiltinAssetWithdrawal }
-export type BuiltinAssetEvent = {} & OneofAction
+export type BuiltinAssetEvent = {
+  action:
+    | { deposit: BuiltinAssetDeposit }
+    | { withdrawal: BuiltinAssetWithdrawal }
+    | null
+}

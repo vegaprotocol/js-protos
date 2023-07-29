@@ -3,4 +3,6 @@
 export * from './Erc20WithdrawExt/encode.js'
 export * from './Erc20WithdrawExt/decode.js'
 
-export type Erc20WithdrawExt = { receiverAddress: string }
+export type Erc20WithdrawExt = {
+  receiverAddress: string
+}

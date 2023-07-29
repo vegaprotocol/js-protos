@@ -3,4 +3,8 @@
 export * from './RiskFactor/encode.js'
 export * from './RiskFactor/decode.js'
 
-export type RiskFactor = { market: string; short: string; long: string }
+export type RiskFactor = {
+  market: string
+  short: string
+  long: string
+}

@@ -13,33 +13,20 @@ import type { CancelTransfer } from './CancelTransfer'
 export * from './ProposalTerms/encode.js'
 export * from './ProposalTerms/decode.js'
 
-export type OneofChange =
-  | {
-      change:
-        | { updateMarket: UpdateMarket }
-        | { newMarket: NewMarket }
-        | { updateNetworkParameter: UpdateNetworkParameter }
-        | { newAsset: NewAsset }
-        | { newFreeform: NewFreeform }
-        | { updateAsset: UpdateAsset }
-        | { newSpotMarket: NewSpotMarket }
-        | { updateSpotMarket: UpdateSpotMarket }
-        | { newTransfer: NewTransfer }
-        | { cancelTransfer: CancelTransfer }
-        | null
-    }
-  | { updateMarket?: UpdateMarket }
-  | { newMarket?: NewMarket }
-  | { updateNetworkParameter?: UpdateNetworkParameter }
-  | { newAsset?: NewAsset }
-  | { newFreeform?: NewFreeform }
-  | { updateAsset?: UpdateAsset }
-  | { newSpotMarket?: NewSpotMarket }
-  | { updateSpotMarket?: UpdateSpotMarket }
-  | { newTransfer?: NewTransfer }
-  | { cancelTransfer?: CancelTransfer }
 export type ProposalTerms = {
   closingTimestamp: bigint
   enactmentTimestamp: bigint
   validationTimestamp: bigint
-} & OneofChange
+  change:
+    | { updateMarket: UpdateMarket }
+    | { newMarket: NewMarket }
+    | { updateNetworkParameter: UpdateNetworkParameter }
+    | { newAsset: NewAsset }
+    | { newFreeform: NewFreeform }
+    | { updateAsset: UpdateAsset }
+    | { newSpotMarket: NewSpotMarket }
+    | { updateSpotMarket: UpdateSpotMarket }
+    | { newTransfer: NewTransfer }
+    | { cancelTransfer: CancelTransfer }
+    | null
+}

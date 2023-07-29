@@ -3,4 +3,7 @@
 export * from './RecurringTransfer/encode.js'
 export * from './RecurringTransfer/decode.js'
 
-export type RecurringTransfer = { startEpoch: bigint; endEpoch: bigint | null }
+export type RecurringTransfer = {
+  startEpoch: bigint
+  endEpoch: bigint | null
+}

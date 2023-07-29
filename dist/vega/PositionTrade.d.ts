@@ -3,4 +3,7 @@
 export * from './PositionTrade/encode.js'
 export * from './PositionTrade/decode.js'
 
-export type PositionTrade = { volume: bigint; price: string }
+export type PositionTrade = {
+  volume: bigint
+  price: string
+}

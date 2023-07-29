@@ -8,19 +8,14 @@ import type { EthContractCallEvent } from './../../EthContractCallEvent'
 export * from './ChainEvent/encode.js'
 export * from './ChainEvent/decode.js'
 
-export type OneofEvent =
-  | {
-      event:
-        | { builtin: BuiltinAssetEvent }
-        | { erc20: ERC20Event }
-        | { stakingEvent: StakingEvent }
-        | { erc20Multisig: ERC20MultiSigEvent }
-        | { contractCall: EthContractCallEvent }
-        | null
-    }
-  | { builtin?: BuiltinAssetEvent }
-  | { erc20?: ERC20Event }
-  | { stakingEvent?: StakingEvent }
-  | { erc20Multisig?: ERC20MultiSigEvent }
-  | { contractCall?: EthContractCallEvent }
-export type ChainEvent = { txId: string; nonce: bigint } & OneofEvent
+export type ChainEvent = {
+  txId: string
+  nonce: bigint
+  event:
+    | { builtin: BuiltinAssetEvent }
+    | { erc20: ERC20Event }
+    | { stakingEvent: StakingEvent }
+    | { erc20Multisig: ERC20MultiSigEvent }
+    | { contractCall: EthContractCallEvent }
+    | null
+}

@@ -4,4 +4,6 @@ import type { DataSourceSpec } from './DataSourceSpec'
 export * from './ExternalDataSourceSpec/encode.js'
 export * from './ExternalDataSourceSpec/decode.js'
 
-export type ExternalDataSourceSpec = { spec: DataSourceSpec }
+export type ExternalDataSourceSpec = {
+  spec: DataSourceSpec
+}

@@ -6,13 +6,10 @@ import type { Spot } from './Spot'
 export * from './Instrument/encode.js'
 export * from './Instrument/decode.js'
 
-export type OneofProduct =
-  | { product: { future: Future } | { spot: Spot } | null }
-  | { future?: Future }
-  | { spot?: Spot }
 export type Instrument = {
   id: string
   code: string
   name: string
   metadata: InstrumentMetadata
-} & OneofProduct
+  product: { future: Future } | { spot: Spot } | null
+}
