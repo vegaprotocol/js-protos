@@ -15,7 +15,7 @@ exports.decode = function decode(
   let field$open = ''
   let field$close = ''
   let field$volume = 0n
-  let field$interval = 0
+  let field$interval = _vega_Interval.decode(0)
   let field$notional = 0n
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {

@@ -16,7 +16,7 @@ exports.decode = function decode(
   let field$averageEntryPrice = ''
   let field$updatedAt = 0n
   let field$lossSocialisationAmount = ''
-  let field$positionStatus = 0
+  let field$positionStatus = _vega_PositionStatus.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:

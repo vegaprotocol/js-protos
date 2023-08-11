@@ -11,13 +11,13 @@ exports.decode = function decode(
   byteOffset = 0,
   byteLength = buf.byteLength
 ) {
-  let field$sourceType = 0
+  let field$sourceType = _vega_AccountType.decode(0)
   let field$source = ''
-  let field$transferType = 0
+  let field$transferType = _vega_GovernanceTransferType.decode(0)
   let field$amount = ''
   let field$asset = ''
   let field$fractionOfBalance = ''
-  let field$destinationType = 0
+  let field$destinationType = _vega_AccountType.decode(0)
   let field$destination = ''
   let field$kind = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {

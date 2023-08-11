@@ -14,7 +14,7 @@ exports.decode = function decode(
   let field$amount = ''
   let field$minAmount = ''
   let field$asset = ''
-  let field$type = 0
+  let field$type = _vega_TransferType.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:

@@ -8,7 +8,7 @@ exports.decode = function decode(
   byteOffset = 0,
   byteLength = buf.byteLength
 ) {
-  let field$operator = 0
+  let field$operator = _vega_data_v1_Condition_Operator.decode(0)
   let field$value = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {

@@ -13,7 +13,7 @@ exports.decode = function decode(
   let field$multisigScore = ''
   let field$validatorScore = ''
   let field$normalisedScore = ''
-  let field$validatorStatus = 0
+  let field$validatorStatus = _vega_ValidatorNodeStatus.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:

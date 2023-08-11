@@ -14,9 +14,9 @@ exports.decode = function decode(
   let field$price = null
   let field$sizeDelta = 0n
   let field$expiresAt = null
-  let field$timeInForce = 0
+  let field$timeInForce = _vega_Order_TimeInForce.decode(0)
   let field$peggedOffset = ''
-  let field$peggedReference = 0
+  let field$peggedReference = _vega_PeggedReference.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:

@@ -10,7 +10,7 @@ exports.decode = function decode(
 ) {
   let field$nodeId = ''
   let field$amount = ''
-  let field$method = 0
+  let field$method = _vega_commands_v1_UndelegateSubmission_Method.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:

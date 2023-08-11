@@ -12,7 +12,7 @@ exports.decode = function decode(
 ) {
   let field$inputData = new Uint8Array(0)
   let field$signature = {}
-  let field$version = 0
+  let field$version = _vega_commands_v1_TxVersion.decode(0)
   let field$pow = {}
   let field$from = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {

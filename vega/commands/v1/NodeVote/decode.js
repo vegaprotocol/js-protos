@@ -9,7 +9,7 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$reference = ''
-  let field$type = 0
+  let field$type = _vega_commands_v1_NodeVote_Type.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 2:

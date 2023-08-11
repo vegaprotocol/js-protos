@@ -16,14 +16,14 @@
   },
   "homepage": "https://github.com/vegaprotocol/js-protos#readme",
   "dependencies": {
-    "protobuf-codec": "^2.0.0",
+    "protobuf-codec": "^2.0.1",
     "type-fest": "^3.6.0"
   },
   "devDependencies": {
     "@vegaprotocol/crypto": "^0.5.1",
     "esbuild": "^0.17.8",
     "got": "^12.4.1",
-    "protoc-plugin-js": "^0.4.0",
+    "protoc-plugin-js": "^0.4.1",
     "typescript": "^4.7.4"
   }
 }

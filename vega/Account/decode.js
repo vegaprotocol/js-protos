@@ -13,7 +13,7 @@ exports.decode = function decode(
   let field$balance = ''
   let field$asset = ''
   let field$marketId = ''
-  let field$type = 0
+  let field$type = _vega_AccountType.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:

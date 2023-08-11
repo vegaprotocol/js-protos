@@ -11,7 +11,7 @@ exports.decode = function decode(
 ) {
   let field$id = ''
   let field$details = {}
-  let field$status = 0
+  let field$status = _vega_Asset_Status.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:

@@ -10,8 +10,8 @@ exports.decode = function decode(
 ) {
   let field$stakeScore = ''
   let field$performanceScore = ''
-  let field$previousStatus = 0
-  let field$status = 0
+  let field$previousStatus = _vega_ValidatorNodeStatus.decode(0)
+  let field$status = _vega_ValidatorNodeStatus.decode(0)
   let field$votingPower = 0
   let field$rankingScore = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {

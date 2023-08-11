@@ -19,7 +19,7 @@ exports.decode = function decode(
   const field$sells = []
   const field$buys = []
   let field$version = 0n
-  let field$status = 0
+  let field$status = _vega_LiquidityProvision_Status.decode(0)
   let field$reference = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {

@@ -10,7 +10,7 @@ exports.decode = function decode(
 ) {
   let field$id = ''
   let field$sig = new Uint8Array(0)
-  let field$kind = 0
+  let field$kind = _vega_commands_v1_NodeSignatureKind.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:

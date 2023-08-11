@@ -9,7 +9,7 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$submitter = ''
-  let field$kind = 0
+  let field$kind = _vega_commands_v1_NodeSignatureKind.decode(0)
   let field$validatorNodeId = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {

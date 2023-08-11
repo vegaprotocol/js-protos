@@ -11,7 +11,7 @@ exports.decode = function decode(
 ) {
   let field$owner = ''
   let field$amount = {}
-  let field$type = 0
+  let field$type = _vega_TransferType.decode(0)
   let field$minAmount = ''
   let field$marketId = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {

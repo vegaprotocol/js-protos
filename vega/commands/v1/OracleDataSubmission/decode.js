@@ -8,7 +8,8 @@ exports.decode = function decode(
   byteOffset = 0,
   byteLength = buf.byteLength
 ) {
-  let field$source = 0
+  let field$source =
+    _vega_commands_v1_OracleDataSubmission_OracleSource.decode(0)
   let field$payload = new Uint8Array(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {

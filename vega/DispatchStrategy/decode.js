@@ -9,7 +9,7 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$assetForMetric = ''
-  let field$metric = 0
+  let field$metric = _vega_DispatchMetric.decode(0)
   const field$markets = []
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {

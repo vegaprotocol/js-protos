@@ -10,9 +10,9 @@ exports.decode = function decode(
   byteOffset = 0,
   byteLength = buf.byteLength
 ) {
-  let field$fromAccountType = 0
+  let field$fromAccountType = _vega_AccountType.decode(0)
   let field$to = ''
-  let field$toAccountType = 0
+  let field$toAccountType = _vega_AccountType.decode(0)
   let field$asset = ''
   let field$amount = ''
   let field$reference = ''

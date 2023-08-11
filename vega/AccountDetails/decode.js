@@ -9,7 +9,7 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$assetId = ''
-  let field$type = 0
+  let field$type = _vega_AccountType.decode(0)
   let field$owner = null
   let field$marketId = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {

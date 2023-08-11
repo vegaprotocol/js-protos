@@ -9,7 +9,7 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$partyId = ''
-  let field$value = 0
+  let field$value = _vega_Vote_Value.decode(0)
   let field$proposalId = ''
   let field$timestamp = 0n
   let field$totalGovernanceTokenBalance = ''

@@ -9,7 +9,7 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$id = ''
-  let field$status = 0
+  let field$status = _vega_Deposit_Status.decode(0)
   let field$partyId = ''
   let field$asset = ''
   let field$amount = ''

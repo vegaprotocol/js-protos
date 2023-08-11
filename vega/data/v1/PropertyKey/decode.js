@@ -9,7 +9,7 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$name = ''
-  let field$type = 0
+  let field$type = _vega_data_v1_PropertyKey_Type.decode(0)
   let field$numberDecimalPlaces = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {

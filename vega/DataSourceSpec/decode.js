@@ -13,7 +13,7 @@ exports.decode = function decode(
   let field$createdAt = 0n
   let field$updatedAt = 0n
   let field$data = {}
-  let field$status = 0
+  let field$status = _vega_DataSourceSpec_Status.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:

@@ -8,7 +8,7 @@ exports.decode = function decode(
   byteOffset = 0,
   byteLength = buf.byteLength
 ) {
-  let field$reference = 0
+  let field$reference = _vega_PeggedReference.decode(0)
   let field$offset = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
