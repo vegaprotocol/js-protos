@@ -11,6 +11,7 @@ exports.decode = function decode(
   let field$blockHeight = 0n
   let field$blockTime = 0n
   let field$result = new Uint8Array(0)
+  let field$error = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -28,12 +29,17 @@ exports.decode = function decode(
       case 4:
         field$result = bytes(data)
         break
+
+      case 5:
+        field$error = string(data)
+        break
     }
   }
   return {
     specId: field$specId,
     blockHeight: field$blockHeight,
     blockTime: field$blockTime,
-    result: field$result
+    result: field$result,
+    error: field$error
   }
 }

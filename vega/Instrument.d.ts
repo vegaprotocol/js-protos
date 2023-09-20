@@ -2,6 +2,7 @@
 import type { InstrumentMetadata } from './InstrumentMetadata'
 import type { Future } from './Future'
 import type { Spot } from './Spot'
+import type { Perpetual } from './Perpetual'
 
 export * from './Instrument/encode.js'
 export * from './Instrument/decode.js'
@@ -11,5 +12,5 @@ export type Instrument = {
   code: string
   name: string
   metadata: InstrumentMetadata
-  product: { future: Future } | { spot: Spot } | null
+  product: { future: Future } | { spot: Spot } | { perpetual: Perpetual } | null
 }

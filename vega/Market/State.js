@@ -13,6 +13,7 @@ const STATE_SUSPENDED = 6
 const STATE_CLOSED = 7
 const STATE_TRADING_TERMINATED = 8
 const STATE_SETTLED = 9
+const STATE_SUSPENDED_VIA_GOVERNANCE = 10
 
 const enumValues = new Map([
   [0, 'STATE_UNSPECIFIED'],
@@ -24,7 +25,8 @@ const enumValues = new Map([
   [6, 'STATE_SUSPENDED'],
   [7, 'STATE_CLOSED'],
   [8, 'STATE_TRADING_TERMINATED'],
-  [9, 'STATE_SETTLED']
+  [9, 'STATE_SETTLED'],
+  [10, 'STATE_SUSPENDED_VIA_GOVERNANCE']
 ])
 const enumNames = new Map([
   ['STATE_UNSPECIFIED', 0],
@@ -36,7 +38,8 @@ const enumNames = new Map([
   ['STATE_SUSPENDED', 6],
   ['STATE_CLOSED', 7],
   ['STATE_TRADING_TERMINATED', 8],
-  ['STATE_SETTLED', 9]
+  ['STATE_SETTLED', 9],
+  ['STATE_SUSPENDED_VIA_GOVERNANCE', 10]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -56,7 +59,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid State value (' + value + ')')
 
-  if (0 <= value && value <= 9) return 1
+  if (0 <= value && value <= 10) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -93,5 +96,6 @@ module.exports = {
   STATE_SUSPENDED,
   STATE_CLOSED,
   STATE_TRADING_TERMINATED,
-  STATE_SETTLED
+  STATE_SETTLED,
+  STATE_SUSPENDED_VIA_GOVERNANCE
 }

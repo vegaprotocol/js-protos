@@ -3,6 +3,7 @@ import type { PriceMonitoringParameters } from './PriceMonitoringParameters'
 import type { TargetStakeParameters } from './TargetStakeParameters'
 import type { SimpleModelParams } from './SimpleModelParams'
 import type { LogNormalRiskModel } from './LogNormalRiskModel'
+import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
 
 export * from './UpdateSpotMarketConfiguration/encode.js'
 export * from './UpdateSpotMarketConfiguration/decode.js'
@@ -15,4 +16,5 @@ export type UpdateSpotMarketConfiguration = {
     | { simple: SimpleModelParams }
     | { logNormal: LogNormalRiskModel }
     | null
+  slaParams: LiquiditySLAParameters
 }

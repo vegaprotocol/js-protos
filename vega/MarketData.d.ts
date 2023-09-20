@@ -4,6 +4,7 @@ import type { AuctionTrigger } from './AuctionTrigger'
 import type { PriceMonitoringBounds } from './PriceMonitoringBounds'
 import type { LiquidityProviderFeeShare } from './LiquidityProviderFeeShare'
 import type { State } from './Market/State'
+import type { ProductData } from './ProductData'
 
 export * from './MarketData/encode.js'
 export * from './MarketData/decode.js'
@@ -39,4 +40,5 @@ export type MarketData = {
   nextMarkToMarket: bigint
   lastTradedPrice: string
   marketGrowth: string
+  productData: ProductData | null
 }

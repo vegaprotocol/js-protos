@@ -11,8 +11,9 @@ export const STATE_SUSPENDED = 6
 export const STATE_CLOSED = 7
 export const STATE_TRADING_TERMINATED = 8
 export const STATE_SETTLED = 9
+export const STATE_SUSPENDED_VIA_GOVERNANCE = 10
 
-export type Values = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+export type Values = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 export type Names =
   | 'STATE_UNSPECIFIED'
   | 'STATE_PROPOSED'
@@ -24,6 +25,7 @@ export type Names =
   | 'STATE_CLOSED'
   | 'STATE_TRADING_TERMINATED'
   | 'STATE_SETTLED'
+  | 'STATE_SUSPENDED_VIA_GOVERNANCE'
 
 export const enum State {
   STATE_UNSPECIFIED = 0,
@@ -35,7 +37,8 @@ export const enum State {
   STATE_SUSPENDED = 6,
   STATE_CLOSED = 7,
   STATE_TRADING_TERMINATED = 8,
-  STATE_SETTLED = 9
+  STATE_SETTLED = 9,
+  STATE_SUSPENDED_VIA_GOVERNANCE = 10
 }
 
 declare const enumValues: Map<Names, Values>

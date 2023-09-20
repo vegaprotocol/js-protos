@@ -4,6 +4,7 @@ const { string } = require('protobuf-codec/decode/types')
 const _vega_InstrumentMetadata = require('./../InstrumentMetadata/decode.js')
 const _vega_Future = require('./../Future/decode.js')
 const _vega_Spot = require('./../Spot/decode.js')
+const _vega_Perpetual = require('./../Perpetual/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -39,6 +40,10 @@ exports.decode = function decode(
 
       case 101:
         field$product = { spot: _vega_Spot.decode(data) }
+        break
+
+      case 102:
+        field$product = { perpetual: _vega_Perpetual.decode(data) }
         break
     }
   }

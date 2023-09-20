@@ -4,6 +4,7 @@ const { string, int64 } = require('protobuf-codec/decode/types')
 const _vega_StopOrder_ExpiryStrategy = require('./ExpiryStrategy.js')
 const _vega_StopOrder_TriggerDirection = require('./TriggerDirection.js')
 const _vega_StopOrder_Status = require('./Status.js')
+const _vega_StopOrder_RejectionReason = require('./RejectionReason.js')
 
 exports.decode = function decode(
   buf,
@@ -21,6 +22,7 @@ exports.decode = function decode(
   let field$orderId = ''
   let field$partyId = ''
   let field$marketId = ''
+  let field$rejectionReason = null
   let field$trigger = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -68,6 +70,10 @@ exports.decode = function decode(
         field$marketId = string(data)
         break
 
+      case 12:
+        field$rejectionReason = _vega_StopOrder_RejectionReason.decode(data)
+        break
+
       case 100:
         field$trigger = { price: string(data) }
         break
@@ -89,6 +95,7 @@ exports.decode = function decode(
     orderId: field$orderId,
     partyId: field$partyId,
     marketId: field$marketId,
+    rejectionReason: field$rejectionReason,
     trigger: field$trigger
   }
 }

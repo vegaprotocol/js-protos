@@ -14,6 +14,8 @@ exports.decode = function decode(
   let field$genesisLoaded = false
   let field$proposeMarketEnabledFrom = 0n
   let field$proposeAssetEnabledFrom = 0n
+  let field$canProposeSpotMarket = false
+  let field$canProposePerpetualMarket = false
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -43,6 +45,14 @@ exports.decode = function decode(
       case 9:
         field$proposeAssetEnabledFrom = int64(data)
         break
+
+      case 10:
+        field$canProposeSpotMarket = bool(data)
+        break
+
+      case 11:
+        field$canProposePerpetualMarket = bool(data)
+        break
     }
   }
   return {
@@ -52,6 +62,8 @@ exports.decode = function decode(
     proposeAssetEnabled: field$proposeAssetEnabled,
     genesisLoaded: field$genesisLoaded,
     proposeMarketEnabledFrom: field$proposeMarketEnabledFrom,
-    proposeAssetEnabledFrom: field$proposeAssetEnabledFrom
+    proposeAssetEnabledFrom: field$proposeAssetEnabledFrom,
+    canProposeSpotMarket: field$canProposeSpotMarket,
+    canProposePerpetualMarket: field$canProposePerpetualMarket
   }
 }

@@ -2,12 +2,14 @@
 import type { ExpiryStrategy } from './StopOrder/ExpiryStrategy'
 import type { TriggerDirection } from './StopOrder/TriggerDirection'
 import type { Status } from './StopOrder/Status'
+import type { RejectionReason } from './StopOrder/RejectionReason'
 
 export * from './StopOrder/encode.js'
 export * from './StopOrder/decode.js'
 export * as ExpiryStrategy from './StopOrder/ExpiryStrategy.js'
 export * as TriggerDirection from './StopOrder/TriggerDirection.js'
 export * as Status from './StopOrder/Status.js'
+export * as RejectionReason from './StopOrder/RejectionReason.js'
 
 export type StopOrder = {
   id: string
@@ -21,5 +23,6 @@ export type StopOrder = {
   orderId: string
   partyId: string
   marketId: string
+  rejectionReason: RejectionReason | null
   trigger: { price: string } | { trailingPercentOffset: string } | null
 }

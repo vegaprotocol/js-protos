@@ -18,6 +18,9 @@ const _vega_commands_v1_AnnounceNode = require('./../AnnounceNode/decode.js')
 const _vega_commands_v1_BatchMarketInstructions = require('./../BatchMarketInstructions/decode.js')
 const _vega_commands_v1_StopOrdersSubmission = require('./../StopOrdersSubmission/decode.js')
 const _vega_commands_v1_StopOrdersCancellation = require('./../StopOrdersCancellation/decode.js')
+const _vega_commands_v1_CreateReferralSet = require('./../CreateReferralSet/decode.js')
+const _vega_commands_v1_UpdateReferralSet = require('./../UpdateReferralSet/decode.js')
+const _vega_commands_v1_ApplyReferralCode = require('./../ApplyReferralCode/decode.js')
 const _vega_commands_v1_NodeVote = require('./../NodeVote/decode.js')
 const _vega_commands_v1_NodeSignature = require('./../NodeSignature/decode.js')
 const _vega_commands_v1_ChainEvent = require('./../ChainEvent/decode.js')
@@ -151,6 +154,24 @@ exports.decode = function decode(
         field$command = {
           stopOrdersCancellation:
             _vega_commands_v1_StopOrdersCancellation.decode(data)
+        }
+        break
+
+      case 1018:
+        field$command = {
+          createReferralSet: _vega_commands_v1_CreateReferralSet.decode(data)
+        }
+        break
+
+      case 1019:
+        field$command = {
+          updateReferralSet: _vega_commands_v1_UpdateReferralSet.decode(data)
+        }
+        break
+
+      case 1020:
+        field$command = {
+          applyReferralCode: _vega_commands_v1_ApplyReferralCode.decode(data)
         }
         break
 

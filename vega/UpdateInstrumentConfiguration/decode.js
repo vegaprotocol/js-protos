@@ -2,6 +2,7 @@
 const reader = require('protobuf-codec/decode/reader')
 const { string } = require('protobuf-codec/decode/types')
 const _vega_UpdateFutureProduct = require('./../UpdateFutureProduct/decode.js')
+const _vega_UpdatePerpetualProduct = require('./../UpdatePerpetualProduct/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -18,6 +19,10 @@ exports.decode = function decode(
 
       case 100:
         field$product = { future: _vega_UpdateFutureProduct.decode(data) }
+        break
+
+      case 101:
+        field$product = { perpetual: _vega_UpdatePerpetualProduct.decode(data) }
         break
     }
   }

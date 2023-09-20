@@ -2,6 +2,7 @@
 const Writer = require('protobuf-codec/encode/writer')
 const { string } = require('protobuf-codec/encode/types')
 const _vega_UpdateFutureProduct = require('./../UpdateFutureProduct/encode.js')
+const _vega_UpdatePerpetualProduct = require('./../UpdatePerpetualProduct/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -12,6 +13,13 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(
       100,
       _vega_UpdateFutureProduct.encode(obj.product?.future ?? obj.future)
+    )
+  if (obj.product?.perpetual ?? obj.perpetual)
+    writer.bytes(
+      101,
+      _vega_UpdatePerpetualProduct.encode(
+        obj.product?.perpetual ?? obj.perpetual
+      )
     )
 
   return writer.concat(buf, byteOffset)

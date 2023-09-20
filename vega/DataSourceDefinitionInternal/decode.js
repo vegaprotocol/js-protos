@@ -2,6 +2,7 @@
 const reader = require('protobuf-codec/decode/reader')
 
 const _vega_DataSourceSpecConfigurationTime = require('./../DataSourceSpecConfigurationTime/decode.js')
+const _vega_DataSourceSpecConfigurationTimeTrigger = require('./../DataSourceSpecConfigurationTimeTrigger/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -14,6 +15,12 @@ exports.decode = function decode(
       case 1:
         field$source_type = {
           time: _vega_DataSourceSpecConfigurationTime.decode(data)
+        }
+        break
+
+      case 2:
+        field$source_type = {
+          timeTrigger: _vega_DataSourceSpecConfigurationTimeTrigger.decode(data)
         }
         break
     }

@@ -6,6 +6,7 @@ const _vega_AuctionTrigger = require('./../AuctionTrigger.js')
 const _vega_PriceMonitoringBounds = require('./../PriceMonitoringBounds/decode.js')
 const _vega_LiquidityProviderFeeShare = require('./../LiquidityProviderFeeShare/decode.js')
 const _vega_Market_State = require('./../Market/State.js')
+const _vega_ProductData = require('./../ProductData/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -42,6 +43,7 @@ exports.decode = function decode(
   let field$nextMarkToMarket = 0n
   let field$lastTradedPrice = ''
   let field$marketGrowth = ''
+  let field$productData = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -167,6 +169,10 @@ exports.decode = function decode(
       case 30:
         field$marketGrowth = string(data)
         break
+
+      case 31:
+        field$productData = _vega_ProductData.decode(data)
+        break
     }
   }
   return {
@@ -199,6 +205,7 @@ exports.decode = function decode(
     marketState: field$marketState,
     nextMarkToMarket: field$nextMarkToMarket,
     lastTradedPrice: field$lastTradedPrice,
-    marketGrowth: field$marketGrowth
+    marketGrowth: field$marketGrowth,
+    productData: field$productData
   }
 }

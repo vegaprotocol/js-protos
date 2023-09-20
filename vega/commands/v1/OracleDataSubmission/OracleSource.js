@@ -6,16 +6,19 @@ const { enumerable: decodeEnumerable } = require('protobuf-codec/decode/types')
 const ORACLE_SOURCE_UNSPECIFIED = 0
 const ORACLE_SOURCE_OPEN_ORACLE = 1
 const ORACLE_SOURCE_JSON = 2
+const ORACLE_SOURCE_ETHEREUM = 3
 
 const enumValues = new Map([
   [0, 'ORACLE_SOURCE_UNSPECIFIED'],
   [1, 'ORACLE_SOURCE_OPEN_ORACLE'],
-  [2, 'ORACLE_SOURCE_JSON']
+  [2, 'ORACLE_SOURCE_JSON'],
+  [3, 'ORACLE_SOURCE_ETHEREUM']
 ])
 const enumNames = new Map([
   ['ORACLE_SOURCE_UNSPECIFIED', 0],
   ['ORACLE_SOURCE_OPEN_ORACLE', 1],
-  ['ORACLE_SOURCE_JSON', 2]
+  ['ORACLE_SOURCE_JSON', 2],
+  ['ORACLE_SOURCE_ETHEREUM', 3]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -36,7 +39,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid OracleSource value (' + value + ')')
 
-  if (0 <= value && value <= 2) return 1
+  if (0 <= value && value <= 3) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -66,5 +69,6 @@ module.exports = {
   parse,
   ORACLE_SOURCE_UNSPECIFIED,
   ORACLE_SOURCE_OPEN_ORACLE,
-  ORACLE_SOURCE_JSON
+  ORACLE_SOURCE_JSON,
+  ORACLE_SOURCE_ETHEREUM
 }

@@ -9,6 +9,9 @@ import type { NewSpotMarket } from './NewSpotMarket'
 import type { UpdateSpotMarket } from './UpdateSpotMarket'
 import type { NewTransfer } from './NewTransfer'
 import type { CancelTransfer } from './CancelTransfer'
+import type { UpdateMarketState } from './UpdateMarketState'
+import type { UpdateReferralProgram } from './UpdateReferralProgram'
+import type { UpdateVolumeDiscountProgram } from './UpdateVolumeDiscountProgram'
 
 export * from './ProposalTerms/encode.js'
 export * from './ProposalTerms/decode.js'
@@ -28,5 +31,8 @@ export type ProposalTerms = {
     | { updateSpotMarket: UpdateSpotMarket }
     | { newTransfer: NewTransfer }
     | { cancelTransfer: CancelTransfer }
+    | { updateMarketState: UpdateMarketState }
+    | { updateReferralProgram: UpdateReferralProgram }
+    | { updateVolumeDiscountProgram: UpdateVolumeDiscountProgram }
     | null
 }

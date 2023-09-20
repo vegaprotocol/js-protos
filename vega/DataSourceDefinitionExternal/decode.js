@@ -19,7 +19,7 @@ exports.decode = function decode(
         break
 
       case 2:
-        field$source_type = { ethCall: _vega_EthCallSpec.decode(data) }
+        field$source_type = { ethOracle: _vega_EthCallSpec.decode(data) }
         break
     }
   }

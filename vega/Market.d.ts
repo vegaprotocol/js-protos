@@ -7,6 +7,7 @@ import type { LiquidityMonitoringParameters } from './LiquidityMonitoringParamet
 import type { TradingMode } from './Market/TradingMode'
 import type { State } from './Market/State'
 import type { MarketTimestamps } from './MarketTimestamps'
+import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
 
 export * from './Market/encode.js'
 export * from './Market/decode.js'
@@ -31,4 +32,5 @@ export type Market = {
   parentMarketId: string | null
   insurancePoolFraction: string | null
   successorMarketId: string | null
+  liquiditySlaParams: LiquiditySLAParameters | null
 }

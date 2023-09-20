@@ -1,1 +1,1 @@
-const vega = require('./dist/index.js')
+const vega = require('./index.js')

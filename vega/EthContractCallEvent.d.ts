@@ -8,4 +8,5 @@ export type EthContractCallEvent = {
   blockHeight: bigint
   blockTime: bigint
   result: Uint8Array
+  error: string | null
 }

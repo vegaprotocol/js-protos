@@ -5,5 +5,6 @@ module.exports = {
   ...require('./StopOrder/decode.js'),
   ExpiryStrategy: require('./StopOrder/ExpiryStrategy.js'),
   TriggerDirection: require('./StopOrder/TriggerDirection.js'),
-  Status: require('./StopOrder/Status.js')
+  Status: require('./StopOrder/Status.js'),
+  RejectionReason: require('./StopOrder/RejectionReason.js')
 }

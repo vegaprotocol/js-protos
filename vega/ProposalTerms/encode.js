@@ -11,6 +11,9 @@ const _vega_NewSpotMarket = require('./../NewSpotMarket/encode.js')
 const _vega_UpdateSpotMarket = require('./../UpdateSpotMarket/encode.js')
 const _vega_NewTransfer = require('./../NewTransfer/encode.js')
 const _vega_CancelTransfer = require('./../CancelTransfer/encode.js')
+const _vega_UpdateMarketState = require('./../UpdateMarketState/encode.js')
+const _vega_UpdateReferralProgram = require('./../UpdateReferralProgram/encode.js')
+const _vega_UpdateVolumeDiscountProgram = require('./../UpdateVolumeDiscountProgram/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -73,6 +76,31 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       110,
       _vega_CancelTransfer.encode(
         obj.change?.cancelTransfer ?? obj.cancelTransfer
+      )
+    )
+  if (obj.change?.updateMarketState ?? obj.updateMarketState)
+    writer.bytes(
+      111,
+      _vega_UpdateMarketState.encode(
+        obj.change?.updateMarketState ?? obj.updateMarketState
+      )
+    )
+  if (obj.change?.updateReferralProgram ?? obj.updateReferralProgram)
+    writer.bytes(
+      112,
+      _vega_UpdateReferralProgram.encode(
+        obj.change?.updateReferralProgram ?? obj.updateReferralProgram
+      )
+    )
+  if (
+    obj.change?.updateVolumeDiscountProgram ??
+    obj.updateVolumeDiscountProgram
+  )
+    writer.bytes(
+      113,
+      _vega_UpdateVolumeDiscountProgram.encode(
+        obj.change?.updateVolumeDiscountProgram ??
+          obj.updateVolumeDiscountProgram
       )
     )
 

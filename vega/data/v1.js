@@ -8,5 +8,6 @@ module.exports = {
   ExternalData: require('./v1/ExternalData.js'),
   Filter: require('./v1/Filter.js'),
   PropertyKey: require('./v1/PropertyKey.js'),
-  Condition: require('./v1/Condition.js')
+  Condition: require('./v1/Condition.js'),
+  InternalTimeTrigger: require('./v1/InternalTimeTrigger.js')
 }

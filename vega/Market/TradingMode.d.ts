@@ -7,8 +7,9 @@ export const TRADING_MODE_BATCH_AUCTION = 2
 export const TRADING_MODE_OPENING_AUCTION = 3
 export const TRADING_MODE_MONITORING_AUCTION = 4
 export const TRADING_MODE_NO_TRADING = 5
+export const TRADING_MODE_SUSPENDED_VIA_GOVERNANCE = 6
 
-export type Values = 0 | 1 | 2 | 3 | 4 | 5
+export type Values = 0 | 1 | 2 | 3 | 4 | 5 | 6
 export type Names =
   | 'TRADING_MODE_UNSPECIFIED'
   | 'TRADING_MODE_CONTINUOUS'
@@ -16,6 +17,7 @@ export type Names =
   | 'TRADING_MODE_OPENING_AUCTION'
   | 'TRADING_MODE_MONITORING_AUCTION'
   | 'TRADING_MODE_NO_TRADING'
+  | 'TRADING_MODE_SUSPENDED_VIA_GOVERNANCE'
 
 export const enum TradingMode {
   TRADING_MODE_UNSPECIFIED = 0,
@@ -23,7 +25,8 @@ export const enum TradingMode {
   TRADING_MODE_BATCH_AUCTION = 2,
   TRADING_MODE_OPENING_AUCTION = 3,
   TRADING_MODE_MONITORING_AUCTION = 4,
-  TRADING_MODE_NO_TRADING = 5
+  TRADING_MODE_NO_TRADING = 5,
+  TRADING_MODE_SUSPENDED_VIA_GOVERNANCE = 6
 }
 
 declare const enumValues: Map<Names, Values>

@@ -8,6 +8,6 @@ export * from './DataSourceDefinitionExternal/decode.js'
 export type DataSourceDefinitionExternal = {
   source_type:
     | { oracle: DataSourceSpecConfiguration }
-    | { ethCall: EthCallSpec }
+    | { ethOracle: EthCallSpec }
     | null
 }

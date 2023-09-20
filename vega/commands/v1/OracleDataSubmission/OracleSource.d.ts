@@ -4,17 +4,20 @@ import type { LiteralUnion } from 'type-fest'
 export const ORACLE_SOURCE_UNSPECIFIED = 0
 export const ORACLE_SOURCE_OPEN_ORACLE = 1
 export const ORACLE_SOURCE_JSON = 2
+export const ORACLE_SOURCE_ETHEREUM = 3
 
-export type Values = 0 | 1 | 2
+export type Values = 0 | 1 | 2 | 3
 export type Names =
   | 'ORACLE_SOURCE_UNSPECIFIED'
   | 'ORACLE_SOURCE_OPEN_ORACLE'
   | 'ORACLE_SOURCE_JSON'
+  | 'ORACLE_SOURCE_ETHEREUM'
 
 export const enum OracleSource {
   ORACLE_SOURCE_UNSPECIFIED = 0,
   ORACLE_SOURCE_OPEN_ORACLE = 1,
-  ORACLE_SOURCE_JSON = 2
+  ORACLE_SOURCE_JSON = 2,
+  ORACLE_SOURCE_ETHEREUM = 3
 }
 
 declare const enumValues: Map<Names, Values>

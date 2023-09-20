@@ -14,6 +14,11 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.matchedSpecIds?.length)
     obj.matchedSpecIds.forEach((v) => writer.bytes(3, v, string))
   if (obj.broadcastAt) writer.varint(4, obj.broadcastAt, int64)
+  if (obj.metaData?.length)
+    obj.metaData.forEach((v) =>
+      writer.bytes(5, _vega_data_v1_Property.encode(v))
+    )
+  if (obj.error) writer.bytes(6, obj.error, string)
 
   return writer.concat(buf, byteOffset)
 }

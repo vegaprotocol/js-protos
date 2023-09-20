@@ -10,4 +10,6 @@ export type Data = {
   data: Property[]
   matchedSpecIds: string[]
   broadcastAt: bigint
+  metaData: Property[]
+  error: string | null
 }

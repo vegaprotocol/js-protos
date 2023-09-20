@@ -18,6 +18,9 @@ const _vega_commands_v1_AnnounceNode = require('./../AnnounceNode/encode.js')
 const _vega_commands_v1_BatchMarketInstructions = require('./../BatchMarketInstructions/encode.js')
 const _vega_commands_v1_StopOrdersSubmission = require('./../StopOrdersSubmission/encode.js')
 const _vega_commands_v1_StopOrdersCancellation = require('./../StopOrdersCancellation/encode.js')
+const _vega_commands_v1_CreateReferralSet = require('./../CreateReferralSet/encode.js')
+const _vega_commands_v1_UpdateReferralSet = require('./../UpdateReferralSet/encode.js')
+const _vega_commands_v1_ApplyReferralCode = require('./../ApplyReferralCode/encode.js')
 const _vega_commands_v1_NodeVote = require('./../NodeVote/encode.js')
 const _vega_commands_v1_NodeSignature = require('./../NodeSignature/encode.js')
 const _vega_commands_v1_ChainEvent = require('./../ChainEvent/encode.js')
@@ -162,6 +165,27 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       1017,
       _vega_commands_v1_StopOrdersCancellation.encode(
         obj.command?.stopOrdersCancellation ?? obj.stopOrdersCancellation
+      )
+    )
+  if (obj.command?.createReferralSet ?? obj.createReferralSet)
+    writer.bytes(
+      1018,
+      _vega_commands_v1_CreateReferralSet.encode(
+        obj.command?.createReferralSet ?? obj.createReferralSet
+      )
+    )
+  if (obj.command?.updateReferralSet ?? obj.updateReferralSet)
+    writer.bytes(
+      1019,
+      _vega_commands_v1_UpdateReferralSet.encode(
+        obj.command?.updateReferralSet ?? obj.updateReferralSet
+      )
+    )
+  if (obj.command?.applyReferralCode ?? obj.applyReferralCode)
+    writer.bytes(
+      1020,
+      _vega_commands_v1_ApplyReferralCode.encode(
+        obj.command?.applyReferralCode ?? obj.applyReferralCode
       )
     )
   if (obj.command?.nodeVote ?? obj.nodeVote)

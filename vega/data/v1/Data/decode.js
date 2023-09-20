@@ -13,6 +13,8 @@ exports.decode = function decode(
   const field$data = []
   const field$matchedSpecIds = []
   let field$broadcastAt = 0n
+  const field$metaData = []
+  let field$error = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -30,12 +32,22 @@ exports.decode = function decode(
       case 4:
         field$broadcastAt = int64(data)
         break
+
+      case 5:
+        field$metaData.push(_vega_data_v1_Property.decode(data))
+        break
+
+      case 6:
+        field$error = string(data)
+        break
     }
   }
   return {
     signers: field$signers,
     data: field$data,
     matchedSpecIds: field$matchedSpecIds,
-    broadcastAt: field$broadcastAt
+    broadcastAt: field$broadcastAt,
+    metaData: field$metaData,
+    error: field$error
   }
 }

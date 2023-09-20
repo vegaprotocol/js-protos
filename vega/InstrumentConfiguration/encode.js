@@ -3,6 +3,7 @@ const Writer = require('protobuf-codec/encode/writer')
 const { string } = require('protobuf-codec/encode/types')
 const _vega_FutureProduct = require('./../FutureProduct/encode.js')
 const _vega_SpotProduct = require('./../SpotProduct/encode.js')
+const _vega_PerpetualProduct = require('./../PerpetualProduct/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -17,6 +18,11 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     )
   if (obj.product?.spot ?? obj.spot)
     writer.bytes(101, _vega_SpotProduct.encode(obj.product?.spot ?? obj.spot))
+  if (obj.product?.perpetual ?? obj.perpetual)
+    writer.bytes(
+      102,
+      _vega_PerpetualProduct.encode(obj.product?.perpetual ?? obj.perpetual)
+    )
 
   return writer.concat(buf, byteOffset)
 }

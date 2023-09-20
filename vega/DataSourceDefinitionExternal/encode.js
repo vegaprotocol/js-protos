@@ -14,10 +14,10 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
         obj.source_type?.oracle ?? obj.oracle
       )
     )
-  if (obj.source_type?.ethCall ?? obj.ethCall)
+  if (obj.source_type?.ethOracle ?? obj.ethOracle)
     writer.bytes(
       2,
-      _vega_EthCallSpec.encode(obj.source_type?.ethCall ?? obj.ethCall)
+      _vega_EthCallSpec.encode(obj.source_type?.ethOracle ?? obj.ethOracle)
     )
 
   return writer.concat(buf, byteOffset)

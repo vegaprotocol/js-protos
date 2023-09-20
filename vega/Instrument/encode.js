@@ -4,6 +4,7 @@ const { string } = require('protobuf-codec/encode/types')
 const _vega_InstrumentMetadata = require('./../InstrumentMetadata/encode.js')
 const _vega_Future = require('./../Future/encode.js')
 const _vega_Spot = require('./../Spot/encode.js')
+const _vega_Perpetual = require('./../Perpetual/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -18,6 +19,11 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(100, _vega_Future.encode(obj.product?.future ?? obj.future))
   if (obj.product?.spot ?? obj.spot)
     writer.bytes(101, _vega_Spot.encode(obj.product?.spot ?? obj.spot))
+  if (obj.product?.perpetual ?? obj.perpetual)
+    writer.bytes(
+      102,
+      _vega_Perpetual.encode(obj.product?.perpetual ?? obj.perpetual)
+    )
 
   return writer.concat(buf, byteOffset)
 }

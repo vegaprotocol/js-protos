@@ -16,6 +16,9 @@ import type { AnnounceNode } from './AnnounceNode'
 import type { BatchMarketInstructions } from './BatchMarketInstructions'
 import type { StopOrdersSubmission } from './StopOrdersSubmission'
 import type { StopOrdersCancellation } from './StopOrdersCancellation'
+import type { CreateReferralSet } from './CreateReferralSet'
+import type { UpdateReferralSet } from './UpdateReferralSet'
+import type { ApplyReferralCode } from './ApplyReferralCode'
 import type { NodeVote } from './NodeVote'
 import type { NodeSignature } from './NodeSignature'
 import type { ChainEvent } from './ChainEvent'
@@ -51,6 +54,9 @@ export type InputData = {
     | { batchMarketInstructions: BatchMarketInstructions }
     | { stopOrdersSubmission: StopOrdersSubmission }
     | { stopOrdersCancellation: StopOrdersCancellation }
+    | { createReferralSet: CreateReferralSet }
+    | { updateReferralSet: UpdateReferralSet }
+    | { applyReferralCode: ApplyReferralCode }
     | { nodeVote: NodeVote }
     | { nodeSignature: NodeSignature }
     | { chainEvent: ChainEvent }

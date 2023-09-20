@@ -11,4 +11,6 @@ export type NetworkLimits = {
   genesisLoaded: boolean
   proposeMarketEnabledFrom: bigint
   proposeAssetEnabledFrom: bigint
+  canProposeSpotMarket: boolean
+  canProposePerpetualMarket: boolean
 }

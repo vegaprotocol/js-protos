@@ -9,6 +9,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.blockHeight) writer.varint(2, obj.blockHeight, uint64)
   if (obj.blockTime) writer.varint(3, obj.blockTime, uint64)
   if (obj.result) writer.bytes(4, obj.result, bytes)
+  if (obj.error) writer.bytes(5, obj.error, string)
 
   return writer.concat(buf, byteOffset)
 }

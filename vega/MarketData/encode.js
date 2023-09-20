@@ -6,6 +6,7 @@ const _vega_AuctionTrigger = require('./../AuctionTrigger.js')
 const _vega_PriceMonitoringBounds = require('./../PriceMonitoringBounds/encode.js')
 const _vega_LiquidityProviderFeeShare = require('./../LiquidityProviderFeeShare/encode.js')
 const _vega_Market_State = require('./../Market/State.js')
+const _vega_ProductData = require('./../ProductData/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -50,6 +51,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.nextMarkToMarket) writer.varint(28, obj.nextMarkToMarket, int64)
   if (obj.lastTradedPrice) writer.bytes(29, obj.lastTradedPrice, string)
   if (obj.marketGrowth) writer.bytes(30, obj.marketGrowth, string)
+  if (obj.productData)
+    writer.bytes(31, _vega_ProductData.encode(obj.productData))
 
   return writer.concat(buf, byteOffset)
 }
