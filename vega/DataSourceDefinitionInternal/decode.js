@@ -9,21 +9,21 @@ exports.decode = function decode(
   byteOffset = 0,
   byteLength = buf.byteLength
 ) {
-  let field$source_type = null
+  let field$sourceType = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
-        field$source_type = {
+        field$sourceType = {
           time: _vega_DataSourceSpecConfigurationTime.decode(data)
         }
         break
 
       case 2:
-        field$source_type = {
+        field$sourceType = {
           timeTrigger: _vega_DataSourceSpecConfigurationTimeTrigger.decode(data)
         }
         break
     }
   }
-  return { source_type: field$source_type }
+  return { sourceType: field$sourceType }
 }

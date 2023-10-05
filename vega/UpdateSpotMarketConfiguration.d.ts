@@ -12,7 +12,7 @@ export type UpdateSpotMarketConfiguration = {
   metadata: string[]
   priceMonitoringParameters: PriceMonitoringParameters
   targetStakeParameters: TargetStakeParameters
-  risk_parameters:
+  riskParameters:
     | { simple: SimpleModelParams }
     | { logNormal: LogNormalRiskModel }
     | null

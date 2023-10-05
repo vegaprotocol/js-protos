@@ -6,7 +6,7 @@ export * from './DataSourceDefinition/encode.js'
 export * from './DataSourceDefinition/decode.js'
 
 export type DataSourceDefinition = {
-  source_type:
+  sourceType:
     | { internal: DataSourceDefinitionInternal }
     | { external: DataSourceDefinitionExternal }
     | null

@@ -16,7 +16,7 @@ exports.decode = function decode(
   let field$priceMonitoringParameters = {}
   let field$targetStakeParameters = {}
   let field$slaParams = {}
-  let field$risk_parameters = null
+  let field$riskParameters = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -33,11 +33,11 @@ exports.decode = function decode(
         break
 
       case 100:
-        field$risk_parameters = { simple: _vega_SimpleModelParams.decode(data) }
+        field$riskParameters = { simple: _vega_SimpleModelParams.decode(data) }
         break
 
       case 101:
-        field$risk_parameters = {
+        field$riskParameters = {
           logNormal: _vega_LogNormalRiskModel.decode(data)
         }
         break
@@ -52,6 +52,6 @@ exports.decode = function decode(
     priceMonitoringParameters: field$priceMonitoringParameters,
     targetStakeParameters: field$targetStakeParameters,
     slaParams: field$slaParams,
-    risk_parameters: field$risk_parameters
+    riskParameters: field$riskParameters
   }
 }

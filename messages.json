@@ -5416,7 +5416,7 @@
           "fullName": ".vega.DataSourceDefinition",
           "map": false,
           "oneofs": [
-            "source_type"
+            "sourceType"
           ],
           "enums": [],
           "messages": [],
@@ -5433,7 +5433,7 @@
               "messageType": "DataSourceDefinitionInternal",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "source_type"
+              "oneofName": "sourceType"
             },
             {
               "name": "external",
@@ -5447,7 +5447,7 @@
               "messageType": "DataSourceDefinitionExternal",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "source_type"
+              "oneofName": "sourceType"
             }
           ]
         },
@@ -5515,7 +5515,7 @@
           "fullName": ".vega.DataSourceDefinitionInternal",
           "map": false,
           "oneofs": [
-            "source_type"
+            "sourceType"
           ],
           "enums": [],
           "messages": [],
@@ -5532,7 +5532,7 @@
               "messageType": "DataSourceSpecConfigurationTime",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "source_type"
+              "oneofName": "sourceType"
             },
             {
               "name": "timeTrigger",
@@ -5546,7 +5546,7 @@
               "messageType": "DataSourceSpecConfigurationTimeTrigger",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "source_type"
+              "oneofName": "sourceType"
             }
           ]
         },
@@ -5555,7 +5555,7 @@
           "fullName": ".vega.DataSourceDefinitionExternal",
           "map": false,
           "oneofs": [
-            "source_type"
+            "sourceType"
           ],
           "enums": [],
           "messages": [],
@@ -5572,7 +5572,7 @@
               "messageType": "DataSourceSpecConfiguration",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "source_type"
+              "oneofName": "sourceType"
             },
             {
               "name": "ethOracle",
@@ -5586,7 +5586,7 @@
               "messageType": "EthCallSpec",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "source_type"
+              "oneofName": "sourceType"
             }
           ]
         },
@@ -6686,7 +6686,7 @@
           "fullName": ".vega.TradableInstrument",
           "map": false,
           "oneofs": [
-            "risk_model"
+            "riskModel"
           ],
           "enums": [],
           "messages": [],
@@ -6729,7 +6729,7 @@
               "messageType": "LogNormalRiskModel",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_model"
+              "oneofName": "riskModel"
             },
             {
               "name": "simpleRiskModel",
@@ -6743,7 +6743,7 @@
               "messageType": "SimpleRiskModel",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_model"
+              "oneofName": "riskModel"
             }
           ]
         },
@@ -14082,7 +14082,7 @@
           "fullName": ".vega.NewSpotMarketConfiguration",
           "map": false,
           "oneofs": [
-            "risk_parameters"
+            "riskParameters"
           ],
           "enums": [],
           "messages": [],
@@ -14162,7 +14162,7 @@
               "messageType": "SimpleModelParams",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_parameters"
+              "oneofName": "riskParameters"
             },
             {
               "name": "logNormal",
@@ -14176,7 +14176,7 @@
               "messageType": "LogNormalRiskModel",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_parameters"
+              "oneofName": "riskParameters"
             },
             {
               "name": "positionDecimalPlaces",
@@ -14210,7 +14210,7 @@
           "fullName": ".vega.NewMarketConfiguration",
           "map": false,
           "oneofs": [
-            "risk_parameters"
+            "riskParameters"
           ],
           "enums": [],
           "messages": [],
@@ -14290,7 +14290,7 @@
               "messageType": "SimpleModelParams",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_parameters"
+              "oneofName": "riskParameters"
             },
             {
               "name": "logNormal",
@@ -14304,7 +14304,7 @@
               "messageType": "LogNormalRiskModel",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_parameters"
+              "oneofName": "riskParameters"
             },
             {
               "name": "positionDecimalPlaces",
@@ -14539,7 +14539,7 @@
           "fullName": ".vega.UpdateMarketConfiguration",
           "map": false,
           "oneofs": [
-            "risk_parameters"
+            "riskParameters"
           ],
           "enums": [],
           "messages": [],
@@ -14607,7 +14607,7 @@
               "messageType": "SimpleModelParams",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_parameters"
+              "oneofName": "riskParameters"
             },
             {
               "name": "logNormal",
@@ -14621,7 +14621,7 @@
               "messageType": "LogNormalRiskModel",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_parameters"
+              "oneofName": "riskParameters"
             },
             {
               "name": "lpPriceRange",
@@ -14680,7 +14680,7 @@
           "fullName": ".vega.UpdateSpotMarketConfiguration",
           "map": false,
           "oneofs": [
-            "risk_parameters"
+            "riskParameters"
           ],
           "enums": [],
           "messages": [],
@@ -14735,7 +14735,7 @@
               "messageType": "SimpleModelParams",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_parameters"
+              "oneofName": "riskParameters"
             },
             {
               "name": "logNormal",
@@ -14749,7 +14749,7 @@
               "messageType": "LogNormalRiskModel",
               "messageTypeLocal": null,
               "oneofIndex": 0,
-              "oneofName": "risk_parameters"
+              "oneofName": "riskParameters"
             },
             {
               "name": "slaParams",

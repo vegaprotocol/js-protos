@@ -6,7 +6,7 @@ export * from './DataSourceDefinitionInternal/encode.js'
 export * from './DataSourceDefinitionInternal/decode.js'
 
 export type DataSourceDefinitionInternal = {
-  source_type:
+  sourceType:
     | { time: DataSourceSpecConfigurationTime }
     | { timeTrigger: DataSourceSpecConfigurationTimeTrigger }
     | null

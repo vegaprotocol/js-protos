@@ -9,19 +9,19 @@ exports.decode = function decode(
   byteOffset = 0,
   byteLength = buf.byteLength
 ) {
-  let field$source_type = null
+  let field$sourceType = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
-        field$source_type = {
+        field$sourceType = {
           oracle: _vega_DataSourceSpecConfiguration.decode(data)
         }
         break
 
       case 2:
-        field$source_type = { ethOracle: _vega_EthCallSpec.decode(data) }
+        field$sourceType = { ethOracle: _vega_EthCallSpec.decode(data) }
         break
     }
   }
-  return { source_type: field$source_type }
+  return { sourceType: field$sourceType }
 }

@@ -16,7 +16,7 @@ export type NewMarketConfiguration = {
   metadata: string[]
   priceMonitoringParameters: PriceMonitoringParameters
   liquidityMonitoringParameters: LiquidityMonitoringParameters
-  risk_parameters:
+  riskParameters:
     | { simple: SimpleModelParams }
     | { logNormal: LogNormalRiskModel }
     | null

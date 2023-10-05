@@ -44,16 +44,16 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       _vega_LiquiditySLAParameters.encode(obj.liquiditySlaParameters)
     )
 
-  if (obj.risk_parameters?.simple ?? obj.simple)
+  if (obj.riskParameters?.simple ?? obj.simple)
     writer.bytes(
       100,
-      _vega_SimpleModelParams.encode(obj.risk_parameters?.simple ?? obj.simple)
+      _vega_SimpleModelParams.encode(obj.riskParameters?.simple ?? obj.simple)
     )
-  if (obj.risk_parameters?.logNormal ?? obj.logNormal)
+  if (obj.riskParameters?.logNormal ?? obj.logNormal)
     writer.bytes(
       101,
       _vega_LogNormalRiskModel.encode(
-        obj.risk_parameters?.logNormal ?? obj.logNormal
+        obj.riskParameters?.logNormal ?? obj.logNormal
       )
     )
 

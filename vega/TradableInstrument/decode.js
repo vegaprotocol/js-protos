@@ -13,7 +13,7 @@ exports.decode = function decode(
 ) {
   let field$instrument = {}
   let field$marginCalculator = {}
-  let field$risk_model = null
+  let field$riskModel = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -25,13 +25,13 @@ exports.decode = function decode(
         break
 
       case 100:
-        field$risk_model = {
+        field$riskModel = {
           logNormalRiskModel: _vega_LogNormalRiskModel.decode(data)
         }
         break
 
       case 101:
-        field$risk_model = {
+        field$riskModel = {
           simpleRiskModel: _vega_SimpleRiskModel.decode(data)
         }
         break
@@ -40,6 +40,6 @@ exports.decode = function decode(
   return {
     instrument: field$instrument,
     marginCalculator: field$marginCalculator,
-    risk_model: field$risk_model
+    riskModel: field$riskModel
   }
 }

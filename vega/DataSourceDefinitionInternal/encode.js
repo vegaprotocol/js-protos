@@ -7,18 +7,18 @@ const _vega_DataSourceSpecConfigurationTimeTrigger = require('./../DataSourceSpe
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.source_type?.time ?? obj.time)
+  if (obj.sourceType?.time ?? obj.time)
     writer.bytes(
       1,
       _vega_DataSourceSpecConfigurationTime.encode(
-        obj.source_type?.time ?? obj.time
+        obj.sourceType?.time ?? obj.time
       )
     )
-  if (obj.source_type?.timeTrigger ?? obj.timeTrigger)
+  if (obj.sourceType?.timeTrigger ?? obj.timeTrigger)
     writer.bytes(
       2,
       _vega_DataSourceSpecConfigurationTimeTrigger.encode(
-        obj.source_type?.timeTrigger ?? obj.timeTrigger
+        obj.sourceType?.timeTrigger ?? obj.timeTrigger
       )
     )
 

@@ -10,7 +10,7 @@ export * from './TradableInstrument/decode.js'
 export type TradableInstrument = {
   instrument: Instrument
   marginCalculator: MarginCalculator
-  risk_model:
+  riskModel:
     | { logNormalRiskModel: LogNormalRiskModel }
     | { simpleRiskModel: SimpleRiskModel }
     | null

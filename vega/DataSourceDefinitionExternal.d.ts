@@ -6,7 +6,7 @@ export * from './DataSourceDefinitionExternal/encode.js'
 export * from './DataSourceDefinitionExternal/decode.js'
 
 export type DataSourceDefinitionExternal = {
-  source_type:
+  sourceType:
     | { oracle: DataSourceSpecConfiguration }
     | { ethOracle: EthCallSpec }
     | null

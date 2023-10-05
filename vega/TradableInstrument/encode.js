@@ -13,18 +13,18 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.marginCalculator)
     writer.bytes(2, _vega_MarginCalculator.encode(obj.marginCalculator))
 
-  if (obj.risk_model?.logNormalRiskModel ?? obj.logNormalRiskModel)
+  if (obj.riskModel?.logNormalRiskModel ?? obj.logNormalRiskModel)
     writer.bytes(
       100,
       _vega_LogNormalRiskModel.encode(
-        obj.risk_model?.logNormalRiskModel ?? obj.logNormalRiskModel
+        obj.riskModel?.logNormalRiskModel ?? obj.logNormalRiskModel
       )
     )
-  if (obj.risk_model?.simpleRiskModel ?? obj.simpleRiskModel)
+  if (obj.riskModel?.simpleRiskModel ?? obj.simpleRiskModel)
     writer.bytes(
       101,
       _vega_SimpleRiskModel.encode(
-        obj.risk_model?.simpleRiskModel ?? obj.simpleRiskModel
+        obj.riskModel?.simpleRiskModel ?? obj.simpleRiskModel
       )
     )
 

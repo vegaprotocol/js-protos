@@ -7,17 +7,17 @@ const _vega_EthCallSpec = require('./../EthCallSpec/encode.js')
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.source_type?.oracle ?? obj.oracle)
+  if (obj.sourceType?.oracle ?? obj.oracle)
     writer.bytes(
       1,
       _vega_DataSourceSpecConfiguration.encode(
-        obj.source_type?.oracle ?? obj.oracle
+        obj.sourceType?.oracle ?? obj.oracle
       )
     )
-  if (obj.source_type?.ethOracle ?? obj.ethOracle)
+  if (obj.sourceType?.ethOracle ?? obj.ethOracle)
     writer.bytes(
       2,
-      _vega_EthCallSpec.encode(obj.source_type?.ethOracle ?? obj.ethOracle)
+      _vega_EthCallSpec.encode(obj.sourceType?.ethOracle ?? obj.ethOracle)
     )
 
   return writer.concat(buf, byteOffset)

@@ -7,18 +7,18 @@ const _vega_DataSourceDefinitionExternal = require('./../DataSourceDefinitionExt
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.source_type?.internal ?? obj.internal)
+  if (obj.sourceType?.internal ?? obj.internal)
     writer.bytes(
       1,
       _vega_DataSourceDefinitionInternal.encode(
-        obj.source_type?.internal ?? obj.internal
+        obj.sourceType?.internal ?? obj.internal
       )
     )
-  if (obj.source_type?.external ?? obj.external)
+  if (obj.sourceType?.external ?? obj.external)
     writer.bytes(
       2,
       _vega_DataSourceDefinitionExternal.encode(
-        obj.source_type?.external ?? obj.external
+        obj.sourceType?.external ?? obj.external
       )
     )
 
