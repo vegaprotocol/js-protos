@@ -7,6 +7,7 @@ const _vega_PriceMonitoringBounds = require('./../PriceMonitoringBounds/encode.j
 const _vega_LiquidityProviderFeeShare = require('./../LiquidityProviderFeeShare/encode.js')
 const _vega_Market_State = require('./../Market/State.js')
 const _vega_ProductData = require('./../ProductData/encode.js')
+const _vega_LiquidityProviderSLA = require('./../LiquidityProviderSLA/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -53,6 +54,10 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.marketGrowth) writer.bytes(30, obj.marketGrowth, string)
   if (obj.productData)
     writer.bytes(31, _vega_ProductData.encode(obj.productData))
+  if (obj.liquidityProviderSla?.length)
+    obj.liquidityProviderSla.forEach((v) =>
+      writer.bytes(32, _vega_LiquidityProviderSLA.encode(v))
+    )
 
   return writer.concat(buf, byteOffset)
 }

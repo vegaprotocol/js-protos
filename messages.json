@@ -7536,7 +7536,7 @@
                   "value": 5
                 },
                 {
-                  "name": "REJECTION_REASON_STOP_ORDER_DOES_NOT_CLOSE_POSITION",
+                  "name": "REJECTION_REASON_STOP_ORDER_NOT_CLOSING_THE_POSITION",
                   "value": 6
                 }
               ]
@@ -10824,6 +10824,19 @@
               "messageTypeLocal": null,
               "oneofIndex": null,
               "oneofName": null
+            },
+            {
+              "name": "liquidityProviderSla",
+              "number": 32,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.LiquidityProviderSLA",
+              "messageType": "LiquidityProviderSLA",
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -10886,6 +10899,124 @@
             {
               "name": "virtualStake",
               "number": 5,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "LiquidityProviderSLA",
+          "fullName": ".vega.LiquidityProviderSLA",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "party",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "currentEpochFractionOfTimeOnBook",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "lastEpochFractionOfTimeOnBook",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "lastEpochFeePenalty",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "lastEpochBondPenalty",
+              "number": 5,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "hysteresisPeriodFeePenalties",
+              "number": 6,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "requiredLiquidity",
+              "number": 7,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "notionalVolumeBuys",
+              "number": 8,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "notionalVolumeSells",
+              "number": 9,
               "type": "string",
               "wireType": "bytes",
               "repeated": false,
@@ -11410,198 +11541,6 @@
               "packed": false,
               "optional": false,
               "typeName": ".vega.LiquidityProvision.Status",
-              "messageType": "Status",
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "reference",
-              "number": 12,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            }
-          ]
-        },
-        {
-          "name": "LiquidityProvisionV2",
-          "fullName": ".vega.LiquidityProvisionV2",
-          "map": false,
-          "oneofs": [],
-          "enums": [
-            {
-              "name": "Status",
-              "fullName": ".vega.LiquidityProvisionV2.Status",
-              "values": [
-                {
-                  "name": "STATUS_UNSPECIFIED",
-                  "value": 0
-                },
-                {
-                  "name": "STATUS_ACTIVE",
-                  "value": 1
-                },
-                {
-                  "name": "STATUS_STOPPED",
-                  "value": 2
-                },
-                {
-                  "name": "STATUS_CANCELLED",
-                  "value": 3
-                },
-                {
-                  "name": "STATUS_REJECTED",
-                  "value": 4
-                },
-                {
-                  "name": "STATUS_UNDEPLOYED",
-                  "value": 5
-                },
-                {
-                  "name": "STATUS_PENDING",
-                  "value": 6
-                }
-              ]
-            }
-          ],
-          "messages": [],
-          "fields": [
-            {
-              "name": "id",
-              "number": 1,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "partyId",
-              "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "createdAt",
-              "number": 3,
-              "type": "int64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "updatedAt",
-              "number": 4,
-              "type": "int64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "marketId",
-              "number": 5,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "commitmentAmount",
-              "number": 6,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "fee",
-              "number": 7,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "sells",
-              "number": 8,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": true,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.LiquidityOrderReference",
-              "messageType": "LiquidityOrderReference",
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "buys",
-              "number": 9,
-              "type": "message",
-              "wireType": "bytes",
-              "repeated": true,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.LiquidityOrderReference",
-              "messageType": "LiquidityOrderReference",
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "version",
-              "number": 10,
-              "type": "uint64",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "status",
-              "number": 11,
-              "type": "enumerable",
-              "wireType": "varint",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": ".vega.LiquidityProvisionV2.Status",
               "messageType": "Status",
               "messageTypeLocal": null,
               "oneofIndex": null

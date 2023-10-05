@@ -5,6 +5,7 @@ import type { PriceMonitoringBounds } from './PriceMonitoringBounds'
 import type { LiquidityProviderFeeShare } from './LiquidityProviderFeeShare'
 import type { State } from './Market/State'
 import type { ProductData } from './ProductData'
+import type { LiquidityProviderSLA } from './LiquidityProviderSLA'
 
 export * from './MarketData/encode.js'
 export * from './MarketData/decode.js'
@@ -41,4 +42,5 @@ export type MarketData = {
   lastTradedPrice: string
   marketGrowth: string
   productData: ProductData | null
+  liquidityProviderSla: LiquidityProviderSLA[]
 }
