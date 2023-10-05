@@ -3,7 +3,7 @@
   "version": "0.8.0",
   "description": "Protocol Buffer messages for Vega in Javascript",
   "scripts": {
-    "test": "true"
+    "test": "brittle tests/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@vegaprotocol/crypto": "^0.5.1",
+    "brittle": "^3.3.2",
     "esbuild": "^0.17.8",
     "got": "^12.4.1",
     "protoc-plugin-js": "^0.5.1",
