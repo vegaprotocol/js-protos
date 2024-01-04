@@ -5,6 +5,8 @@ const _vega_StopOrder_ExpiryStrategy = require('./ExpiryStrategy.js')
 const _vega_StopOrder_TriggerDirection = require('./TriggerDirection.js')
 const _vega_StopOrder_Status = require('./Status.js')
 const _vega_StopOrder_RejectionReason = require('./RejectionReason.js')
+const _vega_StopOrder_SizeOverrideSetting = require('./SizeOverrideSetting.js')
+const _vega_StopOrder_SizeOverrideValue = require('./SizeOverrideValue/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -23,6 +25,8 @@ exports.decode = function decode(
   let field$partyId = ''
   let field$marketId = ''
   let field$rejectionReason = null
+  let field$sizeOverrideSetting = _vega_StopOrder_SizeOverrideSetting.decode(0)
+  let field$sizeOverrideValue = null
   let field$trigger = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -74,6 +78,15 @@ exports.decode = function decode(
         field$rejectionReason = _vega_StopOrder_RejectionReason.decode(data)
         break
 
+      case 13:
+        field$sizeOverrideSetting =
+          _vega_StopOrder_SizeOverrideSetting.decode(data)
+        break
+
+      case 14:
+        field$sizeOverrideValue = _vega_StopOrder_SizeOverrideValue.decode(data)
+        break
+
       case 100:
         field$trigger = { price: string(data) }
         break
@@ -96,6 +109,8 @@ exports.decode = function decode(
     partyId: field$partyId,
     marketId: field$marketId,
     rejectionReason: field$rejectionReason,
+    sizeOverrideSetting: field$sizeOverrideSetting,
+    sizeOverrideValue: field$sizeOverrideValue,
     trigger: field$trigger
   }
 }

@@ -14,4 +14,7 @@ export type UpdatePerpetualProduct = {
   dataSourceSpecForSettlementSchedule: DataSourceDefinition
   dataSourceSpecForSettlementData: DataSourceDefinition
   dataSourceSpecBinding: DataSourceSpecToPerpetualBinding
+  fundingRateScalingFactor: string | null
+  fundingRateLowerBound: string | null
+  fundingRateUpperBound: string | null
 }

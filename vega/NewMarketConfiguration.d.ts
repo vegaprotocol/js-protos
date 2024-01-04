@@ -6,6 +6,8 @@ import type { SimpleModelParams } from './SimpleModelParams'
 import type { LogNormalRiskModel } from './LogNormalRiskModel'
 import type { SuccessorConfiguration } from './SuccessorConfiguration'
 import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
+import type { LiquidityFeeSettings } from './LiquidityFeeSettings'
+import type { LiquidationStrategy } from './LiquidationStrategy'
 
 export * from './NewMarketConfiguration/encode.js'
 export * from './NewMarketConfiguration/decode.js'
@@ -26,4 +28,6 @@ export type NewMarketConfiguration = {
   quadraticSlippageFactor: string
   successor: SuccessorConfiguration | null
   liquiditySlaParameters: LiquiditySLAParameters
+  liquidityFeeSettings: LiquidityFeeSettings
+  liquidationStrategy: LiquidationStrategy
 }

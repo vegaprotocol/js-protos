@@ -3,36 +3,24 @@ const assert = require('nanoassert')
 const { enumerable } = require('protobuf-codec/encode/types')
 const { enumerable: decodeEnumerable } = require('protobuf-codec/decode/types')
 
-const STATUS_UNSPECIFIED = 0
-const STATUS_ACTIVE = 1
-const STATUS_STOPPED = 2
-const STATUS_CANCELLED = 3
-const STATUS_REJECTED = 4
-const STATUS_UNDEPLOYED = 5
-const STATUS_PENDING = 6
+const MODE_UNSPECIFIED = 0
+const MODE_CROSS_MARGIN = 1
+const MODE_ISOLATED_MARGIN = 2
 
 const enumValues = new Map([
-  [0, 'STATUS_UNSPECIFIED'],
-  [1, 'STATUS_ACTIVE'],
-  [2, 'STATUS_STOPPED'],
-  [3, 'STATUS_CANCELLED'],
-  [4, 'STATUS_REJECTED'],
-  [5, 'STATUS_UNDEPLOYED'],
-  [6, 'STATUS_PENDING']
+  [0, 'MODE_UNSPECIFIED'],
+  [1, 'MODE_CROSS_MARGIN'],
+  [2, 'MODE_ISOLATED_MARGIN']
 ])
 const enumNames = new Map([
-  ['STATUS_UNSPECIFIED', 0],
-  ['STATUS_ACTIVE', 1],
-  ['STATUS_STOPPED', 2],
-  ['STATUS_CANCELLED', 3],
-  ['STATUS_REJECTED', 4],
-  ['STATUS_UNDEPLOYED', 5],
-  ['STATUS_PENDING', 6]
+  ['MODE_UNSPECIFIED', 0],
+  ['MODE_CROSS_MARGIN', 1],
+  ['MODE_ISOLATED_MARGIN', 2]
 ])
 
 function encode(value, buf, byteOffset = 0) {
   if (typeof value === 'string') return encode(parse(value), buf, byteOffset)
-  if (value == null) throw new Error('Invalid Status value (' + value + ')')
+  if (value == null) throw new Error('Invalid Mode value (' + value + ')')
 
   return enumerable.encode(value, buf, byteOffset)
 }
@@ -45,9 +33,9 @@ function decode(varint) {
 
 function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
-  assert(value != null, 'Invalid Status value (' + value + ')')
+  assert(value != null, 'Invalid Mode value (' + value + ')')
 
-  if (0 <= value && value <= 6) return 1
+  if (0 <= value && value <= 2) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -75,11 +63,7 @@ module.exports = {
   encodingLength,
   stringify,
   parse,
-  STATUS_UNSPECIFIED,
-  STATUS_ACTIVE,
-  STATUS_STOPPED,
-  STATUS_CANCELLED,
-  STATUS_REJECTED,
-  STATUS_UNDEPLOYED,
-  STATUS_PENDING
+  MODE_UNSPECIFIED,
+  MODE_CROSS_MARGIN,
+  MODE_ISOLATED_MARGIN
 }

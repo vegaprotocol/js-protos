@@ -10,6 +10,7 @@ const _vega_Market_TradingMode = require('./TradingMode.js')
 const _vega_Market_State = require('./State.js')
 const _vega_MarketTimestamps = require('./../MarketTimestamps/encode.js')
 const _vega_LiquiditySLAParameters = require('./../LiquiditySLAParameters/encode.js')
+const _vega_LiquidationStrategy = require('./../LiquidationStrategy/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -54,6 +55,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       18,
       _vega_LiquiditySLAParameters.encode(obj.liquiditySlaParams)
     )
+  if (obj.liquidationStrategy)
+    writer.bytes(19, _vega_LiquidationStrategy.encode(obj.liquidationStrategy))
 
   return writer.concat(buf, byteOffset)
 }

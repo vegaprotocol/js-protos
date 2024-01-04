@@ -8,4 +8,6 @@ export type PerpetualData = {
   fundingRate: string
   internalTwap: string
   externalTwap: string
+  seqNum: bigint
+  startTime: bigint
 }

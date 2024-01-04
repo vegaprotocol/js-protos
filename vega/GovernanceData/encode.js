@@ -5,6 +5,7 @@ const _vega_Proposal = require('./../Proposal/encode.js')
 const _vega_Vote = require('./../Vote/encode.js')
 const _vega_GovernanceData_YesPartyEntry = require('./YesPartyEntry/encode.js')
 const _vega_GovernanceData_NoPartyEntry = require('./NoPartyEntry/encode.js')
+const _vega_GovernanceData_Type = require('./Type.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -22,6 +23,10 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     obj.noParty.forEach((v) =>
       writer.bytes(5, _vega_GovernanceData_NoPartyEntry.encode(v))
     )
+  if (obj.proposalType)
+    writer.varint(6, obj.proposalType, _vega_GovernanceData_Type)
+  if (obj.proposals?.length)
+    obj.proposals.forEach((v) => writer.bytes(7, _vega_Proposal.encode(v)))
 
   return writer.concat(buf, byteOffset)
 }

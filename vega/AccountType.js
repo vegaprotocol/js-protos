@@ -31,6 +31,7 @@ const ACCOUNT_TYPE_REWARD_RELATIVE_RETURN = 25
 const ACCOUNT_TYPE_REWARD_RETURN_VOLATILITY = 26
 const ACCOUNT_TYPE_REWARD_VALIDATOR_RANKING = 27
 const ACCOUNT_TYPE_PENDING_FEE_REFERRAL_REWARD = 28
+const ACCOUNT_TYPE_ORDER_MARGIN = 29
 
 const enumValues = new Map([
   [0, 'ACCOUNT_TYPE_UNSPECIFIED'],
@@ -60,7 +61,8 @@ const enumValues = new Map([
   [25, 'ACCOUNT_TYPE_REWARD_RELATIVE_RETURN'],
   [26, 'ACCOUNT_TYPE_REWARD_RETURN_VOLATILITY'],
   [27, 'ACCOUNT_TYPE_REWARD_VALIDATOR_RANKING'],
-  [28, 'ACCOUNT_TYPE_PENDING_FEE_REFERRAL_REWARD']
+  [28, 'ACCOUNT_TYPE_PENDING_FEE_REFERRAL_REWARD'],
+  [29, 'ACCOUNT_TYPE_ORDER_MARGIN']
 ])
 const enumNames = new Map([
   ['ACCOUNT_TYPE_UNSPECIFIED', 0],
@@ -90,7 +92,8 @@ const enumNames = new Map([
   ['ACCOUNT_TYPE_REWARD_RELATIVE_RETURN', 25],
   ['ACCOUNT_TYPE_REWARD_RETURN_VOLATILITY', 26],
   ['ACCOUNT_TYPE_REWARD_VALIDATOR_RANKING', 27],
-  ['ACCOUNT_TYPE_PENDING_FEE_REFERRAL_REWARD', 28]
+  ['ACCOUNT_TYPE_PENDING_FEE_REFERRAL_REWARD', 28],
+  ['ACCOUNT_TYPE_ORDER_MARGIN', 29]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -111,7 +114,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid AccountType value (' + value + ')')
 
-  if (0 <= value && value <= 28) return 1
+  if (0 <= value && value <= 29) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -166,5 +169,6 @@ module.exports = {
   ACCOUNT_TYPE_REWARD_RELATIVE_RETURN,
   ACCOUNT_TYPE_REWARD_RETURN_VOLATILITY,
   ACCOUNT_TYPE_REWARD_VALIDATOR_RANKING,
-  ACCOUNT_TYPE_PENDING_FEE_REFERRAL_REWARD
+  ACCOUNT_TYPE_PENDING_FEE_REFERRAL_REWARD,
+  ACCOUNT_TYPE_ORDER_MARGIN
 }

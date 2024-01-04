@@ -21,6 +21,8 @@ const _vega_commands_v1_StopOrdersCancellation = require('./../StopOrdersCancell
 const _vega_commands_v1_CreateReferralSet = require('./../CreateReferralSet/encode.js')
 const _vega_commands_v1_UpdateReferralSet = require('./../UpdateReferralSet/encode.js')
 const _vega_commands_v1_ApplyReferralCode = require('./../ApplyReferralCode/encode.js')
+const _vega_commands_v1_UpdateMarginMode = require('./../UpdateMarginMode/encode.js')
+const _vega_commands_v1_JoinTeam = require('./../JoinTeam/encode.js')
 const _vega_commands_v1_NodeVote = require('./../NodeVote/encode.js')
 const _vega_commands_v1_NodeSignature = require('./../NodeSignature/encode.js')
 const _vega_commands_v1_ChainEvent = require('./../ChainEvent/encode.js')
@@ -31,6 +33,7 @@ const _vega_commands_v1_EthereumKeyRotateSubmission = require('./../EthereumKeyR
 const _vega_commands_v1_ProtocolUpgradeProposal = require('./../ProtocolUpgradeProposal/encode.js')
 const _vega_commands_v1_IssueSignatures = require('./../IssueSignatures/encode.js')
 const _vega_commands_v1_OracleDataSubmission = require('./../OracleDataSubmission/encode.js')
+const _vega_commands_v1_BatchProposalSubmission = require('./../BatchProposalSubmission/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -188,6 +191,18 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
         obj.command?.applyReferralCode ?? obj.applyReferralCode
       )
     )
+  if (obj.command?.updateMarginMode ?? obj.updateMarginMode)
+    writer.bytes(
+      1021,
+      _vega_commands_v1_UpdateMarginMode.encode(
+        obj.command?.updateMarginMode ?? obj.updateMarginMode
+      )
+    )
+  if (obj.command?.joinTeam ?? obj.joinTeam)
+    writer.bytes(
+      1022,
+      _vega_commands_v1_JoinTeam.encode(obj.command?.joinTeam ?? obj.joinTeam)
+    )
   if (obj.command?.nodeVote ?? obj.nodeVote)
     writer.bytes(
       2002,
@@ -258,6 +273,13 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       3001,
       _vega_commands_v1_OracleDataSubmission.encode(
         obj.command?.oracleDataSubmission ?? obj.oracleDataSubmission
+      )
+    )
+  if (obj.command?.batchProposalSubmission ?? obj.batchProposalSubmission)
+    writer.bytes(
+      3002,
+      _vega_commands_v1_BatchProposalSubmission.encode(
+        obj.command?.batchProposalSubmission ?? obj.batchProposalSubmission
       )
     )
 

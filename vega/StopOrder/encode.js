@@ -5,6 +5,8 @@ const _vega_StopOrder_ExpiryStrategy = require('./ExpiryStrategy.js')
 const _vega_StopOrder_TriggerDirection = require('./TriggerDirection.js')
 const _vega_StopOrder_Status = require('./Status.js')
 const _vega_StopOrder_RejectionReason = require('./RejectionReason.js')
+const _vega_StopOrder_SizeOverrideSetting = require('./SizeOverrideSetting.js')
+const _vega_StopOrder_SizeOverrideValue = require('./SizeOverrideValue/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -24,6 +26,17 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.marketId) writer.bytes(11, obj.marketId, string)
   if (obj.rejectionReason)
     writer.varint(12, obj.rejectionReason, _vega_StopOrder_RejectionReason)
+  if (obj.sizeOverrideSetting)
+    writer.varint(
+      13,
+      obj.sizeOverrideSetting,
+      _vega_StopOrder_SizeOverrideSetting
+    )
+  if (obj.sizeOverrideValue)
+    writer.bytes(
+      14,
+      _vega_StopOrder_SizeOverrideValue.encode(obj.sizeOverrideValue)
+    )
 
   if (obj.trigger?.price ?? obj.price)
     writer.bytes(100, obj.trigger?.price ?? obj.price, string)

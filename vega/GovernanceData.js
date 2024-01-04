@@ -3,6 +3,7 @@
 module.exports = {
   ...require('./GovernanceData/encode.js'),
   ...require('./GovernanceData/decode.js'),
+  Type: require('./GovernanceData/Type.js'),
   YesPartyEntry: require('./GovernanceData/YesPartyEntry.js'),
   NoPartyEntry: require('./GovernanceData/NoPartyEntry.js')
 }

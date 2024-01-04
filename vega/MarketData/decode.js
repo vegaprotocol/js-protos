@@ -46,6 +46,7 @@ exports.decode = function decode(
   let field$marketGrowth = ''
   let field$productData = null
   const field$liquidityProviderSla = []
+  let field$nextNetworkCloseout = 0n
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -179,6 +180,10 @@ exports.decode = function decode(
       case 32:
         field$liquidityProviderSla.push(_vega_LiquidityProviderSLA.decode(data))
         break
+
+      case 33:
+        field$nextNetworkCloseout = int64(data)
+        break
     }
   }
   return {
@@ -213,6 +218,7 @@ exports.decode = function decode(
     lastTradedPrice: field$lastTradedPrice,
     marketGrowth: field$marketGrowth,
     productData: field$productData,
-    liquidityProviderSla: field$liquidityProviderSla
+    liquidityProviderSla: field$liquidityProviderSla,
+    nextNetworkCloseout: field$nextNetworkCloseout
   }
 }

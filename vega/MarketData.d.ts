@@ -43,4 +43,5 @@ export type MarketData = {
   marketGrowth: string
   productData: ProductData | null
   liquidityProviderSla: LiquidityProviderSLA[]
+  nextNetworkCloseout: bigint
 }
