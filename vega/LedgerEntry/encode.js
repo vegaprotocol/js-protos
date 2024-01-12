@@ -15,6 +15,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.timestamp) writer.varint(5, obj.timestamp, int64)
   if (obj.fromAccountBalance) writer.bytes(6, obj.fromAccountBalance, string)
   if (obj.toAccountBalance) writer.bytes(7, obj.toAccountBalance, string)
+  if (obj.transferId) writer.bytes(8, obj.transferId, string)
 
   return writer.concat(buf, byteOffset)
 }

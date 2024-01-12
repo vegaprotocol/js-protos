@@ -8,6 +8,8 @@ const _vega_SimpleModelParams = require('./../SimpleModelParams/decode.js')
 const _vega_LogNormalRiskModel = require('./../LogNormalRiskModel/decode.js')
 const _vega_SuccessorConfiguration = require('./../SuccessorConfiguration/decode.js')
 const _vega_LiquiditySLAParameters = require('./../LiquiditySLAParameters/decode.js')
+const _vega_LiquidityFeeSettings = require('./../LiquidityFeeSettings/decode.js')
+const _vega_LiquidationStrategy = require('./../LiquidationStrategy/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -25,6 +27,8 @@ exports.decode = function decode(
   let field$quadraticSlippageFactor = ''
   let field$successor = null
   let field$liquiditySlaParameters = {}
+  let field$liquidityFeeSettings = {}
+  let field$liquidationStrategy = {}
   let field$riskParameters = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -83,6 +87,14 @@ exports.decode = function decode(
       case 12:
         field$liquiditySlaParameters = _vega_LiquiditySLAParameters.decode(data)
         break
+
+      case 13:
+        field$liquidityFeeSettings = _vega_LiquidityFeeSettings.decode(data)
+        break
+
+      case 14:
+        field$liquidationStrategy = _vega_LiquidationStrategy.decode(data)
+        break
     }
   }
   return {
@@ -97,6 +109,8 @@ exports.decode = function decode(
     quadraticSlippageFactor: field$quadraticSlippageFactor,
     successor: field$successor,
     liquiditySlaParameters: field$liquiditySlaParameters,
+    liquidityFeeSettings: field$liquidityFeeSettings,
+    liquidationStrategy: field$liquidationStrategy,
     riskParameters: field$riskParameters
   }
 }

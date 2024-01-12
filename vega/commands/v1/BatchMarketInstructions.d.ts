@@ -4,6 +4,7 @@ import type { OrderAmendment } from './OrderAmendment'
 import type { OrderSubmission } from './OrderSubmission'
 import type { StopOrdersCancellation } from './StopOrdersCancellation'
 import type { StopOrdersSubmission } from './StopOrdersSubmission'
+import type { UpdateMarginMode } from './UpdateMarginMode'
 
 export * from './BatchMarketInstructions/encode.js'
 export * from './BatchMarketInstructions/decode.js'
@@ -14,4 +15,5 @@ export type BatchMarketInstructions = {
   submissions: OrderSubmission[]
   stopOrdersCancellation: StopOrdersCancellation[]
   stopOrdersSubmission: StopOrdersSubmission[]
+  updateMarginMode: UpdateMarginMode[]
 }

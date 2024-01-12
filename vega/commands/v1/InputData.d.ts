@@ -19,6 +19,8 @@ import type { StopOrdersCancellation } from './StopOrdersCancellation'
 import type { CreateReferralSet } from './CreateReferralSet'
 import type { UpdateReferralSet } from './UpdateReferralSet'
 import type { ApplyReferralCode } from './ApplyReferralCode'
+import type { UpdateMarginMode } from './UpdateMarginMode'
+import type { JoinTeam } from './JoinTeam'
 import type { NodeVote } from './NodeVote'
 import type { NodeSignature } from './NodeSignature'
 import type { ChainEvent } from './ChainEvent'
@@ -29,6 +31,7 @@ import type { EthereumKeyRotateSubmission } from './EthereumKeyRotateSubmission'
 import type { ProtocolUpgradeProposal } from './ProtocolUpgradeProposal'
 import type { IssueSignatures } from './IssueSignatures'
 import type { OracleDataSubmission } from './OracleDataSubmission'
+import type { BatchProposalSubmission } from './BatchProposalSubmission'
 
 export * from './InputData/encode.js'
 export * from './InputData/decode.js'
@@ -57,6 +60,8 @@ export type InputData = {
     | { createReferralSet: CreateReferralSet }
     | { updateReferralSet: UpdateReferralSet }
     | { applyReferralCode: ApplyReferralCode }
+    | { updateMarginMode: UpdateMarginMode }
+    | { joinTeam: JoinTeam }
     | { nodeVote: NodeVote }
     | { nodeSignature: NodeSignature }
     | { chainEvent: ChainEvent }
@@ -67,5 +72,6 @@ export type InputData = {
     | { protocolUpgradeProposal: ProtocolUpgradeProposal }
     | { issueSignatures: IssueSignatures }
     | { oracleDataSubmission: OracleDataSubmission }
+    | { batchProposalSubmission: BatchProposalSubmission }
     | null
 }

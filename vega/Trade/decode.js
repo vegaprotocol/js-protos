@@ -25,6 +25,7 @@ exports.decode = function decode(
   let field$sellerFee = {}
   let field$buyerAuctionBatch = 0n
   let field$sellerAuctionBatch = 0n
+  let field$assetPrice = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -86,6 +87,10 @@ exports.decode = function decode(
       case 15:
         field$sellerAuctionBatch = uint64(data)
         break
+
+      case 16:
+        field$assetPrice = string(data)
+        break
     }
   }
   return {
@@ -103,6 +108,7 @@ exports.decode = function decode(
     buyerFee: field$buyerFee,
     sellerFee: field$sellerFee,
     buyerAuctionBatch: field$buyerAuctionBatch,
-    sellerAuctionBatch: field$sellerAuctionBatch
+    sellerAuctionBatch: field$sellerAuctionBatch,
+    assetPrice: field$assetPrice
   }
 }

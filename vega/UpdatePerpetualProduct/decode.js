@@ -17,6 +17,9 @@ exports.decode = function decode(
   let field$dataSourceSpecForSettlementSchedule = {}
   let field$dataSourceSpecForSettlementData = {}
   let field$dataSourceSpecBinding = {}
+  let field$fundingRateScalingFactor = null
+  let field$fundingRateLowerBound = null
+  let field$fundingRateUpperBound = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -53,6 +56,18 @@ exports.decode = function decode(
         field$dataSourceSpecBinding =
           _vega_DataSourceSpecToPerpetualBinding.decode(data)
         break
+
+      case 9:
+        field$fundingRateScalingFactor = string(data)
+        break
+
+      case 10:
+        field$fundingRateLowerBound = string(data)
+        break
+
+      case 11:
+        field$fundingRateUpperBound = string(data)
+        break
     }
   }
   return {
@@ -64,6 +79,9 @@ exports.decode = function decode(
     dataSourceSpecForSettlementSchedule:
       field$dataSourceSpecForSettlementSchedule,
     dataSourceSpecForSettlementData: field$dataSourceSpecForSettlementData,
-    dataSourceSpecBinding: field$dataSourceSpecBinding
+    dataSourceSpecBinding: field$dataSourceSpecBinding,
+    fundingRateScalingFactor: field$fundingRateScalingFactor,
+    fundingRateLowerBound: field$fundingRateLowerBound,
+    fundingRateUpperBound: field$fundingRateUpperBound
   }
 }

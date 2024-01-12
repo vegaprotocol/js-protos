@@ -5,6 +5,7 @@ import type { TargetStakeParameters } from './TargetStakeParameters'
 import type { SimpleModelParams } from './SimpleModelParams'
 import type { LogNormalRiskModel } from './LogNormalRiskModel'
 import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
+import type { LiquidityFeeSettings } from './LiquidityFeeSettings'
 
 export * from './NewSpotMarketConfiguration/encode.js'
 export * from './NewSpotMarketConfiguration/decode.js'
@@ -21,4 +22,5 @@ export type NewSpotMarketConfiguration = {
     | null
   positionDecimalPlaces: bigint
   slaParams: LiquiditySLAParameters
+  liquidityFeeSettings: LiquidityFeeSettings
 }

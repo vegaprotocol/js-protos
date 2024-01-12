@@ -21,6 +21,8 @@ const _vega_commands_v1_StopOrdersCancellation = require('./../StopOrdersCancell
 const _vega_commands_v1_CreateReferralSet = require('./../CreateReferralSet/decode.js')
 const _vega_commands_v1_UpdateReferralSet = require('./../UpdateReferralSet/decode.js')
 const _vega_commands_v1_ApplyReferralCode = require('./../ApplyReferralCode/decode.js')
+const _vega_commands_v1_UpdateMarginMode = require('./../UpdateMarginMode/decode.js')
+const _vega_commands_v1_JoinTeam = require('./../JoinTeam/decode.js')
 const _vega_commands_v1_NodeVote = require('./../NodeVote/decode.js')
 const _vega_commands_v1_NodeSignature = require('./../NodeSignature/decode.js')
 const _vega_commands_v1_ChainEvent = require('./../ChainEvent/decode.js')
@@ -31,6 +33,7 @@ const _vega_commands_v1_EthereumKeyRotateSubmission = require('./../EthereumKeyR
 const _vega_commands_v1_ProtocolUpgradeProposal = require('./../ProtocolUpgradeProposal/decode.js')
 const _vega_commands_v1_IssueSignatures = require('./../IssueSignatures/decode.js')
 const _vega_commands_v1_OracleDataSubmission = require('./../OracleDataSubmission/decode.js')
+const _vega_commands_v1_BatchProposalSubmission = require('./../BatchProposalSubmission/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -175,6 +178,16 @@ exports.decode = function decode(
         }
         break
 
+      case 1021:
+        field$command = {
+          updateMarginMode: _vega_commands_v1_UpdateMarginMode.decode(data)
+        }
+        break
+
+      case 1022:
+        field$command = { joinTeam: _vega_commands_v1_JoinTeam.decode(data) }
+        break
+
       case 2002:
         field$command = { nodeVote: _vega_commands_v1_NodeVote.decode(data) }
         break
@@ -235,6 +248,13 @@ exports.decode = function decode(
         field$command = {
           oracleDataSubmission:
             _vega_commands_v1_OracleDataSubmission.decode(data)
+        }
+        break
+
+      case 3002:
+        field$command = {
+          batchProposalSubmission:
+            _vega_commands_v1_BatchProposalSubmission.decode(data)
         }
         break
     }

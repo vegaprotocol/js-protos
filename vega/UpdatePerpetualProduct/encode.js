@@ -27,6 +27,12 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       8,
       _vega_DataSourceSpecToPerpetualBinding.encode(obj.dataSourceSpecBinding)
     )
+  if (obj.fundingRateScalingFactor)
+    writer.bytes(9, obj.fundingRateScalingFactor, string)
+  if (obj.fundingRateLowerBound)
+    writer.bytes(10, obj.fundingRateLowerBound, string)
+  if (obj.fundingRateUpperBound)
+    writer.bytes(11, obj.fundingRateUpperBound, string)
 
   return writer.concat(buf, byteOffset)
 }

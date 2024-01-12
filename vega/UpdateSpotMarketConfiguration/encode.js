@@ -6,6 +6,7 @@ const _vega_TargetStakeParameters = require('./../TargetStakeParameters/encode.j
 const _vega_SimpleModelParams = require('./../SimpleModelParams/encode.js')
 const _vega_LogNormalRiskModel = require('./../LogNormalRiskModel/encode.js')
 const _vega_LiquiditySLAParameters = require('./../LiquiditySLAParameters/encode.js')
+const _vega_LiquidityFeeSettings = require('./../LiquidityFeeSettings/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -24,6 +25,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     )
   if (obj.slaParams)
     writer.bytes(4, _vega_LiquiditySLAParameters.encode(obj.slaParams))
+  if (obj.liquidityFeeSettings)
+    writer.bytes(5, _vega_LiquidityFeeSettings.encode(obj.liquidityFeeSettings))
 
   if (obj.riskParameters?.simple ?? obj.simple)
     writer.bytes(

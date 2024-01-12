@@ -2,6 +2,7 @@
 const reader = require('protobuf-codec/decode/reader')
 const { string, int64 } = require('protobuf-codec/decode/types')
 const _vega_Vote_Value = require('./Value.js')
+const _vega_Vote_PerMarketEquityLikeShareWeightEntry = require('./PerMarketEquityLikeShareWeightEntry/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -15,6 +16,7 @@ exports.decode = function decode(
   let field$totalGovernanceTokenBalance = ''
   let field$totalGovernanceTokenWeight = ''
   let field$totalEquityLikeShareWeight = ''
+  const field$perMarketEquityLikeShareWeight = []
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -44,6 +46,12 @@ exports.decode = function decode(
       case 7:
         field$totalEquityLikeShareWeight = string(data)
         break
+
+      case 8:
+        field$perMarketEquityLikeShareWeight.push(
+          _vega_Vote_PerMarketEquityLikeShareWeightEntry.decode(data)
+        )
+        break
     }
   }
   return {
@@ -53,6 +61,7 @@ exports.decode = function decode(
     timestamp: field$timestamp,
     totalGovernanceTokenBalance: field$totalGovernanceTokenBalance,
     totalGovernanceTokenWeight: field$totalGovernanceTokenWeight,
-    totalEquityLikeShareWeight: field$totalEquityLikeShareWeight
+    totalEquityLikeShareWeight: field$totalEquityLikeShareWeight,
+    perMarketEquityLikeShareWeight: field$perMarketEquityLikeShareWeight
   }
 }

@@ -5,6 +5,8 @@ import type { LiquidityMonitoringParameters } from './LiquidityMonitoringParamet
 import type { SimpleModelParams } from './SimpleModelParams'
 import type { LogNormalRiskModel } from './LogNormalRiskModel'
 import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
+import type { LiquidityFeeSettings } from './LiquidityFeeSettings'
+import type { LiquidationStrategy } from './LiquidationStrategy'
 
 export * from './UpdateMarketConfiguration/encode.js'
 export * from './UpdateMarketConfiguration/decode.js'
@@ -22,4 +24,6 @@ export type UpdateMarketConfiguration = {
   linearSlippageFactor: string
   quadraticSlippageFactor: string
   liquiditySlaParameters: LiquiditySLAParameters
+  liquidityFeeSettings: LiquidityFeeSettings
+  liquidationStrategy: LiquidationStrategy
 }

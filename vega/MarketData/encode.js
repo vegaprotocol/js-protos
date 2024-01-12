@@ -58,6 +58,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     obj.liquidityProviderSla.forEach((v) =>
       writer.bytes(32, _vega_LiquidityProviderSLA.encode(v))
     )
+  if (obj.nextNetworkCloseout) writer.varint(33, obj.nextNetworkCloseout, int64)
 
   return writer.concat(buf, byteOffset)
 }
