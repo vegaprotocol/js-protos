@@ -40,6 +40,7 @@ module.exports = {
   UpdateReferralSet: require('./v1/UpdateReferralSet.js'),
   ApplyReferralCode: require('./v1/ApplyReferralCode.js'),
   JoinTeam: require('./v1/JoinTeam.js'),
+  UpdatePartyProfile: require('./v1/UpdatePartyProfile.js'),
   OracleDataSubmission: require('./v1/OracleDataSubmission.js'),
   InputData: require('./v1/InputData.js'),
   Transaction: require('./v1/Transaction.js'),

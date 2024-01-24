@@ -11,6 +11,7 @@ const _vega_Market_State = require('./State.js')
 const _vega_MarketTimestamps = require('./../MarketTimestamps/decode.js')
 const _vega_LiquiditySLAParameters = require('./../LiquiditySLAParameters/decode.js')
 const _vega_LiquidationStrategy = require('./../LiquidationStrategy/decode.js')
+const _vega_CompositePriceConfiguration = require('./../CompositePriceConfiguration/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -36,6 +37,7 @@ exports.decode = function decode(
   let field$successorMarketId = null
   let field$liquiditySlaParams = null
   let field$liquidationStrategy = {}
+  let field$markPriceConfiguration = {}
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -115,6 +117,11 @@ exports.decode = function decode(
       case 19:
         field$liquidationStrategy = _vega_LiquidationStrategy.decode(data)
         break
+
+      case 20:
+        field$markPriceConfiguration =
+          _vega_CompositePriceConfiguration.decode(data)
+        break
     }
   }
   return {
@@ -136,6 +143,7 @@ exports.decode = function decode(
     insurancePoolFraction: field$insurancePoolFraction,
     successorMarketId: field$successorMarketId,
     liquiditySlaParams: field$liquiditySlaParams,
-    liquidationStrategy: field$liquidationStrategy
+    liquidationStrategy: field$liquidationStrategy,
+    markPriceConfiguration: field$markPriceConfiguration
   }
 }

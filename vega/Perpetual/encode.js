@@ -3,6 +3,7 @@ const Writer = require('protobuf-codec/encode/writer')
 const { string } = require('protobuf-codec/encode/types')
 const _vega_DataSourceSpec = require('./../DataSourceSpec/encode.js')
 const _vega_DataSourceSpecToPerpetualBinding = require('./../DataSourceSpecToPerpetualBinding/encode.js')
+const _vega_CompositePriceConfiguration = require('./../CompositePriceConfiguration/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -34,6 +35,11 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(11, obj.fundingRateLowerBound, string)
   if (obj.fundingRateUpperBound)
     writer.bytes(12, obj.fundingRateUpperBound, string)
+  if (obj.indexPriceConfig)
+    writer.bytes(
+      13,
+      _vega_CompositePriceConfiguration.encode(obj.indexPriceConfig)
+    )
 
   return writer.concat(buf, byteOffset)
 }

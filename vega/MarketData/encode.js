@@ -8,6 +8,7 @@ const _vega_LiquidityProviderFeeShare = require('./../LiquidityProviderFeeShare/
 const _vega_Market_State = require('./../Market/State.js')
 const _vega_ProductData = require('./../ProductData/encode.js')
 const _vega_LiquidityProviderSLA = require('./../LiquidityProviderSLA/encode.js')
+const _vega_CompositePriceType = require('./../CompositePriceType.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -59,6 +60,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       writer.bytes(32, _vega_LiquidityProviderSLA.encode(v))
     )
   if (obj.nextNetworkCloseout) writer.varint(33, obj.nextNetworkCloseout, int64)
+  if (obj.markPriceType)
+    writer.varint(34, obj.markPriceType, _vega_CompositePriceType)
 
   return writer.concat(buf, byteOffset)
 }

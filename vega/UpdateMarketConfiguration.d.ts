@@ -7,6 +7,7 @@ import type { LogNormalRiskModel } from './LogNormalRiskModel'
 import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
 import type { LiquidityFeeSettings } from './LiquidityFeeSettings'
 import type { LiquidationStrategy } from './LiquidationStrategy'
+import type { CompositePriceConfiguration } from './CompositePriceConfiguration'
 
 export * from './UpdateMarketConfiguration/encode.js'
 export * from './UpdateMarketConfiguration/decode.js'
@@ -26,4 +27,5 @@ export type UpdateMarketConfiguration = {
   liquiditySlaParameters: LiquiditySLAParameters
   liquidityFeeSettings: LiquidityFeeSettings
   liquidationStrategy: LiquidationStrategy
+  markPriceConfiguration: CompositePriceConfiguration
 }

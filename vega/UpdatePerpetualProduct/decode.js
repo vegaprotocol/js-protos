@@ -3,6 +3,7 @@ const reader = require('protobuf-codec/decode/reader')
 const { string } = require('protobuf-codec/decode/types')
 const _vega_DataSourceDefinition = require('./../DataSourceDefinition/decode.js')
 const _vega_DataSourceSpecToPerpetualBinding = require('./../DataSourceSpecToPerpetualBinding/decode.js')
+const _vega_CompositePriceConfiguration = require('./../CompositePriceConfiguration/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -20,6 +21,7 @@ exports.decode = function decode(
   let field$fundingRateScalingFactor = null
   let field$fundingRateLowerBound = null
   let field$fundingRateUpperBound = null
+  let field$indexPriceConfiguration = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -68,6 +70,11 @@ exports.decode = function decode(
       case 11:
         field$fundingRateUpperBound = string(data)
         break
+
+      case 13:
+        field$indexPriceConfiguration =
+          _vega_CompositePriceConfiguration.decode(data)
+        break
     }
   }
   return {
@@ -82,6 +89,7 @@ exports.decode = function decode(
     dataSourceSpecBinding: field$dataSourceSpecBinding,
     fundingRateScalingFactor: field$fundingRateScalingFactor,
     fundingRateLowerBound: field$fundingRateLowerBound,
-    fundingRateUpperBound: field$fundingRateUpperBound
+    fundingRateUpperBound: field$fundingRateUpperBound,
+    indexPriceConfiguration: field$indexPriceConfiguration
   }
 }

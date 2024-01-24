@@ -2238,6 +2238,18 @@
                           "typeName": null,
                           "messageTypeLocal": null,
                           "oneofIndex": null
+                        },
+                        {
+                          "name": "allowList",
+                          "number": 14,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": true,
+                          "packed": false,
+                          "optional": false,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null
                         }
                       ]
                     }
@@ -2337,6 +2349,18 @@
                           "messageTypeLocal": null,
                           "oneofIndex": null,
                           "oneofName": null
+                        },
+                        {
+                          "name": "allowList",
+                          "number": 14,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": true,
+                          "packed": false,
+                          "optional": false,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null
                         }
                       ]
                     }
@@ -2421,6 +2445,41 @@
                       "packed": false,
                       "optional": false,
                       "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                },
+                {
+                  "name": "UpdatePartyProfile",
+                  "fullName": ".vega.commands.v1.UpdatePartyProfile",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "alias",
+                      "number": 1,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "metadata",
+                      "number": 2,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": true,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.Metadata",
+                      "messageType": "Metadata",
                       "messageTypeLocal": null,
                       "oneofIndex": null
                     }
@@ -2976,6 +3035,20 @@
                       "optional": false,
                       "typeName": ".vega.commands.v1.BatchProposalSubmission",
                       "messageType": "BatchProposalSubmission",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "command"
+                    },
+                    {
+                      "name": "updatePartyProfile",
+                      "number": 3003,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.commands.v1.UpdatePartyProfile",
+                      "messageType": "UpdatePartyProfile",
                       "messageTypeLocal": null,
                       "oneofIndex": 0,
                       "oneofName": "command"
@@ -3574,6 +3647,28 @@
         }
       },
       "enums": [
+        {
+          "name": "CompositePriceType",
+          "fullName": ".vega.CompositePriceType",
+          "values": [
+            {
+              "name": "COMPOSITE_PRICE_TYPE_UNSPECIFIED",
+              "value": 0
+            },
+            {
+              "name": "COMPOSITE_PRICE_TYPE_WEIGHTED",
+              "value": 1
+            },
+            {
+              "name": "COMPOSITE_PRICE_TYPE_MEDIAN",
+              "value": 2
+            },
+            {
+              "name": "COMPOSITE_PRICE_TYPE_LAST_TRADE",
+              "value": 3
+            }
+          ]
+        },
         {
           "name": "Side",
           "fullName": ".vega.Side",
@@ -4772,6 +4867,19 @@
               "messageTypeLocal": null,
               "oneofIndex": null,
               "oneofName": null
+            },
+            {
+              "name": "sourceChainId",
+              "number": 6,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -5742,6 +5850,28 @@
           ]
         },
         {
+          "name": "SpecBindingForCompositePrice",
+          "fullName": ".vega.SpecBindingForCompositePrice",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "priceSourceProperty",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
           "name": "DataSourceSpecConfigurationTime",
           "fullName": ".vega.DataSourceSpecConfigurationTime",
           "map": false,
@@ -6021,6 +6151,18 @@
               "optional": false,
               "typeName": ".vega.Normaliser",
               "messageType": "Normaliser",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "sourceChainId",
+              "number": 9,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -6556,6 +6698,20 @@
               "packed": false,
               "optional": true,
               "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
+            },
+            {
+              "name": "indexPriceConfig",
+              "number": 13,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": ".vega.CompositePriceConfiguration",
+              "messageType": "CompositePriceConfiguration",
               "messageTypeLocal": null,
               "oneofIndex": null,
               "oneofName": null
@@ -7782,6 +7938,19 @@
               "messageType": "LiquidationStrategy",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "markPriceConfiguration",
+              "number": 20,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.CompositePriceConfiguration",
+              "messageType": "CompositePriceConfiguration",
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -7890,6 +8059,196 @@
             {
               "name": "maxFractionConsumed",
               "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "CompositePriceConfiguration",
+          "fullName": ".vega.CompositePriceConfiguration",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "decayWeight",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "decayPower",
+              "number": 2,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "cashAmount",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "sourceWeights",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "sourceStalenessTolerance",
+              "number": 5,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "compositePriceType",
+              "number": 6,
+              "type": "enumerable",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.CompositePriceType",
+              "messageType": "CompositePriceType",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "dataSourcesSpec",
+              "number": 7,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.DataSourceDefinition",
+              "messageType": "DataSourceDefinition",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "dataSourcesSpecBinding",
+              "number": 8,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.SpecBindingForCompositePrice",
+              "messageType": "SpecBindingForCompositePrice",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "PartyProfile",
+          "fullName": ".vega.PartyProfile",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "partyId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "alias",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "metadata",
+              "number": 3,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.Metadata",
+              "messageType": "Metadata",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "Metadata",
+          "fullName": ".vega.Metadata",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "key",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "value",
+              "number": 2,
               "type": "string",
               "wireType": "bytes",
               "repeated": false,
@@ -8032,6 +8391,14 @@
                 {
                   "name": "REJECTION_REASON_STOP_ORDER_LINKED_PERCENTAGE_INVALID",
                   "value": 7
+                },
+                {
+                  "name": "REJECTION_REASON_STOP_ORDER_NOT_ALLOWED_DURING_OPENING_AUCTION",
+                  "value": 8
+                },
+                {
+                  "name": "REJECTION_REASON_STOP_ORDER_CANNOT_MATCH_OCO_EXPIRY_TIMES",
+                  "value": 9
                 }
               ]
             }
@@ -8286,6 +8653,31 @@
               "packed": false,
               "optional": false,
               "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "alias",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "metadata",
+              "number": 3,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.Metadata",
+              "messageType": "Metadata",
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -11038,6 +11430,43 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "indexPrice",
+              "number": 7,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "nextIndexPriceCalc",
+              "number": 8,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "indexPriceType",
+              "number": 9,
+              "type": "enumerable",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.CompositePriceType",
+              "messageType": "CompositePriceType",
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -11477,6 +11906,19 @@
               "packed": false,
               "optional": false,
               "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "markPriceType",
+              "number": 34,
+              "type": "enumerable",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.CompositePriceType",
+              "messageType": "CompositePriceType",
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -12196,6 +12638,87 @@
               "packed": false,
               "optional": false,
               "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "EthereumL2Config",
+          "fullName": ".vega.EthereumL2Config",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "networkId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "chainId",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "confirmations",
+              "number": 3,
+              "type": "uint32",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "name",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "EthereumL2Configs",
+          "fullName": ".vega.EthereumL2Configs",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "configs",
+              "number": 1,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.EthereumL2Config",
+              "messageType": "EthereumL2Config",
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -14666,6 +15189,20 @@
               "messageTypeLocal": null,
               "oneofIndex": null,
               "oneofName": null
+            },
+            {
+              "name": "indexPriceConfiguration",
+              "number": 13,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": ".vega.CompositePriceConfiguration",
+              "messageType": "CompositePriceConfiguration",
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -15090,6 +15627,19 @@
               "messageType": "LiquidationStrategy",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "markPriceConfiguration",
+              "number": 15,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.CompositePriceConfiguration",
+              "messageType": "CompositePriceConfiguration",
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -15405,6 +15955,19 @@
               "optional": false,
               "typeName": ".vega.LiquidationStrategy",
               "messageType": "LiquidationStrategy",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "markPriceConfiguration",
+              "number": 11,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.CompositePriceConfiguration",
+              "messageType": "CompositePriceConfiguration",
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -15781,6 +16344,20 @@
               "packed": false,
               "optional": true,
               "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
+            },
+            {
+              "name": "indexPriceConfiguration",
+              "number": 13,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": ".vega.CompositePriceConfiguration",
+              "messageType": "CompositePriceConfiguration",
               "messageTypeLocal": null,
               "oneofIndex": null,
               "oneofName": null

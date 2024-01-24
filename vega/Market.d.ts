@@ -9,6 +9,7 @@ import type { State } from './Market/State'
 import type { MarketTimestamps } from './MarketTimestamps'
 import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
 import type { LiquidationStrategy } from './LiquidationStrategy'
+import type { CompositePriceConfiguration } from './CompositePriceConfiguration'
 
 export * from './Market/encode.js'
 export * from './Market/decode.js'
@@ -35,4 +36,5 @@ export type Market = {
   successorMarketId: string | null
   liquiditySlaParams: LiquiditySLAParameters | null
   liquidationStrategy: LiquidationStrategy
+  markPriceConfiguration: CompositePriceConfiguration
 }

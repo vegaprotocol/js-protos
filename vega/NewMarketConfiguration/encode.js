@@ -10,6 +10,7 @@ const _vega_SuccessorConfiguration = require('./../SuccessorConfiguration/encode
 const _vega_LiquiditySLAParameters = require('./../LiquiditySLAParameters/encode.js')
 const _vega_LiquidityFeeSettings = require('./../LiquidityFeeSettings/encode.js')
 const _vega_LiquidationStrategy = require('./../LiquidationStrategy/encode.js')
+const _vega_CompositePriceConfiguration = require('./../CompositePriceConfiguration/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -52,6 +53,11 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     )
   if (obj.liquidationStrategy)
     writer.bytes(14, _vega_LiquidationStrategy.encode(obj.liquidationStrategy))
+  if (obj.markPriceConfiguration)
+    writer.bytes(
+      15,
+      _vega_CompositePriceConfiguration.encode(obj.markPriceConfiguration)
+    )
 
   if (obj.riskParameters?.simple ?? obj.simple)
     writer.bytes(

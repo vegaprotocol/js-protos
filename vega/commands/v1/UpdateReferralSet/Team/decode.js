@@ -11,6 +11,7 @@ exports.decode = function decode(
   let field$teamUrl = null
   let field$avatarUrl = null
   let field$closed = null
+  const field$allowList = []
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 10:
@@ -28,12 +29,17 @@ exports.decode = function decode(
       case 13:
         field$closed = bool(data)
         break
+
+      case 14:
+        field$allowList.push(string(data))
+        break
     }
   }
   return {
     name: field$name,
     teamUrl: field$teamUrl,
     avatarUrl: field$avatarUrl,
-    closed: field$closed
+    closed: field$closed,
+    allowList: field$allowList
   }
 }

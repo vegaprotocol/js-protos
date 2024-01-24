@@ -34,6 +34,7 @@ const _vega_commands_v1_ProtocolUpgradeProposal = require('./../ProtocolUpgradeP
 const _vega_commands_v1_IssueSignatures = require('./../IssueSignatures/decode.js')
 const _vega_commands_v1_OracleDataSubmission = require('./../OracleDataSubmission/decode.js')
 const _vega_commands_v1_BatchProposalSubmission = require('./../BatchProposalSubmission/decode.js')
+const _vega_commands_v1_UpdatePartyProfile = require('./../UpdatePartyProfile/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -255,6 +256,12 @@ exports.decode = function decode(
         field$command = {
           batchProposalSubmission:
             _vega_commands_v1_BatchProposalSubmission.decode(data)
+        }
+        break
+
+      case 3003:
+        field$command = {
+          updatePartyProfile: _vega_commands_v1_UpdatePartyProfile.decode(data)
         }
         break
     }

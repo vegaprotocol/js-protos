@@ -9,6 +9,7 @@ const _vega_LogNormalRiskModel = require('./../LogNormalRiskModel/decode.js')
 const _vega_LiquiditySLAParameters = require('./../LiquiditySLAParameters/decode.js')
 const _vega_LiquidityFeeSettings = require('./../LiquidityFeeSettings/decode.js')
 const _vega_LiquidationStrategy = require('./../LiquidationStrategy/decode.js')
+const _vega_CompositePriceConfiguration = require('./../CompositePriceConfiguration/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -25,6 +26,7 @@ exports.decode = function decode(
   let field$liquiditySlaParameters = {}
   let field$liquidityFeeSettings = {}
   let field$liquidationStrategy = {}
+  let field$markPriceConfiguration = {}
   let field$riskParameters = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -79,6 +81,11 @@ exports.decode = function decode(
       case 10:
         field$liquidationStrategy = _vega_LiquidationStrategy.decode(data)
         break
+
+      case 11:
+        field$markPriceConfiguration =
+          _vega_CompositePriceConfiguration.decode(data)
+        break
     }
   }
   return {
@@ -92,6 +99,7 @@ exports.decode = function decode(
     liquiditySlaParameters: field$liquiditySlaParameters,
     liquidityFeeSettings: field$liquidityFeeSettings,
     liquidationStrategy: field$liquidationStrategy,
+    markPriceConfiguration: field$markPriceConfiguration,
     riskParameters: field$riskParameters
   }
 }

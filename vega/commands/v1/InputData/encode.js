@@ -34,6 +34,7 @@ const _vega_commands_v1_ProtocolUpgradeProposal = require('./../ProtocolUpgradeP
 const _vega_commands_v1_IssueSignatures = require('./../IssueSignatures/encode.js')
 const _vega_commands_v1_OracleDataSubmission = require('./../OracleDataSubmission/encode.js')
 const _vega_commands_v1_BatchProposalSubmission = require('./../BatchProposalSubmission/encode.js')
+const _vega_commands_v1_UpdatePartyProfile = require('./../UpdatePartyProfile/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -280,6 +281,13 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       3002,
       _vega_commands_v1_BatchProposalSubmission.encode(
         obj.command?.batchProposalSubmission ?? obj.batchProposalSubmission
+      )
+    )
+  if (obj.command?.updatePartyProfile ?? obj.updatePartyProfile)
+    writer.bytes(
+      3003,
+      _vega_commands_v1_UpdatePartyProfile.encode(
+        obj.command?.updatePartyProfile ?? obj.updatePartyProfile
       )
     )
 

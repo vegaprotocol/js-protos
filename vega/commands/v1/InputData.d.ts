@@ -32,6 +32,7 @@ import type { ProtocolUpgradeProposal } from './ProtocolUpgradeProposal'
 import type { IssueSignatures } from './IssueSignatures'
 import type { OracleDataSubmission } from './OracleDataSubmission'
 import type { BatchProposalSubmission } from './BatchProposalSubmission'
+import type { UpdatePartyProfile } from './UpdatePartyProfile'
 
 export * from './InputData/encode.js'
 export * from './InputData/decode.js'
@@ -73,5 +74,6 @@ export type InputData = {
     | { issueSignatures: IssueSignatures }
     | { oracleDataSubmission: OracleDataSubmission }
     | { batchProposalSubmission: BatchProposalSubmission }
+    | { updatePartyProfile: UpdatePartyProfile }
     | null
 }

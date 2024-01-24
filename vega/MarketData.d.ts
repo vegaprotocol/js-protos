@@ -6,6 +6,7 @@ import type { LiquidityProviderFeeShare } from './LiquidityProviderFeeShare'
 import type { State } from './Market/State'
 import type { ProductData } from './ProductData'
 import type { LiquidityProviderSLA } from './LiquidityProviderSLA'
+import type { CompositePriceType } from './CompositePriceType'
 
 export * from './MarketData/encode.js'
 export * from './MarketData/decode.js'
@@ -44,4 +45,5 @@ export type MarketData = {
   productData: ProductData | null
   liquidityProviderSla: LiquidityProviderSLA[]
   nextNetworkCloseout: bigint
+  markPriceType: CompositePriceType
 }

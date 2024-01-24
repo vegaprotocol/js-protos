@@ -9,6 +9,7 @@ const _vega_LogNormalRiskModel = require('./../LogNormalRiskModel/encode.js')
 const _vega_LiquiditySLAParameters = require('./../LiquiditySLAParameters/encode.js')
 const _vega_LiquidityFeeSettings = require('./../LiquidityFeeSettings/encode.js')
 const _vega_LiquidationStrategy = require('./../LiquidationStrategy/encode.js')
+const _vega_CompositePriceConfiguration = require('./../CompositePriceConfiguration/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -43,6 +44,11 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(9, _vega_LiquidityFeeSettings.encode(obj.liquidityFeeSettings))
   if (obj.liquidationStrategy)
     writer.bytes(10, _vega_LiquidationStrategy.encode(obj.liquidationStrategy))
+  if (obj.markPriceConfiguration)
+    writer.bytes(
+      11,
+      _vega_CompositePriceConfiguration.encode(obj.markPriceConfiguration)
+    )
 
   if (obj.riskParameters?.simple ?? obj.simple)
     writer.bytes(

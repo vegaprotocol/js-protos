@@ -9,6 +9,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.teamUrl) writer.bytes(11, obj.teamUrl, string)
   if (obj.avatarUrl) writer.bytes(12, obj.avatarUrl, string)
   if (obj.closed) writer.varint(13, obj.closed, bool)
+  if (obj.allowList?.length)
+    obj.allowList.forEach((v) => writer.bytes(14, v, string))
 
   return writer.concat(buf, byteOffset)
 }

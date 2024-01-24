@@ -8,4 +8,5 @@ export type Team = {
   teamUrl: string | null
   avatarUrl: string | null
   closed: boolean | null
+  allowList: string[]
 }
