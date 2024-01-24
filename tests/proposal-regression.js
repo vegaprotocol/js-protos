@@ -229,6 +229,7 @@ test("encode then decode proposal submission", (assert) => {
                                     expression: "$[0]",
                                   },
                                 ],
+                                sourceChainId: 0n,
                               },
                             },
                           },
@@ -242,6 +243,7 @@ test("encode then decode proposal submission", (assert) => {
                       fundingRateScalingFactor: null,
                       fundingRateLowerBound: null,
                       fundingRateUpperBound: null,
+                      indexPriceConfiguration: null,
                     },
                   },
                 },
@@ -295,6 +297,7 @@ test("encode then decode proposal submission", (assert) => {
                 },
                 liquidityFeeSettings: {},
                 liquidationStrategy: {},
+                markPriceConfiguration: {},
                 riskParameters: {
                   logNormal: {
                     riskAversionParameter: 0.000001,
@@ -324,13 +327,7 @@ test("encode then decode proposal submission", (assert) => {
     },
   };
 
-  BigInt.prototype.toJSON = function () {
-    return this.toString();
-  };
-
   const actual = InputData.decode(InputData.encode({ proposalSubmission }));
-  console.log(JSON.stringify(actual, null, 2));
-  console.log(JSON.stringify(expected, null, 2));
   assert.alike(actual, expected);
 
   assert.end();
