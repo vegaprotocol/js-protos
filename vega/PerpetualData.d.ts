@@ -11,7 +11,7 @@ export type PerpetualData = {
   externalTwap: string
   seqNum: bigint
   startTime: bigint
-  indexPrice: string
-  nextIndexPriceCalc: bigint
-  indexPriceType: CompositePriceType
+  internalCompositePrice: string
+  nextInternalCompositePriceCalc: bigint
+  internalCompositePriceType: CompositePriceType
 }

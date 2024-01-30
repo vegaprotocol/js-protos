@@ -19,5 +19,5 @@ export type Perpetual = {
   fundingRateScalingFactor: string | null
   fundingRateLowerBound: string | null
   fundingRateUpperBound: string | null
-  indexPriceConfig: CompositePriceConfiguration | null
+  internalCompositePriceConfig: CompositePriceConfiguration | null
 }

@@ -14,9 +14,9 @@ exports.decode = function decode(
   let field$externalTwap = ''
   let field$seqNum = 0n
   let field$startTime = 0n
-  let field$indexPrice = ''
-  let field$nextIndexPriceCalc = 0n
-  let field$indexPriceType = _vega_CompositePriceType.decode(0)
+  let field$internalCompositePrice = ''
+  let field$nextInternalCompositePriceCalc = 0n
+  let field$internalCompositePriceType = _vega_CompositePriceType.decode(0)
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -44,15 +44,15 @@ exports.decode = function decode(
         break
 
       case 7:
-        field$indexPrice = string(data)
+        field$internalCompositePrice = string(data)
         break
 
       case 8:
-        field$nextIndexPriceCalc = int64(data)
+        field$nextInternalCompositePriceCalc = int64(data)
         break
 
       case 9:
-        field$indexPriceType = _vega_CompositePriceType.decode(data)
+        field$internalCompositePriceType = _vega_CompositePriceType.decode(data)
         break
     }
   }
@@ -63,8 +63,8 @@ exports.decode = function decode(
     externalTwap: field$externalTwap,
     seqNum: field$seqNum,
     startTime: field$startTime,
-    indexPrice: field$indexPrice,
-    nextIndexPriceCalc: field$nextIndexPriceCalc,
-    indexPriceType: field$indexPriceType
+    internalCompositePrice: field$internalCompositePrice,
+    nextInternalCompositePriceCalc: field$nextInternalCompositePriceCalc,
+    internalCompositePriceType: field$internalCompositePriceType
   }
 }

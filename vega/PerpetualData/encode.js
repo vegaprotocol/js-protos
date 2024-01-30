@@ -12,10 +12,12 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.externalTwap) writer.bytes(4, obj.externalTwap, string)
   if (obj.seqNum) writer.varint(5, obj.seqNum, uint64)
   if (obj.startTime) writer.varint(6, obj.startTime, int64)
-  if (obj.indexPrice) writer.bytes(7, obj.indexPrice, string)
-  if (obj.nextIndexPriceCalc) writer.varint(8, obj.nextIndexPriceCalc, int64)
-  if (obj.indexPriceType)
-    writer.varint(9, obj.indexPriceType, _vega_CompositePriceType)
+  if (obj.internalCompositePrice)
+    writer.bytes(7, obj.internalCompositePrice, string)
+  if (obj.nextInternalCompositePriceCalc)
+    writer.varint(8, obj.nextInternalCompositePriceCalc, int64)
+  if (obj.internalCompositePriceType)
+    writer.varint(9, obj.internalCompositePriceType, _vega_CompositePriceType)
 
   return writer.concat(buf, byteOffset)
 }

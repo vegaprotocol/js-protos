@@ -35,10 +35,12 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(11, obj.fundingRateLowerBound, string)
   if (obj.fundingRateUpperBound)
     writer.bytes(12, obj.fundingRateUpperBound, string)
-  if (obj.indexPriceConfiguration)
+  if (obj.internalCompositePriceConfiguration)
     writer.bytes(
       13,
-      _vega_CompositePriceConfiguration.encode(obj.indexPriceConfiguration)
+      _vega_CompositePriceConfiguration.encode(
+        obj.internalCompositePriceConfiguration
+      )
     )
 
   return writer.concat(buf, byteOffset)

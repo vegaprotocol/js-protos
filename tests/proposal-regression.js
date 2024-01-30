@@ -243,7 +243,7 @@ test("encode then decode proposal submission", (assert) => {
                       fundingRateScalingFactor: null,
                       fundingRateLowerBound: null,
                       fundingRateUpperBound: null,
-                      indexPriceConfiguration: null,
+                      internalCompositePriceConfiguration: null,
                     },
                   },
                 },
@@ -328,6 +328,7 @@ test("encode then decode proposal submission", (assert) => {
   };
 
   const actual = InputData.decode(InputData.encode({ proposalSubmission }));
+
   assert.alike(actual, expected);
 
   assert.end();

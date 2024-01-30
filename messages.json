@@ -2886,6 +2886,34 @@
                       "oneofName": "command"
                     },
                     {
+                      "name": "batchProposalSubmission",
+                      "number": 1023,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.commands.v1.BatchProposalSubmission",
+                      "messageType": "BatchProposalSubmission",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "command"
+                    },
+                    {
+                      "name": "updatePartyProfile",
+                      "number": 1024,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.commands.v1.UpdatePartyProfile",
+                      "messageType": "UpdatePartyProfile",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "command"
+                    },
+                    {
                       "name": "nodeVote",
                       "number": 2002,
                       "type": "message",
@@ -3021,34 +3049,6 @@
                       "optional": false,
                       "typeName": ".vega.commands.v1.OracleDataSubmission",
                       "messageType": "OracleDataSubmission",
-                      "messageTypeLocal": null,
-                      "oneofIndex": 0,
-                      "oneofName": "command"
-                    },
-                    {
-                      "name": "batchProposalSubmission",
-                      "number": 3002,
-                      "type": "message",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.commands.v1.BatchProposalSubmission",
-                      "messageType": "BatchProposalSubmission",
-                      "messageTypeLocal": null,
-                      "oneofIndex": 0,
-                      "oneofName": "command"
-                    },
-                    {
-                      "name": "updatePartyProfile",
-                      "number": 3003,
-                      "type": "message",
-                      "wireType": "bytes",
-                      "repeated": false,
-                      "packed": false,
-                      "optional": false,
-                      "typeName": ".vega.commands.v1.UpdatePartyProfile",
-                      "messageType": "UpdatePartyProfile",
                       "messageTypeLocal": null,
                       "oneofIndex": 0,
                       "oneofName": "command"
@@ -6703,7 +6703,7 @@
               "oneofName": null
             },
             {
-              "name": "indexPriceConfig",
+              "name": "internalCompositePriceConfig",
               "number": 13,
               "type": "message",
               "wireType": "bytes",
@@ -11432,7 +11432,7 @@
               "oneofIndex": null
             },
             {
-              "name": "indexPrice",
+              "name": "internalCompositePrice",
               "number": 7,
               "type": "string",
               "wireType": "bytes",
@@ -11444,7 +11444,7 @@
               "oneofIndex": null
             },
             {
-              "name": "nextIndexPriceCalc",
+              "name": "nextInternalCompositePriceCalc",
               "number": 8,
               "type": "int64",
               "wireType": "varint",
@@ -11456,7 +11456,7 @@
               "oneofIndex": null
             },
             {
-              "name": "indexPriceType",
+              "name": "internalCompositePriceType",
               "number": 9,
               "type": "enumerable",
               "wireType": "varint",
@@ -15191,7 +15191,7 @@
               "oneofName": null
             },
             {
-              "name": "indexPriceConfiguration",
+              "name": "internalCompositePriceConfiguration",
               "number": 13,
               "type": "message",
               "wireType": "bytes",
@@ -16349,7 +16349,7 @@
               "oneofName": null
             },
             {
-              "name": "indexPriceConfiguration",
+              "name": "internalCompositePriceConfiguration",
               "number": 13,
               "type": "message",
               "wireType": "bytes",

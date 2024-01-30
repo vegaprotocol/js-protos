@@ -22,7 +22,7 @@ exports.decode = function decode(
   let field$fundingRateScalingFactor = null
   let field$fundingRateLowerBound = null
   let field$fundingRateUpperBound = null
-  let field$indexPriceConfiguration = null
+  let field$internalCompositePriceConfiguration = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -77,7 +77,7 @@ exports.decode = function decode(
         break
 
       case 13:
-        field$indexPriceConfiguration =
+        field$internalCompositePriceConfiguration =
           _vega_CompositePriceConfiguration.decode(data)
         break
     }
@@ -96,6 +96,7 @@ exports.decode = function decode(
     fundingRateScalingFactor: field$fundingRateScalingFactor,
     fundingRateLowerBound: field$fundingRateLowerBound,
     fundingRateUpperBound: field$fundingRateUpperBound,
-    indexPriceConfiguration: field$indexPriceConfiguration
+    internalCompositePriceConfiguration:
+      field$internalCompositePriceConfiguration
   }
 }
