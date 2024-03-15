@@ -37,4 +37,5 @@ export type Market = {
   liquiditySlaParams: LiquiditySLAParameters | null
   liquidationStrategy: LiquidationStrategy
   markPriceConfiguration: CompositePriceConfiguration
+  tickSize: string
 }

@@ -31,6 +31,7 @@ exports.decode = function decode(
   let field$liquidityFeeSettings = {}
   let field$liquidationStrategy = {}
   let field$markPriceConfiguration = {}
+  let field$tickSize = ''
   let field$riskParameters = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -102,6 +103,10 @@ exports.decode = function decode(
         field$markPriceConfiguration =
           _vega_CompositePriceConfiguration.decode(data)
         break
+
+      case 16:
+        field$tickSize = string(data)
+        break
     }
   }
   return {
@@ -119,6 +124,7 @@ exports.decode = function decode(
     liquidityFeeSettings: field$liquidityFeeSettings,
     liquidationStrategy: field$liquidationStrategy,
     markPriceConfiguration: field$markPriceConfiguration,
+    tickSize: field$tickSize,
     riskParameters: field$riskParameters
   }
 }

@@ -19,4 +19,5 @@ export type UpdateSpotMarketConfiguration = {
     | null
   slaParams: LiquiditySLAParameters
   liquidityFeeSettings: LiquidityFeeSettings
+  tickSize: string
 }

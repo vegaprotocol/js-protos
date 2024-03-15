@@ -10,4 +10,5 @@ export type EthContractCallEvent = {
   result: Uint8Array
   error: string | null
   sourceChainId: bigint | null
+  heartbeat: boolean
 }

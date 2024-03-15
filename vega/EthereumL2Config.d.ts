@@ -8,4 +8,5 @@ export type EthereumL2Config = {
   chainId: string
   confirmations: number
   name: string
+  blockInterval: bigint
 }

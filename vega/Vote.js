@@ -3,6 +3,5 @@
 module.exports = {
   ...require('./Vote/encode.js'),
   ...require('./Vote/decode.js'),
-  Value: require('./Vote/Value.js'),
-  PerMarketEquityLikeShareWeightEntry: require('./Vote/PerMarketEquityLikeShareWeightEntry.js')
+  Value: require('./Vote/Value.js')
 }

@@ -298,6 +298,7 @@ test("encode then decode proposal submission", (assert) => {
                 liquidityFeeSettings: {},
                 liquidationStrategy: {},
                 markPriceConfiguration: {},
+                tickSize: "",
                 riskParameters: {
                   logNormal: {
                     riskAversionParameter: 0.000001,

@@ -63,6 +63,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       20,
       _vega_CompositePriceConfiguration.encode(obj.markPriceConfiguration)
     )
+  if (obj.tickSize) writer.bytes(21, obj.tickSize, string)
 
   return writer.concat(buf, byteOffset)
 }

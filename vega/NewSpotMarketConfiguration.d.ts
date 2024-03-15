@@ -23,4 +23,5 @@ export type NewSpotMarketConfiguration = {
   positionDecimalPlaces: bigint
   slaParams: LiquiditySLAParameters
   liquidityFeeSettings: LiquidityFeeSettings
+  tickSize: string
 }

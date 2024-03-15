@@ -18,6 +18,7 @@ exports.decode = function decode(
   let field$targetStakeParameters = {}
   let field$slaParams = {}
   let field$liquidityFeeSettings = {}
+  let field$tickSize = ''
   let field$riskParameters = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -51,6 +52,10 @@ exports.decode = function decode(
       case 5:
         field$liquidityFeeSettings = _vega_LiquidityFeeSettings.decode(data)
         break
+
+      case 6:
+        field$tickSize = string(data)
+        break
     }
   }
   return {
@@ -59,6 +64,7 @@ exports.decode = function decode(
     targetStakeParameters: field$targetStakeParameters,
     slaParams: field$slaParams,
     liquidityFeeSettings: field$liquidityFeeSettings,
+    tickSize: field$tickSize,
     riskParameters: field$riskParameters
   }
 }

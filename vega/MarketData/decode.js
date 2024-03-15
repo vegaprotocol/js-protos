@@ -9,6 +9,7 @@ const _vega_Market_State = require('./../Market/State.js')
 const _vega_ProductData = require('./../ProductData/decode.js')
 const _vega_LiquidityProviderSLA = require('./../LiquidityProviderSLA/decode.js')
 const _vega_CompositePriceType = require('./../CompositePriceType.js')
+const _vega_CompositePriceState = require('./../CompositePriceState/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -49,6 +50,7 @@ exports.decode = function decode(
   const field$liquidityProviderSla = []
   let field$nextNetworkCloseout = 0n
   let field$markPriceType = _vega_CompositePriceType.decode(0)
+  let field$markPriceState = {}
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -190,6 +192,10 @@ exports.decode = function decode(
       case 34:
         field$markPriceType = _vega_CompositePriceType.decode(data)
         break
+
+      case 35:
+        field$markPriceState = _vega_CompositePriceState.decode(data)
+        break
     }
   }
   return {
@@ -226,6 +232,7 @@ exports.decode = function decode(
     productData: field$productData,
     liquidityProviderSla: field$liquidityProviderSla,
     nextNetworkCloseout: field$nextNetworkCloseout,
-    markPriceType: field$markPriceType
+    markPriceType: field$markPriceType,
+    markPriceState: field$markPriceState
   }
 }

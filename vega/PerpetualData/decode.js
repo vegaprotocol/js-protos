@@ -2,6 +2,7 @@
 const reader = require('protobuf-codec/decode/reader')
 const { string, uint64, int64 } = require('protobuf-codec/decode/types')
 const _vega_CompositePriceType = require('./../CompositePriceType.js')
+const _vega_CompositePriceState = require('./../CompositePriceState/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -17,6 +18,8 @@ exports.decode = function decode(
   let field$internalCompositePrice = ''
   let field$nextInternalCompositePriceCalc = 0n
   let field$internalCompositePriceType = _vega_CompositePriceType.decode(0)
+  let field$underlyingIndexPrice = ''
+  let field$internalCompositePriceState = {}
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -54,6 +57,15 @@ exports.decode = function decode(
       case 9:
         field$internalCompositePriceType = _vega_CompositePriceType.decode(data)
         break
+
+      case 10:
+        field$underlyingIndexPrice = string(data)
+        break
+
+      case 11:
+        field$internalCompositePriceState =
+          _vega_CompositePriceState.decode(data)
+        break
     }
   }
   return {
@@ -65,6 +77,8 @@ exports.decode = function decode(
     startTime: field$startTime,
     internalCompositePrice: field$internalCompositePrice,
     nextInternalCompositePriceCalc: field$nextInternalCompositePriceCalc,
-    internalCompositePriceType: field$internalCompositePriceType
+    internalCompositePriceType: field$internalCompositePriceType,
+    underlyingIndexPrice: field$underlyingIndexPrice,
+    internalCompositePriceState: field$internalCompositePriceState
   }
 }

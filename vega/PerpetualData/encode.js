@@ -2,6 +2,7 @@
 const Writer = require('protobuf-codec/encode/writer')
 const { string, uint64, int64 } = require('protobuf-codec/encode/types')
 const _vega_CompositePriceType = require('./../CompositePriceType.js')
+const _vega_CompositePriceState = require('./../CompositePriceState/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -18,6 +19,13 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.varint(8, obj.nextInternalCompositePriceCalc, int64)
   if (obj.internalCompositePriceType)
     writer.varint(9, obj.internalCompositePriceType, _vega_CompositePriceType)
+  if (obj.underlyingIndexPrice)
+    writer.bytes(10, obj.underlyingIndexPrice, string)
+  if (obj.internalCompositePriceState)
+    writer.bytes(
+      11,
+      _vega_CompositePriceState.encode(obj.internalCompositePriceState)
+    )
 
   return writer.concat(buf, byteOffset)
 }

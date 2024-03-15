@@ -32,4 +32,5 @@ export type NewMarketConfiguration = {
   liquidityFeeSettings: LiquidityFeeSettings
   liquidationStrategy: LiquidationStrategy
   markPriceConfiguration: CompositePriceConfiguration
+  tickSize: string
 }

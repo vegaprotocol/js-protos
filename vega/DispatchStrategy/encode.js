@@ -29,6 +29,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.varint(12, obj.distributionStrategy, _vega_DistributionStrategy)
   if (obj.rankTable?.length)
     obj.rankTable.forEach((v) => writer.bytes(13, _vega_Rank.encode(v)))
+  if (obj.capRewardFeeMultiple)
+    writer.bytes(14, obj.capRewardFeeMultiple, string)
 
   return writer.concat(buf, byteOffset)
 }

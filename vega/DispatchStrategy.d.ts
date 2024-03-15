@@ -22,4 +22,5 @@ export type DispatchStrategy = {
   lockPeriod: bigint
   distributionStrategy: DistributionStrategy
   rankTable: Rank[]
+  capRewardFeeMultiple: string | null
 }

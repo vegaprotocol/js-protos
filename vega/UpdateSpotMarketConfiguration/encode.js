@@ -27,6 +27,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(4, _vega_LiquiditySLAParameters.encode(obj.slaParams))
   if (obj.liquidityFeeSettings)
     writer.bytes(5, _vega_LiquidityFeeSettings.encode(obj.liquidityFeeSettings))
+  if (obj.tickSize) writer.bytes(6, obj.tickSize, string)
 
   if (obj.riskParameters?.simple ?? obj.simple)
     writer.bytes(

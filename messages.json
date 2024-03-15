@@ -4034,6 +4034,10 @@
             {
               "name": "ORDER_ERROR_PEGGED_ORDERS_NOT_ALLOWED_IN_ISOLATED_MARGIN_MODE",
               "value": 52
+            },
+            {
+              "name": "ORDER_ERROR_PRICE_NOT_IN_TICK_SIZE",
+              "value": 53
             }
           ]
         },
@@ -4880,6 +4884,18 @@
               "messageTypeLocal": null,
               "oneofIndex": null,
               "oneofName": null
+            },
+            {
+              "name": "heartbeat",
+              "number": 7,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -7951,6 +7967,18 @@
               "messageType": "CompositePriceConfiguration",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "tickSize",
+              "number": 21,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -10844,6 +10872,19 @@
               "messageType": "Rank",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "capRewardFeeMultiple",
+              "number": 14,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -11467,6 +11508,31 @@
               "messageType": "CompositePriceType",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "underlyingIndexPrice",
+              "number": 10,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "internalCompositePriceState",
+              "number": 11,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.CompositePriceState",
+              "messageType": "CompositePriceState",
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -11919,6 +11985,88 @@
               "optional": false,
               "typeName": ".vega.CompositePriceType",
               "messageType": "CompositePriceType",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "markPriceState",
+              "number": 35,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.CompositePriceState",
+              "messageType": "CompositePriceState",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "CompositePriceSource",
+          "fullName": ".vega.CompositePriceSource",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "priceSource",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "price",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "lastUpdated",
+              "number": 3,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "CompositePriceState",
+          "fullName": ".vega.CompositePriceState",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "priceSources",
+              "number": 1,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.CompositePriceSource",
+              "messageType": "CompositePriceSource",
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -12692,6 +12840,18 @@
               "number": 4,
               "type": "string",
               "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "blockInterval",
+              "number": 5,
+              "type": "uint64",
+              "wireType": "varint",
               "repeated": false,
               "packed": false,
               "optional": false,
@@ -15422,6 +15582,18 @@
               "messageType": "LiquidityFeeSettings",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "tickSize",
+              "number": 9,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -15638,6 +15810,18 @@
               "optional": false,
               "typeName": ".vega.CompositePriceConfiguration",
               "messageType": "CompositePriceConfiguration",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "tickSize",
+              "number": 16,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -15970,6 +16154,18 @@
               "messageType": "CompositePriceConfiguration",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "tickSize",
+              "number": 12,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -16072,6 +16268,18 @@
               "optional": false,
               "typeName": ".vega.LiquidityFeeSettings",
               "messageType": "LiquidityFeeSettings",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "tickSize",
+              "number": 6,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -17553,42 +17761,7 @@
               ]
             }
           ],
-          "messages": [
-            {
-              "name": "PerMarketEquityLikeShareWeightEntry",
-              "fullName": ".vega.Vote.PerMarketEquityLikeShareWeightEntry",
-              "map": true,
-              "oneofs": [],
-              "enums": [],
-              "messages": [],
-              "fields": [
-                {
-                  "name": "key",
-                  "number": 1,
-                  "type": "string",
-                  "wireType": "bytes",
-                  "repeated": false,
-                  "packed": false,
-                  "optional": false,
-                  "typeName": null,
-                  "messageTypeLocal": null,
-                  "oneofIndex": null
-                },
-                {
-                  "name": "value",
-                  "number": 2,
-                  "type": "string",
-                  "wireType": "bytes",
-                  "repeated": false,
-                  "packed": false,
-                  "optional": false,
-                  "typeName": null,
-                  "messageTypeLocal": null,
-                  "oneofIndex": null
-                }
-              ]
-            }
-          ],
+          "messages": [],
           "fields": [
             {
               "name": "partyId",
@@ -17676,15 +17849,49 @@
               "oneofIndex": null
             },
             {
-              "name": "perMarketEquityLikeShareWeight",
+              "name": "elsPerMarket",
               "number": 8,
               "type": "message",
               "wireType": "bytes",
               "repeated": true,
               "packed": false,
               "optional": false,
-              "typeName": ".vega.Vote.PerMarketEquityLikeShareWeightEntry",
-              "messageType": "PerMarketEquityLikeShareWeightEntry",
+              "typeName": ".vega.VoteELSPair",
+              "messageType": "VoteELSPair",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "VoteELSPair",
+          "fullName": ".vega.VoteELSPair",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "marketId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "els",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
             }

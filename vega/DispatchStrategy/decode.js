@@ -25,6 +25,7 @@ exports.decode = function decode(
   let field$lockPeriod = 0n
   let field$distributionStrategy = _vega_DistributionStrategy.decode(0)
   const field$rankTable = []
+  let field$capRewardFeeMultiple = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -78,6 +79,10 @@ exports.decode = function decode(
       case 13:
         field$rankTable.push(_vega_Rank.decode(data))
         break
+
+      case 14:
+        field$capRewardFeeMultiple = string(data)
+        break
     }
   }
   return {
@@ -94,6 +99,7 @@ exports.decode = function decode(
     windowLength: field$windowLength,
     lockPeriod: field$lockPeriod,
     distributionStrategy: field$distributionStrategy,
-    rankTable: field$rankTable
+    rankTable: field$rankTable,
+    capRewardFeeMultiple: field$capRewardFeeMultiple
   }
 }
