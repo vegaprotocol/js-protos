@@ -9,6 +9,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.disposalFraction) writer.bytes(2, obj.disposalFraction, string)
   if (obj.fullDisposalSize) writer.varint(3, obj.fullDisposalSize, uint64)
   if (obj.maxFractionConsumed) writer.bytes(4, obj.maxFractionConsumed, string)
+  if (obj.disposalSlippageRange)
+    writer.bytes(5, obj.disposalSlippageRange, string)
 
   return writer.concat(buf, byteOffset)
 }

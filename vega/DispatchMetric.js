@@ -12,6 +12,7 @@ const DISPATCH_METRIC_AVERAGE_POSITION = 5
 const DISPATCH_METRIC_RELATIVE_RETURN = 6
 const DISPATCH_METRIC_RETURN_VOLATILITY = 7
 const DISPATCH_METRIC_VALIDATOR_RANKING = 8
+const DISPATCH_METRIC_REALISED_RETURN = 9
 
 const enumValues = new Map([
   [0, 'DISPATCH_METRIC_UNSPECIFIED'],
@@ -22,7 +23,8 @@ const enumValues = new Map([
   [5, 'DISPATCH_METRIC_AVERAGE_POSITION'],
   [6, 'DISPATCH_METRIC_RELATIVE_RETURN'],
   [7, 'DISPATCH_METRIC_RETURN_VOLATILITY'],
-  [8, 'DISPATCH_METRIC_VALIDATOR_RANKING']
+  [8, 'DISPATCH_METRIC_VALIDATOR_RANKING'],
+  [9, 'DISPATCH_METRIC_REALISED_RETURN']
 ])
 const enumNames = new Map([
   ['DISPATCH_METRIC_UNSPECIFIED', 0],
@@ -33,7 +35,8 @@ const enumNames = new Map([
   ['DISPATCH_METRIC_AVERAGE_POSITION', 5],
   ['DISPATCH_METRIC_RELATIVE_RETURN', 6],
   ['DISPATCH_METRIC_RETURN_VOLATILITY', 7],
-  ['DISPATCH_METRIC_VALIDATOR_RANKING', 8]
+  ['DISPATCH_METRIC_VALIDATOR_RANKING', 8],
+  ['DISPATCH_METRIC_REALISED_RETURN', 9]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -54,7 +57,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid DispatchMetric value (' + value + ')')
 
-  if (0 <= value && value <= 8) return 1
+  if (0 <= value && value <= 9) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -90,5 +93,6 @@ module.exports = {
   DISPATCH_METRIC_AVERAGE_POSITION,
   DISPATCH_METRIC_RELATIVE_RETURN,
   DISPATCH_METRIC_RETURN_VOLATILITY,
-  DISPATCH_METRIC_VALIDATOR_RANKING
+  DISPATCH_METRIC_VALIDATOR_RANKING,
+  DISPATCH_METRIC_REALISED_RETURN
 }

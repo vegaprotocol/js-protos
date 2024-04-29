@@ -15,11 +15,11 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$instrument = {}
-  let field$decimalPlaces = 0n
+  let field$priceDecimalPlaces = 0n
   const field$metadata = []
   let field$priceMonitoringParameters = {}
   let field$targetStakeParameters = {}
-  let field$positionDecimalPlaces = 0n
+  let field$sizeDecimalPlaces = 0n
   let field$slaParams = {}
   let field$liquidityFeeSettings = {}
   let field$tickSize = ''
@@ -31,7 +31,7 @@ exports.decode = function decode(
         break
 
       case 2:
-        field$decimalPlaces = uint64(data)
+        field$priceDecimalPlaces = uint64(data)
         break
 
       case 3:
@@ -58,7 +58,7 @@ exports.decode = function decode(
         break
 
       case 6:
-        field$positionDecimalPlaces = int64(data)
+        field$sizeDecimalPlaces = int64(data)
         break
 
       case 7:
@@ -76,11 +76,11 @@ exports.decode = function decode(
   }
   return {
     instrument: field$instrument,
-    decimalPlaces: field$decimalPlaces,
+    priceDecimalPlaces: field$priceDecimalPlaces,
     metadata: field$metadata,
     priceMonitoringParameters: field$priceMonitoringParameters,
     targetStakeParameters: field$targetStakeParameters,
-    positionDecimalPlaces: field$positionDecimalPlaces,
+    sizeDecimalPlaces: field$sizeDecimalPlaces,
     slaParams: field$slaParams,
     liquidityFeeSettings: field$liquidityFeeSettings,
     tickSize: field$tickSize,

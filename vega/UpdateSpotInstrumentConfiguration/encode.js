@@ -5,10 +5,8 @@ const { string } = require('protobuf-codec/encode/types')
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.contractAddress) writer.bytes(1, obj.contractAddress, string)
-  if (obj.lifetimeLimit) writer.bytes(2, obj.lifetimeLimit, string)
-  if (obj.withdrawThreshold) writer.bytes(3, obj.withdrawThreshold, string)
-  if (obj.chainId) writer.bytes(4, obj.chainId, string)
+  if (obj.code) writer.bytes(1, obj.code, string)
+  if (obj.name) writer.bytes(2, obj.name, string)
 
   return writer.concat(buf, byteOffset)
 }

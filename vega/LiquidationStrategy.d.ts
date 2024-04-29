@@ -8,4 +8,5 @@ export type LiquidationStrategy = {
   disposalFraction: string
   fullDisposalSize: bigint
   maxFractionConsumed: string
+  disposalSlippageRange: string
 }

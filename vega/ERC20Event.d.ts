@@ -11,6 +11,7 @@ export * from './ERC20Event/decode.js'
 export type ERC20Event = {
   index: bigint
   block: bigint
+  chainId: string
   action:
     | { assetList: ERC20AssetList }
     | { assetDelist: ERC20AssetDelist }

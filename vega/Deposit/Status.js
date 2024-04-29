@@ -7,18 +7,21 @@ const STATUS_UNSPECIFIED = 0
 const STATUS_OPEN = 1
 const STATUS_CANCELLED = 2
 const STATUS_FINALIZED = 3
+const STATUS_DUPLICATE_REJECTED = 4
 
 const enumValues = new Map([
   [0, 'STATUS_UNSPECIFIED'],
   [1, 'STATUS_OPEN'],
   [2, 'STATUS_CANCELLED'],
-  [3, 'STATUS_FINALIZED']
+  [3, 'STATUS_FINALIZED'],
+  [4, 'STATUS_DUPLICATE_REJECTED']
 ])
 const enumNames = new Map([
   ['STATUS_UNSPECIFIED', 0],
   ['STATUS_OPEN', 1],
   ['STATUS_CANCELLED', 2],
-  ['STATUS_FINALIZED', 3]
+  ['STATUS_FINALIZED', 3],
+  ['STATUS_DUPLICATE_REJECTED', 4]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -38,7 +41,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid Status value (' + value + ')')
 
-  if (0 <= value && value <= 3) return 1
+  if (0 <= value && value <= 4) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -69,5 +72,6 @@ module.exports = {
   STATUS_UNSPECIFIED,
   STATUS_OPEN,
   STATUS_CANCELLED,
-  STATUS_FINALIZED
+  STATUS_FINALIZED,
+  STATUS_DUPLICATE_REJECTED
 }

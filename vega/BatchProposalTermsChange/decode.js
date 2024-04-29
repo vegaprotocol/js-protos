@@ -13,6 +13,7 @@ const _vega_CancelTransfer = require('./../CancelTransfer/decode.js')
 const _vega_UpdateMarketState = require('./../UpdateMarketState/decode.js')
 const _vega_UpdateReferralProgram = require('./../UpdateReferralProgram/decode.js')
 const _vega_UpdateVolumeDiscountProgram = require('./../UpdateVolumeDiscountProgram/decode.js')
+const _vega_NewAsset = require('./../NewAsset/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -20,11 +21,16 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$enactmentTimestamp = 0n
+  let field$validationTimestamp = 0n
   let field$change = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
         field$enactmentTimestamp = int64(data)
+        break
+
+      case 2:
+        field$validationTimestamp = int64(data)
         break
 
       case 101:
@@ -83,7 +89,15 @@ exports.decode = function decode(
             _vega_UpdateVolumeDiscountProgram.decode(data)
         }
         break
+
+      case 113:
+        field$change = { newAsset: _vega_NewAsset.decode(data) }
+        break
     }
   }
-  return { enactmentTimestamp: field$enactmentTimestamp, change: field$change }
+  return {
+    enactmentTimestamp: field$enactmentTimestamp,
+    validationTimestamp: field$validationTimestamp,
+    change: field$change
+  }
 }
