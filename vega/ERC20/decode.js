@@ -10,6 +10,7 @@ exports.decode = function decode(
   let field$contractAddress = ''
   let field$lifetimeLimit = ''
   let field$withdrawThreshold = ''
+  let field$chainId = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -23,11 +24,16 @@ exports.decode = function decode(
       case 3:
         field$withdrawThreshold = string(data)
         break
+
+      case 4:
+        field$chainId = string(data)
+        break
     }
   }
   return {
     contractAddress: field$contractAddress,
     lifetimeLimit: field$lifetimeLimit,
-    withdrawThreshold: field$withdrawThreshold
+    withdrawThreshold: field$withdrawThreshold,
+    chainId: field$chainId
   }
 }

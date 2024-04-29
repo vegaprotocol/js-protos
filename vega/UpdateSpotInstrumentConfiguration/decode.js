@@ -7,18 +7,18 @@ exports.decode = function decode(
   byteOffset = 0,
   byteLength = buf.byteLength
 ) {
-  let field$baseAsset = ''
-  let field$quoteAsset = ''
+  let field$code = ''
+  let field$name = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
-        field$baseAsset = string(data)
+        field$code = string(data)
         break
 
       case 2:
-        field$quoteAsset = string(data)
+        field$name = string(data)
         break
     }
   }
-  return { baseAsset: field$baseAsset, quoteAsset: field$quoteAsset }
+  return { code: field$code, name: field$name }
 }

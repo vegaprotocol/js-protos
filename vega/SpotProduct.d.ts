@@ -6,5 +6,4 @@ export * from './SpotProduct/decode.js'
 export type SpotProduct = {
   baseAsset: string
   quoteAsset: string
-  name: string
 }

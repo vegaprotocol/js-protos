@@ -11,12 +11,14 @@ import type { CancelTransfer } from './CancelTransfer'
 import type { UpdateMarketState } from './UpdateMarketState'
 import type { UpdateReferralProgram } from './UpdateReferralProgram'
 import type { UpdateVolumeDiscountProgram } from './UpdateVolumeDiscountProgram'
+import type { NewAsset } from './NewAsset'
 
 export * from './BatchProposalTermsChange/encode.js'
 export * from './BatchProposalTermsChange/decode.js'
 
 export type BatchProposalTermsChange = {
   enactmentTimestamp: bigint
+  validationTimestamp: bigint
   change:
     | { updateMarket: UpdateMarket }
     | { newMarket: NewMarket }
@@ -30,5 +32,6 @@ export type BatchProposalTermsChange = {
     | { updateMarketState: UpdateMarketState }
     | { updateReferralProgram: UpdateReferralProgram }
     | { updateVolumeDiscountProgram: UpdateVolumeDiscountProgram }
+    | { newAsset: NewAsset }
     | null
 }

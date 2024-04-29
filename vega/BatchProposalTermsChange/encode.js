@@ -13,11 +13,13 @@ const _vega_CancelTransfer = require('./../CancelTransfer/encode.js')
 const _vega_UpdateMarketState = require('./../UpdateMarketState/encode.js')
 const _vega_UpdateReferralProgram = require('./../UpdateReferralProgram/encode.js')
 const _vega_UpdateVolumeDiscountProgram = require('./../UpdateVolumeDiscountProgram/encode.js')
+const _vega_NewAsset = require('./../NewAsset/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
   if (obj.enactmentTimestamp) writer.varint(1, obj.enactmentTimestamp, int64)
+  if (obj.validationTimestamp) writer.varint(2, obj.validationTimestamp, int64)
 
   if (obj.change?.updateMarket ?? obj.updateMarket)
     writer.bytes(
@@ -94,6 +96,11 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
         obj.change?.updateVolumeDiscountProgram ??
           obj.updateVolumeDiscountProgram
       )
+    )
+  if (obj.change?.newAsset ?? obj.newAsset)
+    writer.bytes(
+      113,
+      _vega_NewAsset.encode(obj.change?.newAsset ?? obj.newAsset)
     )
 
   return writer.concat(buf, byteOffset)

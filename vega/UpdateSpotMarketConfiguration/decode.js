@@ -7,6 +7,7 @@ const _vega_SimpleModelParams = require('./../SimpleModelParams/decode.js')
 const _vega_LogNormalRiskModel = require('./../LogNormalRiskModel/decode.js')
 const _vega_LiquiditySLAParameters = require('./../LiquiditySLAParameters/decode.js')
 const _vega_LiquidityFeeSettings = require('./../LiquidityFeeSettings/decode.js')
+const _vega_UpdateSpotInstrumentConfiguration = require('./../UpdateSpotInstrumentConfiguration/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -19,6 +20,7 @@ exports.decode = function decode(
   let field$slaParams = {}
   let field$liquidityFeeSettings = {}
   let field$tickSize = ''
+  let field$instrument = {}
   let field$riskParameters = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -56,6 +58,10 @@ exports.decode = function decode(
       case 6:
         field$tickSize = string(data)
         break
+
+      case 7:
+        field$instrument = _vega_UpdateSpotInstrumentConfiguration.decode(data)
+        break
     }
   }
   return {
@@ -65,6 +71,7 @@ exports.decode = function decode(
     slaParams: field$slaParams,
     liquidityFeeSettings: field$liquidityFeeSettings,
     tickSize: field$tickSize,
+    instrument: field$instrument,
     riskParameters: field$riskParameters
   }
 }

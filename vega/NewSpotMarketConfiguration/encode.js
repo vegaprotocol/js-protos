@@ -14,7 +14,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
 
   if (obj.instrument)
     writer.bytes(1, _vega_InstrumentConfiguration.encode(obj.instrument))
-  if (obj.decimalPlaces) writer.varint(2, obj.decimalPlaces, uint64)
+  if (obj.priceDecimalPlaces) writer.varint(2, obj.priceDecimalPlaces, uint64)
   if (obj.metadata?.length)
     obj.metadata.forEach((v) => writer.bytes(3, v, string))
   if (obj.priceMonitoringParameters)
@@ -27,8 +27,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       5,
       _vega_TargetStakeParameters.encode(obj.targetStakeParameters)
     )
-  if (obj.positionDecimalPlaces)
-    writer.varint(6, obj.positionDecimalPlaces, int64)
+  if (obj.sizeDecimalPlaces) writer.varint(6, obj.sizeDecimalPlaces, int64)
   if (obj.slaParams)
     writer.bytes(7, _vega_LiquiditySLAParameters.encode(obj.slaParams))
   if (obj.liquidityFeeSettings)

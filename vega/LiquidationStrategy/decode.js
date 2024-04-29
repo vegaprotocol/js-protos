@@ -11,6 +11,7 @@ exports.decode = function decode(
   let field$disposalFraction = ''
   let field$fullDisposalSize = 0n
   let field$maxFractionConsumed = ''
+  let field$disposalSlippageRange = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -28,12 +29,17 @@ exports.decode = function decode(
       case 4:
         field$maxFractionConsumed = string(data)
         break
+
+      case 5:
+        field$disposalSlippageRange = string(data)
+        break
     }
   }
   return {
     disposalTimeStep: field$disposalTimeStep,
     disposalFraction: field$disposalFraction,
     fullDisposalSize: field$fullDisposalSize,
-    maxFractionConsumed: field$maxFractionConsumed
+    maxFractionConsumed: field$maxFractionConsumed,
+    disposalSlippageRange: field$disposalSlippageRange
   }
 }

@@ -2171,6 +2171,18 @@
                       "typeName": null,
                       "messageTypeLocal": null,
                       "oneofIndex": null
+                    },
+                    {
+                      "name": "chainId",
+                      "number": 4,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
                     }
                   ]
                 },
@@ -4182,6 +4194,10 @@
             {
               "name": "ACCOUNT_TYPE_ORDER_MARGIN",
               "value": 29
+            },
+            {
+              "name": "ACCOUNT_TYPE_REWARD_REALISED_RETURN",
+              "value": 30
             }
           ]
         },
@@ -4402,6 +4418,10 @@
             {
               "name": "DISPATCH_METRIC_VALIDATOR_RANKING",
               "value": 8
+            },
+            {
+              "name": "DISPATCH_METRIC_REALISED_RETURN",
+              "value": 9
             }
           ]
         },
@@ -4758,6 +4778,10 @@
             {
               "name": "PROPOSAL_ERROR_PROPOSAL_IN_BATCH_DECLINED",
               "value": 59
+            },
+            {
+              "name": "PROPOSAL_ERROR_INVALID_SIZE_DECIMAL_PLACES",
+              "value": 60
             }
           ]
         },
@@ -5284,6 +5308,18 @@
               "oneofIndex": null
             },
             {
+              "name": "chainId",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
               "name": "assetList",
               "number": 1001,
               "type": "message",
@@ -5546,6 +5582,18 @@
               "number": 2,
               "type": "uint64",
               "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "chainId",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
               "repeated": false,
               "packed": false,
               "optional": false,
@@ -6464,18 +6512,6 @@
             {
               "name": "quoteAsset",
               "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "name",
-              "number": 3,
               "type": "string",
               "wireType": "bytes",
               "repeated": false,
@@ -8095,6 +8131,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "disposalSlippageRange",
+              "number": 5,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -8427,6 +8475,10 @@
                 {
                   "name": "REJECTION_REASON_STOP_ORDER_CANNOT_MATCH_OCO_EXPIRY_TIMES",
                   "value": 9
+                },
+                {
+                  "name": "REJECTION_REASON_STOP_ORDER_SIZE_OVERRIDE_UNSUPPORTED_FOR_SPOT",
+                  "value": 10
                 }
               ]
             }
@@ -10207,6 +10259,10 @@
                 {
                   "name": "STATUS_FINALIZED",
                   "value": 3
+                },
+                {
+                  "name": "STATUS_DUPLICATE_REJECTED",
+                  "value": 4
                 }
               ]
             }
@@ -12983,6 +13039,125 @@
           ]
         },
         {
+          "name": "EVMBridgeConfig",
+          "fullName": ".vega.EVMBridgeConfig",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "networkId",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "chainId",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "collateralBridgeContract",
+              "number": 3,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.EthereumContractConfig",
+              "messageType": "EthereumContractConfig",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "confirmations",
+              "number": 4,
+              "type": "uint32",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "multisigControlContract",
+              "number": 5,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.EthereumContractConfig",
+              "messageType": "EthereumContractConfig",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "blockTime",
+              "number": 6,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "name",
+              "number": 7,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "EVMBridgeConfigs",
+          "fullName": ".vega.EVMBridgeConfigs",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "configs",
+              "number": 1,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.EVMBridgeConfig",
+              "messageType": "EVMBridgeConfig",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
           "name": "EthereumContractConfig",
           "fullName": ".vega.EthereumContractConfig",
           "map": false,
@@ -14998,6 +15173,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "chainId",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -15096,18 +15283,6 @@
             {
               "name": "quoteAsset",
               "number": 2,
-              "type": "string",
-              "wireType": "bytes",
-              "repeated": false,
-              "packed": false,
-              "optional": false,
-              "typeName": null,
-              "messageTypeLocal": null,
-              "oneofIndex": null
-            },
-            {
-              "name": "name",
-              "number": 3,
               "type": "string",
               "wireType": "bytes",
               "repeated": false,
@@ -15468,7 +15643,7 @@
               "oneofIndex": null
             },
             {
-              "name": "decimalPlaces",
+              "name": "priceDecimalPlaces",
               "number": 2,
               "type": "uint64",
               "wireType": "varint",
@@ -15546,7 +15721,7 @@
               "oneofName": "riskParameters"
             },
             {
-              "name": "positionDecimalPlaces",
+              "name": "sizeDecimalPlaces",
               "number": 6,
               "type": "int64",
               "wireType": "varint",
@@ -16282,6 +16457,53 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "instrument",
+              "number": 7,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.UpdateSpotInstrumentConfiguration",
+              "messageType": "UpdateSpotInstrumentConfiguration",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "UpdateSpotInstrumentConfiguration",
+          "fullName": ".vega.UpdateSpotInstrumentConfiguration",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "code",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "name",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -16915,6 +17137,18 @@
               "oneofIndex": null
             },
             {
+              "name": "validationTimestamp",
+              "number": 2,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
               "name": "updateMarket",
               "number": 101,
               "type": "message",
@@ -17078,6 +17312,20 @@
               "optional": false,
               "typeName": ".vega.UpdateVolumeDiscountProgram",
               "messageType": "UpdateVolumeDiscountProgram",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "change"
+            },
+            {
+              "name": "newAsset",
+              "number": 113,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.NewAsset",
+              "messageType": "NewAsset",
               "messageTypeLocal": null,
               "oneofIndex": 0,
               "oneofName": "change"
