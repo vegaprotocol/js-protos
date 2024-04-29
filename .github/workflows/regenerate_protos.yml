@@ -43,13 +43,4 @@ jobs:
           skip_fetch: true
           skip_checkout: true
           create_branch: true
-      - name: Setup Vals
-        run: |
-          git config --global user.email "vega-ci-bot@vega.xyz"
-          git config --global user.name "vega-ci-bot"
-      # Bump
-      - run: npm version minor
-      - name: Commit version
-        run: |
-          git show
-          git push --follow-tags
+          branch: chore/update-to-${{ inputs.tag }}
