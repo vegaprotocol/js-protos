@@ -23,4 +23,5 @@ export type DispatchStrategy = {
   distributionStrategy: DistributionStrategy
   rankTable: Rank[]
   capRewardFeeMultiple: string | null
+  transferInterval: number | null
 }
