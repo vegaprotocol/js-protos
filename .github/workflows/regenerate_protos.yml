@@ -1,0 +1,50 @@
+name: regenerate-protos
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Git Tag to build and publish"
+        required: true
+        type: string
+        default: ""
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Use Node.js LTS
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          registry-url: "https://registry.npmjs.org"
+      - run: npm install
+      - run: git fetch --unshallow && git fetch --tags
+        working-directory: vendor/vega
+      - run: git checkout tags/${{ inputs.tag }}
+        working-directory: vendor/vega
+      - name: Install protoc
+        uses: actions-gw/setup-protoc-to-env@v2
+      - run: |
+          protoc \
+          --plugin=protoc-gen-js="node_modules/.bin/protoc-plugin-js" \
+          --js_out="." \
+          -I "vendor/vega/protos/sources" \
+          vega/commands/v1/transaction.proto
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update to vega version ${{ inputs.tag }}"
+          commit_user_name: vega-ci-bot
+          commit_user_email: vega-ci-bot@vega.xyz
+          skip_fetch: true
+          skip_checkout: true
+          create_branch: true
+          branch: chore/update-protos-to-latest
+      - name: create pull request
+        run: gh pr create -B main -H chore/update-protos-to-latest --title 'Update protos to version ${{ inputs.tag }}' --body 'Autocreated protos update'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
