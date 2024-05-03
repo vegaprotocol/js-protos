@@ -9,7 +9,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: vegaprotocol/github-action-get-vega-version@main
+      - name: version
+        uses: vegaprotocol/github-action-get-vega-version@main
         with:
           include-preview-versions: true
-      - run: echo 'done'
+      - run: echo steps.version.outputs.new-version
+      - run: echo steps.version.outputs.current-version
