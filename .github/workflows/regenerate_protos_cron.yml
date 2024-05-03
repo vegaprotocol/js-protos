@@ -9,7 +9,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: version
+      - id: version
         uses: vegaprotocol/github-action-get-vega-version@main
         with:
           include-preview-versions: true
