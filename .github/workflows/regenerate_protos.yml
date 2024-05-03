@@ -43,4 +43,8 @@ jobs:
           skip_fetch: true
           skip_checkout: true
           create_branch: true
-          branch: chore/update-to-${{ inputs.tag }}
+          branch: chore/update-protos-to-latest
+      - name: create pull request
+        run: gh pr create -B main -H chore/update-protos-to-latest --title 'Update protos to version ${{ inputs.tag }}' --body 'Autocreated protos update'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
