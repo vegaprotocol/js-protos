@@ -23,6 +23,10 @@ jobs:
         with:
           include-preview-versions: true
           previous-version: ${{ steps.current-vega-version.outputs.version }}
+      - name: Output variables
+        run: |
+          echo "current-version=${{ steps.version.outputs.current-version }}" >> "$GITHUB_OUTPUT"
+          echo "new-version=${{ steps.version.outputs.new-version }}" >> "$GITHUB_OUTPUT"
   regenerate-protos:
     needs: check-for-new-version
     runs-on: ubuntu-latest
