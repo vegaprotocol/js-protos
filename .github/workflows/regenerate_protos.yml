@@ -1,9 +1,10 @@
 name: regenerate-protos-cron
 
 on:
-  push
-  # schedule:
-  #   - cron: "0 * * * *"
+  push:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
 
 jobs:
   check-for-new-version:
