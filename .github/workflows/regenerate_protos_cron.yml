@@ -9,15 +9,15 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - id: get-repo-version
-        run: echo "version=$(cat ./vega-version.txt)" >> $GITHUB_OUTPUT
+      - id: generated-version
+        run: echo "VERSION=$(cat ./vega-version.txt)" >> $GITHUB_ENV
       - name: Test output
-        run: echo ${{ steps.get-repo-version.outputs.version }}
+        run: echo ${{ env.VERSION }}
       - id: version
         uses: vegaprotocol/github-action-get-vega-version@main
         with:
           include-preview-versions: true
-          previous-version: ${{ steps.get-repo-version.outputs.version }}
+          previous-version: ${{ env.VERSION }}
       - run: echo ${{ steps.version.outputs.new-version }}
       - run: echo ${{ steps.version.outputs.current-version }}
       - run: echo "running"
