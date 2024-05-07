@@ -11,6 +11,8 @@ jobs:
     steps:
       - id: get-repo-version
         run: echo "version=$(cat ./vega-version.txt)" >> $GITHUB_OUTPUT
+      - name: Test output
+        run: echo ${{ steps.get-repo-version.outputs.version }}
       - id: version
         uses: vegaprotocol/github-action-get-vega-version@main
         with:
