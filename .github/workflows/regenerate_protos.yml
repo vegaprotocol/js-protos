@@ -1,7 +1,6 @@
 name: regenerate-protos-cron
 
 on:
-  push:
   schedule:
     - cron: "0 * * * *"
   workflow_dispatch:
@@ -40,6 +39,7 @@ jobs:
           node-version: "lts/*"
           registry-url: "https://registry.npmjs.org"
       - run: npm install
+      # TODO inefficient. We now know the tag, so we only need to fetch the single tag we are generating against
       - run: git fetch --unshallow && git fetch --tags
         working-directory: vendor/vega
       - run: git checkout tags/${{ needs.check-for-new-version.outputs.current-version }}
@@ -65,3 +65,5 @@ jobs:
         run: gh pr create -B main -H chore/update-protos-to-${{ needs.check-for-new-version.outputs.current-version }} --title 'Update protos to version ${{ needs.check-for-new-version.outputs.current-version }}' --body 'Autocreated protos update'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: update version
+        run: echo ${{ needs.check-for-new-version.outputs.current-version }} > ./vega-version.txt
