@@ -1,18 +1,35 @@
-name: regenerate-protos
+name: regenerate-protos-cron
 
 on:
+  push:
+  schedule:
+    - cron: "0 * * * *"
   workflow_dispatch:
-    inputs:
-      tag:
-        description: "Git Tag to build and publish"
-        required: true
-        type: string
-        default: ""
 
 jobs:
-  release:
+  check-for-new-version:
+    outputs:
+      new-version: ${{ steps.version.outputs.new-version }}
+      current-version: ${{ steps.version.outputs.current-version }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - id: current-vega-version
+        name: Get current version of vega generated against
+        run: echo "version=$(cat ./vega-version.txt)" >> $GITHUB_OUTPUT
+      - name: Test output
+        run: echo ${{ steps.current-vega-version.outputs.version }}
+      - id: version
+        uses: vegaprotocol/github-action-get-vega-version@v0.0.1
+        with:
+          include-preview-versions: true
+          previous-version: ${{ steps.current-vega-version.outputs.version }}
+  regenerate-protos:
+    needs: check-for-new-version
+    runs-on: ubuntu-latest
+    if: ${{ needs.check-for-new-version.outputs.new-version }}
+    steps:
+      - run: echo ${{ needs.check-for-new-version.outputs.current-version }}
       - uses: actions/checkout@v3
         with:
           submodules: true
@@ -25,7 +42,7 @@ jobs:
       - run: npm install
       - run: git fetch --unshallow && git fetch --tags
         working-directory: vendor/vega
-      - run: git checkout tags/${{ inputs.tag }}
+      - run: git checkout tags/${{ needs.check-for-new-version.outputs.current-version }}
         working-directory: vendor/vega
       - name: Install protoc
         uses: actions-gw/setup-protoc-to-env@v2
@@ -37,14 +54,14 @@ jobs:
           vega/commands/v1/transaction.proto
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update to vega version ${{ inputs.tag }}"
+          commit_message: "chore: update to vega version ${{ needs.check-for-new-version.outputs.current-version }}"
           commit_user_name: vega-ci-bot
           commit_user_email: vega-ci-bot@vega.xyz
           skip_fetch: true
           skip_checkout: true
           create_branch: true
-          branch: chore/update-protos-to-${{ inputs.tag }}
+          branch: chore/update-protos-to-${{ needs.check-for-new-version.outputs.current-version }}
       - name: create pull request
-        run: gh pr create -B main -H chore/update-protos-to-${{ inputs.tag }} --title 'Update protos to version ${{ inputs.tag }}' --body 'Autocreated protos update'
+        run: gh pr create -B main -H chore/update-protos-to-${{ needs.check-for-new-version.outputs.current-version }} --title 'Update protos to version ${{ needs.check-for-new-version.outputs.current-version }}' --body 'Autocreated protos update'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
