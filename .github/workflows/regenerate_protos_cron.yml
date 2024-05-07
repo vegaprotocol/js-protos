@@ -20,6 +20,10 @@ jobs:
         with:
           include-preview-versions: true
           previous-version: ${{ steps.current-vega-version.outputs.version }}
+  regenerate-protos:
+    needs: check-for-new-version
+    runs-on: ubuntu-latest
+    steps:
       - run: echo ${{ steps.version.outputs.new-version }}
       - run: echo ${{ steps.version.outputs.current-version }}
       - run: echo "running"
