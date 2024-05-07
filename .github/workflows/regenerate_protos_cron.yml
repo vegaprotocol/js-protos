@@ -28,3 +28,7 @@ jobs:
       - run: echo ${{ steps.version.outputs.current-version }}
       - run: echo "running"
         if: ${{ steps.version.outputs.new-version }}
+      - run: echo ${{ needs.check-for-new-version.new-version }}
+      - run: echo ${{ needs.check-for-new-version.current-version }}
+      - run: echo "running"
+        if: ${{ needs.check-for-new-version.new-version }}
