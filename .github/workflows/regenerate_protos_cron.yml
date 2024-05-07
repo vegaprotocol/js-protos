@@ -1,4 +1,4 @@
-name: regenerate-protos
+name: regenerate-protos-cron
 
 on:
   push
@@ -6,7 +6,7 @@ on:
   #   - cron: "0 * * * *"
 
 jobs:
-  release:
+  check-for-new-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
