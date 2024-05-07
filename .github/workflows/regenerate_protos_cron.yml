@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: get-repo-version
-        run: echo "version=$(cat ./vega-version.js)" >> $GITHUB_OUTPUT
+        run: echo "version=$(cat ./vega-version.txt)" >> $GITHUB_OUTPUT
       - id: version
         uses: vegaprotocol/github-action-get-vega-version@main
         with:
