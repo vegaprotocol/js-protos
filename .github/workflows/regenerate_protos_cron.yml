@@ -19,7 +19,7 @@ jobs:
       - name: Test output
         run: echo ${{ steps.current-vega-version.outputs.version }}
       - id: version
-        uses: vegaprotocol/github-action-get-vega-version@main
+        uses: vegaprotocol/github-action-get-vega-version@v0.0.1
         with:
           include-preview-versions: true
           previous-version: ${{ steps.current-vega-version.outputs.version }}
