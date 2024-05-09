@@ -24,7 +24,7 @@ jobs:
           include-preview-versions: true
           previous-version: ${{ steps.current-vega-version.outputs.version }}
   regenerate-protos:
-    if: needs.check-for-new-version.outputs.new-version === 'true'
+    if: needs.check-for-new-version.outputs.new-version == 'true'
     needs: check-for-new-version
     runs-on: ubuntu-latest
     steps:
