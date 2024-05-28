@@ -25,6 +25,9 @@ const _vega_commands_v1_UpdateMarginMode = require('./../UpdateMarginMode/decode
 const _vega_commands_v1_JoinTeam = require('./../JoinTeam/decode.js')
 const _vega_commands_v1_BatchProposalSubmission = require('./../BatchProposalSubmission/decode.js')
 const _vega_commands_v1_UpdatePartyProfile = require('./../UpdatePartyProfile/decode.js')
+const _vega_commands_v1_SubmitAMM = require('./../SubmitAMM/decode.js')
+const _vega_commands_v1_AmendAMM = require('./../AmendAMM/decode.js')
+const _vega_commands_v1_CancelAMM = require('./../CancelAMM/decode.js')
 const _vega_commands_v1_NodeVote = require('./../NodeVote/decode.js')
 const _vega_commands_v1_NodeSignature = require('./../NodeSignature/decode.js')
 const _vega_commands_v1_ChainEvent = require('./../ChainEvent/decode.js')
@@ -35,6 +38,7 @@ const _vega_commands_v1_EthereumKeyRotateSubmission = require('./../EthereumKeyR
 const _vega_commands_v1_ProtocolUpgradeProposal = require('./../ProtocolUpgradeProposal/decode.js')
 const _vega_commands_v1_IssueSignatures = require('./../IssueSignatures/decode.js')
 const _vega_commands_v1_OracleDataSubmission = require('./../OracleDataSubmission/decode.js')
+const _vega_commands_v1_DelayedTransactionsWrapper = require('./../DelayedTransactionsWrapper/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -202,6 +206,18 @@ exports.decode = function decode(
         }
         break
 
+      case 1025:
+        field$command = { submitAmm: _vega_commands_v1_SubmitAMM.decode(data) }
+        break
+
+      case 1026:
+        field$command = { amendAmm: _vega_commands_v1_AmendAMM.decode(data) }
+        break
+
+      case 1027:
+        field$command = { cancelAmm: _vega_commands_v1_CancelAMM.decode(data) }
+        break
+
       case 2002:
         field$command = { nodeVote: _vega_commands_v1_NodeVote.decode(data) }
         break
@@ -262,6 +278,13 @@ exports.decode = function decode(
         field$command = {
           oracleDataSubmission:
             _vega_commands_v1_OracleDataSubmission.decode(data)
+        }
+        break
+
+      case 4000:
+        field$command = {
+          delayedTransactionsWrapper:
+            _vega_commands_v1_DelayedTransactionsWrapper.decode(data)
         }
         break
     }

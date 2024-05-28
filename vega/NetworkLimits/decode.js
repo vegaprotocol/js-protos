@@ -16,6 +16,7 @@ exports.decode = function decode(
   let field$proposeAssetEnabledFrom = 0n
   let field$canProposeSpotMarket = false
   let field$canProposePerpetualMarket = false
+  let field$canUseAmm = false
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -53,6 +54,10 @@ exports.decode = function decode(
       case 11:
         field$canProposePerpetualMarket = bool(data)
         break
+
+      case 12:
+        field$canUseAmm = bool(data)
+        break
     }
   }
   return {
@@ -64,6 +69,7 @@ exports.decode = function decode(
     proposeMarketEnabledFrom: field$proposeMarketEnabledFrom,
     proposeAssetEnabledFrom: field$proposeAssetEnabledFrom,
     canProposeSpotMarket: field$canProposeSpotMarket,
-    canProposePerpetualMarket: field$canProposePerpetualMarket
+    canProposePerpetualMarket: field$canProposePerpetualMarket,
+    canUseAmm: field$canUseAmm
   }
 }

@@ -10,6 +10,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.alias) writer.bytes(2, obj.alias, string)
   if (obj.metadata?.length)
     obj.metadata.forEach((v) => writer.bytes(3, _vega_Metadata.encode(v)))
+  if (obj.derivedKeys?.length)
+    obj.derivedKeys.forEach((v) => writer.bytes(4, v, string))
 
   return writer.concat(buf, byteOffset)
 }
