@@ -46,6 +46,9 @@ const TRANSFER_TYPE_ORDER_MARGIN_LOW = 45
 const TRANSFER_TYPE_ORDER_MARGIN_HIGH = 46
 const TRANSFER_TYPE_ISOLATED_MARGIN_LOW = 47
 const TRANSFER_TYPE_ISOLATED_MARGIN_HIGH = 48
+const TRANSFER_TYPE_AMM_LOW = 49
+const TRANSFER_TYPE_AMM_HIGH = 50
+const TRANSFER_TYPE_AMM_RELEASE = 51
 
 const enumValues = new Map([
   [0, 'TRANSFER_TYPE_UNSPECIFIED'],
@@ -90,7 +93,10 @@ const enumValues = new Map([
   [45, 'TRANSFER_TYPE_ORDER_MARGIN_LOW'],
   [46, 'TRANSFER_TYPE_ORDER_MARGIN_HIGH'],
   [47, 'TRANSFER_TYPE_ISOLATED_MARGIN_LOW'],
-  [48, 'TRANSFER_TYPE_ISOLATED_MARGIN_HIGH']
+  [48, 'TRANSFER_TYPE_ISOLATED_MARGIN_HIGH'],
+  [49, 'TRANSFER_TYPE_AMM_LOW'],
+  [50, 'TRANSFER_TYPE_AMM_HIGH'],
+  [51, 'TRANSFER_TYPE_AMM_RELEASE']
 ])
 const enumNames = new Map([
   ['TRANSFER_TYPE_UNSPECIFIED', 0],
@@ -135,7 +141,10 @@ const enumNames = new Map([
   ['TRANSFER_TYPE_ORDER_MARGIN_LOW', 45],
   ['TRANSFER_TYPE_ORDER_MARGIN_HIGH', 46],
   ['TRANSFER_TYPE_ISOLATED_MARGIN_LOW', 47],
-  ['TRANSFER_TYPE_ISOLATED_MARGIN_HIGH', 48]
+  ['TRANSFER_TYPE_ISOLATED_MARGIN_HIGH', 48],
+  ['TRANSFER_TYPE_AMM_LOW', 49],
+  ['TRANSFER_TYPE_AMM_HIGH', 50],
+  ['TRANSFER_TYPE_AMM_RELEASE', 51]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -156,7 +165,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid TransferType value (' + value + ')')
 
-  if (0 <= value && value <= 48) return 1
+  if (0 <= value && value <= 51) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -226,5 +235,8 @@ module.exports = {
   TRANSFER_TYPE_ORDER_MARGIN_LOW,
   TRANSFER_TYPE_ORDER_MARGIN_HIGH,
   TRANSFER_TYPE_ISOLATED_MARGIN_LOW,
-  TRANSFER_TYPE_ISOLATED_MARGIN_HIGH
+  TRANSFER_TYPE_ISOLATED_MARGIN_HIGH,
+  TRANSFER_TYPE_AMM_LOW,
+  TRANSFER_TYPE_AMM_HIGH,
+  TRANSFER_TYPE_AMM_RELEASE
 }

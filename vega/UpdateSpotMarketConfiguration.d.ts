@@ -22,4 +22,5 @@ export type UpdateSpotMarketConfiguration = {
   liquidityFeeSettings: LiquidityFeeSettings
   tickSize: string
   instrument: UpdateSpotInstrumentConfiguration
+  enableTransactionReordering: boolean
 }

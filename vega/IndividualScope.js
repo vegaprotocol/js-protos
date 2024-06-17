@@ -7,18 +7,21 @@ const INDIVIDUAL_SCOPE_UNSPECIFIED = 0
 const INDIVIDUAL_SCOPE_ALL = 1
 const INDIVIDUAL_SCOPE_IN_TEAM = 2
 const INDIVIDUAL_SCOPE_NOT_IN_TEAM = 3
+const INDIVIDUAL_SCOPE_AMM = 4
 
 const enumValues = new Map([
   [0, 'INDIVIDUAL_SCOPE_UNSPECIFIED'],
   [1, 'INDIVIDUAL_SCOPE_ALL'],
   [2, 'INDIVIDUAL_SCOPE_IN_TEAM'],
-  [3, 'INDIVIDUAL_SCOPE_NOT_IN_TEAM']
+  [3, 'INDIVIDUAL_SCOPE_NOT_IN_TEAM'],
+  [4, 'INDIVIDUAL_SCOPE_AMM']
 ])
 const enumNames = new Map([
   ['INDIVIDUAL_SCOPE_UNSPECIFIED', 0],
   ['INDIVIDUAL_SCOPE_ALL', 1],
   ['INDIVIDUAL_SCOPE_IN_TEAM', 2],
-  ['INDIVIDUAL_SCOPE_NOT_IN_TEAM', 3]
+  ['INDIVIDUAL_SCOPE_NOT_IN_TEAM', 3],
+  ['INDIVIDUAL_SCOPE_AMM', 4]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -39,7 +42,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid IndividualScope value (' + value + ')')
 
-  if (0 <= value && value <= 3) return 1
+  if (0 <= value && value <= 4) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -70,5 +73,6 @@ module.exports = {
   INDIVIDUAL_SCOPE_UNSPECIFIED,
   INDIVIDUAL_SCOPE_ALL,
   INDIVIDUAL_SCOPE_IN_TEAM,
-  INDIVIDUAL_SCOPE_NOT_IN_TEAM
+  INDIVIDUAL_SCOPE_NOT_IN_TEAM,
+  INDIVIDUAL_SCOPE_AMM
 }

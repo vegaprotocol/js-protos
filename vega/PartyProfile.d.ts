@@ -8,4 +8,5 @@ export type PartyProfile = {
   partyId: string
   alias: string
   metadata: Metadata[]
+  derivedKeys: string[]
 }
