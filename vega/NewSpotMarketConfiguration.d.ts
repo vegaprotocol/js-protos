@@ -24,4 +24,5 @@ export type NewSpotMarketConfiguration = {
   slaParams: LiquiditySLAParameters
   liquidityFeeSettings: LiquidityFeeSettings
   tickSize: string
+  enableTransactionReordering: boolean
 }
