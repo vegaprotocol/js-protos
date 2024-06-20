@@ -2,6 +2,7 @@
 const reader = require('protobuf-codec/decode/reader')
 const { double } = require('protobuf-codec/decode/types')
 const _vega_LogNormalModelParams = require('./../LogNormalModelParams/decode.js')
+const _vega_RiskFactorOverride = require('./../RiskFactorOverride/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -11,6 +12,7 @@ exports.decode = function decode(
   let field$riskAversionParameter = 0
   let field$tau = 0
   let field$params = {}
+  let field$riskFactorOverride = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -24,11 +26,16 @@ exports.decode = function decode(
       case 3:
         field$params = _vega_LogNormalModelParams.decode(data)
         break
+
+      case 4:
+        field$riskFactorOverride = _vega_RiskFactorOverride.decode(data)
+        break
     }
   }
   return {
     riskAversionParameter: field$riskAversionParameter,
     tau: field$tau,
-    params: field$params
+    params: field$params,
+    riskFactorOverride: field$riskFactorOverride
   }
 }

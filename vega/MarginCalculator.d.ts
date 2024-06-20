@@ -6,4 +6,5 @@ export * from './MarginCalculator/decode.js'
 
 export type MarginCalculator = {
   scalingFactors: ScalingFactors
+  fullyCollateralised: boolean | null
 }

@@ -5,19 +5,22 @@ export const INDIVIDUAL_SCOPE_UNSPECIFIED = 0
 export const INDIVIDUAL_SCOPE_ALL = 1
 export const INDIVIDUAL_SCOPE_IN_TEAM = 2
 export const INDIVIDUAL_SCOPE_NOT_IN_TEAM = 3
+export const INDIVIDUAL_SCOPE_AMM = 4
 
-export type Values = 0 | 1 | 2 | 3
+export type Values = 0 | 1 | 2 | 3 | 4
 export type Names =
   | 'INDIVIDUAL_SCOPE_UNSPECIFIED'
   | 'INDIVIDUAL_SCOPE_ALL'
   | 'INDIVIDUAL_SCOPE_IN_TEAM'
   | 'INDIVIDUAL_SCOPE_NOT_IN_TEAM'
+  | 'INDIVIDUAL_SCOPE_AMM'
 
 export const enum IndividualScope {
   INDIVIDUAL_SCOPE_UNSPECIFIED = 0,
   INDIVIDUAL_SCOPE_ALL = 1,
   INDIVIDUAL_SCOPE_IN_TEAM = 2,
-  INDIVIDUAL_SCOPE_NOT_IN_TEAM = 3
+  INDIVIDUAL_SCOPE_NOT_IN_TEAM = 3,
+  INDIVIDUAL_SCOPE_AMM = 4
 }
 
 declare const enumValues: Map<Names, Values>
