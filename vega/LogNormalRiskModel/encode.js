@@ -2,6 +2,7 @@
 const Writer = require('protobuf-codec/encode/writer')
 const { double } = require('protobuf-codec/encode/types')
 const _vega_LogNormalModelParams = require('./../LogNormalModelParams/encode.js')
+const _vega_RiskFactorOverride = require('./../RiskFactorOverride/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -10,6 +11,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.fixed64(1, obj.riskAversionParameter, double)
   if (obj.tau) writer.fixed64(2, obj.tau, double)
   if (obj.params) writer.bytes(3, _vega_LogNormalModelParams.encode(obj.params))
+  if (obj.riskFactorOverride)
+    writer.bytes(4, _vega_RiskFactorOverride.encode(obj.riskFactorOverride))
 
   return writer.concat(buf, byteOffset)
 }

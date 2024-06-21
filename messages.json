@@ -1994,6 +1994,19 @@
                       "oneofIndex": null
                     },
                     {
+                      "name": "from",
+                      "number": 7,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": true,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null,
+                      "oneofName": null
+                    },
+                    {
                       "name": "oneOff",
                       "number": 101,
                       "type": "message",
@@ -2498,6 +2511,389 @@
                   ]
                 },
                 {
+                  "name": "SubmitAMM",
+                  "fullName": ".vega.commands.v1.SubmitAMM",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [
+                    {
+                      "name": "ConcentratedLiquidityParameters",
+                      "fullName": ".vega.commands.v1.SubmitAMM.ConcentratedLiquidityParameters",
+                      "map": false,
+                      "oneofs": [],
+                      "enums": [],
+                      "messages": [],
+                      "fields": [
+                        {
+                          "name": "upperBound",
+                          "number": 1,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
+                        },
+                        {
+                          "name": "lowerBound",
+                          "number": 2,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
+                        },
+                        {
+                          "name": "base",
+                          "number": 3,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": false,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null
+                        },
+                        {
+                          "name": "leverageAtUpperBound",
+                          "number": 4,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
+                        },
+                        {
+                          "name": "leverageAtLowerBound",
+                          "number": 5,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
+                        }
+                      ]
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "marketId",
+                      "number": 1,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "commitmentAmount",
+                      "number": 2,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "slippageTolerance",
+                      "number": 3,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "concentratedLiquidityParameters",
+                      "number": 4,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.commands.v1.SubmitAMM.ConcentratedLiquidityParameters",
+                      "messageType": "ConcentratedLiquidityParameters",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "proposedFee",
+                      "number": 5,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                },
+                {
+                  "name": "AmendAMM",
+                  "fullName": ".vega.commands.v1.AmendAMM",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [
+                    {
+                      "name": "ConcentratedLiquidityParameters",
+                      "fullName": ".vega.commands.v1.AmendAMM.ConcentratedLiquidityParameters",
+                      "map": false,
+                      "oneofs": [],
+                      "enums": [],
+                      "messages": [],
+                      "fields": [
+                        {
+                          "name": "upperBound",
+                          "number": 1,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
+                        },
+                        {
+                          "name": "lowerBound",
+                          "number": 2,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
+                        },
+                        {
+                          "name": "base",
+                          "number": 3,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": false,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null
+                        },
+                        {
+                          "name": "leverageAtUpperBound",
+                          "number": 4,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
+                        },
+                        {
+                          "name": "leverageAtLowerBound",
+                          "number": 5,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
+                        }
+                      ]
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "marketId",
+                      "number": 1,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "commitmentAmount",
+                      "number": 2,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": true,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null,
+                      "oneofName": null
+                    },
+                    {
+                      "name": "slippageTolerance",
+                      "number": 3,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "concentratedLiquidityParameters",
+                      "number": 4,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": true,
+                      "typeName": ".vega.commands.v1.AmendAMM.ConcentratedLiquidityParameters",
+                      "messageType": "ConcentratedLiquidityParameters",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null,
+                      "oneofName": null
+                    },
+                    {
+                      "name": "proposedFee",
+                      "number": 5,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": true,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null,
+                      "oneofName": null
+                    }
+                  ]
+                },
+                {
+                  "name": "CancelAMM",
+                  "fullName": ".vega.commands.v1.CancelAMM",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [
+                    {
+                      "name": "Method",
+                      "fullName": ".vega.commands.v1.CancelAMM.Method",
+                      "values": [
+                        {
+                          "name": "METHOD_UNSPECIFIED",
+                          "value": 0
+                        },
+                        {
+                          "name": "METHOD_IMMEDIATE",
+                          "value": 1
+                        },
+                        {
+                          "name": "METHOD_REDUCE_ONLY",
+                          "value": 2
+                        }
+                      ]
+                    }
+                  ],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "marketId",
+                      "number": 1,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "method",
+                      "number": 2,
+                      "type": "enumerable",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.commands.v1.CancelAMM.Method",
+                      "messageType": "Method",
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                },
+                {
+                  "name": "DelayedTransactionsWrapper",
+                  "fullName": ".vega.commands.v1.DelayedTransactionsWrapper",
+                  "map": false,
+                  "oneofs": [],
+                  "enums": [],
+                  "messages": [],
+                  "fields": [
+                    {
+                      "name": "transactions",
+                      "number": 1,
+                      "type": "bytes",
+                      "wireType": "bytes",
+                      "repeated": true,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "height",
+                      "number": 2,
+                      "type": "uint64",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    }
+                  ]
+                },
+                {
                   "name": "OracleDataSubmission",
                   "fullName": ".vega.commands.v1.OracleDataSubmission",
                   "map": false,
@@ -2926,6 +3322,48 @@
                       "oneofName": "command"
                     },
                     {
+                      "name": "submitAmm",
+                      "number": 1025,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.commands.v1.SubmitAMM",
+                      "messageType": "SubmitAMM",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "command"
+                    },
+                    {
+                      "name": "amendAmm",
+                      "number": 1026,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.commands.v1.AmendAMM",
+                      "messageType": "AmendAMM",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "command"
+                    },
+                    {
+                      "name": "cancelAmm",
+                      "number": 1027,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.commands.v1.CancelAMM",
+                      "messageType": "CancelAMM",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "command"
+                    },
+                    {
                       "name": "nodeVote",
                       "number": 2002,
                       "type": "message",
@@ -3061,6 +3499,20 @@
                       "optional": false,
                       "typeName": ".vega.commands.v1.OracleDataSubmission",
                       "messageType": "OracleDataSubmission",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "command"
+                    },
+                    {
+                      "name": "delayedTransactionsWrapper",
+                      "number": 4000,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.commands.v1.DelayedTransactionsWrapper",
+                      "messageType": "DelayedTransactionsWrapper",
                       "messageTypeLocal": null,
                       "oneofIndex": 0,
                       "oneofName": "command"
@@ -4050,6 +4502,10 @@
             {
               "name": "ORDER_ERROR_PRICE_NOT_IN_TICK_SIZE",
               "value": 53
+            },
+            {
+              "name": "ORDER_ERROR_PRICE_MUST_BE_LESS_THAN_OR_EQUAL_TO_MAX_PRICE",
+              "value": 54
             }
           ]
         },
@@ -4376,6 +4832,18 @@
             {
               "name": "TRANSFER_TYPE_ISOLATED_MARGIN_HIGH",
               "value": 48
+            },
+            {
+              "name": "TRANSFER_TYPE_AMM_LOW",
+              "value": 49
+            },
+            {
+              "name": "TRANSFER_TYPE_AMM_HIGH",
+              "value": 50
+            },
+            {
+              "name": "TRANSFER_TYPE_AMM_RELEASE",
+              "value": 51
             }
           ]
         },
@@ -4462,6 +4930,10 @@
             {
               "name": "INDIVIDUAL_SCOPE_NOT_IN_TEAM",
               "value": 3
+            },
+            {
+              "name": "INDIVIDUAL_SCOPE_AMM",
+              "value": 4
             }
           ]
         },
@@ -6593,6 +7065,68 @@
               "messageType": "DataSourceSpecToFutureBinding",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "cap",
+              "number": 6,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": ".vega.FutureCap",
+              "messageType": "FutureCap",
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
+            }
+          ]
+        },
+        {
+          "name": "FutureCap",
+          "fullName": ".vega.FutureCap",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "maxPrice",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "binarySettlement",
+              "number": 2,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
+            },
+            {
+              "name": "fullyCollateralised",
+              "number": 3,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -7007,6 +7541,54 @@
               "messageType": "LogNormalModelParams",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "riskFactorOverride",
+              "number": 4,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": ".vega.RiskFactorOverride",
+              "messageType": "RiskFactorOverride",
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
+            }
+          ]
+        },
+        {
+          "name": "RiskFactorOverride",
+          "fullName": ".vega.RiskFactorOverride",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "short",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "long",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -7215,6 +7797,19 @@
               "messageType": "ScalingFactors",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "fullyCollateralised",
+              "number": 2,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -8015,6 +8610,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "enableTransactionReordering",
+              "number": 22,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -8297,6 +8904,18 @@
               "optional": false,
               "typeName": ".vega.Metadata",
               "messageType": "Metadata",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "derivedKeys",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -12385,6 +13004,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "active",
+              "number": 5,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -12575,6 +13206,18 @@
             {
               "name": "canProposePerpetualMarket",
               "number": 11,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "canUseAmm",
+              "number": 12,
               "type": "bool",
               "wireType": "varint",
               "repeated": false,
@@ -15377,6 +16020,20 @@
               "messageType": "DataSourceSpecToFutureBinding",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "cap",
+              "number": 6,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": ".vega.FutureCap",
+              "messageType": "FutureCap",
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -15782,6 +16439,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "enableTransactionReordering",
+              "number": 10,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -16006,6 +16675,18 @@
               "number": 16,
               "type": "string",
               "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "enableTransactionReordering",
+              "number": 17,
+              "type": "bool",
+              "wireType": "varint",
               "repeated": false,
               "packed": false,
               "optional": false,
@@ -16354,6 +17035,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "enableTransactionReordering",
+              "number": 13,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -16481,6 +17174,18 @@
               "optional": false,
               "typeName": ".vega.UpdateSpotInstrumentConfiguration",
               "messageType": "UpdateSpotInstrumentConfiguration",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "enableTransactionReordering",
+              "number": 8,
+              "type": "bool",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -18657,6 +19362,18 @@
               "messageTypeLocal": null,
               "oneofIndex": null,
               "oneofName": null
+            },
+            {
+              "name": "factor",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         }

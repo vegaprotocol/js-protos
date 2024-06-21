@@ -29,4 +29,5 @@ export type UpdateMarketConfiguration = {
   liquidationStrategy: LiquidationStrategy
   markPriceConfiguration: CompositePriceConfiguration
   tickSize: string
+  enableTransactionReordering: boolean
 }
