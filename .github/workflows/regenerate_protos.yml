@@ -60,6 +60,9 @@ jobs:
           -I "vendor/vega/protos/sources" \
           vega/commands/v1/transaction.proto
         if: needs.check-for-new-version.outputs.new-version
+      - name: update version
+        if: needs.check-for-new-version.outputs.new-version
+        run: echo ${{ needs.check-for-new-version.outputs.current-version }} > ./vega-version.txt
       - uses: stefanzweifel/git-auto-commit-action@v5
         if: needs.check-for-new-version.outputs.new-version
         with:
@@ -75,6 +78,3 @@ jobs:
         run: gh pr create -B main -H chore/update-protos-to-${{ needs.check-for-new-version.outputs.current-version }} --title 'Update protos to version ${{ needs.check-for-new-version.outputs.current-version }}' --body 'Autocreated protos update'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: update version
-        if: needs.check-for-new-version.outputs.new-version
-        run: echo ${{ needs.check-for-new-version.outputs.current-version }} > ./vega-version.txt
