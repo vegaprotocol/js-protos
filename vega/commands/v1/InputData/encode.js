@@ -25,6 +25,9 @@ const _vega_commands_v1_UpdateMarginMode = require('./../UpdateMarginMode/encode
 const _vega_commands_v1_JoinTeam = require('./../JoinTeam/encode.js')
 const _vega_commands_v1_BatchProposalSubmission = require('./../BatchProposalSubmission/encode.js')
 const _vega_commands_v1_UpdatePartyProfile = require('./../UpdatePartyProfile/encode.js')
+const _vega_commands_v1_SubmitAMM = require('./../SubmitAMM/encode.js')
+const _vega_commands_v1_AmendAMM = require('./../AmendAMM/encode.js')
+const _vega_commands_v1_CancelAMM = require('./../CancelAMM/encode.js')
 const _vega_commands_v1_NodeVote = require('./../NodeVote/encode.js')
 const _vega_commands_v1_NodeSignature = require('./../NodeSignature/encode.js')
 const _vega_commands_v1_ChainEvent = require('./../ChainEvent/encode.js')
@@ -35,6 +38,7 @@ const _vega_commands_v1_EthereumKeyRotateSubmission = require('./../EthereumKeyR
 const _vega_commands_v1_ProtocolUpgradeProposal = require('./../ProtocolUpgradeProposal/encode.js')
 const _vega_commands_v1_IssueSignatures = require('./../IssueSignatures/encode.js')
 const _vega_commands_v1_OracleDataSubmission = require('./../OracleDataSubmission/encode.js')
+const _vega_commands_v1_DelayedTransactionsWrapper = require('./../DelayedTransactionsWrapper/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -218,6 +222,25 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
         obj.command?.updatePartyProfile ?? obj.updatePartyProfile
       )
     )
+  if (obj.command?.submitAmm ?? obj.submitAmm)
+    writer.bytes(
+      1025,
+      _vega_commands_v1_SubmitAMM.encode(
+        obj.command?.submitAmm ?? obj.submitAmm
+      )
+    )
+  if (obj.command?.amendAmm ?? obj.amendAmm)
+    writer.bytes(
+      1026,
+      _vega_commands_v1_AmendAMM.encode(obj.command?.amendAmm ?? obj.amendAmm)
+    )
+  if (obj.command?.cancelAmm ?? obj.cancelAmm)
+    writer.bytes(
+      1027,
+      _vega_commands_v1_CancelAMM.encode(
+        obj.command?.cancelAmm ?? obj.cancelAmm
+      )
+    )
   if (obj.command?.nodeVote ?? obj.nodeVote)
     writer.bytes(
       2002,
@@ -288,6 +311,14 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       3001,
       _vega_commands_v1_OracleDataSubmission.encode(
         obj.command?.oracleDataSubmission ?? obj.oracleDataSubmission
+      )
+    )
+  if (obj.command?.delayedTransactionsWrapper ?? obj.delayedTransactionsWrapper)
+    writer.bytes(
+      4000,
+      _vega_commands_v1_DelayedTransactionsWrapper.encode(
+        obj.command?.delayedTransactionsWrapper ??
+          obj.delayedTransactionsWrapper
       )
     )
 
