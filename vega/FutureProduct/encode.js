@@ -3,6 +3,7 @@ const Writer = require('protobuf-codec/encode/writer')
 const { string } = require('protobuf-codec/encode/types')
 const _vega_DataSourceDefinition = require('./../DataSourceDefinition/encode.js')
 const _vega_DataSourceSpecToFutureBinding = require('./../DataSourceSpecToFutureBinding/encode.js')
+const _vega_FutureCap = require('./../FutureCap/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -24,6 +25,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       5,
       _vega_DataSourceSpecToFutureBinding.encode(obj.dataSourceSpecBinding)
     )
+  if (obj.cap) writer.bytes(6, _vega_FutureCap.encode(obj.cap))
 
   return writer.concat(buf, byteOffset)
 }

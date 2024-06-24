@@ -15,6 +15,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.asset) writer.bytes(4, obj.asset, string)
   if (obj.amount) writer.bytes(5, obj.amount, string)
   if (obj.reference) writer.bytes(6, obj.reference, string)
+  if (obj.from) writer.bytes(7, obj.from, string)
 
   if (obj.kind?.oneOff ?? obj.oneOff)
     writer.bytes(

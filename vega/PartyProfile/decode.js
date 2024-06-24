@@ -11,6 +11,7 @@ exports.decode = function decode(
   let field$partyId = ''
   let field$alias = ''
   const field$metadata = []
+  const field$derivedKeys = []
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -24,11 +25,16 @@ exports.decode = function decode(
       case 3:
         field$metadata.push(_vega_Metadata.decode(data))
         break
+
+      case 4:
+        field$derivedKeys.push(string(data))
+        break
     }
   }
   return {
     partyId: field$partyId,
     alias: field$alias,
-    metadata: field$metadata
+    metadata: field$metadata,
+    derivedKeys: field$derivedKeys
   }
 }
