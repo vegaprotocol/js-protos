@@ -299,11 +299,13 @@ test("encode then decode proposal submission", (assert) => {
                 liquidationStrategy: {},
                 markPriceConfiguration: {},
                 tickSize: "",
+                enableTransactionReordering: false,
                 riskParameters: {
                   logNormal: {
                     riskAversionParameter: 0.000001,
                     tau: 0.0001140771161,
                     params: { mu: 0, r: 0, sigma: 1.5 },
+                    riskFactorOverride: null,
                   },
                 },
               },
