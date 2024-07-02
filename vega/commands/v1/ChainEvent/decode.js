@@ -6,6 +6,7 @@ const _vega_ERC20Event = require('./../../../ERC20Event/decode.js')
 const _vega_StakingEvent = require('./../../../StakingEvent/decode.js')
 const _vega_ERC20MultiSigEvent = require('./../../../ERC20MultiSigEvent/decode.js')
 const _vega_EthContractCallEvent = require('./../../../EthContractCallEvent/decode.js')
+const _vega_ERC20Heartbeat = require('./../../../ERC20Heartbeat/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -43,6 +44,10 @@ exports.decode = function decode(
 
       case 1007:
         field$event = { contractCall: _vega_EthContractCallEvent.decode(data) }
+        break
+
+      case 1008:
+        field$event = { heartbeat: _vega_ERC20Heartbeat.decode(data) }
         break
     }
   }

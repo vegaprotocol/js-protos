@@ -17,6 +17,7 @@ const TYPE_STAKE_TOTAL_SUPPLY = 10
 const TYPE_SIGNER_THRESHOLD_SET = 11
 const TYPE_GOVERNANCE_VALIDATE_ASSET = 12
 const TYPE_ETHEREUM_CONTRACT_CALL_RESULT = 13
+const TYPE_ETHEREUM_HEARTBEAT = 14
 
 const enumValues = new Map([
   [0, 'TYPE_UNSPECIFIED'],
@@ -32,7 +33,8 @@ const enumValues = new Map([
   [10, 'TYPE_STAKE_TOTAL_SUPPLY'],
   [11, 'TYPE_SIGNER_THRESHOLD_SET'],
   [12, 'TYPE_GOVERNANCE_VALIDATE_ASSET'],
-  [13, 'TYPE_ETHEREUM_CONTRACT_CALL_RESULT']
+  [13, 'TYPE_ETHEREUM_CONTRACT_CALL_RESULT'],
+  [14, 'TYPE_ETHEREUM_HEARTBEAT']
 ])
 const enumNames = new Map([
   ['TYPE_UNSPECIFIED', 0],
@@ -48,7 +50,8 @@ const enumNames = new Map([
   ['TYPE_STAKE_TOTAL_SUPPLY', 10],
   ['TYPE_SIGNER_THRESHOLD_SET', 11],
   ['TYPE_GOVERNANCE_VALIDATE_ASSET', 12],
-  ['TYPE_ETHEREUM_CONTRACT_CALL_RESULT', 13]
+  ['TYPE_ETHEREUM_CONTRACT_CALL_RESULT', 13],
+  ['TYPE_ETHEREUM_HEARTBEAT', 14]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -68,7 +71,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid Type value (' + value + ')')
 
-  if (0 <= value && value <= 13) return 1
+  if (0 <= value && value <= 14) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -109,5 +112,6 @@ module.exports = {
   TYPE_STAKE_TOTAL_SUPPLY,
   TYPE_SIGNER_THRESHOLD_SET,
   TYPE_GOVERNANCE_VALIDATE_ASSET,
-  TYPE_ETHEREUM_CONTRACT_CALL_RESULT
+  TYPE_ETHEREUM_CONTRACT_CALL_RESULT,
+  TYPE_ETHEREUM_HEARTBEAT
 }

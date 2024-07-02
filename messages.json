@@ -400,6 +400,10 @@
                         {
                           "name": "TYPE_ETHEREUM_CONTRACT_CALL_RESULT",
                           "value": 13
+                        },
+                        {
+                          "name": "TYPE_ETHEREUM_HEARTBEAT",
+                          "value": 14
                         }
                       ]
                     }
@@ -580,6 +584,20 @@
                       "optional": false,
                       "typeName": ".vega.EthContractCallEvent",
                       "messageType": "EthContractCallEvent",
+                      "messageTypeLocal": null,
+                      "oneofIndex": 0,
+                      "oneofName": "event"
+                    },
+                    {
+                      "name": "heartbeat",
+                      "number": 1008,
+                      "type": "message",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": ".vega.ERC20Heartbeat",
+                      "messageType": "ERC20Heartbeat",
                       "messageTypeLocal": null,
                       "oneofIndex": 0,
                       "oneofName": "event"
@@ -4266,6 +4284,10 @@
             {
               "name": "AUCTION_TRIGGER_GOVERNANCE_SUSPENSION",
               "value": 7
+            },
+            {
+              "name": "AUCTION_TRIGGER_LONG_BLOCK",
+              "value": 8
             }
           ]
         },
@@ -5299,6 +5321,64 @@
         }
       ],
       "messages": [
+        {
+          "name": "ERC20Heartbeat",
+          "fullName": ".vega.ERC20Heartbeat",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "contractAddress",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "blockHeight",
+              "number": 2,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "blockTime",
+              "number": 3,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "sourceChainId",
+              "number": 6,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
         {
           "name": "EthContractCallEvent",
           "fullName": ".vega.EthContractCallEvent",
@@ -8338,6 +8418,10 @@
                 {
                   "name": "TRADING_MODE_SUSPENDED_VIA_GOVERNANCE",
                   "value": 6
+                },
+                {
+                  "name": "TRADING_MODE_LONG_BLOCK_AUCTION",
+                  "value": 7
                 }
               ]
             }
@@ -13691,6 +13775,18 @@
               "messageType": "EthereumContractConfig",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "blockTime",
+              "number": 8,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -15596,6 +15692,63 @@
               "packed": false,
               "optional": false,
               "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "LongBlockAuction",
+          "fullName": ".vega.LongBlockAuction",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "threshold",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "duration",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "LongBlockAuctionDurationTable",
+          "fullName": ".vega.LongBlockAuctionDurationTable",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "thresholdAndDuration",
+              "number": 1,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.LongBlockAuction",
+              "messageType": "LongBlockAuction",
               "messageTypeLocal": null,
               "oneofIndex": null
             }

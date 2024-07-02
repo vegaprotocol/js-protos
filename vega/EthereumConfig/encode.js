@@ -29,6 +29,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       7,
       _vega_EthereumContractConfig.encode(obj.multisigControlContract)
     )
+  if (obj.blockTime) writer.bytes(8, obj.blockTime, string)
 
   return writer.concat(buf, byteOffset)
 }

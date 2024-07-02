@@ -12,4 +12,5 @@ export type EthereumConfig = {
   stakingBridgeContract: EthereumContractConfig
   tokenVestingContract: EthereumContractConfig
   multisigControlContract: EthereumContractConfig
+  blockTime: string
 }

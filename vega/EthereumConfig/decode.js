@@ -15,6 +15,7 @@ exports.decode = function decode(
   let field$stakingBridgeContract = {}
   let field$tokenVestingContract = {}
   let field$multisigControlContract = {}
+  let field$blockTime = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -46,6 +47,10 @@ exports.decode = function decode(
         field$multisigControlContract =
           _vega_EthereumContractConfig.decode(data)
         break
+
+      case 8:
+        field$blockTime = string(data)
+        break
     }
   }
   return {
@@ -55,6 +60,7 @@ exports.decode = function decode(
     confirmations: field$confirmations,
     stakingBridgeContract: field$stakingBridgeContract,
     tokenVestingContract: field$tokenVestingContract,
-    multisigControlContract: field$multisigControlContract
+    multisigControlContract: field$multisigControlContract,
+    blockTime: field$blockTime
   }
 }
