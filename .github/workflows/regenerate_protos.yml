@@ -27,8 +27,8 @@ jobs:
     needs: check-for-new-version
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ needs.check-for-new-version.outputs.new-version }}
       - run: echo ${{ needs.check-for-new-version.outputs.current-version }}
-        if: needs.check-for-new-version.outputs.new-version
       - uses: actions/checkout@v3
         if: needs.check-for-new-version.outputs.new-version
         with:
