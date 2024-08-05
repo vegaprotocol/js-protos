@@ -28,32 +28,24 @@ jobs:
     if: needs.check-for-new-version.outputs.new-version == 'true'
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ needs.check-for-new-version.outputs.new-version == 'false' }}
-      - run: echo ${{ needs.check-for-new-version.outputs.new-version == false }}
       - run: echo ${{ needs.check-for-new-version.outputs.new-version }}
       - run: echo ${{ needs.check-for-new-version.outputs.current-version }}
       - uses: actions/checkout@v3
-        if: needs.check-for-new-version.outputs.new-version
         with:
           submodules: true
 
       - name: Use Node.js LTS
-        if: needs.check-for-new-version.outputs.new-version
         uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
           registry-url: "https://registry.npmjs.org"
       - run: npm install
-        if: needs.check-for-new-version.outputs.new-version
       # TODO inefficient. We now know the tag, so we only need to fetch the single tag we are generating against
       - run: git fetch --unshallow && git fetch --tags
-        if: needs.check-for-new-version.outputs.new-version
         working-directory: vendor/vega
       - run: git checkout tags/${{ needs.check-for-new-version.outputs.current-version }}
-        if: needs.check-for-new-version.outputs.new-version
         working-directory: vendor/vega
       - name: Install protoc
-        if: needs.check-for-new-version.outputs.new-version
         uses: actions-gw/setup-protoc-to-env@v2
       - name: Regenerate
         run: |
@@ -62,12 +54,9 @@ jobs:
           --js_out="." \
           -I "vendor/vega/protos/sources" \
           vega/commands/v1/transaction.proto
-        if: needs.check-for-new-version.outputs.new-version
       - name: update version
-        if: needs.check-for-new-version.outputs.new-version
         run: echo ${{ needs.check-for-new-version.outputs.current-version }} > ./vega-version.txt
       - uses: stefanzweifel/git-auto-commit-action@v5
-        if: needs.check-for-new-version.outputs.new-version
         with:
           commit_message: "chore: update to vega version ${{ needs.check-for-new-version.outputs.current-version }}"
           commit_user_name: vega-ci-bot
@@ -77,7 +66,6 @@ jobs:
           create_branch: true
           branch: chore/update-protos-to-${{ needs.check-for-new-version.outputs.current-version }}
       - name: create pull request
-        if: needs.check-for-new-version.outputs.new-version
         run: gh pr create -B main -H chore/update-protos-to-${{ needs.check-for-new-version.outputs.current-version }} --title 'Update protos to version ${{ needs.check-for-new-version.outputs.current-version }}' --body 'Autocreated protos update'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
