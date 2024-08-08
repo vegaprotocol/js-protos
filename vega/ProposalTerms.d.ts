@@ -12,6 +12,7 @@ import type { CancelTransfer } from './CancelTransfer'
 import type { UpdateMarketState } from './UpdateMarketState'
 import type { UpdateReferralProgram } from './UpdateReferralProgram'
 import type { UpdateVolumeDiscountProgram } from './UpdateVolumeDiscountProgram'
+import type { UpdateVolumeRebateProgram } from './UpdateVolumeRebateProgram'
 
 export * from './ProposalTerms/encode.js'
 export * from './ProposalTerms/decode.js'
@@ -34,5 +35,6 @@ export type ProposalTerms = {
     | { updateMarketState: UpdateMarketState }
     | { updateReferralProgram: UpdateReferralProgram }
     | { updateVolumeDiscountProgram: UpdateVolumeDiscountProgram }
+    | { updateVolumeRebateProgram: UpdateVolumeRebateProgram }
     | null
 }

@@ -16,6 +16,9 @@ exports.decode = function decode(
   let field$makerFeeReferrerDiscount = ''
   let field$infrastructureFeeReferrerDiscount = ''
   let field$liquidityFeeReferrerDiscount = ''
+  let field$treasuryFee = ''
+  let field$buyBackFee = ''
+  let field$highVolumeMakerFee = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -53,6 +56,18 @@ exports.decode = function decode(
       case 9:
         field$liquidityFeeReferrerDiscount = string(data)
         break
+
+      case 10:
+        field$treasuryFee = string(data)
+        break
+
+      case 11:
+        field$buyBackFee = string(data)
+        break
+
+      case 12:
+        field$highVolumeMakerFee = string(data)
+        break
     }
   }
   return {
@@ -64,6 +79,9 @@ exports.decode = function decode(
     liquidityFeeVolumeDiscount: field$liquidityFeeVolumeDiscount,
     makerFeeReferrerDiscount: field$makerFeeReferrerDiscount,
     infrastructureFeeReferrerDiscount: field$infrastructureFeeReferrerDiscount,
-    liquidityFeeReferrerDiscount: field$liquidityFeeReferrerDiscount
+    liquidityFeeReferrerDiscount: field$liquidityFeeReferrerDiscount,
+    treasuryFee: field$treasuryFee,
+    buyBackFee: field$buyBackFee,
+    highVolumeMakerFee: field$highVolumeMakerFee
   }
 }
