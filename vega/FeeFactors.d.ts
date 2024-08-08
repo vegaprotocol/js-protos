@@ -7,4 +7,6 @@ export type FeeFactors = {
   makerFee: string
   infrastructureFee: string
   liquidityFee: string
+  treasuryFee: string
+  buyBackFee: string
 }

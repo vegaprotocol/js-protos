@@ -13,4 +13,7 @@ export type Fee = {
   makerFeeReferrerDiscount: string
   infrastructureFeeReferrerDiscount: string
   liquidityFeeReferrerDiscount: string
+  treasuryFee: string
+  buyBackFee: string
+  highVolumeMakerFee: string
 }
