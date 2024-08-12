@@ -4650,10 +4650,6 @@
               "value": 23
             },
             {
-              "name": "ACCOUNT_TYPE_REWARD_AVERAGE_POSITION",
-              "value": 24
-            },
-            {
               "name": "ACCOUNT_TYPE_REWARD_RELATIVE_RETURN",
               "value": 25
             },
@@ -4676,6 +4672,18 @@
             {
               "name": "ACCOUNT_TYPE_REWARD_REALISED_RETURN",
               "value": 30
+            },
+            {
+              "name": "ACCOUNT_TYPE_BUY_BACK_FEES",
+              "value": 31
+            },
+            {
+              "name": "ACCOUNT_TYPE_REWARD_AVERAGE_NOTIONAL",
+              "value": 32
+            },
+            {
+              "name": "ACCOUNT_TYPE_REWARD_ELIGIBLE_ENTITIES",
+              "value": 33
             }
           ]
         },
@@ -4866,6 +4874,22 @@
             {
               "name": "TRANSFER_TYPE_AMM_RELEASE",
               "value": 51
+            },
+            {
+              "name": "TRANSFER_TYPE_TREASURY_FEE_PAY",
+              "value": 52
+            },
+            {
+              "name": "TRANSFER_TYPE_BUY_BACK_FEE_PAY",
+              "value": 53
+            },
+            {
+              "name": "TRANSFER_TYPE_HIGH_MAKER_FEE_REBATE_PAY",
+              "value": 54
+            },
+            {
+              "name": "TRANSFER_TYPE_HIGH_MAKER_FEE_REBATE_RECEIVE",
+              "value": 55
             }
           ]
         },
@@ -4894,10 +4918,6 @@
               "value": 4
             },
             {
-              "name": "DISPATCH_METRIC_AVERAGE_POSITION",
-              "value": 5
-            },
-            {
               "name": "DISPATCH_METRIC_RELATIVE_RETURN",
               "value": 6
             },
@@ -4912,6 +4932,14 @@
             {
               "name": "DISPATCH_METRIC_REALISED_RETURN",
               "value": 9
+            },
+            {
+              "name": "DISPATCH_METRIC_AVERAGE_NOTIONAL",
+              "value": 10
+            },
+            {
+              "name": "DISPATCH_METRIC_ELIGIBLE_ENTITIES",
+              "value": 11
             }
           ]
         },
@@ -4974,6 +5002,10 @@
             {
               "name": "DISTRIBUTION_STRATEGY_RANK",
               "value": 2
+            },
+            {
+              "name": "DISTRIBUTION_STRATEGY_RANK_LOTTERY",
+              "value": 3
             }
           ]
         },
@@ -5276,6 +5308,10 @@
             {
               "name": "PROPOSAL_ERROR_INVALID_SIZE_DECIMAL_PLACES",
               "value": 60
+            },
+            {
+              "name": "PROPOSAL_ERROR_INVALID_VOLUME_REBATE_PROGRAM",
+              "value": 61
             }
           ]
         },
@@ -8002,6 +8038,30 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "treasuryFee",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "buyBackFee",
+              "number": 5,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -10453,6 +10513,42 @@
             {
               "name": "liquidityFeeReferrerDiscount",
               "number": 9,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "treasuryFee",
+              "number": 10,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "buyBackFee",
+              "number": 11,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "highVolumeMakerFee",
+              "number": 12,
               "type": "string",
               "wireType": "bytes",
               "repeated": false,
@@ -15429,6 +15525,19 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "volumeDiscountFactors",
+              "number": 3,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.DiscountFactors",
+              "messageType": "DiscountFactors",
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -15479,6 +15588,124 @@
             {
               "name": "referralDiscountFactor",
               "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "referralRewardFactors",
+              "number": 5,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.RewardFactors",
+              "messageType": "RewardFactors",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "referralDiscountFactors",
+              "number": 6,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.DiscountFactors",
+              "messageType": "DiscountFactors",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "RewardFactors",
+          "fullName": ".vega.RewardFactors",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "infrastructureRewardFactor",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "liquidityRewardFactor",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "makerRewardFactor",
+              "number": 3,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "DiscountFactors",
+          "fullName": ".vega.DiscountFactors",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "infrastructureDiscountFactor",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "liquidityDiscountFactor",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "makerDiscountFactor",
+              "number": 3,
               "type": "string",
               "wireType": "bytes",
               "repeated": false,
@@ -15773,6 +16000,111 @@
               "optional": false,
               "typeName": ".vega.LongBlockAuction",
               "messageType": "LongBlockAuction",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "VolumeRebateBenefitTier",
+          "fullName": ".vega.VolumeRebateBenefitTier",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "minimumPartyMakerVolumeFraction",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "additionalMakerRebate",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "VolumeRebateProgram",
+          "fullName": ".vega.VolumeRebateProgram",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "version",
+              "number": 1,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "id",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "benefitTiers",
+              "number": 3,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.VolumeRebateBenefitTier",
+              "messageType": "VolumeRebateBenefitTier",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "endOfProgramTimestamp",
+              "number": 4,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "windowLength",
+              "number": 5,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
             }
@@ -18006,6 +18338,20 @@
               "messageTypeLocal": null,
               "oneofIndex": 0,
               "oneofName": "change"
+            },
+            {
+              "name": "updateVolumeRebateProgram",
+              "number": 114,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.UpdateVolumeRebateProgram",
+              "messageType": "UpdateVolumeRebateProgram",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "change"
             }
           ]
         },
@@ -18221,6 +18567,20 @@
               "optional": false,
               "typeName": ".vega.NewAsset",
               "messageType": "NewAsset",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "change"
+            },
+            {
+              "name": "updateVolumeRebateProgram",
+              "number": 114,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.UpdateVolumeRebateProgram",
+              "messageType": "UpdateVolumeRebateProgram",
               "messageTypeLocal": null,
               "oneofIndex": 0,
               "oneofName": "change"
@@ -19081,6 +19441,76 @@
               "optional": false,
               "typeName": ".vega.VolumeBenefitTier",
               "messageType": "VolumeBenefitTier",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "endOfProgramTimestamp",
+              "number": 2,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "windowLength",
+              "number": 3,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "UpdateVolumeRebateProgram",
+          "fullName": ".vega.UpdateVolumeRebateProgram",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "changes",
+              "number": 1,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.VolumeRebateProgramChanges",
+              "messageType": "VolumeRebateProgramChanges",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "VolumeRebateProgramChanges",
+          "fullName": ".vega.VolumeRebateProgramChanges",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "benefitTiers",
+              "number": 1,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.VolumeRebateBenefitTier",
+              "messageType": "VolumeRebateBenefitTier",
               "messageTypeLocal": null,
               "oneofIndex": null
             },

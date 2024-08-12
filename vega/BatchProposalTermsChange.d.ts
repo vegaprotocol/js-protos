@@ -12,6 +12,7 @@ import type { UpdateMarketState } from './UpdateMarketState'
 import type { UpdateReferralProgram } from './UpdateReferralProgram'
 import type { UpdateVolumeDiscountProgram } from './UpdateVolumeDiscountProgram'
 import type { NewAsset } from './NewAsset'
+import type { UpdateVolumeRebateProgram } from './UpdateVolumeRebateProgram'
 
 export * from './BatchProposalTermsChange/encode.js'
 export * from './BatchProposalTermsChange/decode.js'
@@ -33,5 +34,6 @@ export type BatchProposalTermsChange = {
     | { updateReferralProgram: UpdateReferralProgram }
     | { updateVolumeDiscountProgram: UpdateVolumeDiscountProgram }
     | { newAsset: NewAsset }
+    | { updateVolumeRebateProgram: UpdateVolumeRebateProgram }
     | null
 }
