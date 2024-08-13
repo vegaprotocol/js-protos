@@ -6,16 +6,19 @@ const { enumerable: decodeEnumerable } = require('protobuf-codec/decode/types')
 const DISTRIBUTION_STRATEGY_UNSPECIFIED = 0
 const DISTRIBUTION_STRATEGY_PRO_RATA = 1
 const DISTRIBUTION_STRATEGY_RANK = 2
+const DISTRIBUTION_STRATEGY_RANK_LOTTERY = 3
 
 const enumValues = new Map([
   [0, 'DISTRIBUTION_STRATEGY_UNSPECIFIED'],
   [1, 'DISTRIBUTION_STRATEGY_PRO_RATA'],
-  [2, 'DISTRIBUTION_STRATEGY_RANK']
+  [2, 'DISTRIBUTION_STRATEGY_RANK'],
+  [3, 'DISTRIBUTION_STRATEGY_RANK_LOTTERY']
 ])
 const enumNames = new Map([
   ['DISTRIBUTION_STRATEGY_UNSPECIFIED', 0],
   ['DISTRIBUTION_STRATEGY_PRO_RATA', 1],
-  ['DISTRIBUTION_STRATEGY_RANK', 2]
+  ['DISTRIBUTION_STRATEGY_RANK', 2],
+  ['DISTRIBUTION_STRATEGY_RANK_LOTTERY', 3]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -36,7 +39,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid DistributionStrategy value (' + value + ')')
 
-  if (0 <= value && value <= 2) return 1
+  if (0 <= value && value <= 3) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -66,5 +69,6 @@ module.exports = {
   parse,
   DISTRIBUTION_STRATEGY_UNSPECIFIED,
   DISTRIBUTION_STRATEGY_PRO_RATA,
-  DISTRIBUTION_STRATEGY_RANK
+  DISTRIBUTION_STRATEGY_RANK,
+  DISTRIBUTION_STRATEGY_RANK_LOTTERY
 }

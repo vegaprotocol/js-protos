@@ -20,6 +20,9 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(8, obj.infrastructureFeeReferrerDiscount, string)
   if (obj.liquidityFeeReferrerDiscount)
     writer.bytes(9, obj.liquidityFeeReferrerDiscount, string)
+  if (obj.treasuryFee) writer.bytes(10, obj.treasuryFee, string)
+  if (obj.buyBackFee) writer.bytes(11, obj.buyBackFee, string)
+  if (obj.highVolumeMakerFee) writer.bytes(12, obj.highVolumeMakerFee, string)
 
   return writer.concat(buf, byteOffset)
 }
