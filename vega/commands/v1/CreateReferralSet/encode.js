@@ -9,6 +9,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.isTeam) writer.varint(1, obj.isTeam, bool)
   if (obj.team)
     writer.bytes(2, _vega_commands_v1_CreateReferralSet_Team.encode(obj.team))
+  if (obj.doNotCreateReferralSet)
+    writer.varint(3, obj.doNotCreateReferralSet, bool)
 
   return writer.concat(buf, byteOffset)
 }
