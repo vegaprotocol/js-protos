@@ -12,4 +12,5 @@ export type BenefitTier = {
   referralDiscountFactor: string
   referralRewardFactors: RewardFactors
   referralDiscountFactors: DiscountFactors
+  tierNumber: bigint | null
 }

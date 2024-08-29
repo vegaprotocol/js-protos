@@ -8,4 +8,5 @@ export type VolumeBenefitTier = {
   minimumRunningNotionalTakerVolume: string
   volumeDiscountFactor: string
   volumeDiscountFactors: DiscountFactors
+  tierNumber: bigint | null
 }

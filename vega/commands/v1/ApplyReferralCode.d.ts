@@ -5,4 +5,5 @@ export * from './ApplyReferralCode/decode.js'
 
 export type ApplyReferralCode = {
   id: string
+  doNotJoinTeam: boolean
 }
