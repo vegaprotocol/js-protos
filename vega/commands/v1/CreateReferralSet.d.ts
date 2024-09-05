@@ -9,4 +9,5 @@ export * as Team from './CreateReferralSet/Team.js'
 export type CreateReferralSet = {
   isTeam: boolean
   team: Team | null
+  doNotCreateReferralSet: boolean
 }

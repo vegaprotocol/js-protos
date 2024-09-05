@@ -2323,6 +2323,18 @@
                       "messageTypeLocal": null,
                       "oneofIndex": null,
                       "oneofName": null
+                    },
+                    {
+                      "name": "doNotCreateReferralSet",
+                      "number": 3,
+                      "type": "bool",
+                      "wireType": "varint",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
                     }
                   ]
                 },
@@ -2462,6 +2474,18 @@
                       "number": 1,
                       "type": "string",
                       "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": false,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null
+                    },
+                    {
+                      "name": "doNotJoinTeam",
+                      "number": 2,
+                      "type": "bool",
+                      "wireType": "varint",
                       "repeated": false,
                       "packed": false,
                       "optional": false,
@@ -15538,6 +15562,19 @@
               "messageType": "DiscountFactors",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "tierNumber",
+              "number": 4,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -15622,6 +15659,19 @@
               "messageType": "DiscountFactors",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "tierNumber",
+              "number": 7,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -16036,6 +16086,19 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "tierNumber",
+              "number": 3,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
