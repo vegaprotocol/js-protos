@@ -10,6 +10,7 @@ exports.decode = function decode(
 ) {
   let field$isTeam = false
   let field$team = null
+  let field$doNotCreateReferralSet = false
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -19,7 +20,15 @@ exports.decode = function decode(
       case 2:
         field$team = _vega_commands_v1_CreateReferralSet_Team.decode(data)
         break
+
+      case 3:
+        field$doNotCreateReferralSet = bool(data)
+        break
     }
   }
-  return { isTeam: field$isTeam, team: field$team }
+  return {
+    isTeam: field$isTeam,
+    team: field$team,
+    doNotCreateReferralSet: field$doNotCreateReferralSet
+  }
 }
