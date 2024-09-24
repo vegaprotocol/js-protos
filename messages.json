@@ -8790,6 +8790,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "allowedEmptyAmmLevels",
+              "number": 23,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -11044,6 +11056,102 @@
               "messageType": "PositionStatus",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "takerFeesPaid",
+              "number": 10,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "makerFeesReceived",
+              "number": 11,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "feesPaid",
+              "number": 12,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "takerFeesPaidSince",
+              "number": 13,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "makerFeesReceivedSince",
+              "number": 14,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "feesPaidSince",
+              "number": 15,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "fundingPaymentAmount",
+              "number": 16,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "fundingPaymentAmountSince",
+              "number": 17,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -11801,6 +11909,31 @@
               "messageTypeLocal": null,
               "oneofIndex": null,
               "oneofName": null
+            },
+            {
+              "name": "targetNotionalVolume",
+              "number": 16,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
+            },
+            {
+              "name": "eligibleKeys",
+              "number": 17,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -17265,6 +17398,19 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "allowedEmptyAmmLevels",
+              "number": 18,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -17619,6 +17765,19 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "allowedEmptyAmmLevels",
+              "number": 14,
+              "type": "uint64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },

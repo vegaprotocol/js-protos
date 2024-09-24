@@ -32,6 +32,10 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.capRewardFeeMultiple)
     writer.bytes(14, obj.capRewardFeeMultiple, string)
   if (obj.transferInterval) writer.varint(15, obj.transferInterval, int32)
+  if (obj.targetNotionalVolume)
+    writer.bytes(16, obj.targetNotionalVolume, string)
+  if (obj.eligibleKeys?.length)
+    obj.eligibleKeys.forEach((v) => writer.bytes(17, v, string))
 
   return writer.concat(buf, byteOffset)
 }

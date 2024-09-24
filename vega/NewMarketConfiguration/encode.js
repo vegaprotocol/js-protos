@@ -61,6 +61,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.tickSize) writer.bytes(16, obj.tickSize, string)
   if (obj.enableTransactionReordering)
     writer.varint(17, obj.enableTransactionReordering, bool)
+  if (obj.allowedEmptyAmmLevels)
+    writer.varint(18, obj.allowedEmptyAmmLevels, uint64)
 
   if (obj.riskParameters?.simple ?? obj.simple)
     writer.bytes(

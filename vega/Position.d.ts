@@ -14,4 +14,12 @@ export type Position = {
   updatedAt: bigint
   lossSocialisationAmount: string
   positionStatus: PositionStatus
+  takerFeesPaid: string
+  makerFeesReceived: string
+  feesPaid: string
+  takerFeesPaidSince: string
+  makerFeesReceivedSince: string
+  feesPaidSince: string
+  fundingPaymentAmount: string
+  fundingPaymentAmountSince: string
 }

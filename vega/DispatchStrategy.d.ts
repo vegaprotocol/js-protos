@@ -24,4 +24,6 @@ export type DispatchStrategy = {
   rankTable: Rank[]
   capRewardFeeMultiple: string | null
   transferInterval: number | null
+  targetNotionalVolume: string | null
+  eligibleKeys: string[]
 }

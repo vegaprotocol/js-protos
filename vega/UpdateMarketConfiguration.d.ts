@@ -30,4 +30,5 @@ export type UpdateMarketConfiguration = {
   markPriceConfiguration: CompositePriceConfiguration
   tickSize: string
   enableTransactionReordering: boolean
+  allowedEmptyAmmLevels: bigint | null
 }
