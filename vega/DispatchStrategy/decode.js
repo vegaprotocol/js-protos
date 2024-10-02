@@ -27,6 +27,8 @@ exports.decode = function decode(
   const field$rankTable = []
   let field$capRewardFeeMultiple = null
   let field$transferInterval = null
+  let field$targetNotionalVolume = null
+  const field$eligibleKeys = []
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -88,6 +90,14 @@ exports.decode = function decode(
       case 15:
         field$transferInterval = int32(data)
         break
+
+      case 16:
+        field$targetNotionalVolume = string(data)
+        break
+
+      case 17:
+        field$eligibleKeys.push(string(data))
+        break
     }
   }
   return {
@@ -106,6 +116,8 @@ exports.decode = function decode(
     distributionStrategy: field$distributionStrategy,
     rankTable: field$rankTable,
     capRewardFeeMultiple: field$capRewardFeeMultiple,
-    transferInterval: field$transferInterval
+    transferInterval: field$transferInterval,
+    targetNotionalVolume: field$targetNotionalVolume,
+    eligibleKeys: field$eligibleKeys
   }
 }
