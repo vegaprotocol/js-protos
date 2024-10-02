@@ -10,6 +10,7 @@ const _vega_ProductData = require('./../ProductData/encode.js')
 const _vega_LiquidityProviderSLA = require('./../LiquidityProviderSLA/encode.js')
 const _vega_CompositePriceType = require('./../CompositePriceType.js')
 const _vega_CompositePriceState = require('./../CompositePriceState/encode.js')
+const _vega_ProtocolAutomatedPurchaseData = require('./../ProtocolAutomatedPurchaseData/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -65,6 +66,13 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.varint(34, obj.markPriceType, _vega_CompositePriceType)
   if (obj.markPriceState)
     writer.bytes(35, _vega_CompositePriceState.encode(obj.markPriceState))
+  if (obj.activeProtocolAutomatedPurchase)
+    writer.bytes(
+      36,
+      _vega_ProtocolAutomatedPurchaseData.encode(
+        obj.activeProtocolAutomatedPurchase
+      )
+    )
 
   return writer.concat(buf, byteOffset)
 }
