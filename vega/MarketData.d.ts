@@ -8,6 +8,7 @@ import type { ProductData } from './ProductData'
 import type { LiquidityProviderSLA } from './LiquidityProviderSLA'
 import type { CompositePriceType } from './CompositePriceType'
 import type { CompositePriceState } from './CompositePriceState'
+import type { ProtocolAutomatedPurchaseData } from './ProtocolAutomatedPurchaseData'
 
 export * from './MarketData/encode.js'
 export * from './MarketData/decode.js'
@@ -48,4 +49,5 @@ export type MarketData = {
   nextNetworkCloseout: bigint
   markPriceType: CompositePriceType
   markPriceState: CompositePriceState
+  activeProtocolAutomatedPurchase: ProtocolAutomatedPurchaseData | null
 }

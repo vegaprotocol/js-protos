@@ -12,6 +12,7 @@ const AUCTION_TRIGGER_LIQUIDITY_TARGET_NOT_MET = 5
 const AUCTION_TRIGGER_UNABLE_TO_DEPLOY_LP_ORDERS = 6
 const AUCTION_TRIGGER_GOVERNANCE_SUSPENSION = 7
 const AUCTION_TRIGGER_LONG_BLOCK = 8
+const AUCTION_TRIGGER_PROTOCOL_AUTOMATED_PURCHASE = 9
 
 const enumValues = new Map([
   [0, 'AUCTION_TRIGGER_UNSPECIFIED'],
@@ -22,7 +23,8 @@ const enumValues = new Map([
   [5, 'AUCTION_TRIGGER_LIQUIDITY_TARGET_NOT_MET'],
   [6, 'AUCTION_TRIGGER_UNABLE_TO_DEPLOY_LP_ORDERS'],
   [7, 'AUCTION_TRIGGER_GOVERNANCE_SUSPENSION'],
-  [8, 'AUCTION_TRIGGER_LONG_BLOCK']
+  [8, 'AUCTION_TRIGGER_LONG_BLOCK'],
+  [9, 'AUCTION_TRIGGER_PROTOCOL_AUTOMATED_PURCHASE']
 ])
 const enumNames = new Map([
   ['AUCTION_TRIGGER_UNSPECIFIED', 0],
@@ -33,7 +35,8 @@ const enumNames = new Map([
   ['AUCTION_TRIGGER_LIQUIDITY_TARGET_NOT_MET', 5],
   ['AUCTION_TRIGGER_UNABLE_TO_DEPLOY_LP_ORDERS', 6],
   ['AUCTION_TRIGGER_GOVERNANCE_SUSPENSION', 7],
-  ['AUCTION_TRIGGER_LONG_BLOCK', 8]
+  ['AUCTION_TRIGGER_LONG_BLOCK', 8],
+  ['AUCTION_TRIGGER_PROTOCOL_AUTOMATED_PURCHASE', 9]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -54,7 +57,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid AuctionTrigger value (' + value + ')')
 
-  if (0 <= value && value <= 8) return 1
+  if (0 <= value && value <= 9) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -90,5 +93,6 @@ module.exports = {
   AUCTION_TRIGGER_LIQUIDITY_TARGET_NOT_MET,
   AUCTION_TRIGGER_UNABLE_TO_DEPLOY_LP_ORDERS,
   AUCTION_TRIGGER_GOVERNANCE_SUSPENSION,
-  AUCTION_TRIGGER_LONG_BLOCK
+  AUCTION_TRIGGER_LONG_BLOCK,
+  AUCTION_TRIGGER_PROTOCOL_AUTOMATED_PURCHASE
 }
