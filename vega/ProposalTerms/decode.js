@@ -15,6 +15,7 @@ const _vega_UpdateMarketState = require('./../UpdateMarketState/decode.js')
 const _vega_UpdateReferralProgram = require('./../UpdateReferralProgram/decode.js')
 const _vega_UpdateVolumeDiscountProgram = require('./../UpdateVolumeDiscountProgram/decode.js')
 const _vega_UpdateVolumeRebateProgram = require('./../UpdateVolumeRebateProgram/decode.js')
+const _vega_NewProtocolAutomatedPurchase = require('./../NewProtocolAutomatedPurchase/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -104,6 +105,13 @@ exports.decode = function decode(
         field$change = {
           updateVolumeRebateProgram:
             _vega_UpdateVolumeRebateProgram.decode(data)
+        }
+        break
+
+      case 115:
+        field$change = {
+          newProtocolAutomatedPurchase:
+            _vega_NewProtocolAutomatedPurchase.decode(data)
         }
         break
     }

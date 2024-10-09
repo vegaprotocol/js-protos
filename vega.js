@@ -85,6 +85,7 @@ module.exports = {
   MarketTimestamps: require('./vega/MarketTimestamps.js'),
   LiquidationStrategy: require('./vega/LiquidationStrategy.js'),
   CompositePriceConfiguration: require('./vega/CompositePriceConfiguration.js'),
+  DataSourceSpecToAutomatedPurchaseBinding: require('./vega/DataSourceSpecToAutomatedPurchaseBinding.js'),
   PartyProfile: require('./vega/PartyProfile.js'),
   Metadata: require('./vega/Metadata.js'),
   StopOrder: require('./vega/StopOrder.js'),
@@ -122,6 +123,7 @@ module.exports = {
   MarginLevels: require('./vega/MarginLevels.js'),
   PerpetualData: require('./vega/PerpetualData.js'),
   ProductData: require('./vega/ProductData.js'),
+  ProtocolAutomatedPurchaseData: require('./vega/ProtocolAutomatedPurchaseData.js'),
   MarketData: require('./vega/MarketData.js'),
   CompositePriceSource: require('./vega/CompositePriceSource.js'),
   CompositePriceState: require('./vega/CompositePriceState.js'),
@@ -223,5 +225,7 @@ module.exports = {
   NewTransfer: require('./vega/NewTransfer.js'),
   NewTransferConfiguration: require('./vega/NewTransferConfiguration.js'),
   OneOffTransfer: require('./vega/OneOffTransfer.js'),
-  RecurringTransfer: require('./vega/RecurringTransfer.js')
+  RecurringTransfer: require('./vega/RecurringTransfer.js'),
+  NewProtocolAutomatedPurchase: require('./vega/NewProtocolAutomatedPurchase.js'),
+  NewProtocolAutomatedPurchaseChanges: require('./vega/NewProtocolAutomatedPurchaseChanges.js')
 }
