@@ -23,4 +23,5 @@ export type UpdateSpotMarketConfiguration = {
   tickSize: string
   instrument: UpdateSpotInstrumentConfiguration
   enableTransactionReordering: boolean
+  allowedSellers: string[]
 }
