@@ -12,6 +12,7 @@ exports.decode = function decode(
   let field$base = ''
   let field$leverageAtUpperBound = null
   let field$leverageAtLowerBound = null
+  let field$dataSourceId = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -33,6 +34,10 @@ exports.decode = function decode(
       case 5:
         field$leverageAtLowerBound = string(data)
         break
+
+      case 6:
+        field$dataSourceId = string(data)
+        break
     }
   }
   return {
@@ -40,6 +45,7 @@ exports.decode = function decode(
     lowerBound: field$lowerBound,
     base: field$base,
     leverageAtUpperBound: field$leverageAtUpperBound,
-    leverageAtLowerBound: field$leverageAtLowerBound
+    leverageAtLowerBound: field$leverageAtLowerBound,
+    dataSourceId: field$dataSourceId
   }
 }

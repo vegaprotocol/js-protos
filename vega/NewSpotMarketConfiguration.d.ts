@@ -25,4 +25,5 @@ export type NewSpotMarketConfiguration = {
   liquidityFeeSettings: LiquidityFeeSettings
   tickSize: string
   enableTransactionReordering: boolean
+  allowedSellers: string[]
 }

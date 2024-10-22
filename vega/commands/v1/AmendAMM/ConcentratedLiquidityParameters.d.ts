@@ -9,4 +9,5 @@ export type ConcentratedLiquidityParameters = {
   base: string
   leverageAtUpperBound: string | null
   leverageAtLowerBound: string | null
+  dataSourceId: string | null
 }

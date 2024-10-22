@@ -40,4 +40,5 @@ export type Market = {
   tickSize: string
   enableTransactionReordering: boolean
   allowedEmptyAmmLevels: bigint
+  allowedSellers: string[]
 }

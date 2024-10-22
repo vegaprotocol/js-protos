@@ -2630,6 +2630,19 @@
                           "messageTypeLocal": null,
                           "oneofIndex": null,
                           "oneofName": null
+                        },
+                        {
+                          "name": "dataSourceId",
+                          "number": 6,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
                         }
                       ]
                     }
@@ -2695,6 +2708,19 @@
                       "typeName": null,
                       "messageTypeLocal": null,
                       "oneofIndex": null
+                    },
+                    {
+                      "name": "minimumPriceChangeTrigger",
+                      "number": 7,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": true,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null,
+                      "oneofName": null
                     }
                   ]
                 },
@@ -2776,6 +2802,19 @@
                           "messageTypeLocal": null,
                           "oneofIndex": null,
                           "oneofName": null
+                        },
+                        {
+                          "name": "dataSourceId",
+                          "number": 6,
+                          "type": "string",
+                          "wireType": "bytes",
+                          "repeated": false,
+                          "packed": false,
+                          "optional": true,
+                          "typeName": null,
+                          "messageTypeLocal": null,
+                          "oneofIndex": null,
+                          "oneofName": null
                         }
                       ]
                     }
@@ -2835,6 +2874,19 @@
                     {
                       "name": "proposedFee",
                       "number": 5,
+                      "type": "string",
+                      "wireType": "bytes",
+                      "repeated": false,
+                      "packed": false,
+                      "optional": true,
+                      "typeName": null,
+                      "messageTypeLocal": null,
+                      "oneofIndex": null,
+                      "oneofName": null
+                    },
+                    {
+                      "name": "minimumPriceChangeTrigger",
+                      "number": 7,
                       "type": "string",
                       "wireType": "bytes",
                       "repeated": false,
@@ -4312,6 +4364,10 @@
             {
               "name": "AUCTION_TRIGGER_LONG_BLOCK",
               "value": 8
+            },
+            {
+              "name": "AUCTION_TRIGGER_PROTOCOL_AUTOMATED_PURCHASE",
+              "value": 9
             }
           ]
         },
@@ -4552,6 +4608,10 @@
             {
               "name": "ORDER_ERROR_PRICE_MUST_BE_LESS_THAN_OR_EQUAL_TO_MAX_PRICE",
               "value": 54
+            },
+            {
+              "name": "ORDER_ERROR_SELL_ORDER_NOT_ALLOWED",
+              "value": 55
             }
           ]
         },
@@ -4708,6 +4768,10 @@
             {
               "name": "ACCOUNT_TYPE_REWARD_ELIGIBLE_ENTITIES",
               "value": 33
+            },
+            {
+              "name": "ACCOUNT_TYPE_LOCKED_FOR_STAKING",
+              "value": 34
             }
           ]
         },
@@ -5336,6 +5400,10 @@
             {
               "name": "PROPOSAL_ERROR_INVALID_VOLUME_REBATE_PROGRAM",
               "value": 61
+            },
+            {
+              "name": "PROPOSAL_ERROR_INVALID_PROTOCOL_AUTOMATED_PURCHASE",
+              "value": 62
             }
           ]
         },
@@ -8506,6 +8574,10 @@
                 {
                   "name": "TRADING_MODE_LONG_BLOCK_AUCTION",
                   "value": 7
+                },
+                {
+                  "name": "TRADING_MODE_PROTOCOL_AUTOMATED_PURCHASE_AUCTION",
+                  "value": 8
                 }
               ]
             }
@@ -8802,6 +8874,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "allowedSellers",
+              "number": 24,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -9043,6 +9127,40 @@
           ]
         },
         {
+          "name": "DataSourceSpecToAutomatedPurchaseBinding",
+          "fullName": ".vega.DataSourceSpecToAutomatedPurchaseBinding",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "auctionScheduleProperty",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "auctionVolumeSnapshotScheduleProperty",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
           "name": "PartyProfile",
           "fullName": ".vega.PartyProfile",
           "map": false,
@@ -9278,6 +9396,10 @@
                 {
                   "name": "REJECTION_REASON_STOP_ORDER_SIZE_OVERRIDE_UNSUPPORTED_FOR_SPOT",
                   "value": 10
+                },
+                {
+                  "name": "REJECTION_REASON_SELL_ORDER_NOT_ALLOWED",
+                  "value": 11
                 }
               ]
             }
@@ -12612,6 +12734,41 @@
           ]
         },
         {
+          "name": "ProtocolAutomatedPurchaseData",
+          "fullName": ".vega.ProtocolAutomatedPurchaseData",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "id",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "orderId",
+              "number": 2,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
+            }
+          ]
+        },
+        {
           "name": "MarketData",
           "fullName": ".vega.MarketData",
           "map": false,
@@ -13049,6 +13206,20 @@
               "messageType": "CompositePriceState",
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "activeProtocolAutomatedPurchase",
+              "number": 36,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": true,
+              "typeName": ".vega.ProtocolAutomatedPurchaseData",
+              "messageType": "ProtocolAutomatedPurchaseData",
+              "messageTypeLocal": null,
+              "oneofIndex": null,
+              "oneofName": null
             }
           ]
         },
@@ -17156,6 +17327,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "allowedSellers",
+              "number": 11,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -17919,6 +18102,18 @@
               "typeName": null,
               "messageTypeLocal": null,
               "oneofIndex": null
+            },
+            {
+              "name": "allowedSellers",
+              "number": 9,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": true,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
             }
           ]
         },
@@ -18574,6 +18769,20 @@
               "messageTypeLocal": null,
               "oneofIndex": 0,
               "oneofName": "change"
+            },
+            {
+              "name": "newProtocolAutomatedPurchase",
+              "number": 115,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.NewProtocolAutomatedPurchase",
+              "messageType": "NewProtocolAutomatedPurchase",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "change"
             }
           ]
         },
@@ -18803,6 +19012,20 @@
               "optional": false,
               "typeName": ".vega.UpdateVolumeRebateProgram",
               "messageType": "UpdateVolumeRebateProgram",
+              "messageTypeLocal": null,
+              "oneofIndex": 0,
+              "oneofName": "change"
+            },
+            {
+              "name": "newProtocolAutomatedPurchase",
+              "number": 115,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.NewProtocolAutomatedPurchase",
+              "messageType": "NewProtocolAutomatedPurchase",
               "messageTypeLocal": null,
               "oneofIndex": 0,
               "oneofName": "change"
@@ -20195,6 +20418,226 @@
             {
               "name": "factor",
               "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "NewProtocolAutomatedPurchase",
+          "fullName": ".vega.NewProtocolAutomatedPurchase",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "changes",
+              "number": 1,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.NewProtocolAutomatedPurchaseChanges",
+              "messageType": "NewProtocolAutomatedPurchaseChanges",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            }
+          ]
+        },
+        {
+          "name": "NewProtocolAutomatedPurchaseChanges",
+          "fullName": ".vega.NewProtocolAutomatedPurchaseChanges",
+          "map": false,
+          "oneofs": [],
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "from",
+              "number": 1,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "fromAccountType",
+              "number": 2,
+              "type": "enumerable",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.AccountType",
+              "messageType": "AccountType",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "toAccountType",
+              "number": 3,
+              "type": "enumerable",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.AccountType",
+              "messageType": "AccountType",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "marketId",
+              "number": 4,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "priceOracle",
+              "number": 5,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.DataSourceDefinition",
+              "messageType": "DataSourceDefinition",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "priceOracleSpecBinding",
+              "number": 6,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.SpecBindingForCompositePrice",
+              "messageType": "SpecBindingForCompositePrice",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "oracleOffsetFactor",
+              "number": 7,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "auctionSchedule",
+              "number": 8,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.DataSourceDefinition",
+              "messageType": "DataSourceDefinition",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "auctionVolumeSnapshotSchedule",
+              "number": 9,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.DataSourceDefinition",
+              "messageType": "DataSourceDefinition",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "automatedPurchaseSpecBinding",
+              "number": 10,
+              "type": "message",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": ".vega.DataSourceSpecToAutomatedPurchaseBinding",
+              "messageType": "DataSourceSpecToAutomatedPurchaseBinding",
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "auctionDuration",
+              "number": 11,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "minimumAuctionSize",
+              "number": 12,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "maximumAuctionSize",
+              "number": 13,
+              "type": "string",
+              "wireType": "bytes",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "expiryTimestamp",
+              "number": 14,
+              "type": "int64",
+              "wireType": "varint",
+              "repeated": false,
+              "packed": false,
+              "optional": false,
+              "typeName": null,
+              "messageTypeLocal": null,
+              "oneofIndex": null
+            },
+            {
+              "name": "oraclePriceStalenessTolerance",
+              "number": 15,
               "type": "string",
               "wireType": "bytes",
               "repeated": false,

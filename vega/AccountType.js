@@ -35,6 +35,7 @@ const ACCOUNT_TYPE_REWARD_REALISED_RETURN = 30
 const ACCOUNT_TYPE_BUY_BACK_FEES = 31
 const ACCOUNT_TYPE_REWARD_AVERAGE_NOTIONAL = 32
 const ACCOUNT_TYPE_REWARD_ELIGIBLE_ENTITIES = 33
+const ACCOUNT_TYPE_LOCKED_FOR_STAKING = 34
 
 const enumValues = new Map([
   [0, 'ACCOUNT_TYPE_UNSPECIFIED'],
@@ -68,7 +69,8 @@ const enumValues = new Map([
   [30, 'ACCOUNT_TYPE_REWARD_REALISED_RETURN'],
   [31, 'ACCOUNT_TYPE_BUY_BACK_FEES'],
   [32, 'ACCOUNT_TYPE_REWARD_AVERAGE_NOTIONAL'],
-  [33, 'ACCOUNT_TYPE_REWARD_ELIGIBLE_ENTITIES']
+  [33, 'ACCOUNT_TYPE_REWARD_ELIGIBLE_ENTITIES'],
+  [34, 'ACCOUNT_TYPE_LOCKED_FOR_STAKING']
 ])
 const enumNames = new Map([
   ['ACCOUNT_TYPE_UNSPECIFIED', 0],
@@ -102,7 +104,8 @@ const enumNames = new Map([
   ['ACCOUNT_TYPE_REWARD_REALISED_RETURN', 30],
   ['ACCOUNT_TYPE_BUY_BACK_FEES', 31],
   ['ACCOUNT_TYPE_REWARD_AVERAGE_NOTIONAL', 32],
-  ['ACCOUNT_TYPE_REWARD_ELIGIBLE_ENTITIES', 33]
+  ['ACCOUNT_TYPE_REWARD_ELIGIBLE_ENTITIES', 33],
+  ['ACCOUNT_TYPE_LOCKED_FOR_STAKING', 34]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -123,7 +126,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid AccountType value (' + value + ')')
 
-  if (0 <= value && value <= 33) return 1
+  if (0 <= value && value <= 34) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -182,5 +185,6 @@ module.exports = {
   ACCOUNT_TYPE_REWARD_REALISED_RETURN,
   ACCOUNT_TYPE_BUY_BACK_FEES,
   ACCOUNT_TYPE_REWARD_AVERAGE_NOTIONAL,
-  ACCOUNT_TYPE_REWARD_ELIGIBLE_ENTITIES
+  ACCOUNT_TYPE_REWARD_ELIGIBLE_ENTITIES,
+  ACCOUNT_TYPE_LOCKED_FOR_STAKING
 }
