@@ -17,6 +17,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       )
     )
   if (obj.proposedFee) writer.bytes(5, obj.proposedFee, string)
+  if (obj.minimumPriceChangeTrigger)
+    writer.bytes(7, obj.minimumPriceChangeTrigger, string)
 
   return writer.concat(buf, byteOffset)
 }

@@ -15,6 +15,7 @@ const _vega_UpdateMarketState = require('./../UpdateMarketState/encode.js')
 const _vega_UpdateReferralProgram = require('./../UpdateReferralProgram/encode.js')
 const _vega_UpdateVolumeDiscountProgram = require('./../UpdateVolumeDiscountProgram/encode.js')
 const _vega_UpdateVolumeRebateProgram = require('./../UpdateVolumeRebateProgram/encode.js')
+const _vega_NewProtocolAutomatedPurchase = require('./../NewProtocolAutomatedPurchase/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -109,6 +110,17 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       114,
       _vega_UpdateVolumeRebateProgram.encode(
         obj.change?.updateVolumeRebateProgram ?? obj.updateVolumeRebateProgram
+      )
+    )
+  if (
+    obj.change?.newProtocolAutomatedPurchase ??
+    obj.newProtocolAutomatedPurchase
+  )
+    writer.bytes(
+      115,
+      _vega_NewProtocolAutomatedPurchase.encode(
+        obj.change?.newProtocolAutomatedPurchase ??
+          obj.newProtocolAutomatedPurchase
       )
     )
 

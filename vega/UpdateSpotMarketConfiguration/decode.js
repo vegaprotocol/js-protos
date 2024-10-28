@@ -22,6 +22,7 @@ exports.decode = function decode(
   let field$tickSize = ''
   let field$instrument = {}
   let field$enableTransactionReordering = false
+  const field$allowedSellers = []
   let field$riskParameters = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -67,6 +68,10 @@ exports.decode = function decode(
       case 8:
         field$enableTransactionReordering = bool(data)
         break
+
+      case 9:
+        field$allowedSellers.push(string(data))
+        break
     }
   }
   return {
@@ -78,6 +83,7 @@ exports.decode = function decode(
     tickSize: field$tickSize,
     instrument: field$instrument,
     enableTransactionReordering: field$enableTransactionReordering,
+    allowedSellers: field$allowedSellers,
     riskParameters: field$riskParameters
   }
 }

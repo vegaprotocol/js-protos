@@ -13,6 +13,7 @@ exports.decode = function decode(
   let field$slippageTolerance = ''
   let field$concentratedLiquidityParameters = {}
   let field$proposedFee = ''
+  let field$minimumPriceChangeTrigger = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -37,6 +38,10 @@ exports.decode = function decode(
       case 5:
         field$proposedFee = string(data)
         break
+
+      case 7:
+        field$minimumPriceChangeTrigger = string(data)
+        break
     }
   }
   return {
@@ -44,6 +49,7 @@ exports.decode = function decode(
     commitmentAmount: field$commitmentAmount,
     slippageTolerance: field$slippageTolerance,
     concentratedLiquidityParameters: field$concentratedLiquidityParameters,
-    proposedFee: field$proposedFee
+    proposedFee: field$proposedFee,
+    minimumPriceChangeTrigger: field$minimumPriceChangeTrigger
   }
 }

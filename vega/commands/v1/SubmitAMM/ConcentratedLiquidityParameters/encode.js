@@ -12,6 +12,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(4, obj.leverageAtUpperBound, string)
   if (obj.leverageAtLowerBound)
     writer.bytes(5, obj.leverageAtLowerBound, string)
+  if (obj.dataSourceId) writer.bytes(6, obj.dataSourceId, string)
 
   return writer.concat(buf, byteOffset)
 }

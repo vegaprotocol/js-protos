@@ -12,4 +12,5 @@ export type SubmitAMM = {
   slippageTolerance: string
   concentratedLiquidityParameters: ConcentratedLiquidityParameters
   proposedFee: string
+  minimumPriceChangeTrigger: string | null
 }

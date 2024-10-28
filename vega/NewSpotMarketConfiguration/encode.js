@@ -35,6 +35,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.tickSize) writer.bytes(9, obj.tickSize, string)
   if (obj.enableTransactionReordering)
     writer.varint(10, obj.enableTransactionReordering, bool)
+  if (obj.allowedSellers?.length)
+    obj.allowedSellers.forEach((v) => writer.bytes(11, v, string))
 
   if (obj.riskParameters?.simple ?? obj.simple)
     writer.bytes(

@@ -68,6 +68,8 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.varint(22, obj.enableTransactionReordering, bool)
   if (obj.allowedEmptyAmmLevels)
     writer.varint(23, obj.allowedEmptyAmmLevels, uint64)
+  if (obj.allowedSellers?.length)
+    obj.allowedSellers.forEach((v) => writer.bytes(24, v, string))
 
   return writer.concat(buf, byteOffset)
 }

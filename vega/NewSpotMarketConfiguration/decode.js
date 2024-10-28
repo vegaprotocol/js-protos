@@ -24,6 +24,7 @@ exports.decode = function decode(
   let field$liquidityFeeSettings = {}
   let field$tickSize = ''
   let field$enableTransactionReordering = false
+  const field$allowedSellers = []
   let field$riskParameters = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -77,6 +78,10 @@ exports.decode = function decode(
       case 10:
         field$enableTransactionReordering = bool(data)
         break
+
+      case 11:
+        field$allowedSellers.push(string(data))
+        break
     }
   }
   return {
@@ -90,6 +95,7 @@ exports.decode = function decode(
     liquidityFeeSettings: field$liquidityFeeSettings,
     tickSize: field$tickSize,
     enableTransactionReordering: field$enableTransactionReordering,
+    allowedSellers: field$allowedSellers,
     riskParameters: field$riskParameters
   }
 }

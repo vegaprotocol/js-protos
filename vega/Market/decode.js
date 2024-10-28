@@ -41,6 +41,7 @@ exports.decode = function decode(
   let field$tickSize = ''
   let field$enableTransactionReordering = false
   let field$allowedEmptyAmmLevels = 0n
+  const field$allowedSellers = []
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -137,6 +138,10 @@ exports.decode = function decode(
       case 23:
         field$allowedEmptyAmmLevels = uint64(data)
         break
+
+      case 24:
+        field$allowedSellers.push(string(data))
+        break
     }
   }
   return {
@@ -162,6 +167,7 @@ exports.decode = function decode(
     markPriceConfiguration: field$markPriceConfiguration,
     tickSize: field$tickSize,
     enableTransactionReordering: field$enableTransactionReordering,
-    allowedEmptyAmmLevels: field$allowedEmptyAmmLevels
+    allowedEmptyAmmLevels: field$allowedEmptyAmmLevels,
+    allowedSellers: field$allowedSellers
   }
 }
