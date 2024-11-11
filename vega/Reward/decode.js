@@ -15,10 +15,6 @@ exports.decode = function decode(
   let field$receivedAt = 0n
   let field$marketId = ''
   let field$rewardType = ''
-  let field$lockedUntilEpoch = 0n
-  let field$quantumAmount = ''
-  let field$gameId = null
-  let field$teamId = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -52,22 +48,6 @@ exports.decode = function decode(
       case 8:
         field$rewardType = string(data)
         break
-
-      case 9:
-        field$lockedUntilEpoch = uint64(data)
-        break
-
-      case 10:
-        field$quantumAmount = string(data)
-        break
-
-      case 11:
-        field$gameId = string(data)
-        break
-
-      case 12:
-        field$teamId = string(data)
-        break
     }
   }
   return {
@@ -78,10 +58,6 @@ exports.decode = function decode(
     percentageOfTotal: field$percentageOfTotal,
     receivedAt: field$receivedAt,
     marketId: field$marketId,
-    rewardType: field$rewardType,
-    lockedUntilEpoch: field$lockedUntilEpoch,
-    quantumAmount: field$quantumAmount,
-    gameId: field$gameId,
-    teamId: field$teamId
+    rewardType: field$rewardType
   }
 }

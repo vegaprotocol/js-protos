@@ -10,8 +10,6 @@ exports.decode = function decode(
   let field$price = ''
   let field$numberOfOrders = 0n
   let field$volume = 0n
-  let field$ammVolume = 0n
-  let field$ammVolumeEstimated = 0n
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -25,21 +23,11 @@ exports.decode = function decode(
       case 3:
         field$volume = uint64(data)
         break
-
-      case 4:
-        field$ammVolume = uint64(data)
-        break
-
-      case 5:
-        field$ammVolumeEstimated = uint64(data)
-        break
     }
   }
   return {
     price: field$price,
     numberOfOrders: field$numberOfOrders,
-    volume: field$volume,
-    ammVolume: field$ammVolume,
-    ammVolumeEstimated: field$ammVolumeEstimated
+    volume: field$volume
   }
 }

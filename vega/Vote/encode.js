@@ -2,7 +2,6 @@
 const Writer = require('protobuf-codec/encode/writer')
 const { string, int64 } = require('protobuf-codec/encode/types')
 const _vega_Vote_Value = require('./Value.js')
-const _vega_VoteELSPair = require('./../VoteELSPair/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -17,10 +16,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(6, obj.totalGovernanceTokenWeight, string)
   if (obj.totalEquityLikeShareWeight)
     writer.bytes(7, obj.totalEquityLikeShareWeight, string)
-  if (obj.elsPerMarket?.length)
-    obj.elsPerMarket.forEach((v) =>
-      writer.bytes(8, _vega_VoteELSPair.encode(v))
-    )
 
   return writer.concat(buf, byteOffset)
 }

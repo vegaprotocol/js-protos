@@ -8,5 +8,4 @@ export type IssueSignatures = {
   submitter: string
   kind: NodeSignatureKind
   validatorNodeId: string
-  chainId: string
 }

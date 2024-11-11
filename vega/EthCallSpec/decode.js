@@ -19,7 +19,6 @@ exports.decode = function decode(
   let field$requiredConfirmations = 0n
   const field$filters = []
   const field$normalisers = []
-  let field$sourceChainId = 0n
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -53,10 +52,6 @@ exports.decode = function decode(
       case 8:
         field$normalisers.push(_vega_Normaliser.decode(data))
         break
-
-      case 9:
-        field$sourceChainId = uint64(data)
-        break
     }
   }
   return {
@@ -67,7 +62,6 @@ exports.decode = function decode(
     trigger: field$trigger,
     requiredConfirmations: field$requiredConfirmations,
     filters: field$filters,
-    normalisers: field$normalisers,
-    sourceChainId: field$sourceChainId
+    normalisers: field$normalisers
   }
 }

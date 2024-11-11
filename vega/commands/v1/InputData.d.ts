@@ -16,16 +16,9 @@ import type { AnnounceNode } from './AnnounceNode'
 import type { BatchMarketInstructions } from './BatchMarketInstructions'
 import type { StopOrdersSubmission } from './StopOrdersSubmission'
 import type { StopOrdersCancellation } from './StopOrdersCancellation'
-import type { CreateReferralSet } from './CreateReferralSet'
-import type { UpdateReferralSet } from './UpdateReferralSet'
-import type { ApplyReferralCode } from './ApplyReferralCode'
-import type { UpdateMarginMode } from './UpdateMarginMode'
+import type { CreateTeam } from './CreateTeam'
+import type { UpdateTeam } from './UpdateTeam'
 import type { JoinTeam } from './JoinTeam'
-import type { BatchProposalSubmission } from './BatchProposalSubmission'
-import type { UpdatePartyProfile } from './UpdatePartyProfile'
-import type { SubmitAMM } from './SubmitAMM'
-import type { AmendAMM } from './AmendAMM'
-import type { CancelAMM } from './CancelAMM'
 import type { NodeVote } from './NodeVote'
 import type { NodeSignature } from './NodeSignature'
 import type { ChainEvent } from './ChainEvent'
@@ -36,7 +29,6 @@ import type { EthereumKeyRotateSubmission } from './EthereumKeyRotateSubmission'
 import type { ProtocolUpgradeProposal } from './ProtocolUpgradeProposal'
 import type { IssueSignatures } from './IssueSignatures'
 import type { OracleDataSubmission } from './OracleDataSubmission'
-import type { DelayedTransactionsWrapper } from './DelayedTransactionsWrapper'
 
 export * from './InputData/encode.js'
 export * from './InputData/decode.js'
@@ -62,16 +54,9 @@ export type InputData = {
     | { batchMarketInstructions: BatchMarketInstructions }
     | { stopOrdersSubmission: StopOrdersSubmission }
     | { stopOrdersCancellation: StopOrdersCancellation }
-    | { createReferralSet: CreateReferralSet }
-    | { updateReferralSet: UpdateReferralSet }
-    | { applyReferralCode: ApplyReferralCode }
-    | { updateMarginMode: UpdateMarginMode }
+    | { createTeam: CreateTeam }
+    | { updateTeam: UpdateTeam }
     | { joinTeam: JoinTeam }
-    | { batchProposalSubmission: BatchProposalSubmission }
-    | { updatePartyProfile: UpdatePartyProfile }
-    | { submitAmm: SubmitAMM }
-    | { amendAmm: AmendAMM }
-    | { cancelAmm: CancelAMM }
     | { nodeVote: NodeVote }
     | { nodeSignature: NodeSignature }
     | { chainEvent: ChainEvent }
@@ -82,6 +67,5 @@ export type InputData = {
     | { protocolUpgradeProposal: ProtocolUpgradeProposal }
     | { issueSignatures: IssueSignatures }
     | { oracleDataSubmission: OracleDataSubmission }
-    | { delayedTransactionsWrapper: DelayedTransactionsWrapper }
     | null
 }

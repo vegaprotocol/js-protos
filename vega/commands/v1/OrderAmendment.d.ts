@@ -14,5 +14,4 @@ export type OrderAmendment = {
   timeInForce: TimeInForce
   peggedOffset: string
   peggedReference: PeggedReference
-  size: bigint | null
 }

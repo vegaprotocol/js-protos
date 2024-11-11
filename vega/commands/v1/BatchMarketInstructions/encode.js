@@ -6,7 +6,6 @@ const _vega_commands_v1_OrderAmendment = require('./../OrderAmendment/encode.js'
 const _vega_commands_v1_OrderSubmission = require('./../OrderSubmission/encode.js')
 const _vega_commands_v1_StopOrdersCancellation = require('./../StopOrdersCancellation/encode.js')
 const _vega_commands_v1_StopOrdersSubmission = require('./../StopOrdersSubmission/encode.js')
-const _vega_commands_v1_UpdateMarginMode = require('./../UpdateMarginMode/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -30,10 +29,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.stopOrdersSubmission?.length)
     obj.stopOrdersSubmission.forEach((v) =>
       writer.bytes(5, _vega_commands_v1_StopOrdersSubmission.encode(v))
-    )
-  if (obj.updateMarginMode?.length)
-    obj.updateMarginMode.forEach((v) =>
-      writer.bytes(6, _vega_commands_v1_UpdateMarginMode.encode(v))
     )
 
   return writer.concat(buf, byteOffset)

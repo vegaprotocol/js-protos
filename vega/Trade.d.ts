@@ -23,5 +23,4 @@ export type Trade = {
   sellerFee: Fee
   buyerAuctionBatch: bigint
   sellerAuctionBatch: bigint
-  assetPrice: string
 }

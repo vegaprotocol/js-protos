@@ -3,10 +3,7 @@
 module.exports = {
   ...require('./StopOrder/encode.js'),
   ...require('./StopOrder/decode.js'),
-  SizeOverrideSetting: require('./StopOrder/SizeOverrideSetting.js'),
   ExpiryStrategy: require('./StopOrder/ExpiryStrategy.js'),
   TriggerDirection: require('./StopOrder/TriggerDirection.js'),
-  Status: require('./StopOrder/Status.js'),
-  RejectionReason: require('./StopOrder/RejectionReason.js'),
-  SizeOverrideValue: require('./StopOrder/SizeOverrideValue.js')
+  Status: require('./StopOrder/Status.js')
 }

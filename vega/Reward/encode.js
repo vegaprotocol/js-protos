@@ -13,10 +13,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.receivedAt) writer.varint(6, obj.receivedAt, int64)
   if (obj.marketId) writer.bytes(7, obj.marketId, string)
   if (obj.rewardType) writer.bytes(8, obj.rewardType, string)
-  if (obj.lockedUntilEpoch) writer.varint(9, obj.lockedUntilEpoch, uint64)
-  if (obj.quantumAmount) writer.bytes(10, obj.quantumAmount, string)
-  if (obj.gameId) writer.bytes(11, obj.gameId, string)
-  if (obj.teamId) writer.bytes(12, obj.teamId, string)
 
   return writer.concat(buf, byteOffset)
 }

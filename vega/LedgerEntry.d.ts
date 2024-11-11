@@ -13,5 +13,4 @@ export type LedgerEntry = {
   timestamp: bigint
   fromAccountBalance: string
   toAccountBalance: string
-  transferId: string | null
 }

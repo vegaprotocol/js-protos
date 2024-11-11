@@ -3,7 +3,6 @@ import type { State } from './Proposal/State'
 import type { ProposalTerms } from './ProposalTerms'
 import type { ProposalError } from './ProposalError'
 import type { ProposalRationale } from './ProposalRationale'
-import type { BatchProposalTerms } from './BatchProposalTerms'
 
 export * from './Proposal/encode.js'
 export * from './Proposal/decode.js'
@@ -15,7 +14,7 @@ export type Proposal = {
   partyId: string
   state: State
   timestamp: bigint
-  terms: ProposalTerms | null
+  terms: ProposalTerms
   reason: ProposalError | null
   errorDetails: string | null
   rationale: ProposalRationale
@@ -23,6 +22,4 @@ export type Proposal = {
   requiredMajority: string
   requiredLiquidityProviderParticipation: string | null
   requiredLiquidityProviderMajority: string | null
-  batchTerms: BatchProposalTerms | null
-  batchId: string | null
 }

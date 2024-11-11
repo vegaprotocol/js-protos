@@ -10,8 +10,6 @@ const TRADING_MODE_OPENING_AUCTION = 3
 const TRADING_MODE_MONITORING_AUCTION = 4
 const TRADING_MODE_NO_TRADING = 5
 const TRADING_MODE_SUSPENDED_VIA_GOVERNANCE = 6
-const TRADING_MODE_LONG_BLOCK_AUCTION = 7
-const TRADING_MODE_PROTOCOL_AUTOMATED_PURCHASE_AUCTION = 8
 
 const enumValues = new Map([
   [0, 'TRADING_MODE_UNSPECIFIED'],
@@ -20,9 +18,7 @@ const enumValues = new Map([
   [3, 'TRADING_MODE_OPENING_AUCTION'],
   [4, 'TRADING_MODE_MONITORING_AUCTION'],
   [5, 'TRADING_MODE_NO_TRADING'],
-  [6, 'TRADING_MODE_SUSPENDED_VIA_GOVERNANCE'],
-  [7, 'TRADING_MODE_LONG_BLOCK_AUCTION'],
-  [8, 'TRADING_MODE_PROTOCOL_AUTOMATED_PURCHASE_AUCTION']
+  [6, 'TRADING_MODE_SUSPENDED_VIA_GOVERNANCE']
 ])
 const enumNames = new Map([
   ['TRADING_MODE_UNSPECIFIED', 0],
@@ -31,9 +27,7 @@ const enumNames = new Map([
   ['TRADING_MODE_OPENING_AUCTION', 3],
   ['TRADING_MODE_MONITORING_AUCTION', 4],
   ['TRADING_MODE_NO_TRADING', 5],
-  ['TRADING_MODE_SUSPENDED_VIA_GOVERNANCE', 6],
-  ['TRADING_MODE_LONG_BLOCK_AUCTION', 7],
-  ['TRADING_MODE_PROTOCOL_AUTOMATED_PURCHASE_AUCTION', 8]
+  ['TRADING_MODE_SUSPENDED_VIA_GOVERNANCE', 6]
 ])
 
 function encode(value, buf, byteOffset = 0) {
@@ -54,7 +48,7 @@ function encodingLength(value) {
   if (typeof value === 'string') return encodingLength(parse(value))
   assert(value != null, 'Invalid TradingMode value (' + value + ')')
 
-  if (0 <= value && value <= 8) return 1
+  if (0 <= value && value <= 6) return 1
 
   // enumerable max value in case of unknown value
   return 5
@@ -88,7 +82,5 @@ module.exports = {
   TRADING_MODE_OPENING_AUCTION,
   TRADING_MODE_MONITORING_AUCTION,
   TRADING_MODE_NO_TRADING,
-  TRADING_MODE_SUSPENDED_VIA_GOVERNANCE,
-  TRADING_MODE_LONG_BLOCK_AUCTION,
-  TRADING_MODE_PROTOCOL_AUTOMATED_PURCHASE_AUCTION
+  TRADING_MODE_SUSPENDED_VIA_GOVERNANCE
 }

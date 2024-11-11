@@ -17,14 +17,6 @@ exports.decode = function decode(
   let field$updatedAt = 0n
   let field$lossSocialisationAmount = ''
   let field$positionStatus = _vega_PositionStatus.decode(0)
-  let field$takerFeesPaid = ''
-  let field$makerFeesReceived = ''
-  let field$feesPaid = ''
-  let field$takerFeesPaidSince = ''
-  let field$makerFeesReceivedSince = ''
-  let field$feesPaidSince = ''
-  let field$fundingPaymentAmount = ''
-  let field$fundingPaymentAmountSince = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -62,38 +54,6 @@ exports.decode = function decode(
       case 9:
         field$positionStatus = _vega_PositionStatus.decode(data)
         break
-
-      case 10:
-        field$takerFeesPaid = string(data)
-        break
-
-      case 11:
-        field$makerFeesReceived = string(data)
-        break
-
-      case 12:
-        field$feesPaid = string(data)
-        break
-
-      case 13:
-        field$takerFeesPaidSince = string(data)
-        break
-
-      case 14:
-        field$makerFeesReceivedSince = string(data)
-        break
-
-      case 15:
-        field$feesPaidSince = string(data)
-        break
-
-      case 16:
-        field$fundingPaymentAmount = string(data)
-        break
-
-      case 17:
-        field$fundingPaymentAmountSince = string(data)
-        break
     }
   }
   return {
@@ -105,14 +65,6 @@ exports.decode = function decode(
     averageEntryPrice: field$averageEntryPrice,
     updatedAt: field$updatedAt,
     lossSocialisationAmount: field$lossSocialisationAmount,
-    positionStatus: field$positionStatus,
-    takerFeesPaid: field$takerFeesPaid,
-    makerFeesReceived: field$makerFeesReceived,
-    feesPaid: field$feesPaid,
-    takerFeesPaidSince: field$takerFeesPaidSince,
-    makerFeesReceivedSince: field$makerFeesReceivedSince,
-    feesPaidSince: field$feesPaidSince,
-    fundingPaymentAmount: field$fundingPaymentAmount,
-    fundingPaymentAmountSince: field$fundingPaymentAmountSince
+    positionStatus: field$positionStatus
   }
 }

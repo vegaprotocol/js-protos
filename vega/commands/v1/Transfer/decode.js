@@ -16,7 +16,6 @@ exports.decode = function decode(
   let field$asset = ''
   let field$amount = ''
   let field$reference = ''
-  let field$from = null
   let field$kind = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -44,10 +43,6 @@ exports.decode = function decode(
         field$reference = string(data)
         break
 
-      case 7:
-        field$from = string(data)
-        break
-
       case 101:
         field$kind = { oneOff: _vega_commands_v1_OneOffTransfer.decode(data) }
         break
@@ -66,7 +61,6 @@ exports.decode = function decode(
     asset: field$asset,
     amount: field$amount,
     reference: field$reference,
-    from: field$from,
     kind: field$kind
   }
 }

@@ -8,7 +8,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
   if (obj.code) writer.bytes(1, obj.code, string)
-  if (obj.name) writer.bytes(2, obj.name, string)
 
   if (obj.product?.future ?? obj.future)
     writer.bytes(

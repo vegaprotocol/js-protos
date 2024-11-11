@@ -7,7 +7,6 @@ export * from './UpdateInstrumentConfiguration/decode.js'
 
 export type UpdateInstrumentConfiguration = {
   code: string
-  name: string
   product:
     | { future: UpdateFutureProduct }
     | { perpetual: UpdatePerpetualProduct }

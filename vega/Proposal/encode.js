@@ -5,7 +5,6 @@ const _vega_Proposal_State = require('./State.js')
 const _vega_ProposalTerms = require('./../ProposalTerms/encode.js')
 const _vega_ProposalError = require('./../ProposalError.js')
 const _vega_ProposalRationale = require('./../ProposalRationale/encode.js')
-const _vega_BatchProposalTerms = require('./../BatchProposalTerms/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -27,9 +26,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(12, obj.requiredLiquidityProviderParticipation, string)
   if (obj.requiredLiquidityProviderMajority)
     writer.bytes(13, obj.requiredLiquidityProviderMajority, string)
-  if (obj.batchTerms)
-    writer.bytes(14, _vega_BatchProposalTerms.encode(obj.batchTerms))
-  if (obj.batchId) writer.bytes(15, obj.batchId, string)
 
   return writer.concat(buf, byteOffset)
 }
