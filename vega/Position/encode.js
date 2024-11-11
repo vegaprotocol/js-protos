@@ -17,17 +17,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.bytes(8, obj.lossSocialisationAmount, string)
   if (obj.positionStatus)
     writer.varint(9, obj.positionStatus, _vega_PositionStatus)
-  if (obj.takerFeesPaid) writer.bytes(10, obj.takerFeesPaid, string)
-  if (obj.makerFeesReceived) writer.bytes(11, obj.makerFeesReceived, string)
-  if (obj.feesPaid) writer.bytes(12, obj.feesPaid, string)
-  if (obj.takerFeesPaidSince) writer.bytes(13, obj.takerFeesPaidSince, string)
-  if (obj.makerFeesReceivedSince)
-    writer.bytes(14, obj.makerFeesReceivedSince, string)
-  if (obj.feesPaidSince) writer.bytes(15, obj.feesPaidSince, string)
-  if (obj.fundingPaymentAmount)
-    writer.bytes(16, obj.fundingPaymentAmount, string)
-  if (obj.fundingPaymentAmountSince)
-    writer.bytes(17, obj.fundingPaymentAmountSince, string)
 
   return writer.concat(buf, byteOffset)
 }

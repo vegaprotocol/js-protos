@@ -5,10 +5,6 @@ import type { LiquidityMonitoringParameters } from './LiquidityMonitoringParamet
 import type { SimpleModelParams } from './SimpleModelParams'
 import type { LogNormalRiskModel } from './LogNormalRiskModel'
 import type { SuccessorConfiguration } from './SuccessorConfiguration'
-import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
-import type { LiquidityFeeSettings } from './LiquidityFeeSettings'
-import type { LiquidationStrategy } from './LiquidationStrategy'
-import type { CompositePriceConfiguration } from './CompositePriceConfiguration'
 
 export * from './NewMarketConfiguration/encode.js'
 export * from './NewMarketConfiguration/decode.js'
@@ -24,15 +20,8 @@ export type NewMarketConfiguration = {
     | { logNormal: LogNormalRiskModel }
     | null
   positionDecimalPlaces: bigint
-  lpPriceRange: string | null
+  lpPriceRange: string
   linearSlippageFactor: string
   quadraticSlippageFactor: string
   successor: SuccessorConfiguration | null
-  liquiditySlaParameters: LiquiditySLAParameters
-  liquidityFeeSettings: LiquidityFeeSettings
-  liquidationStrategy: LiquidationStrategy
-  markPriceConfiguration: CompositePriceConfiguration
-  tickSize: string
-  enableTransactionReordering: boolean
-  allowedEmptyAmmLevels: bigint | null
 }

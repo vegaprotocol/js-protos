@@ -9,5 +9,4 @@ export type PriceMonitoringBounds = {
   maxValidPrice: string
   trigger: PriceMonitoringTrigger
   referencePrice: string
-  active: boolean
 }

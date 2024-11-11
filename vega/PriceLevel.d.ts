@@ -7,6 +7,4 @@ export type PriceLevel = {
   price: string
   numberOfOrders: bigint
   volume: bigint
-  ammVolume: bigint
-  ammVolumeEstimated: bigint
 }

@@ -5,22 +5,19 @@ export const STATUS_UNSPECIFIED = 0
 export const STATUS_OPEN = 1
 export const STATUS_CANCELLED = 2
 export const STATUS_FINALIZED = 3
-export const STATUS_DUPLICATE_REJECTED = 4
 
-export type Values = 0 | 1 | 2 | 3 | 4
+export type Values = 0 | 1 | 2 | 3
 export type Names =
   | 'STATUS_UNSPECIFIED'
   | 'STATUS_OPEN'
   | 'STATUS_CANCELLED'
   | 'STATUS_FINALIZED'
-  | 'STATUS_DUPLICATE_REJECTED'
 
 export const enum Status {
   STATUS_UNSPECIFIED = 0,
   STATUS_OPEN = 1,
   STATUS_CANCELLED = 2,
-  STATUS_FINALIZED = 3,
-  STATUS_DUPLICATE_REJECTED = 4
+  STATUS_FINALIZED = 3
 }
 
 declare const enumValues: Map<Names, Values>

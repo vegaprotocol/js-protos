@@ -10,8 +10,6 @@ exports.decode = function decode(
   let field$makerFee = ''
   let field$infrastructureFee = ''
   let field$liquidityFee = ''
-  let field$treasuryFee = ''
-  let field$buyBackFee = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -25,21 +23,11 @@ exports.decode = function decode(
       case 3:
         field$liquidityFee = string(data)
         break
-
-      case 4:
-        field$treasuryFee = string(data)
-        break
-
-      case 5:
-        field$buyBackFee = string(data)
-        break
     }
   }
   return {
     makerFee: field$makerFee,
     infrastructureFee: field$infrastructureFee,
-    liquidityFee: field$liquidityFee,
-    treasuryFee: field$treasuryFee,
-    buyBackFee: field$buyBackFee
+    liquidityFee: field$liquidityFee
   }
 }

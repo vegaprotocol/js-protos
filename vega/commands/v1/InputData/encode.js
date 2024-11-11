@@ -18,16 +18,9 @@ const _vega_commands_v1_AnnounceNode = require('./../AnnounceNode/encode.js')
 const _vega_commands_v1_BatchMarketInstructions = require('./../BatchMarketInstructions/encode.js')
 const _vega_commands_v1_StopOrdersSubmission = require('./../StopOrdersSubmission/encode.js')
 const _vega_commands_v1_StopOrdersCancellation = require('./../StopOrdersCancellation/encode.js')
-const _vega_commands_v1_CreateReferralSet = require('./../CreateReferralSet/encode.js')
-const _vega_commands_v1_UpdateReferralSet = require('./../UpdateReferralSet/encode.js')
-const _vega_commands_v1_ApplyReferralCode = require('./../ApplyReferralCode/encode.js')
-const _vega_commands_v1_UpdateMarginMode = require('./../UpdateMarginMode/encode.js')
+const _vega_commands_v1_CreateTeam = require('./../CreateTeam/encode.js')
+const _vega_commands_v1_UpdateTeam = require('./../UpdateTeam/encode.js')
 const _vega_commands_v1_JoinTeam = require('./../JoinTeam/encode.js')
-const _vega_commands_v1_BatchProposalSubmission = require('./../BatchProposalSubmission/encode.js')
-const _vega_commands_v1_UpdatePartyProfile = require('./../UpdatePartyProfile/encode.js')
-const _vega_commands_v1_SubmitAMM = require('./../SubmitAMM/encode.js')
-const _vega_commands_v1_AmendAMM = require('./../AmendAMM/encode.js')
-const _vega_commands_v1_CancelAMM = require('./../CancelAMM/encode.js')
 const _vega_commands_v1_NodeVote = require('./../NodeVote/encode.js')
 const _vega_commands_v1_NodeSignature = require('./../NodeSignature/encode.js')
 const _vega_commands_v1_ChainEvent = require('./../ChainEvent/encode.js')
@@ -38,7 +31,6 @@ const _vega_commands_v1_EthereumKeyRotateSubmission = require('./../EthereumKeyR
 const _vega_commands_v1_ProtocolUpgradeProposal = require('./../ProtocolUpgradeProposal/encode.js')
 const _vega_commands_v1_IssueSignatures = require('./../IssueSignatures/encode.js')
 const _vega_commands_v1_OracleDataSubmission = require('./../OracleDataSubmission/encode.js')
-const _vega_commands_v1_DelayedTransactionsWrapper = require('./../DelayedTransactionsWrapper/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -175,71 +167,24 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
         obj.command?.stopOrdersCancellation ?? obj.stopOrdersCancellation
       )
     )
-  if (obj.command?.createReferralSet ?? obj.createReferralSet)
+  if (obj.command?.createTeam ?? obj.createTeam)
     writer.bytes(
       1018,
-      _vega_commands_v1_CreateReferralSet.encode(
-        obj.command?.createReferralSet ?? obj.createReferralSet
+      _vega_commands_v1_CreateTeam.encode(
+        obj.command?.createTeam ?? obj.createTeam
       )
     )
-  if (obj.command?.updateReferralSet ?? obj.updateReferralSet)
+  if (obj.command?.updateTeam ?? obj.updateTeam)
     writer.bytes(
       1019,
-      _vega_commands_v1_UpdateReferralSet.encode(
-        obj.command?.updateReferralSet ?? obj.updateReferralSet
-      )
-    )
-  if (obj.command?.applyReferralCode ?? obj.applyReferralCode)
-    writer.bytes(
-      1020,
-      _vega_commands_v1_ApplyReferralCode.encode(
-        obj.command?.applyReferralCode ?? obj.applyReferralCode
-      )
-    )
-  if (obj.command?.updateMarginMode ?? obj.updateMarginMode)
-    writer.bytes(
-      1021,
-      _vega_commands_v1_UpdateMarginMode.encode(
-        obj.command?.updateMarginMode ?? obj.updateMarginMode
+      _vega_commands_v1_UpdateTeam.encode(
+        obj.command?.updateTeam ?? obj.updateTeam
       )
     )
   if (obj.command?.joinTeam ?? obj.joinTeam)
     writer.bytes(
-      1022,
+      1020,
       _vega_commands_v1_JoinTeam.encode(obj.command?.joinTeam ?? obj.joinTeam)
-    )
-  if (obj.command?.batchProposalSubmission ?? obj.batchProposalSubmission)
-    writer.bytes(
-      1023,
-      _vega_commands_v1_BatchProposalSubmission.encode(
-        obj.command?.batchProposalSubmission ?? obj.batchProposalSubmission
-      )
-    )
-  if (obj.command?.updatePartyProfile ?? obj.updatePartyProfile)
-    writer.bytes(
-      1024,
-      _vega_commands_v1_UpdatePartyProfile.encode(
-        obj.command?.updatePartyProfile ?? obj.updatePartyProfile
-      )
-    )
-  if (obj.command?.submitAmm ?? obj.submitAmm)
-    writer.bytes(
-      1025,
-      _vega_commands_v1_SubmitAMM.encode(
-        obj.command?.submitAmm ?? obj.submitAmm
-      )
-    )
-  if (obj.command?.amendAmm ?? obj.amendAmm)
-    writer.bytes(
-      1026,
-      _vega_commands_v1_AmendAMM.encode(obj.command?.amendAmm ?? obj.amendAmm)
-    )
-  if (obj.command?.cancelAmm ?? obj.cancelAmm)
-    writer.bytes(
-      1027,
-      _vega_commands_v1_CancelAMM.encode(
-        obj.command?.cancelAmm ?? obj.cancelAmm
-      )
     )
   if (obj.command?.nodeVote ?? obj.nodeVote)
     writer.bytes(
@@ -311,14 +256,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
       3001,
       _vega_commands_v1_OracleDataSubmission.encode(
         obj.command?.oracleDataSubmission ?? obj.oracleDataSubmission
-      )
-    )
-  if (obj.command?.delayedTransactionsWrapper ?? obj.delayedTransactionsWrapper)
-    writer.bytes(
-      4000,
-      _vega_commands_v1_DelayedTransactionsWrapper.encode(
-        obj.command?.delayedTransactionsWrapper ??
-          obj.delayedTransactionsWrapper
       )
     )
 

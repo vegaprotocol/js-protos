@@ -18,16 +18,9 @@ const _vega_commands_v1_AnnounceNode = require('./../AnnounceNode/decode.js')
 const _vega_commands_v1_BatchMarketInstructions = require('./../BatchMarketInstructions/decode.js')
 const _vega_commands_v1_StopOrdersSubmission = require('./../StopOrdersSubmission/decode.js')
 const _vega_commands_v1_StopOrdersCancellation = require('./../StopOrdersCancellation/decode.js')
-const _vega_commands_v1_CreateReferralSet = require('./../CreateReferralSet/decode.js')
-const _vega_commands_v1_UpdateReferralSet = require('./../UpdateReferralSet/decode.js')
-const _vega_commands_v1_ApplyReferralCode = require('./../ApplyReferralCode/decode.js')
-const _vega_commands_v1_UpdateMarginMode = require('./../UpdateMarginMode/decode.js')
+const _vega_commands_v1_CreateTeam = require('./../CreateTeam/decode.js')
+const _vega_commands_v1_UpdateTeam = require('./../UpdateTeam/decode.js')
 const _vega_commands_v1_JoinTeam = require('./../JoinTeam/decode.js')
-const _vega_commands_v1_BatchProposalSubmission = require('./../BatchProposalSubmission/decode.js')
-const _vega_commands_v1_UpdatePartyProfile = require('./../UpdatePartyProfile/decode.js')
-const _vega_commands_v1_SubmitAMM = require('./../SubmitAMM/decode.js')
-const _vega_commands_v1_AmendAMM = require('./../AmendAMM/decode.js')
-const _vega_commands_v1_CancelAMM = require('./../CancelAMM/decode.js')
 const _vega_commands_v1_NodeVote = require('./../NodeVote/decode.js')
 const _vega_commands_v1_NodeSignature = require('./../NodeSignature/decode.js')
 const _vega_commands_v1_ChainEvent = require('./../ChainEvent/decode.js')
@@ -38,7 +31,6 @@ const _vega_commands_v1_EthereumKeyRotateSubmission = require('./../EthereumKeyR
 const _vega_commands_v1_ProtocolUpgradeProposal = require('./../ProtocolUpgradeProposal/decode.js')
 const _vega_commands_v1_IssueSignatures = require('./../IssueSignatures/decode.js')
 const _vega_commands_v1_OracleDataSubmission = require('./../OracleDataSubmission/decode.js')
-const _vega_commands_v1_DelayedTransactionsWrapper = require('./../DelayedTransactionsWrapper/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -167,55 +159,18 @@ exports.decode = function decode(
 
       case 1018:
         field$command = {
-          createReferralSet: _vega_commands_v1_CreateReferralSet.decode(data)
+          createTeam: _vega_commands_v1_CreateTeam.decode(data)
         }
         break
 
       case 1019:
         field$command = {
-          updateReferralSet: _vega_commands_v1_UpdateReferralSet.decode(data)
+          updateTeam: _vega_commands_v1_UpdateTeam.decode(data)
         }
         break
 
       case 1020:
-        field$command = {
-          applyReferralCode: _vega_commands_v1_ApplyReferralCode.decode(data)
-        }
-        break
-
-      case 1021:
-        field$command = {
-          updateMarginMode: _vega_commands_v1_UpdateMarginMode.decode(data)
-        }
-        break
-
-      case 1022:
         field$command = { joinTeam: _vega_commands_v1_JoinTeam.decode(data) }
-        break
-
-      case 1023:
-        field$command = {
-          batchProposalSubmission:
-            _vega_commands_v1_BatchProposalSubmission.decode(data)
-        }
-        break
-
-      case 1024:
-        field$command = {
-          updatePartyProfile: _vega_commands_v1_UpdatePartyProfile.decode(data)
-        }
-        break
-
-      case 1025:
-        field$command = { submitAmm: _vega_commands_v1_SubmitAMM.decode(data) }
-        break
-
-      case 1026:
-        field$command = { amendAmm: _vega_commands_v1_AmendAMM.decode(data) }
-        break
-
-      case 1027:
-        field$command = { cancelAmm: _vega_commands_v1_CancelAMM.decode(data) }
         break
 
       case 2002:
@@ -278,13 +233,6 @@ exports.decode = function decode(
         field$command = {
           oracleDataSubmission:
             _vega_commands_v1_OracleDataSubmission.decode(data)
-        }
-        break
-
-      case 4000:
-        field$command = {
-          delayedTransactionsWrapper:
-            _vega_commands_v1_DelayedTransactionsWrapper.decode(data)
         }
         break
     }

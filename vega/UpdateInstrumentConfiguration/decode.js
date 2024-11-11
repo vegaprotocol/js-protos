@@ -10,16 +10,11 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$code = ''
-  let field$name = ''
   let field$product = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
         field$code = string(data)
-        break
-
-      case 2:
-        field$name = string(data)
         break
 
       case 100:
@@ -31,5 +26,5 @@ exports.decode = function decode(
         break
     }
   }
-  return { code: field$code, name: field$name, product: field$product }
+  return { code: field$code, product: field$product }
 }

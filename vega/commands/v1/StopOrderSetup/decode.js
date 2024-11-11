@@ -3,8 +3,6 @@ const reader = require('protobuf-codec/decode/reader')
 const { int64, string } = require('protobuf-codec/decode/types')
 const _vega_commands_v1_OrderSubmission = require('./../OrderSubmission/decode.js')
 const _vega_StopOrder_ExpiryStrategy = require('./../../../StopOrder/ExpiryStrategy.js')
-const _vega_StopOrder_SizeOverrideSetting = require('./../../../StopOrder/SizeOverrideSetting.js')
-const _vega_StopOrder_SizeOverrideValue = require('./../../../StopOrder/SizeOverrideValue/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -14,8 +12,6 @@ exports.decode = function decode(
   let field$orderSubmission = {}
   let field$expiresAt = null
   let field$expiryStrategy = null
-  let field$sizeOverrideSetting = null
-  let field$sizeOverrideValue = null
   let field$trigger = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
@@ -31,15 +27,6 @@ exports.decode = function decode(
         field$expiryStrategy = _vega_StopOrder_ExpiryStrategy.decode(data)
         break
 
-      case 4:
-        field$sizeOverrideSetting =
-          _vega_StopOrder_SizeOverrideSetting.decode(data)
-        break
-
-      case 5:
-        field$sizeOverrideValue = _vega_StopOrder_SizeOverrideValue.decode(data)
-        break
-
       case 100:
         field$trigger = { price: string(data) }
         break
@@ -53,8 +40,6 @@ exports.decode = function decode(
     orderSubmission: field$orderSubmission,
     expiresAt: field$expiresAt,
     expiryStrategy: field$expiryStrategy,
-    sizeOverrideSetting: field$sizeOverrideSetting,
-    sizeOverrideValue: field$sizeOverrideValue,
     trigger: field$trigger
   }
 }

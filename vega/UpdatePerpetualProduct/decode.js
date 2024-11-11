@@ -3,7 +3,6 @@ const reader = require('protobuf-codec/decode/reader')
 const { string } = require('protobuf-codec/decode/types')
 const _vega_DataSourceDefinition = require('./../DataSourceDefinition/decode.js')
 const _vega_DataSourceSpecToPerpetualBinding = require('./../DataSourceSpecToPerpetualBinding/decode.js')
-const _vega_CompositePriceConfiguration = require('./../CompositePriceConfiguration/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -18,10 +17,6 @@ exports.decode = function decode(
   let field$dataSourceSpecForSettlementSchedule = {}
   let field$dataSourceSpecForSettlementData = {}
   let field$dataSourceSpecBinding = {}
-  let field$fundingRateScalingFactor = null
-  let field$fundingRateLowerBound = null
-  let field$fundingRateUpperBound = null
-  let field$internalCompositePriceConfiguration = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -58,23 +53,6 @@ exports.decode = function decode(
         field$dataSourceSpecBinding =
           _vega_DataSourceSpecToPerpetualBinding.decode(data)
         break
-
-      case 9:
-        field$fundingRateScalingFactor = string(data)
-        break
-
-      case 10:
-        field$fundingRateLowerBound = string(data)
-        break
-
-      case 11:
-        field$fundingRateUpperBound = string(data)
-        break
-
-      case 13:
-        field$internalCompositePriceConfiguration =
-          _vega_CompositePriceConfiguration.decode(data)
-        break
     }
   }
   return {
@@ -86,11 +64,6 @@ exports.decode = function decode(
     dataSourceSpecForSettlementSchedule:
       field$dataSourceSpecForSettlementSchedule,
     dataSourceSpecForSettlementData: field$dataSourceSpecForSettlementData,
-    dataSourceSpecBinding: field$dataSourceSpecBinding,
-    fundingRateScalingFactor: field$fundingRateScalingFactor,
-    fundingRateLowerBound: field$fundingRateLowerBound,
-    fundingRateUpperBound: field$fundingRateUpperBound,
-    internalCompositePriceConfiguration:
-      field$internalCompositePriceConfiguration
+    dataSourceSpecBinding: field$dataSourceSpecBinding
   }
 }

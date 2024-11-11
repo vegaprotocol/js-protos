@@ -23,7 +23,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.sellerFee) writer.bytes(13, _vega_Fee.encode(obj.sellerFee))
   if (obj.buyerAuctionBatch) writer.varint(14, obj.buyerAuctionBatch, uint64)
   if (obj.sellerAuctionBatch) writer.varint(15, obj.sellerAuctionBatch, uint64)
-  if (obj.assetPrice) writer.bytes(16, obj.assetPrice, string)
 
   return writer.concat(buf, byteOffset)
 }

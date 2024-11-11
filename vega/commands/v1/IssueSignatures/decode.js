@@ -11,7 +11,6 @@ exports.decode = function decode(
   let field$submitter = ''
   let field$kind = _vega_commands_v1_NodeSignatureKind.decode(0)
   let field$validatorNodeId = ''
-  let field$chainId = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -25,16 +24,11 @@ exports.decode = function decode(
       case 3:
         field$validatorNodeId = string(data)
         break
-
-      case 4:
-        field$chainId = string(data)
-        break
     }
   }
   return {
     submitter: field$submitter,
     kind: field$kind,
-    validatorNodeId: field$validatorNodeId,
-    chainId: field$chainId
+    validatorNodeId: field$validatorNodeId
   }
 }

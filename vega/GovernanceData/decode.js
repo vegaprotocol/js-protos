@@ -5,7 +5,6 @@ const _vega_Proposal = require('./../Proposal/decode.js')
 const _vega_Vote = require('./../Vote/decode.js')
 const _vega_GovernanceData_YesPartyEntry = require('./YesPartyEntry/decode.js')
 const _vega_GovernanceData_NoPartyEntry = require('./NoPartyEntry/decode.js')
-const _vega_GovernanceData_Type = require('./Type.js')
 
 exports.decode = function decode(
   buf,
@@ -17,8 +16,6 @@ exports.decode = function decode(
   const field$no = []
   const field$yesParty = []
   const field$noParty = []
-  let field$proposalType = _vega_GovernanceData_Type.decode(0)
-  const field$proposals = []
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -40,14 +37,6 @@ exports.decode = function decode(
       case 5:
         field$noParty.push(_vega_GovernanceData_NoPartyEntry.decode(data))
         break
-
-      case 6:
-        field$proposalType = _vega_GovernanceData_Type.decode(data)
-        break
-
-      case 7:
-        field$proposals.push(_vega_Proposal.decode(data))
-        break
     }
   }
   return {
@@ -55,8 +44,6 @@ exports.decode = function decode(
     yes: field$yes,
     no: field$no,
     yesParty: field$yesParty,
-    noParty: field$noParty,
-    proposalType: field$proposalType,
-    proposals: field$proposals
+    noParty: field$noParty
   }
 }

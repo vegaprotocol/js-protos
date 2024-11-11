@@ -6,7 +6,6 @@ const _vega_commands_v1_OrderAmendment = require('./../OrderAmendment/decode.js'
 const _vega_commands_v1_OrderSubmission = require('./../OrderSubmission/decode.js')
 const _vega_commands_v1_StopOrdersCancellation = require('./../StopOrdersCancellation/decode.js')
 const _vega_commands_v1_StopOrdersSubmission = require('./../StopOrdersSubmission/decode.js')
-const _vega_commands_v1_UpdateMarginMode = require('./../UpdateMarginMode/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -18,7 +17,6 @@ exports.decode = function decode(
   const field$submissions = []
   const field$stopOrdersCancellation = []
   const field$stopOrdersSubmission = []
-  const field$updateMarginMode = []
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -46,12 +44,6 @@ exports.decode = function decode(
           _vega_commands_v1_StopOrdersSubmission.decode(data)
         )
         break
-
-      case 6:
-        field$updateMarginMode.push(
-          _vega_commands_v1_UpdateMarginMode.decode(data)
-        )
-        break
     }
   }
   return {
@@ -59,7 +51,6 @@ exports.decode = function decode(
     amendments: field$amendments,
     submissions: field$submissions,
     stopOrdersCancellation: field$stopOrdersCancellation,
-    stopOrdersSubmission: field$stopOrdersSubmission,
-    updateMarginMode: field$updateMarginMode
+    stopOrdersSubmission: field$stopOrdersSubmission
   }
 }

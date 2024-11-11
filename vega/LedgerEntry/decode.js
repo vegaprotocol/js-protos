@@ -16,7 +16,6 @@ exports.decode = function decode(
   let field$timestamp = 0n
   let field$fromAccountBalance = ''
   let field$toAccountBalance = ''
-  let field$transferId = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -46,10 +45,6 @@ exports.decode = function decode(
       case 7:
         field$toAccountBalance = string(data)
         break
-
-      case 8:
-        field$transferId = string(data)
-        break
     }
   }
   return {
@@ -59,7 +54,6 @@ exports.decode = function decode(
     type: field$type,
     timestamp: field$timestamp,
     fromAccountBalance: field$fromAccountBalance,
-    toAccountBalance: field$toAccountBalance,
-    transferId: field$transferId
+    toAccountBalance: field$toAccountBalance
   }
 }

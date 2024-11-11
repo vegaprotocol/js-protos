@@ -9,7 +9,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.submitter) writer.bytes(1, obj.submitter, string)
   if (obj.kind) writer.varint(2, obj.kind, _vega_commands_v1_NodeSignatureKind)
   if (obj.validatorNodeId) writer.bytes(3, obj.validatorNodeId, string)
-  if (obj.chainId) writer.bytes(4, obj.chainId, string)
 
   return writer.concat(buf, byteOffset)
 }

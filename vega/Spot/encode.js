@@ -7,6 +7,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
 
   if (obj.baseAsset) writer.bytes(1, obj.baseAsset, string)
   if (obj.quoteAsset) writer.bytes(2, obj.quoteAsset, string)
+  if (obj.name) writer.bytes(3, obj.name, string)
 
   return writer.concat(buf, byteOffset)
 }

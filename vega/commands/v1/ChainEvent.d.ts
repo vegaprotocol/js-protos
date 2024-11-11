@@ -4,7 +4,6 @@ import type { ERC20Event } from './../../ERC20Event'
 import type { StakingEvent } from './../../StakingEvent'
 import type { ERC20MultiSigEvent } from './../../ERC20MultiSigEvent'
 import type { EthContractCallEvent } from './../../EthContractCallEvent'
-import type { ERC20Heartbeat } from './../../ERC20Heartbeat'
 
 export * from './ChainEvent/encode.js'
 export * from './ChainEvent/decode.js'
@@ -18,6 +17,5 @@ export type ChainEvent = {
     | { stakingEvent: StakingEvent }
     | { erc20Multisig: ERC20MultiSigEvent }
     | { contractCall: EthContractCallEvent }
-    | { heartbeat: ERC20Heartbeat }
     | null
 }

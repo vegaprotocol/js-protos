@@ -7,13 +7,13 @@ exports.decode = function decode(
   byteOffset = 0,
   byteLength = buf.byteLength
 ) {
-  let field$id = ''
+  let field$teamId = ''
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
-        field$id = string(data)
+        field$teamId = string(data)
         break
     }
   }
-  return { id: field$id }
+  return { teamId: field$teamId }
 }

@@ -3,11 +3,9 @@ import type { Proposal } from './Proposal'
 import type { Vote } from './Vote'
 import type { YesPartyEntry } from './GovernanceData/YesPartyEntry'
 import type { NoPartyEntry } from './GovernanceData/NoPartyEntry'
-import type { Type } from './GovernanceData/Type'
 
 export * from './GovernanceData/encode.js'
 export * from './GovernanceData/decode.js'
-export * as Type from './GovernanceData/Type.js'
 
 export * as YesPartyEntry from './GovernanceData/YesPartyEntry.js'
 export * as NoPartyEntry from './GovernanceData/NoPartyEntry.js'
@@ -18,6 +16,4 @@ export type GovernanceData = {
   no: Vote[]
   yesParty: YesPartyEntry[]
   noParty: NoPartyEntry[]
-  proposalType: Type
-  proposals: Proposal[]
 }

@@ -21,7 +21,6 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     obj.filters.forEach((v) => writer.bytes(7, _vega_data_v1_Filter.encode(v)))
   if (obj.normalisers?.length)
     obj.normalisers.forEach((v) => writer.bytes(8, _vega_Normaliser.encode(v)))
-  if (obj.sourceChainId) writer.varint(9, obj.sourceChainId, uint64)
 
   return writer.concat(buf, byteOffset)
 }
