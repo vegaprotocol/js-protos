@@ -13,4 +13,5 @@ export type NetworkLimits = {
   proposeAssetEnabledFrom: bigint
   canProposeSpotMarket: boolean
   canProposePerpetualMarket: boolean
+  canUseAmm: boolean
 }

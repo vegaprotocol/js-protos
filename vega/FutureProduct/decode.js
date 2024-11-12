@@ -3,6 +3,7 @@ const reader = require('protobuf-codec/decode/reader')
 const { string } = require('protobuf-codec/decode/types')
 const _vega_DataSourceDefinition = require('./../DataSourceDefinition/decode.js')
 const _vega_DataSourceSpecToFutureBinding = require('./../DataSourceSpecToFutureBinding/decode.js')
+const _vega_FutureCap = require('./../FutureCap/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -14,6 +15,7 @@ exports.decode = function decode(
   let field$dataSourceSpecForSettlementData = {}
   let field$dataSourceSpecForTradingTermination = {}
   let field$dataSourceSpecBinding = {}
+  let field$cap = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -38,6 +40,10 @@ exports.decode = function decode(
         field$dataSourceSpecBinding =
           _vega_DataSourceSpecToFutureBinding.decode(data)
         break
+
+      case 6:
+        field$cap = _vega_FutureCap.decode(data)
+        break
     }
   }
   return {
@@ -46,6 +52,7 @@ exports.decode = function decode(
     dataSourceSpecForSettlementData: field$dataSourceSpecForSettlementData,
     dataSourceSpecForTradingTermination:
       field$dataSourceSpecForTradingTermination,
-    dataSourceSpecBinding: field$dataSourceSpecBinding
+    dataSourceSpecBinding: field$dataSourceSpecBinding,
+    cap: field$cap
   }
 }

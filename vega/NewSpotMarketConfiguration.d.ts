@@ -5,13 +5,14 @@ import type { TargetStakeParameters } from './TargetStakeParameters'
 import type { SimpleModelParams } from './SimpleModelParams'
 import type { LogNormalRiskModel } from './LogNormalRiskModel'
 import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
+import type { LiquidityFeeSettings } from './LiquidityFeeSettings'
 
 export * from './NewSpotMarketConfiguration/encode.js'
 export * from './NewSpotMarketConfiguration/decode.js'
 
 export type NewSpotMarketConfiguration = {
   instrument: InstrumentConfiguration
-  decimalPlaces: bigint
+  priceDecimalPlaces: bigint
   metadata: string[]
   priceMonitoringParameters: PriceMonitoringParameters
   targetStakeParameters: TargetStakeParameters
@@ -19,6 +20,10 @@ export type NewSpotMarketConfiguration = {
     | { simple: SimpleModelParams }
     | { logNormal: LogNormalRiskModel }
     | null
-  positionDecimalPlaces: bigint
+  sizeDecimalPlaces: bigint
   slaParams: LiquiditySLAParameters
+  liquidityFeeSettings: LiquidityFeeSettings
+  tickSize: string
+  enableTransactionReordering: boolean
+  allowedSellers: string[]
 }

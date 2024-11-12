@@ -4,5 +4,5 @@ export * from './JoinTeam/encode.js'
 export * from './JoinTeam/decode.js'
 
 export type JoinTeam = {
-  teamId: string
+  id: string
 }

@@ -4,6 +4,11 @@ import type { AuctionTrigger } from './AuctionTrigger'
 import type { PriceMonitoringBounds } from './PriceMonitoringBounds'
 import type { LiquidityProviderFeeShare } from './LiquidityProviderFeeShare'
 import type { State } from './Market/State'
+import type { ProductData } from './ProductData'
+import type { LiquidityProviderSLA } from './LiquidityProviderSLA'
+import type { CompositePriceType } from './CompositePriceType'
+import type { CompositePriceState } from './CompositePriceState'
+import type { ProtocolAutomatedPurchaseData } from './ProtocolAutomatedPurchaseData'
 
 export * from './MarketData/encode.js'
 export * from './MarketData/decode.js'
@@ -39,4 +44,10 @@ export type MarketData = {
   nextMarkToMarket: bigint
   lastTradedPrice: string
   marketGrowth: string
+  productData: ProductData | null
+  liquidityProviderSla: LiquidityProviderSLA[]
+  nextNetworkCloseout: bigint
+  markPriceType: CompositePriceType
+  markPriceState: CompositePriceState
+  activeProtocolAutomatedPurchase: ProtocolAutomatedPurchaseData | null
 }

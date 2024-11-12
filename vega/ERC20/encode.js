@@ -8,6 +8,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.contractAddress) writer.bytes(1, obj.contractAddress, string)
   if (obj.lifetimeLimit) writer.bytes(2, obj.lifetimeLimit, string)
   if (obj.withdrawThreshold) writer.bytes(3, obj.withdrawThreshold, string)
+  if (obj.chainId) writer.bytes(4, obj.chainId, string)
 
   return writer.concat(buf, byteOffset)
 }

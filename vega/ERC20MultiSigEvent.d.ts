@@ -9,6 +9,7 @@ export * from './ERC20MultiSigEvent/decode.js'
 export type ERC20MultiSigEvent = {
   index: bigint
   block: bigint
+  chainId: string
   action:
     | { signerAdded: ERC20SignerAdded }
     | { signerRemoved: ERC20SignerRemoved }

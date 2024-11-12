@@ -15,8 +15,24 @@ export const TYPE_STAKE_TOTAL_SUPPLY = 10
 export const TYPE_SIGNER_THRESHOLD_SET = 11
 export const TYPE_GOVERNANCE_VALIDATE_ASSET = 12
 export const TYPE_ETHEREUM_CONTRACT_CALL_RESULT = 13
+export const TYPE_ETHEREUM_HEARTBEAT = 14
 
-export type Values = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13
+export type Values =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
 export type Names =
   | 'TYPE_UNSPECIFIED'
   | 'TYPE_STAKE_DEPOSITED'
@@ -32,6 +48,7 @@ export type Names =
   | 'TYPE_SIGNER_THRESHOLD_SET'
   | 'TYPE_GOVERNANCE_VALIDATE_ASSET'
   | 'TYPE_ETHEREUM_CONTRACT_CALL_RESULT'
+  | 'TYPE_ETHEREUM_HEARTBEAT'
 
 export const enum Type {
   TYPE_UNSPECIFIED = 0,
@@ -47,7 +64,8 @@ export const enum Type {
   TYPE_STAKE_TOTAL_SUPPLY = 10,
   TYPE_SIGNER_THRESHOLD_SET = 11,
   TYPE_GOVERNANCE_VALIDATE_ASSET = 12,
-  TYPE_ETHEREUM_CONTRACT_CALL_RESULT = 13
+  TYPE_ETHEREUM_CONTRACT_CALL_RESULT = 13,
+  TYPE_ETHEREUM_HEARTBEAT = 14
 }
 
 declare const enumValues: Map<Names, Values>

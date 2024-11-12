@@ -8,6 +8,8 @@ import type { TradingMode } from './Market/TradingMode'
 import type { State } from './Market/State'
 import type { MarketTimestamps } from './MarketTimestamps'
 import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
+import type { LiquidationStrategy } from './LiquidationStrategy'
+import type { CompositePriceConfiguration } from './CompositePriceConfiguration'
 
 export * from './Market/encode.js'
 export * from './Market/decode.js'
@@ -33,4 +35,10 @@ export type Market = {
   insurancePoolFraction: string | null
   successorMarketId: string | null
   liquiditySlaParams: LiquiditySLAParameters | null
+  liquidationStrategy: LiquidationStrategy
+  markPriceConfiguration: CompositePriceConfiguration
+  tickSize: string
+  enableTransactionReordering: boolean
+  allowedEmptyAmmLevels: bigint
+  allowedSellers: string[]
 }

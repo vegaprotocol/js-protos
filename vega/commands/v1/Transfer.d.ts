@@ -13,5 +13,6 @@ export type Transfer = {
   asset: string
   amount: string
   reference: string
+  from: string | null
   kind: { oneOff: OneOffTransfer } | { recurring: RecurringTransfer } | null
 }

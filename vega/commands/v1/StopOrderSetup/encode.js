@@ -3,6 +3,8 @@ const Writer = require('protobuf-codec/encode/writer')
 const { int64, string } = require('protobuf-codec/encode/types')
 const _vega_commands_v1_OrderSubmission = require('./../OrderSubmission/encode.js')
 const _vega_StopOrder_ExpiryStrategy = require('./../../../StopOrder/ExpiryStrategy.js')
+const _vega_StopOrder_SizeOverrideSetting = require('./../../../StopOrder/SizeOverrideSetting.js')
+const _vega_StopOrder_SizeOverrideValue = require('./../../../StopOrder/SizeOverrideValue/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
@@ -15,6 +17,17 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   if (obj.expiresAt) writer.varint(2, obj.expiresAt, int64)
   if (obj.expiryStrategy)
     writer.varint(3, obj.expiryStrategy, _vega_StopOrder_ExpiryStrategy)
+  if (obj.sizeOverrideSetting)
+    writer.varint(
+      4,
+      obj.sizeOverrideSetting,
+      _vega_StopOrder_SizeOverrideSetting
+    )
+  if (obj.sizeOverrideValue)
+    writer.bytes(
+      5,
+      _vega_StopOrder_SizeOverrideValue.encode(obj.sizeOverrideValue)
+    )
 
   if (obj.trigger?.price ?? obj.price)
     writer.bytes(100, obj.trigger?.price ?? obj.price, string)

@@ -12,4 +12,8 @@ export type Reward = {
   receivedAt: bigint
   marketId: string
   rewardType: string
+  lockedUntilEpoch: bigint
+  quantumAmount: string
+  gameId: string | null
+  teamId: string | null
 }

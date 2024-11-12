@@ -6,6 +6,11 @@ const _vega_AuctionTrigger = require('./../AuctionTrigger.js')
 const _vega_PriceMonitoringBounds = require('./../PriceMonitoringBounds/decode.js')
 const _vega_LiquidityProviderFeeShare = require('./../LiquidityProviderFeeShare/decode.js')
 const _vega_Market_State = require('./../Market/State.js')
+const _vega_ProductData = require('./../ProductData/decode.js')
+const _vega_LiquidityProviderSLA = require('./../LiquidityProviderSLA/decode.js')
+const _vega_CompositePriceType = require('./../CompositePriceType.js')
+const _vega_CompositePriceState = require('./../CompositePriceState/decode.js')
+const _vega_ProtocolAutomatedPurchaseData = require('./../ProtocolAutomatedPurchaseData/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -42,6 +47,12 @@ exports.decode = function decode(
   let field$nextMarkToMarket = 0n
   let field$lastTradedPrice = ''
   let field$marketGrowth = ''
+  let field$productData = null
+  const field$liquidityProviderSla = []
+  let field$nextNetworkCloseout = 0n
+  let field$markPriceType = _vega_CompositePriceType.decode(0)
+  let field$markPriceState = {}
+  let field$activeProtocolAutomatedPurchase = null
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
@@ -167,6 +178,31 @@ exports.decode = function decode(
       case 30:
         field$marketGrowth = string(data)
         break
+
+      case 31:
+        field$productData = _vega_ProductData.decode(data)
+        break
+
+      case 32:
+        field$liquidityProviderSla.push(_vega_LiquidityProviderSLA.decode(data))
+        break
+
+      case 33:
+        field$nextNetworkCloseout = int64(data)
+        break
+
+      case 34:
+        field$markPriceType = _vega_CompositePriceType.decode(data)
+        break
+
+      case 35:
+        field$markPriceState = _vega_CompositePriceState.decode(data)
+        break
+
+      case 36:
+        field$activeProtocolAutomatedPurchase =
+          _vega_ProtocolAutomatedPurchaseData.decode(data)
+        break
     }
   }
   return {
@@ -199,6 +235,12 @@ exports.decode = function decode(
     marketState: field$marketState,
     nextMarkToMarket: field$nextMarkToMarket,
     lastTradedPrice: field$lastTradedPrice,
-    marketGrowth: field$marketGrowth
+    marketGrowth: field$marketGrowth,
+    productData: field$productData,
+    liquidityProviderSla: field$liquidityProviderSla,
+    nextNetworkCloseout: field$nextNetworkCloseout,
+    markPriceType: field$markPriceType,
+    markPriceState: field$markPriceState,
+    activeProtocolAutomatedPurchase: field$activeProtocolAutomatedPurchase
   }
 }

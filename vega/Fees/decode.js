@@ -2,6 +2,7 @@
 const reader = require('protobuf-codec/decode/reader')
 
 const _vega_FeeFactors = require('./../FeeFactors/decode.js')
+const _vega_LiquidityFeeSettings = require('./../LiquidityFeeSettings/decode.js')
 
 exports.decode = function decode(
   buf,
@@ -9,12 +10,20 @@ exports.decode = function decode(
   byteLength = buf.byteLength
 ) {
   let field$factors = {}
+  let field$liquidityFeeSettings = {}
   for (const [field, { data }] of reader(buf, byteOffset, byteLength)) {
     switch (field) {
       case 1:
         field$factors = _vega_FeeFactors.decode(data)
         break
+
+      case 2:
+        field$liquidityFeeSettings = _vega_LiquidityFeeSettings.decode(data)
+        break
     }
   }
-  return { factors: field$factors }
+  return {
+    factors: field$factors,
+    liquidityFeeSettings: field$liquidityFeeSettings
+  }
 }
