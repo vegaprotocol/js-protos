@@ -300,6 +300,7 @@ test("encode then decode proposal submission", (assert) => {
                 markPriceConfiguration: {},
                 tickSize: "",
                 enableTransactionReordering: false,
+                allowedEmptyAmmLevels: null,
                 riskParameters: {
                   logNormal: {
                     riskAversionParameter: 0.000001,
@@ -330,8 +331,13 @@ test("encode then decode proposal submission", (assert) => {
     },
   };
 
-  const actual = InputData.decode(InputData.encode({ proposalSubmission }));
+  BigInt.prototype.toJSON = function () {
+    return this.toString();
+  };
 
+  const actual = InputData.decode(InputData.encode({ proposalSubmission }));
+  console.log(JSON.stringify(actual, null, 2));
+  console.log(JSON.stringify(expected, null, 2));
   assert.alike(actual, expected);
 
   assert.end();
