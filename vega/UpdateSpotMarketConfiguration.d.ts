@@ -4,6 +4,8 @@ import type { TargetStakeParameters } from './TargetStakeParameters'
 import type { SimpleModelParams } from './SimpleModelParams'
 import type { LogNormalRiskModel } from './LogNormalRiskModel'
 import type { LiquiditySLAParameters } from './LiquiditySLAParameters'
+import type { LiquidityFeeSettings } from './LiquidityFeeSettings'
+import type { UpdateSpotInstrumentConfiguration } from './UpdateSpotInstrumentConfiguration'
 
 export * from './UpdateSpotMarketConfiguration/encode.js'
 export * from './UpdateSpotMarketConfiguration/decode.js'
@@ -17,4 +19,9 @@ export type UpdateSpotMarketConfiguration = {
     | { logNormal: LogNormalRiskModel }
     | null
   slaParams: LiquiditySLAParameters
+  liquidityFeeSettings: LiquidityFeeSettings
+  tickSize: string
+  instrument: UpdateSpotInstrumentConfiguration
+  enableTransactionReordering: boolean
+  allowedSellers: string[]
 }

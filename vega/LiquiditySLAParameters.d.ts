@@ -6,7 +6,6 @@ export * from './LiquiditySLAParameters/decode.js'
 export type LiquiditySLAParameters = {
   priceRange: string
   commitmentMinTimeFraction: string
-  providersFeeCalculationTimeStep: bigint
   performanceHysteresisEpochs: bigint
   slaCompetitionFactor: string
 }

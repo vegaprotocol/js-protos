@@ -2,11 +2,14 @@
 const Writer = require('protobuf-codec/encode/writer')
 
 const _vega_FeeFactors = require('./../FeeFactors/encode.js')
+const _vega_LiquidityFeeSettings = require('./../LiquidityFeeSettings/encode.js')
 
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
   if (obj.factors) writer.bytes(1, _vega_FeeFactors.encode(obj.factors))
+  if (obj.liquidityFeeSettings)
+    writer.bytes(2, _vega_LiquidityFeeSettings.encode(obj.liquidityFeeSettings))
 
   return writer.concat(buf, byteOffset)
 }

@@ -16,4 +16,5 @@ export type EthCallSpec = {
   requiredConfirmations: bigint
   filters: Filter[]
   normalisers: Normaliser[]
+  sourceChainId: bigint
 }

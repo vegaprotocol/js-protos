@@ -8,4 +8,5 @@ export type RecurringTransfer = {
   startEpoch: bigint
   endEpoch: bigint | null
   dispatchStrategy: DispatchStrategy | null
+  factor: string
 }

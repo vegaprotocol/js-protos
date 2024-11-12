@@ -5,7 +5,7 @@ const { string } = require('protobuf-codec/encode/types')
 exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
   const writer = new Writer()
 
-  if (obj.teamId) writer.bytes(1, obj.teamId, string)
+  if (obj.id) writer.bytes(1, obj.id, string)
 
   return writer.concat(buf, byteOffset)
 }

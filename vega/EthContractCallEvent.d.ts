@@ -9,4 +9,6 @@ export type EthContractCallEvent = {
   blockTime: bigint
   result: Uint8Array
   error: string | null
+  sourceChainId: bigint | null
+  heartbeat: boolean
 }

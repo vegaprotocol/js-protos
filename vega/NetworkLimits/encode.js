@@ -18,6 +18,7 @@ exports.encode = function encode(obj = {}, buf, byteOffset = 0) {
     writer.varint(10, obj.canProposeSpotMarket, bool)
   if (obj.canProposePerpetualMarket)
     writer.varint(11, obj.canProposePerpetualMarket, bool)
+  if (obj.canUseAmm) writer.varint(12, obj.canUseAmm, bool)
 
   return writer.concat(buf, byteOffset)
 }

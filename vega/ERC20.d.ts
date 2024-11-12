@@ -7,4 +7,5 @@ export type ERC20 = {
   contractAddress: string
   lifetimeLimit: string
   withdrawThreshold: string
+  chainId: string
 }
